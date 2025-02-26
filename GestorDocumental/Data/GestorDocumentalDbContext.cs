@@ -1,0 +1,25 @@
+﻿using GestorDocumental.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace GestorDocumental.Data
+{
+    public class GestorDocumentalDbContext : DbContext
+    {
+        public GestorDocumentalDbContext(DbContextOptions<GestorDocumentalDbContext> options) : base(options) { }
+
+        // Agrega DbSet para cada entidad
+        public DbSet<Archivo> Archivos { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configuración de la entidad (Ejemplo)
+            modelBuilder.Entity<Archivo>().HasKey(d => d.CodigoArchivo);
+            modelBuilder.Entity<Curso>().HasKey(d => d.CodigoCurso);
+        }
+
+
+    }
+}

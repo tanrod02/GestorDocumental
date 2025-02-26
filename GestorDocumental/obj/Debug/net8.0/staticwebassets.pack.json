@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
+      "PackagePath": "staticwebassets\\GestorDocumental.2x7ju160rq.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GestorDocumental.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GestorDocumental.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.GestorDocumental.props",
+      "PackagePath": "build\\GestorDocumental.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.GestorDocumental.props",
+      "PackagePath": "buildMultiTargeting\\GestorDocumental.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.GestorDocumental.props",
+      "PackagePath": "buildTransitive\\GestorDocumental.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
