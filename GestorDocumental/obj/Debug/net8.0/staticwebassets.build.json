@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iKQBpouI5oJ4VMIjmKf8h/kyQqz9NuYnnQ6LH9qaY1o=",
+  "Hash": "i//csMO0bOyB3aTmL+GM2OJKjhe3MU3E83tl5ttBjbk=",
   "Source": "GestorDocumental",
   "BasePath": "_content/GestorDocumental",
   "Mode": "Default",
@@ -808,8 +808,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3p6410sm5x",
-      "Integrity": "59tU67w5GVMDFeCuLP58A2XhoCSSOHZSx/UNDCdyQ60=",
+      "Fingerprint": "3cdqj5w18l",
+      "Integrity": "/dK0kygKgiS9held1GXZFsMJUi9pY26KRg+cp9Bzu4U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
@@ -876,6 +876,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\js\\contextMenu.js",
+      "SourceId": "GestorDocumental",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\",
+      "BasePath": "_content/GestorDocumental",
+      "RelativePath": "js/contextMenu#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "990stthrf5",
+      "Integrity": "TZFjhfSvEC9RpuacDxmOjqoQ+TJ5k7AOJ2K2UBibxo4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\contextMenu.js"
     }
   ],
   "Endpoints": [
@@ -3750,7 +3771,7 @@
       ]
     },
     {
-      "Route": "app.3p6410sm5x.css",
+      "Route": "app.3cdqj5w18l.css",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3760,7 +3781,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2965"
+          "Value": "2385"
         },
         {
           "Name": "Content-Type",
@@ -3768,11 +3789,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"59tU67w5GVMDFeCuLP58A2XhoCSSOHZSx/UNDCdyQ60=\""
+          "Value": "\"/dK0kygKgiS9held1GXZFsMJUi9pY26KRg+cp9Bzu4U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Feb 2025 11:46:37 GMT"
+          "Value": "Thu, 27 Feb 2025 15:46:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3782,7 +3803,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3p6410sm5x"
+          "Value": "3cdqj5w18l"
         },
         {
           "Name": "label",
@@ -3790,7 +3811,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-59tU67w5GVMDFeCuLP58A2XhoCSSOHZSx/UNDCdyQ60="
+          "Value": "sha256-/dK0kygKgiS9held1GXZFsMJUi9pY26KRg+cp9Bzu4U="
         }
       ]
     },
@@ -3805,7 +3826,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2965"
+          "Value": "2385"
         },
         {
           "Name": "Content-Type",
@@ -3813,11 +3834,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"59tU67w5GVMDFeCuLP58A2XhoCSSOHZSx/UNDCdyQ60=\""
+          "Value": "\"/dK0kygKgiS9held1GXZFsMJUi9pY26KRg+cp9Bzu4U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Feb 2025 11:46:37 GMT"
+          "Value": "Thu, 27 Feb 2025 15:46:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3827,7 +3848,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-59tU67w5GVMDFeCuLP58A2XhoCSSOHZSx/UNDCdyQ60="
+          "Value": "sha256-/dK0kygKgiS9held1GXZFsMJUi9pY26KRg+cp9Bzu4U="
         }
       ]
     },
@@ -4238,6 +4259,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Km8pWqeCLwTwRHjFfmKM4t2VobcGf/+Ay7wRiBUs1k4="
+        }
+      ]
+    },
+    {
+      "Route": "js/contextMenu.990stthrf5.js",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\js\\contextMenu.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "209"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TZFjhfSvEC9RpuacDxmOjqoQ+TJ5k7AOJ2K2UBibxo4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 10:19:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "990stthrf5"
+        },
+        {
+          "Name": "label",
+          "Value": "js/contextMenu.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TZFjhfSvEC9RpuacDxmOjqoQ+TJ5k7AOJ2K2UBibxo4="
+        }
+      ]
+    },
+    {
+      "Route": "js/contextMenu.js",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\js\\contextMenu.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "209"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TZFjhfSvEC9RpuacDxmOjqoQ+TJ5k7AOJ2K2UBibxo4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 10:19:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TZFjhfSvEC9RpuacDxmOjqoQ+TJ5k7AOJ2K2UBibxo4="
         }
       ]
     }

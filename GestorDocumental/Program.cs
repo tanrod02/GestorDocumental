@@ -9,50 +9,51 @@ using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Obtener la cadena de conexión desde la configuración
 var connectionString = builder.Configuration.GetConnectionString("GestorDocumentalConnection");
 
+// Configurar DbContextFactory con SQL Server
 builder.Services.AddDbContextFactory<GestorDocumentalDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// Add services to the container.
+// Agregar servicios al contenedor
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddRadzenComponents();
-
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+// Inyección de dependencias para repositorios y servicios
 builder.Services.AddScoped<IArchivoRepository, ArchivoRepository>();
 builder.Services.AddScoped<IArchivoService, ArchivoService>();
 
 builder.Services.AddScoped<ICursoRepository, CursoRepository>();
 builder.Services.AddScoped<ICursoService, CursoService>();
 
+// Servicios de Radzen para UI
 builder.Services.AddScoped<ContextMenuService>();
-
-
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<DialogService>();
 
 var app = builder.Build();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();  
-
-
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Configuración del pipeline de la aplicación
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+// Mapeo de componentes Razor
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

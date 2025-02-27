@@ -116,3 +116,4 @@ C:\Users\tania\OneDrive\Desktop\Gestor TFG\GestorDocumental\obj\Debug\net8.0\ref
 C:\Users\tania\OneDrive\Desktop\Gestor TFG\GestorDocumental\obj\Debug\net8.0\GestorDocumental.pdb
 C:\Users\tania\OneDrive\Desktop\Gestor TFG\GestorDocumental\obj\Debug\net8.0\GestorDocumental.genruntimeconfig.cache
 C:\Users\tania\OneDrive\Desktop\Gestor TFG\GestorDocumental\obj\Debug\net8.0\ref\GestorDocumental.dll
+C:\Users\tania\OneDrive\Desktop\Gestor TFG\GestorDocumental\obj\Debug\net8.0\GestorDocumental.sourcelink.json

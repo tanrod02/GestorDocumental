@@ -4,9 +4,10 @@
 @using GestorDocumental.Data.Entities
 @using Radzen
 @using Microsoft.AspNetCore.Components.Forms
+@using GestorDocumental.Components.Pages
 
 @inject IArchivoService ArchivoService
-@inject ContextMenuService ContextMenuService
+@inject DialogService DialogService
 
 <PageTitle>Documentos</PageTitle>
 
@@ -35,7 +36,7 @@ else
         <tbody>
             @foreach (var archivo in archivos)
             {
-                <tr @contextmenu="(e => ShowContextMenu(e, archivo))">
+                <tr>
                     <td>@archivo.NombreArchivo</td>
                     <td>@archivo.Tipo</td>
                     <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
@@ -45,66 +46,45 @@ else
             }
         </tbody>
     </table>
+
+    <button class="floating-button" @onclick="AbrirDialogoSubida">
+        📤 Subir Documento
+    </button>
+
 }
 
-<RadzenContextMenu />
+<RadzenDialog />
 
 @code {
     [Parameter] public int CodigoCurso { get; set; }
     private IEnumerable<Archivo> archivos = new List<Archivo>();
 
-
     protected override async Task OnParametersSetAsync()
     {
         archivos = await ArchivoService.ObtenerArchivosPorCursoAsync(CodigoCurso);
+        StateHasChanged();
     }
 
-    void ShowContextMenu(MouseEventArgs e, Archivo archivo)
+    async Task AbrirDialogoSubida()
     {
-        
+        Console.WriteLine("Abriendo dialogo subuda");
 
-        ContextMenuService.Open(e, new List<ContextMenuItem>
+        var resultado = await DialogService.OpenAsync<SubirArchivoDialog>(
+            "Subir Documento",
+            new Dictionary<string, object>(), // Puedes pasar parámetros si es necesario
+            new DialogOptions
+                {
+                    Resizable = true,
+                    Draggable = true
+                }
+        );
+
+        if (resultado != null)
         {
-            new ContextMenuItem { Text = "Crear Carpeta", Value = "crearCarpeta", Icon = "folder" },
-            new ContextMenuItem { Text = "Subir Carpeta", Value = "subirCarpeta", Icon = "upload" },
-            new ContextMenuItem { Text = "Subir Archivo", Value = "subirArchivo", Icon = "file_upload" }
-        }, OnMenuItemClick);
-
-        
-    }
-
-    void OnMenuItemClick(MenuItemEventArgs args)
-    {
-        if (args.Value?.ToString() == "crearCarpeta")
-        {
-            CrearCarpeta();
+            Console.WriteLine("Diálogo cerrado con éxito.");
         }
-        else if (args.Value?.ToString() == "subirCarpeta")
-        {
-            SubirCarpeta();
-        }
-        else if (args.Value?.ToString() == "subirArchivo")
-        {
-            SubirArchivo();
-        }
-
-        ContextMenuService.Close(); 
     }
 
-    void CrearCarpeta()
-    {
-        
-    }
 
-    void SubirCarpeta()
-    {
-        
-    }
 
-    void SubirArchivo()
-    {
-        
-    }
-
-    
 }

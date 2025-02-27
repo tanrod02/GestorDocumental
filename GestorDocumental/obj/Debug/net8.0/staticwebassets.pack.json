@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\Gestor TFG\\GestorDocumental\\wwwroot\\js\\contextMenu.js",
+      "PackagePath": "staticwebassets\\js\\contextMenu.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GestorDocumental.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
