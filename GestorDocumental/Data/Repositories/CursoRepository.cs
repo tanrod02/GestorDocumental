@@ -18,5 +18,11 @@ namespace GestorDocumental.Data.Repositories
             return await _context.Cursos.ToListAsync();
         }
 
+        public async Task AgregarCursoAsync(Curso curso)
+        {
+            await _context.Cursos.AddAsync(curso);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

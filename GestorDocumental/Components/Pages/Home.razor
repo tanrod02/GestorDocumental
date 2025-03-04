@@ -1,13 +1,11 @@
 ﻿@page "/"
 @page "/{CodigoCurso:int}"
+@rendermode InteractiveServer
 @using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
-@using Radzen
 @using Microsoft.AspNetCore.Components.Forms
-@using GestorDocumental.Components.Pages
 
 @inject IArchivoService ArchivoService
-@inject DialogService DialogService
 
 <PageTitle>Documentos</PageTitle>
 
@@ -47,44 +45,89 @@ else
         </tbody>
     </table>
 
-    <button class="floating-button" @onclick="AbrirDialogoSubida">
+    <button class="floating-button" type="button" @onclick="AbrirDialogoSubida">
         📤 Subir Documento
     </button>
-
 }
 
-<RadzenDialog />
+@if (mostrarDialogo)
+{
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <h3>Seleccionar archivo</h3>
+
+            <InputFile OnChange="OnFileSelected" />
+
+            @if (_archivoSeleccionado != null)
+            {
+                <p>Archivo seleccionado: @_archivoSeleccionado.Name</p>
+            }
+
+            <div class="dialog-buttons">
+                <button @onclick="OnAccept" disabled="@(_archivoSeleccionado == null)">Aceptar</button>
+                <button @onclick="OnCancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter] public int CodigoCurso { get; set; }
     private IEnumerable<Archivo> archivos = new List<Archivo>();
 
+    private bool mostrarDialogo = false;
+    private IBrowserFile? _archivoSeleccionado;
+
     protected override async Task OnParametersSetAsync()
     {
-        archivos = await ArchivoService.ObtenerArchivosPorCursoAsync(CodigoCurso);
-        StateHasChanged();
-    }
-
-    async Task AbrirDialogoSubida()
-    {
-        Console.WriteLine("Abriendo dialogo subuda");
-
-        var resultado = await DialogService.OpenAsync<SubirArchivoDialog>(
-            "Subir Documento",
-            new Dictionary<string, object>(), // Puedes pasar parámetros si es necesario
-            new DialogOptions
-                {
-                    Resizable = true,
-                    Draggable = true
-                }
-        );
-
-        if (resultado != null)
+        try
         {
-            Console.WriteLine("Diálogo cerrado con éxito.");
+            archivos = await ArchivoService.ObtenerArchivosPorCursoAsync(CodigoCurso);
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error en OnParametersSetAsync: {e.Message}");
         }
     }
 
+    void AbrirDialogoSubida()
+    {
+        try
+        {
+            mostrarDialogo = true;
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error en AbrirDialogoSubida: {ex.Message}");
+        }
+    }
 
+    private void OnFileSelected(InputFileChangeEventArgs e)
+    {
+        _archivoSeleccionado = e.File;
+    }
 
+    private async Task OnAccept()
+    {
+        if (_archivoSeleccionado != null)
+        {
+            using var stream = _archivoSeleccionado.OpenReadStream();
+            Console.WriteLine($"Subiendo archivo: {_archivoSeleccionado.Name}");
+            // Aquí iría la lógica para subir el archivo al servicio
+        }
+        CerrarDialogo();
+    }
+
+    private void OnCancel()
+    {
+        CerrarDialogo();
+    }
+
+    private void CerrarDialogo()
+    {
+        mostrarDialogo = false;
+        _archivoSeleccionado = null;
+    }
 }

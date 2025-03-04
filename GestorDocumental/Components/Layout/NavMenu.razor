@@ -1,5 +1,6 @@
 ﻿@using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
+@rendermode InteractiveServer
 @inject ICursoService CursoService
 
 <div class="top-row ps-3 navbar navbar-dark">
@@ -14,7 +15,7 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                🏠 Home
             </NavLink>
         </div>
 
@@ -24,27 +25,63 @@
             {
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="@($"/{curso.CodigoCurso}")">
-                        <span class="bi bi-book-fill-nav-menu" aria-hidden="true"></span> @curso.Descripcion
+                        📖 @curso.Descripcion
                     </NavLink>
                 </div>
             }
-
         }
         else
         {
-            <div class="nav-item px-3 text-muted">
+            <div class="nav-item px-3" style="color: #ffeb3b;">
                 No hay cursos disponibles.
             </div>
         }
+
+        <!-- Botón para abrir el modal -->
+        <div class="nav-item px-3 mt-4 text-center">
+            <button class="boton-agregar" @onclick="AbrirModal">
+                ➕ Añadir curso
+            </button>
+        </div>
     </nav>
 </div>
 
+<!-- Modal nativo -->
+@if (mostrarModal)
+{
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <h3>Añadir nuevo curso</h3>
+            <input type="text" placeholder="Descripción" @bind="nuevoCurso.Descripcion" />
+            <input type="text" placeholder="Grupo" @bind="nuevoCurso.CodigoGrupo" />
+            <div class="modal-buttons">
+                <button @onclick="AgregarCurso">Crear</button>
+                <button @onclick="CerrarModal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+}
 
 @code {
     private List<Curso> cursos = new();
+    private bool mostrarModal = false;
+    private Curso nuevoCurso = new();
 
     protected override async Task OnInitializedAsync()
     {
         cursos = (await CursoService.ObtenerCursosAsync()).ToList();
+    }
+
+    private void AbrirModal() => mostrarModal = true;
+    private void CerrarModal() => mostrarModal = false;
+
+    private async Task AgregarCurso()
+    {
+        if (!string.IsNullOrWhiteSpace(nuevoCurso.Descripcion) && !string.IsNullOrWhiteSpace(nuevoCurso.CodigoGrupo))
+        {
+            await CursoService.AgregarCursoAsync(nuevoCurso);
+            cursos = (await CursoService.ObtenerCursosAsync()).ToList();
+            CerrarModal();
+        }
     }
 }

@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Components
+@using GestorDocumental.Business.Interfaces
+@using GestorDocumental.Data.Entities
+@inject DialogService DialogService
+@inject IArchivoService ArchivoService
+
+<RadzenCard>
+    <h3>Subir Archivo</h3>
+
+    <RadzenUpload Url="api/upload"
+                  ChooseText="Seleccionar Archivo"
+                  Progress="OnProgress"
+                  Change="OnFileSelected"
+                  Accept="application/pdf,image/*"
+                  Multiple="false" />
+
+    <p>Progreso de subida: @progress%</p>
+
+    <RadzenButton Text="Cancelar" ButtonStyle="ButtonStyle.Secondary" Click="CloseDialog" />
+</RadzenCard>
+
+@code {
+    private int progress = 0;
+
+    private void OnProgress(Radzen.UploadProgressArgs args)
+    {
+        progress = args.Progress;
+        StateHasChanged();
+    }
+
+    private void OnFileSelected(Radzen.UploadChangeEventArgs args)
+    {
+        if (args.Files != null && args.Files.Any())
+        {
+            var file = args.Files.First();
+            Console.WriteLine($"Archivo seleccionado: {file.Name}, Tamaño: {file.Size} bytes");
+        }
+        else
+        {
+            Console.WriteLine("No se seleccionó ningún archivo.");
+        }
+    }
+
+    private void CloseDialog()
+    {
+        DialogService.Close();
+    }
+}

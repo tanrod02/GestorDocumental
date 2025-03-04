@@ -18,5 +18,9 @@ namespace GestorDocumental.Business.Services
             return await _cursoRepository.ObtenerCursosAsync();
         }
 
+        public async Task AgregarCursoAsync(Curso curso)
+        {
+            await _cursoRepository.AgregarCursoAsync(curso);
+        }
     }
 }
