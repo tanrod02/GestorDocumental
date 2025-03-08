@@ -1,48 +1,173 @@
-﻿@using Microsoft.AspNetCore.Components
+﻿@page "/subir-archivo/{CodigoCurso:int}"
+@layout MainLayout
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
 @using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
-@inject DialogService DialogService
+@using Radzen
+@using Radzen.Blazor
 @inject IArchivoService ArchivoService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
 
-<RadzenCard>
-    <h3>Subir Archivo</h3>
+<h1 class="titulo-subida">Subir Archivo</h1>
 
-    <RadzenUpload Url="api/upload"
-                  ChooseText="Seleccionar Archivo"
-                  Progress="OnProgress"
+<RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
+
+    <h3>Manual Upload</h3>
+    <RadzenUpload @ref="upload"
+                  Auto="false"
+                  Multiple="false"
                   Change="OnFileSelected"
-                  Accept="application/pdf,image/*"
-                  Multiple="false" />
+                  Progress="@(args => OnProgress(args, "Manual Upload"))"
+                  Style="width: 100%" />
 
-    <p>Progreso de subida: @progress%</p>
 
-    <RadzenButton Text="Cancelar" ButtonStyle="ButtonStyle.Secondary" Click="CloseDialog" />
+    @if (archivoSubido.Contenido != null)
+    {
+        <div class="archivo-seleccionado"
+             style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <span>@archivoSubido.NombreArchivo (@archivoSubido.Tamaño KB)</span>
+            <RadzenButton Icon="close"
+                          ButtonStyle="ButtonStyle.Danger"
+                          Click="CancelarArchivo"
+                          Size="ButtonSize.Small" />
+        </div>
+    }
+
+  @*   Sacamos las etiquetas como lista dinamica para añadir una a una *@ 
+    <div class="campo">
+        <label>Etiquetas:</label>
+        <div class="input-con-boton">
+            <RadzenTextBox @bind-Value="nuevaEtiqueta" Placeholder="Añadir etiqueta..." Style="width: 85%;" />
+            <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Click="@AgregarEtiqueta" Style="margin-left: 5px;" />
+        </div>
+    </div>
+
+    @if (listaEtiquetas.Any())
+    {
+        <div class="etiquetas">
+            @foreach (var etiqueta in listaEtiquetas)
+            {
+                <span class="etiqueta">
+                    @etiqueta
+                    <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Danger" Click="@(() => EliminarEtiqueta(etiqueta))" Size="ButtonSize.Small" />
+                </span>
+            }
+        </div>
+    }
+
+   @*  Usamos un calendario de radzen para escoger la Fecha Baja *@
+    <div class="campo">
+        <label>Fecha de vencimiento:</label>
+        <RadzenDatePicker Value="@fechaSeleccionada" ValueChanged="@((DateTime? value) => fechaSeleccionada = value)" />
+
+
+    </div>
+
+    <div class="campo">
+        <label>Grupo:</label>
+        <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+    </div>
+
+    <div class="campo">
+        <RadzenCheckBox @bind-Value="archivoSubido.Visible" TriState="false" />
+        <label>Visible</label>
+    </div>
+
+    <div class="botones">
+        <RadzenButton Text="Guardar"
+                      Click="ConfirmarSubida"
+                      ButtonStyle="ButtonStyle.Primary"
+                      Disabled="@(archivoSubido.Contenido == null)" />
+        <RadzenButton Text="Cancelar"
+                      ButtonStyle="ButtonStyle.Secondary"
+                      Click="CancelarSubida" />
+    </div>
+
 </RadzenCard>
 
 @code {
-    private int progress = 0;
+    RadzenUpload upload;
 
-    private void OnProgress(Radzen.UploadProgressArgs args)
+    [Parameter] public int CodigoCurso { get; set; }
+    private Archivo archivoSubido = new() { Visible = true }; 
+    private string nuevaEtiqueta = "";
+    private List<string> listaEtiquetas = new();
+    private DateTime? fechaSeleccionada = DateTime.Now;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        progress = args.Progress;
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("eval", "document.dispatchEvent(new Event('DOMContentLoaded'))");
+        }
+    }
+
+
+    private void OnProgress(UploadProgressArgs args, string name)
+    {
         StateHasChanged();
     }
 
-    private void OnFileSelected(Radzen.UploadChangeEventArgs args)
+    private async Task OnFileSelected(UploadChangeEventArgs args)
     {
-        if (args.Files != null && args.Files.Any())
+        var archivo = args.Files.FirstOrDefault();
+        if (archivo != null)
         {
-            var file = args.Files.First();
-            Console.WriteLine($"Archivo seleccionado: {file.Name}, Tamaño: {file.Size} bytes");
-        }
-        else
-        {
-            Console.WriteLine("No se seleccionó ningún archivo.");
+            archivoSubido.NombreArchivo = archivo.Name;
+            archivoSubido.Tipo = archivo.ContentType;
+            archivoSubido.Tamaño = (int)archivo.Size;
+            archivoSubido.Curso = CodigoCurso;
+            archivoSubido.FechaAlta = DateTime.UtcNow;
+            archivoSubido.FechaBaja = fechaSeleccionada;
+
+            using var memoryStream = new MemoryStream();
+            await archivo.OpenReadStream().CopyToAsync(memoryStream);
+            archivoSubido.Contenido = memoryStream.ToArray();
+
+            StateHasChanged(); 
         }
     }
 
-    private void CloseDialog()
+
+
+    private void CancelarArchivo()
     {
-        DialogService.Close();
+        archivoSubido = new Archivo();
+        StateHasChanged();
+    }
+
+    private void AgregarEtiqueta()
+    {
+        if (!string.IsNullOrWhiteSpace(nuevaEtiqueta) && !listaEtiquetas.Contains(nuevaEtiqueta))
+        {
+            listaEtiquetas.Add(nuevaEtiqueta);
+            nuevaEtiqueta = "";
+
+            StateHasChanged();
+        }
+    }
+
+    private void EliminarEtiqueta(string etiqueta)
+    {
+        listaEtiquetas.Remove(etiqueta);
+        StateHasChanged();
+    }
+
+
+    private async Task ConfirmarSubida()
+    {
+        if (archivoSubido.Contenido != null && archivoSubido.Contenido.Length > 0)
+        {
+            archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
+            await ArchivoService.GuardarArchivoAsync(archivoSubido);
+            Navigation.NavigateTo("/");
+        }
+    }
+
+    private void CancelarSubida()
+    {
+        Navigation.NavigateTo("/");
     }
 }

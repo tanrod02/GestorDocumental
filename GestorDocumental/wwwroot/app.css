@@ -133,3 +133,41 @@ h1:focus {
     }
 
 
+
+/*Pop up de subir archivo*/
+.titulo-subida {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #555;
+}
+
+.info-archivo {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+    .campo label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+.botones {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.rz-calendar {
+    z-index: 9999 !important;
+}
+

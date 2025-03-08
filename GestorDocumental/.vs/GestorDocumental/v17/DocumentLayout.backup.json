@@ -1,90 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\",
+  "WorkspaceRootPath": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\business\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\wwwroot\\bootstrap\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\bootstrap\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\entities\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\layout\\subirarchivodialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\subirarchivodialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\interfaces\\icursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\icursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\interfaces\\iarchivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\iarchivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\interfaces\\icursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\icursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\gestordocumentaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\gestordocumentaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,272 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "bootstrap.min.css",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
-              "RelativeDocumentMoniker": "wwwroot\\bootstrap\\bootstrap.min.css",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
-              "RelativeToolTip": "wwwroot\\bootstrap\\bootstrap.min.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-02T12:51:13.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "app.css",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
-              "RelativeDocumentMoniker": "wwwroot\\app.css",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
-              "RelativeToolTip": "wwwroot\\app.css",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAowGsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-02T12:25:47.098Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SubirArchivoDialog.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\SubirArchivoDialog.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\SubirArchivoDialog.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\SubirArchivoDialog.razor",
-              "RelativeToolTip": "Components\\Layout\\SubirArchivoDialog.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-02T11:47:07.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ArchivoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\ArchivoRepository.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\ArchivoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:27:39.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CursoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\CursoRepository.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\CursoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAIwBIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:19:47.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ICursoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\ICursoRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\ICursoRepository.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\ICursoRepository.cs",
-              "RelativeToolTip": "Data\\Interfaces\\ICursoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:19:31.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IArchivoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IArchivoRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\IArchivoRepository.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IArchivoRepository.cs",
-              "RelativeToolTip": "Data\\Interfaces\\IArchivoRepository.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAYAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:19:22.872Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ICursoService.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\ICursoService.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
-              "RelativeToolTip": "Business\\Interfaces\\ICursoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:19:10.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Curso.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Curso.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\Curso.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Curso.cs",
-              "RelativeToolTip": "Data\\Entities\\Curso.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:15:11.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CursoService.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
-              "RelativeDocumentMoniker": "Business\\Services\\CursoService.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
-              "RelativeToolTip": "Business\\Services\\CursoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:14:19.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Archivo.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\Archivo.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
-              "RelativeToolTip": "Data\\Entities\\Archivo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T19:03:24.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-27T19:03:12.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:21:46.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Error.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Error.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Error.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Error.razor",
-              "RelativeToolTip": "Components\\Pages\\Error.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:21:41.985Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\_Imports.razor",
-              "RelativeDocumentMoniker": "Components\\_Imports.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\_Imports.razor",
-              "RelativeToolTip": "Components\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:21:37.808Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Components\\App.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
-              "RelativeToolTip": "Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:21:36.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Routes.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Routes.razor",
-              "RelativeDocumentMoniker": "Components\\Routes.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Routes.razor",
-              "RelativeToolTip": "Components\\Routes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:21:34.725Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
-              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:06:31.554Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "GestorDocumentalDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\GestorDocumentalDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\GestorDocumentalDbContext.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\GestorDocumentalDbContext.cs",
-              "RelativeToolTip": "Data\\GestorDocumentalDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T18:06:35.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAqwHIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-27T18:05:29.462Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-27T18:06:31.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "script.js",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
+              "RelativeDocumentMoniker": "wwwroot\\script.js",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
+              "RelativeToolTip": "wwwroot\\script.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-07T16:24:52.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "Components\\Pages\\Login.razor",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-07T11:39:13.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\AuthService.cs",
+              "RelativeToolTip": "Business\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T18:04:44.983Z",
+              "WhenOpened": "2025-03-07T12:05:08.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Register.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Register.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Register.razor",
+              "RelativeToolTip": "Components\\Pages\\Register.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-07T11:38:43.679Z",
               "EditorCaption": ""
             }
           ]

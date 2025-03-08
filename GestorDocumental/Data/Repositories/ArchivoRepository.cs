@@ -18,9 +18,17 @@ namespace GestorDocumental.Data.Repositories
         public async Task<IEnumerable<Archivo>> ObtenerArchivosPorCursoAsync(int codigoCurso)
         {
             using var context = _contextFactory.CreateDbContext();
-            return await context.Archivos.Where(a => a.Curso.HasValue && a.Curso == codigoCurso) // Filtra valores NULL
+            return await context.Archivos.Where(a => a.Curso.HasValue && a.Curso == codigoCurso) 
       .ToListAsync();
 
+        }
+
+
+        public async Task AgregarArchivoAsync(Archivo archivo)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            context.Archivos.Add(archivo);
+            await context.SaveChangesAsync();
         }
 
 

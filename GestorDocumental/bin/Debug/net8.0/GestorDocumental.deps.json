@@ -9,9 +9,10 @@
       "GestorDocumental/1.0.0": {
         "dependencies": {
           "BootstrapBlazor": "9.4.1",
+          "Microsoft.AspNetCore.Components.Forms": "8.0.13",
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2",
-          "Radzen.Blazor": "6.1.2"
+          "Radzen.Blazor": "6.2.4"
         },
         "runtime": {
           "GestorDocumental.dll": {}
@@ -727,7 +728,7 @@
           }
         }
       },
-      "Radzen.Blazor/6.1.2": {
+      "Radzen.Blazor/6.2.4": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "8.0.13",
           "Microsoft.AspNetCore.Components.Web": "8.0.13",
@@ -735,8 +736,8 @@
         },
         "runtime": {
           "lib/net8.0/Radzen.Blazor.dll": {
-            "assemblyVersion": "6.1.2.0",
-            "fileVersion": "6.1.2.0"
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.0"
           }
         }
       },
@@ -1373,12 +1374,12 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
-    "Radzen.Blazor/6.1.2": {
+    "Radzen.Blazor/6.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FSkZZS/IMPYPtu1uAzeWAk3LKPeKx//1pislwAtij/T8mNrqW1yMTQ2WNLk5zdvzOkOZQIIXnU9f7Bh0PZpsbA==",
-      "path": "radzen.blazor/6.1.2",
-      "hashPath": "radzen.blazor.6.1.2.nupkg.sha512"
+      "sha512": "sha512-z8Kuocgg1CGMpA3XADjyZ8iy4hAtz1tpw3ypWiF9MpdshrFCb2BvbJ50s930WtZtFF6y7lR/zI6haGIyNLMFTg==",
+      "path": "radzen.blazor/6.2.4",
+      "hashPath": "radzen.blazor.6.2.4.nupkg.sha512"
     },
     "System.ClientModel/1.0.0": {
       "type": "package",

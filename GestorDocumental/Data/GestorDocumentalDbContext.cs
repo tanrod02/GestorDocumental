@@ -7,9 +7,12 @@ namespace GestorDocumental.Data
     {
         public GestorDocumentalDbContext(DbContextOptions<GestorDocumentalDbContext> options) : base(options) { }
 
-        // Agrega DbSet para cada entidad
+        // DbSet para cada entidad
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Archivo> Archivos { get; set; }
         public DbSet<Curso> Cursos { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

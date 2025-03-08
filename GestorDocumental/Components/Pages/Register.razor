@@ -1,0 +1,45 @@
+﻿@page "/register"
+@using GestorDocumental.Business.Interfaces
+@using GestorDocumental.Data.Entities
+@inject IUsuarioService UsuarioService
+@inject NavigationManager Navigation
+
+<h3>Registro de Usuario</h3>
+
+@if (!string.IsNullOrEmpty(Mensaje))
+{
+    <p>@Mensaje</p>
+}
+
+<EditForm Model="nuevoUsuario" OnValidSubmit="RegistrarUsuario">
+    <DataAnnotationsValidator />
+    <div>
+        <label>Nombre:</label>
+        <InputText @bind-Value="nuevoUsuario.Nombre" class="form-control" />
+    </div>
+    <div>
+        <label>Apellido:</label>
+        <InputText @bind-Value="nuevoUsuario.Apellido1" class="form-control" />
+    </div>
+    <div>
+        <label>Correo:</label>
+        <InputText @bind-Value="nuevoUsuario.Correo" class="form-control" />
+    </div>
+    <div>
+        <label>Contraseña:</label>
+        <InputText @bind-Value="nuevoUsuario.Contraseña" Type="password" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Registrarse</button>
+</EditForm>
+
+@code {
+    private Usuario nuevoUsuario = new();
+    private string Mensaje = "";
+
+    private async Task RegistrarUsuario()
+    {
+        bool registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
+        Mensaje = registrado ? "Usuario registrado exitosamente" : "El correo ya está en uso";
+        if (registrado) Navigation.NavigateTo("/login");
+    }
+}
