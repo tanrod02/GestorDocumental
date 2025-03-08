@@ -74,9 +74,13 @@ else
     <button class="btn btn-secondary" @onclick="LimpiarContenido">Cerrar</button>
 }
 
-<button class="floating-button" type="button" @onclick="AbrirVentanaSubida">
-    📤 Subir Documento
-</button>
+@if (CodigoCurso != 0)
+{
+    <button class="floating-button" type="button" @onclick="AbrirVentanaSubida">
+        📤 Subir Documento
+    </button>
+}
+
 
 @code {
     [Parameter] public int CodigoCurso { get; set; }

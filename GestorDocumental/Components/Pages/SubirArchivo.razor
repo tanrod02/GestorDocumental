@@ -1,25 +1,26 @@
 ﻿@page "/subir-archivo/{CodigoCurso:int}"
-@layout MainLayout
+@layout SecondLayout
 @using Microsoft.AspNetCore.Components
 @using Microsoft.AspNetCore.Components.Forms
 @using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
 @using Radzen
 @using Radzen.Blazor
+@rendermode InteractiveServer
 @inject IArchivoService ArchivoService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 
+
 <h1 class="titulo-subida">Subir Archivo</h1>
 
 <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
-
-    <h3>Manual Upload</h3>
+    <label>Selecciona un archivo:</label>
     <RadzenUpload @ref="upload"
                   Auto="false"
                   Multiple="false"
                   Change="OnFileSelected"
-                  Progress="@(args => OnProgress(args, "Manual Upload"))"
+                  Progress="@(args => OnProgress(args))"
                   Style="width: 100%" />
 
 
@@ -78,8 +79,8 @@
     <div class="botones">
         <RadzenButton Text="Guardar"
                       Click="ConfirmarSubida"
-                      ButtonStyle="ButtonStyle.Primary"
-                      Disabled="@(archivoSubido.Contenido == null)" />
+                      ButtonStyle="ButtonStyle.Primary" />
+
         <RadzenButton Text="Cancelar"
                       ButtonStyle="ButtonStyle.Secondary"
                       Click="CancelarSubida" />
@@ -94,7 +95,7 @@
     private Archivo archivoSubido = new() { Visible = true }; 
     private string nuevaEtiqueta = "";
     private List<string> listaEtiquetas = new();
-    private DateTime? fechaSeleccionada = DateTime.Now;
+    private DateTime? fechaSeleccionada = null;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -105,7 +106,7 @@
     }
 
 
-    private void OnProgress(UploadProgressArgs args, string name)
+    private void OnProgress(UploadProgressArgs args)
     {
         StateHasChanged();
     }
@@ -115,20 +116,23 @@
         var archivo = args.Files.FirstOrDefault();
         if (archivo != null)
         {
+            using var memoryStream = new MemoryStream();
+            await archivo.OpenReadStream().CopyToAsync(memoryStream);
+
             archivoSubido.NombreArchivo = archivo.Name;
             archivoSubido.Tipo = archivo.ContentType;
             archivoSubido.Tamaño = (int)archivo.Size;
             archivoSubido.Curso = CodigoCurso;
-            archivoSubido.FechaAlta = DateTime.UtcNow;
-            archivoSubido.FechaBaja = fechaSeleccionada;
-
-            using var memoryStream = new MemoryStream();
-            await archivo.OpenReadStream().CopyToAsync(memoryStream);
+            archivoSubido.FechaAlta = DateTime.Now;
             archivoSubido.Contenido = memoryStream.ToArray();
 
-            StateHasChanged(); 
+            
+
+            await InvokeAsync(StateHasChanged);
         }
     }
+
+
 
 
 
@@ -158,13 +162,17 @@
 
     private async Task ConfirmarSubida()
     {
-        if (archivoSubido.Contenido != null && archivoSubido.Contenido.Length > 0)
-        {
-            archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
-            await ArchivoService.GuardarArchivoAsync(archivoSubido);
-            Navigation.NavigateTo("/");
-        }
+        archivoSubido.FechaBaja = fechaSeleccionada;
+        archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
+
+        await ArchivoService.GuardarArchivoAsync(archivoSubido);
+
+        Navigation.NavigateTo("/");
+
+        await JS.InvokeVoidAsync("closeModal");
+        
     }
+
 
     private void CancelarSubida()
     {

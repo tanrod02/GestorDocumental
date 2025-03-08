@@ -22,12 +22,6 @@ namespace GestorDocumental.Business.Services
 
         public async Task GuardarArchivoAsync(Archivo archivo)
         {
-            if (archivo == null || archivo.Contenido == null || archivo.Contenido.Length == 0)
-            {
-                throw new ArgumentException("El archivo no es válido.");
-            }
-
-            archivo.FechaAlta = DateTime.UtcNow; 
             await _archivoRepository.AgregarArchivoAsync(archivo);
         }
     }

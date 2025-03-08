@@ -52,13 +52,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\GestorDocumental.2x7ju160rq.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2x7ju160rq"},{"Name":"integrity","Value":"sha256-Km8pWqeCLwTwRHjFfmKM4t2VobcGf/\u002BAy7wRiBUs1k4="},{"Name":"label","Value":"_content/GestorDocumental/GestorDocumental.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6149"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Km8pWqeCLwTwRHjFfmKM4t2VobcGf/\u002BAy7wRiBUs1k4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 07 Mar 2025 18:22:30 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6149"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Km8pWqeCLwTwRHjFfmKM4t2VobcGf/\u002BAy7wRiBUs1k4=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Mar 2025 18:22:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/GestorDocumental.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\GestorDocumental.2x7ju160rq.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Km8pWqeCLwTwRHjFfmKM4t2VobcGf/\u002BAy7wRiBUs1k4="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6149"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Km8pWqeCLwTwRHjFfmKM4t2VobcGf/\u002BAy7wRiBUs1k4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 07 Mar 2025 18:22:30 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6149"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Km8pWqeCLwTwRHjFfmKM4t2VobcGf/\u002BAy7wRiBUs1k4=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Mar 2025 18:22:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/script.2c6uqr94at.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\script.js'))</AssetFile>

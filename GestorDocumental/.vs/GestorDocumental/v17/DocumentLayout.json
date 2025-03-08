@@ -3,8 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\business\\services\\archivoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\archivoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\layout\\secondlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\secondlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\gestordocumental\\gestordocumental\\wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
@@ -34,37 +74,167 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
-              "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHAAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "CursoService.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\CursoService.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
+              "RelativeToolTip": "Business\\Services\\CursoService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:06:03.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArchivoService.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\ArchivoService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\ArchivoService.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\ArchivoService.cs",
+              "RelativeToolTip": "Business\\Services\\ArchivoService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAIA0wBgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:05:52.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SecondLayout.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\SecondLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\SecondLayout.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\SecondLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\SecondLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T18:05:29.462Z",
+              "WhenOpened": "2025-03-08T17:51:05.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\_Imports.razor",
+              "RelativeToolTip": "Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T17:41:56.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Routes.razor",
+              "RelativeToolTip": "Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T17:41:46.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T17:40:58.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubirArchivo.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\SubirArchivo.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
+              "RelativeToolTip": "Components\\Pages\\SubirArchivo.razor",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAAwKcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T16:02:28.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ArchivoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repositories\\ArchivoRepository.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
+              "RelativeToolTip": "Data\\Repositories\\ArchivoRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAWwB8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:06:17.048Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Archivo.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\Archivo.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
+              "RelativeToolTip": "Data\\Entities\\Archivo.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:12:09.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CursoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repositories\\CursoRepository.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
+              "RelativeToolTip": "Data\\Repositories\\CursoRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:06:23.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T16:16:03.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAjwFEAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-27T18:06:31.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "script.js",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
               "RelativeDocumentMoniker": "wwwroot\\script.js",
@@ -72,12 +242,11 @@
               "RelativeToolTip": "wwwroot\\script.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-07T16:24:52.283Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T16:24:52.283Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
@@ -85,12 +254,11 @@
               "RelativeToolTip": "Components\\Pages\\Login.razor",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-07T11:39:13.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T11:39:13.132Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Business\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\AuthService.cs",
@@ -98,12 +266,11 @@
               "RelativeToolTip": "Business\\Services\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T12:05:08.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T12:05:08.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Register.razor",
@@ -111,8 +278,7 @@
               "RelativeToolTip": "Components\\Pages\\Register.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-07T11:38:43.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T11:38:43.679Z"
             }
           ]
         }
