@@ -1,100 +1,98 @@
 /* _content/GestorDocumental/Components/Layout/MainLayout.razor.rz.scp.css */
+/* Contenedor principal */
 .page[b-96lbcbsova] {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Asegura que los elementos est�n en fila */
 }
 
+/* Contenido principal */
 main[b-96lbcbsova] {
     flex: 1;
+    transition: margin-right 0.3s ease-in-out; /* Para un efecto suave al abrir la barra */
 }
 
+/* Barra lateral izquierda */
 .sidebar[b-96lbcbsova] {
+    width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 }
 
-.top-row[b-96lbcbsova] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-}
-
-    .top-row[b-96lbcbsova]  a, .top-row[b-96lbcbsova]  .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row[b-96lbcbsova]  a:hover, .top-row[b-96lbcbsova]  .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row[b-96lbcbsova]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row[b-96lbcbsova] {
-        justify-content: space-between;
-    }
-
-    .top-row[b-96lbcbsova]  a, .top-row[b-96lbcbsova]  .btn-link {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 641px) {
-    .page[b-96lbcbsova] {
-        flex-direction: row;
-    }
-
-    .sidebar[b-96lbcbsova] {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .top-row[b-96lbcbsova] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row.auth[b-96lbcbsova]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
-    .top-row[b-96lbcbsova], article[b-96lbcbsova] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
-}
-
-#blazor-error-ui[b-96lbcbsova] {
-    background: lightyellow;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+/* Bot�n flotante para abrir la barra de b�squeda */
+.boton-flotante[b-96lbcbsova] {
     position: fixed;
-    width: 100%;
+    right: 20px;
+    bottom: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+    z-index: 1001;
+}
+
+    .boton-flotante:hover[b-96lbcbsova] {
+        background: #0056b3;
+    }
+
+/* Barra lateral derecha (b�squeda) */
+.sidebar-derecha[b-96lbcbsova] {
+    position: fixed;
+    right: -320px; /* Oculta la barra inicialmente */
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss[b-96lbcbsova] {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
+    /* Clase para mostrar la barra */
+    .sidebar-derecha.visible[b-96lbcbsova] {
+        right: 0; /* Hace que la barra aparezca desliz�ndose desde la derecha */
     }
+
+/* Bot�n para cerrar la barra */
+.boton-cerrar[b-96lbcbsova] {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    float: right;
+}
+
+/* Lista de archivos */
+.lista-archivos[b-96lbcbsova] {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.archivo-item[b-96lbcbsova] {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+    .archivo-item:hover[b-96lbcbsova] {
+        background-color: #ddd;
+    }
+
+/* Header de la barra de b�squeda */
+.header-busqueda[b-96lbcbsova] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /* _content/GestorDocumental/Components/Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-953b3af5a8] {
     appearance: none;

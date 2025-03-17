@@ -47,20 +47,31 @@
 </div>
 
 <!-- Modal nativo -->
+<!-- Modal con estilo Radzen -->
 @if (mostrarModal)
 {
     <div class="modal-overlay">
-        <div class="modal-content">
-            <h3>Añadir nuevo curso</h3>
-            <input type="text" placeholder="Descripción" @bind="nuevoCurso.Descripcion" />
-            <input type="text" placeholder="Grupo" @bind="nuevoCurso.CodigoGrupo" />
-            <div class="modal-buttons">
-                <button @onclick="AgregarCurso">Crear</button>
-                <button @onclick="CerrarModal">Cancelar</button>
+        <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
+            <h3 class="titulo-subida">Añadir nuevo curso</h3>
+
+            <div class="campo">
+                <label>Descripción:</label>
+                <RadzenTextBox @bind-Value="nuevoCurso.Descripcion" Placeholder="Descripción del curso" Style="width: 100%;" />
             </div>
-        </div>
+
+            <div class="campo">
+                <label>Grupo:</label>
+                <RadzenTextBox @bind-Value="nuevoCurso.CodigoGrupo" Placeholder="Grupo" Style="width: 100%;" />
+            </div>
+
+            <div class="botones">
+                <RadzenButton Text="Crear" Click="AgregarCurso" ButtonStyle="ButtonStyle.Primary" />
+                <RadzenButton Text="Cancelar" Click="CerrarModal" ButtonStyle="ButtonStyle.Secondary" />
+            </div>
+        </RadzenCard>
     </div>
 }
+
 
 @code {
     private List<Curso> cursos = new();
@@ -72,7 +83,12 @@
         cursos = (await CursoService.ObtenerCursosAsync()).ToList();
     }
 
-    private void AbrirModal() => mostrarModal = true;
+    private void AbrirModal()
+    {
+        nuevoCurso = new Curso(); // Reinicializa el objeto para limpiar los valores
+        mostrarModal = true;
+    }
+
     private void CerrarModal() => mostrarModal = false;
 
     private async Task AgregarCurso()

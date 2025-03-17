@@ -6,18 +6,29 @@ namespace GestorDocumental.Data.Entities
     {
         [Key]
         public int CodigoUsuario { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "El nombre es obligatorio")]
         public string Nombre { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "El apellido es obligatorio")]
         public string Apellido1 { get; set; }
+
         public string? Apellido2 { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "El correo es obligatorio")]
+        [EmailAddress(ErrorMessage = "El formato del correo no es válido")]
         public string Correo { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "La contraseña es obligatoria")]
+        [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
         public string Contraseña { get; set; }
+
         public string? Curso { get; set; }
+
         public string? Grupo { get; set; }
+
         public int CodigoRol {  get; set; }
+
         public string Asignatura { get; set; }
 
     }

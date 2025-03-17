@@ -4,42 +4,81 @@
 @inject IUsuarioService UsuarioService
 @inject NavigationManager Navigation
 
-<h3>Registro de Usuario</h3>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="width: 400px;">
+        <h3 class="text-center">Registro de Usuario</h3>
 
-@if (!string.IsNullOrEmpty(Mensaje))
-{
-    <p>@Mensaje</p>
-}
+        @if (!string.IsNullOrEmpty(Mensaje))
+        {
+            <div class="alert alert-danger text-center">@Mensaje</div>
+        }
 
-<EditForm Model="nuevoUsuario" OnValidSubmit="RegistrarUsuario">
-    <DataAnnotationsValidator />
-    <div>
-        <label>Nombre:</label>
-        <InputText @bind-Value="nuevoUsuario.Nombre" class="form-control" />
+        <EditForm Model="nuevoUsuario" OnValidSubmit="RegistrarUsuario" OnInvalidSubmit="MostrarErrores" FormName="RegistroUsuarioForm">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <InputText @bind-Value="nuevoUsuario.Nombre" class="form-control" />
+                <ValidationMessage For="@(() => nuevoUsuario.Nombre)" class="text-danger" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Apellido:</label>
+                <InputText @bind-Value="nuevoUsuario.Apellido1" class="form-control" />
+                <ValidationMessage For="@(() => nuevoUsuario.Apellido1)" class="text-danger" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Correo:</label>
+                <InputText @bind-Value="nuevoUsuario.Correo" class="form-control" />
+                <ValidationMessage For="@(() => nuevoUsuario.Correo)" class="text-danger" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contraseña:</label>
+                <InputText @bind-Value="nuevoUsuario.Contraseña" Type="password" class="form-control" />
+                <ValidationMessage For="@(() => nuevoUsuario.Contraseña)" class="text-danger" />
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
+        </EditForm>
+
+        <!-- Opción de iniciar sesión -->
+        <div class="text-center mt-3">
+            <span>¿Ya tienes una cuenta? </span>
+            <a href="login" class="text-primary" style="cursor: pointer;">Inicia sesión aquí</a>
+        </div>
     </div>
-    <div>
-        <label>Apellido:</label>
-        <InputText @bind-Value="nuevoUsuario.Apellido1" class="form-control" />
-    </div>
-    <div>
-        <label>Correo:</label>
-        <InputText @bind-Value="nuevoUsuario.Correo" class="form-control" />
-    </div>
-    <div>
-        <label>Contraseña:</label>
-        <InputText @bind-Value="nuevoUsuario.Contraseña" Type="password" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Registrarse</button>
-</EditForm>
+</div>
 
 @code {
-    private Usuario nuevoUsuario = new();
+    private Usuario nuevoUsuario = new Usuario();
     private string Mensaje = "";
 
     private async Task RegistrarUsuario()
     {
+        Console.WriteLine($"Intentando registrar usuario: {nuevoUsuario.Nombre}, {nuevoUsuario.Apellido1}, {nuevoUsuario.Correo}");
+
         bool registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
-        Mensaje = registrado ? "Usuario registrado exitosamente" : "El correo ya está en uso";
-        if (registrado) Navigation.NavigateTo("/login");
+        if (registrado)
+        {
+            Mensaje = "Usuario registrado exitosamente";
+            Navigation.NavigateTo("/login"); // Redirigir al login tras registro exitoso
+        }
+        else
+        {
+            Mensaje = "El correo ya está en uso";
+        }
+    }
+
+    private void MostrarErrores(EditContext editContext)
+    {
+        foreach (var error in editContext.GetValidationMessages())
+        {
+            Console.WriteLine($"Error: {error}");
+        }
     }
 }
