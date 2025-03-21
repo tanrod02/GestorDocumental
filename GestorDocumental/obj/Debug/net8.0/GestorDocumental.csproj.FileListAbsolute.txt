@@ -385,3 +385,4 @@ C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\obj\Debug\net8
 C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.pdb
 C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.genruntimeconfig.cache
 C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\obj\Debug\net8.0\ref\GestorDocumental.dll
+C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\bin\Debug\net8.0\BCrypt.Net-Next.dll

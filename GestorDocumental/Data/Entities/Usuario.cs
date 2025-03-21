@@ -29,7 +29,6 @@ namespace GestorDocumental.Data.Entities
 
         public int CodigoRol {  get; set; }
 
-        public string Asignatura { get; set; }
 
     }
 }

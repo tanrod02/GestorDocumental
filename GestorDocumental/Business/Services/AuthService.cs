@@ -1,62 +1,134 @@
 ﻿using GestorDocumental.Business.Interfaces;
+using GestorDocumental.Data.Entities;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage; // Agregar esta librería
 using System.Threading.Tasks;
 
-namespace GestorDocumental.Business.Services
+public class AuthService
 {
-    public class AuthService
+    private readonly IUsuarioService _usuarioService;
+    private readonly NavigationManager _navigationManager;
+    private readonly ProtectedSessionStorage _sessionStorage; // Usar SessionStorage
+
+    private Usuario _usuarioActual;
+    public bool IsAuthenticated { get; private set; }
+
+    public AuthService(IUsuarioService usuarioService, NavigationManager navigationManager, ProtectedSessionStorage sessionStorage)
     {
-        private readonly IUsuarioService _usuarioService;
-        private readonly NavigationManager _navigationManager;
+        _usuarioService = usuarioService;
+        _navigationManager = navigationManager;
+        _sessionStorage = sessionStorage;
+        IsAuthenticated = false;
+    }
 
-        // Estado de la autenticación en memoria
-        public bool IsAuthenticated { get; private set; }
-
-        public AuthService(IUsuarioService usuarioService, NavigationManager navigationManager)
+    public async Task<bool> LoginAsync(string correo, string contraseña)
+    {
+        var usuario = await _usuarioService.IniciarSesionAsync(correo, contraseña);
+        if (usuario != null)
         {
-            _usuarioService = usuarioService;
-            _navigationManager = navigationManager;
-            IsAuthenticated = false; // El usuario no está autenticado al inicio
-        }
+            Console.WriteLine($"Usuario autenticado: {usuario.Correo}");
+            IsAuthenticated = true;
+            _usuarioActual = usuario;
 
-        // Método de login
-        public async Task<bool> LoginAsync(string correo, string contraseña)
+            // Guardar en sesión
+            await _sessionStorage.SetAsync("usuario", usuario);
+            return true;
+        }
+        Console.WriteLine("Credenciales incorrectas en AuthService.");
+        return false;
+    }
+
+    public async Task<Usuario> ObtenerUsuarioActualAsync()
+    {
+        if (_usuarioActual == null)
         {
-            var usuario = await _usuarioService.IniciarSesionAsync(correo, contraseña);
-            if (usuario != null)
-            {
-                IsAuthenticated = true;
-                // Después de iniciar sesión con éxito, redirigir a la página de inicio
-                _navigationManager.NavigateTo("/"); // Página principal
-                return true;
-            }
-
-            return false;
+            // Intentar recuperar la sesión
+            var result = await _sessionStorage.GetAsync<Usuario>("usuario");
+            _usuarioActual = result.Success ? result.Value : null;
+            IsAuthenticated = _usuarioActual != null;
         }
+        return _usuarioActual;
+    }
 
-        // Método de logout
-        public void Logout()
-        {
-            IsAuthenticated = false;
-            // Redirigir a la página de login después de cerrar sesión
-            _navigationManager.NavigateTo("/login");
-        }
+    public async Task Logout()
+    {
+        IsAuthenticated = false;
+        _usuarioActual = null;
 
-        // Método de comprobación de autenticación
-        public async Task CheckAuthentication()
-        {
-            // Aquí podrías agregar lógica adicional para verificar si el usuario sigue autenticado
-            // como, por ejemplo, revisar un token de sesión o hacer una llamada a la API
-            await Task.CompletedTask;  // Esto es solo un marcador de posición si no haces nada asincrónico
-        }
+        // Borrar la sesión
+        await _sessionStorage.DeleteAsync("usuario");
 
-        // Método de redirección si ya está autenticado
-        public void RedirectToHome()
-        {
-            if (IsAuthenticated)
-            {
-                _navigationManager.NavigateTo("/");
-            }
-        }
+        _navigationManager.NavigateTo("/");
     }
 }
+
+
+
+
+
+//using GestorDocumental.Business.Interfaces;
+//using Microsoft.AspNetCore.Components;
+//using System.Threading.Tasks;
+
+//namespace GestorDocumental.Business.Services
+//{
+//    public class AuthService
+//    {
+//        private readonly IUsuarioService _usuarioService;
+//        private readonly NavigationManager _navigationManager;
+
+//        // Estado de la autenticación en memoria
+//        public bool IsAuthenticated { get; private set; }
+
+//        public AuthService(IUsuarioService usuarioService)
+//        {
+//            _usuarioService = usuarioService;
+//            IsAuthenticated = false; // El usuario no está autenticado al inicio
+//        }
+
+//        // Método de login
+//        public async Task<bool> LoginAsync(string correo, string contraseña)
+//        {
+//            var usuario = await _usuarioService.IniciarSesionAsync(correo, contraseña);
+
+//            if (usuario != null)
+//            {
+//                // Verifica la comparación del hash de la contraseña
+//                Console.WriteLine($"Usuario encontrado: {usuario.Correo}");
+//                IsAuthenticated = true;
+//                return true;
+//            }
+
+//            Console.WriteLine("Credenciales incorrectas en auth.");
+//            return false;
+//        }
+
+
+//        // Método de logout
+//        public void Logout()
+//        {
+//            this.IsAuthenticated = false; // Asegúrate de acceder a la propiedad a través de la instancia
+//            // Redirigir a la página de login después de cerrar sesión
+//            _navigationManager.NavigateTo("/login");
+//        }
+
+//        // Método de comprobación de autenticación
+//        public async Task CheckAuthentication()
+//        {
+//            // Aquí podrías agregar lógica adicional para verificar si el usuario sigue autenticado
+//            // como, por ejemplo, revisar un token de sesión o hacer una llamada a la API
+//            await Task.CompletedTask;  // Esto es solo un marcador de posición si no haces nada asincrónico
+//        }
+
+//        // Método de redirección si ya está autenticado
+//        public void RedirectToHome()
+//        {
+//            if (this.IsAuthenticated) // Asegúrate de usar la instancia aquí también
+//            {
+//                _navigationManager.NavigateTo("/");
+//            }
+//        }
+
+
+//    }
+//}

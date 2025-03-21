@@ -21,6 +21,9 @@ namespace GestorDocumental.Data.Repositories
             if (await context.Usuarios.AnyAsync(u => u.Correo == usuario.Correo))
                 return false; // Ya existe un usuario con este correo
 
+            //de base todos los que se registran son alumnos Rol = 3
+            usuario.CodigoRol = 3;
+
             context.Usuarios.Add(usuario);
             await context.SaveChangesAsync();
             return true;

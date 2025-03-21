@@ -3,6 +3,8 @@
 @using GestorDocumental.Data.Entities
 @inject IUsuarioService UsuarioService
 @inject NavigationManager Navigation
+@rendermode InteractiveServer
+
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow p-4" style="width: 400px;">
@@ -13,60 +15,87 @@
             <div class="alert alert-danger text-center">@Mensaje</div>
         }
 
-        <EditForm Model="nuevoUsuario" OnValidSubmit="RegistrarUsuario" OnInvalidSubmit="MostrarErrores" FormName="RegistroUsuarioForm">
+        <EditForm EditContext="@editContext" OnValidSubmit="RegistrarUsuario" FormName="registerForm">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
+            <!-- Campo de Nombre -->
             <div class="mb-3">
-                <label class="form-label">Nombre:</label>
-                <InputText @bind-Value="nuevoUsuario.Nombre" class="form-control" />
+                <label for="nombre" class="form-label">Nombre:</label>
+                <InputText id="nombre" @bind-Value="nuevoUsuario.Nombre" class="form-control" />
                 <ValidationMessage For="@(() => nuevoUsuario.Nombre)" class="text-danger" />
             </div>
 
+            <!-- Campo de Apellido -->
             <div class="mb-3">
-                <label class="form-label">Apellido:</label>
-                <InputText @bind-Value="nuevoUsuario.Apellido1" class="form-control" />
+                <label for="apellido1" class="form-label">Primer apellido:</label>
+                <InputText id="apellido" @bind-Value="nuevoUsuario.Apellido1" class="form-control" />
                 <ValidationMessage For="@(() => nuevoUsuario.Apellido1)" class="text-danger" />
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Correo:</label>
-                <InputText @bind-Value="nuevoUsuario.Correo" class="form-control" />
+                <label for="apellido2" class="form-label">Segundo apellido:</label>
+                <InputText id="apellido" @bind-Value="nuevoUsuario.Apellido2" class="form-control" />
+                <ValidationMessage For="@(() => nuevoUsuario.Apellido2)" class="text-danger" />
+            </div>
+
+            <!-- Campo de Correo -->
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo:</label>
+                <InputText id="correo" @bind-Value="nuevoUsuario.Correo" class="form-control" />
                 <ValidationMessage For="@(() => nuevoUsuario.Correo)" class="text-danger" />
             </div>
 
+            <!-- Campo de Contraseña -->
             <div class="mb-3">
-                <label class="form-label">Contraseña:</label>
-                <InputText @bind-Value="nuevoUsuario.Contraseña" Type="password" class="form-control" />
+                <label for="contraseña" class="form-label">Contraseña:</label>
+                <div class="input-group">
+                    <InputText id="contraseña" type="@contraseñaTipo" @bind-Value="nuevoUsuario.Contraseña" class="form-control" />
+                    <button type="button" class="btn btn-outline-secondary" @onclick="TogglePasswordVisibility">
+                        <i class="bi @iconoOjo"></i>
+                    </button>
+                </div>
                 <ValidationMessage For="@(() => nuevoUsuario.Contraseña)" class="text-danger" />
             </div>
 
+            <!-- Botón de Registro -->
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Registrarse</button>
             </div>
         </EditForm>
 
-        <!-- Opción de iniciar sesión -->
+        <!-- Opción de Iniciar sesión -->
         <div class="text-center mt-3">
             <span>¿Ya tienes una cuenta? </span>
-            <a href="login" class="text-primary" style="cursor: pointer;">Inicia sesión aquí</a>
+            <a href="" class="text-primary" style="cursor: pointer;">Inicia sesión aquí</a>
         </div>
     </div>
 </div>
 
 @code {
-    private Usuario nuevoUsuario = new Usuario();
+    private Usuario nuevoUsuario;
+    private EditContext editContext;
     private string Mensaje = "";
+    private string contraseñaTipo = "password";
+    private string iconoOjo = "bi-eye-slash";
+
+    protected override void OnInitialized()
+    {
+        nuevoUsuario = new Usuario();
+        editContext = new EditContext(nuevoUsuario);
+    }
 
     private async Task RegistrarUsuario()
     {
-        Console.WriteLine($"Intentando registrar usuario: {nuevoUsuario.Nombre}, {nuevoUsuario.Apellido1}, {nuevoUsuario.Correo}");
+        if (!editContext.Validate()) return;
+
+        Console.WriteLine($"Intentando registrar usuario: {nuevoUsuario.Nombre}, {nuevoUsuario.Apellido1}, {nuevoUsuario.Apellido2}, {nuevoUsuario.Correo}");
 
         bool registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
         if (registrado)
         {
             Mensaje = "Usuario registrado exitosamente";
-            Navigation.NavigateTo("/login"); // Redirigir al login tras registro exitoso
+            Navigation.NavigateTo("/");
         }
         else
         {
@@ -74,11 +103,19 @@
         }
     }
 
-    private void MostrarErrores(EditContext editContext)
+    private void TogglePasswordVisibility()
     {
-        foreach (var error in editContext.GetValidationMessages())
+        if (contraseñaTipo == "password")
         {
-            Console.WriteLine($"Error: {error}");
+            contraseñaTipo = "text";
+            iconoOjo = "bi-eye";
         }
+        else
+        {
+            contraseñaTipo = "password";
+            iconoOjo = "bi-eye-slash";
+        }
+
+        StateHasChanged();
     }
 }

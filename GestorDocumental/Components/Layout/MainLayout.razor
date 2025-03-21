@@ -16,13 +16,52 @@
         <NavMenu />
     </div>
 
-    <!-- Contenido principal -->
-    <main class="contenido-principal">
-        <article class="content px-4">
+    <!-- Contenedor del contenido principal -->
+    <div class="contenido-wrapper">
+        <main class="contenido-principal">
             @Body
             <RadzenDialog />
-        </article>
-    </main>
+        </main>
+    </div>
+</div>
+
+<!-- Mensaje de error Blazor -->
+<div id="blazor-error-ui">
+    Ha ocurrido un error inesperado.
+    <a href="" class="reload">Recargar</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+
+
+
+
+
+@* @using Microsoft.AspNetCore.Components
+@using GestorDocumental.Business.Interfaces
+@using GestorDocumental.Data.Entities
+@using Radzen
+@using Radzen.Blazor
+@inject NavigationManager Navigation
+@inject IArchivoService ArchivoService
+@inject ICursoService CursoService
+
+@inherits LayoutComponentBase
+<RadzenComponents @rendermode="InteractiveServer" />
+
+<div class="contenedor">
+    <!-- Barra lateral izquierda (Menú de navegación) -->
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <!-- Contenedor del contenido principal -->
+    <div class="contenido-wrapper">
+        <main class="contenido-principal">
+            @Body
+            <RadzenDialog />
+        </main>
+    </div>
 
     <!-- Botón flotante para abrir la barra de búsqueda -->
     <button class="boton-flotante" @onclick="AbrirBusqueda">
@@ -65,6 +104,7 @@
     </div>
 </div>
 
+
 <!-- Mensaje de error Blazor -->
 <div id="blazor-error-ui">
     Ha ocurrido un error inesperado.
@@ -103,3 +143,4 @@
     //     Navigation.NavigateTo($"/archivo/{archivo.Id}");
     }
 }
+ *@

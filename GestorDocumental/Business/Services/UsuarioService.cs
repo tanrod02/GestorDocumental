@@ -3,6 +3,7 @@ using GestorDocumental.Data.Entities;
 using GestorDocumental.Data.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
+using BCrypt.Net;
 using System.Threading.Tasks;
 
 namespace GestorDocumental.Business.Services
@@ -25,17 +26,20 @@ namespace GestorDocumental.Business.Services
         public async Task<Usuario?> IniciarSesionAsync(string correo, string contraseña)
         {
             var usuario = await _usuarioRepository.ObtenerUsuarioPorCorreoAsync(correo);
-            if (usuario == null || usuario.Contraseña != HashPassword(contraseña))
+            if (usuario == null || !BCrypt.Net.BCrypt.Verify(contraseña, usuario.Contraseña))
+            {
                 return null; // Usuario no encontrado o credenciales incorrectas
+            }
 
             return usuario;
         }
 
+
         private static string HashPassword(string password)
         {
-            using SHA256 sha256 = SHA256.Create();
-            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
+
+
     }
 }

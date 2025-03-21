@@ -1,4 +1,4 @@
-using GestorDocumental.Business.Interfaces;
+锘縰sing GestorDocumental.Business.Interfaces;
 using GestorDocumental.Business.Services;
 using GestorDocumental.Components;
 using GestorDocumental.Data;
@@ -8,22 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http.Features;
 using Radzen;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//configuracion para el tama駉 de los archivos 
+//limite de tama帽o de los archivos 
+builder.Services.Configure<IISServerOptions>(options =>
+{
+    options.MaxRequestBodySize = 2147483648; // 2 GB
+});
+
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 10 * 1024 * 1024; 
+    options.MultipartBodyLengthLimit = 2147483648; // 2 GB
 });
 
 
-builder.Services.Configure<KestrelServerOptions>(options =>
-{
-    options.Limits.MaxRequestBodySize = 10 * 1024 * 1024; 
-});
 
-// Obtener la cadena de conexi髇 desde la configuraci髇
+// Obtener la cadena de conexi贸n desde la configuraci贸n
 var connectionString = builder.Configuration.GetConnectionString("GestorDocumentalConnection");
 
 // Configurar DbContextFactory con SQL Server
@@ -38,7 +41,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRadzenComponents();
 
-// Inyecci髇 de dependencias para repositorios y servicios
+// Inyecci贸n de dependencias para repositorios y servicios
 builder.Services.AddScoped<IArchivoRepository, ArchivoRepository>();
 builder.Services.AddScoped<IArchivoService, ArchivoService>();
 
@@ -48,20 +51,18 @@ builder.Services.AddScoped<ICursoService, CursoService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
-//servicio para la autenticacion de usuario
-builder.Services.AddScoped<AuthService>();  
-
+// Servicio para la autenticaci贸n de usuario
+builder.Services.AddScoped<AuthService>();
 
 // Servicios de Radzen para UI
 builder.Services.AddScoped<ContextMenuService>();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<DialogService>();
-
-
+builder.Services.AddScoped<ProtectedSessionStorage>();
 
 var app = builder.Build();
 
-// Configuraci髇 del pipeline de la aplicaci髇
+// Configuraci贸n del pipeline de la aplicaci贸n
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -79,15 +80,5 @@ app.UseAntiforgery();
 // Mapeo de componentes Razor
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
-
-//app.Use(async (context, next) =>
-//{
-//    if (context.Request.Path == "/")
-//    {
-//        context.Response.Redirect("/login");
-//        return;
-//    }
-//    await next();
-//});
 
 app.Run();

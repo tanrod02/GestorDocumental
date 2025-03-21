@@ -1,173 +1,108 @@
-﻿html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+﻿
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  Evita scroll innecesario en el body 
 }
 
-a, .btn-link {
-    color: #006bb7;
+.contenedor {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-.content {
-    padding-top: 1.1rem;
-}
-
-h1:focus {
-    outline: none;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid #e50000;
-}
-
-.validation-message {
-    color: #e50000;
-}
-
-.blazor-error-boundary {
-    background: url(data:image/svg+xml;base64,...) no-repeat 1rem/1.8rem, #b32121;
-    padding: 1rem 1rem 1rem 3.7rem;
+ Barra lateral izquierda 
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
     color: white;
+    overflow-y: auto;  Permite desplazamiento si el contenido es grande 
+    border-right: 1px solid rgba(255, 255, 255, 0.2);  Suaviza la división con el contenido 
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred.";
+ Contenedor del contenido principal 
+.contenido-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  Contenido comienza desde arriba 
+    align-items: flex-start;  Alinea el contenido a la izquierda 
+    height: 100vh;
+    padding: 20px;
+    overflow: auto;
+    background-color: #f8f9fa;
+}
+
+ Cuerpo principal donde se renderiza el @Body 
+.contenido-principal {
+    width: 100%;
+    max-width: 1200px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  Evita que el contenido esté centrado 
+    justify-content: flex-start;  Mantiene el contenido en la parte superior 
+}
+
+ Sidebar de búsqueda 
+.sidebar-derecha {
+    width: 300px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -320px;  Oculta inicialmente 
+    height: 100vh;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+    .sidebar-derecha.visible {
+        right: 0;
     }
 
-.darker-border-checkbox.form-check-input {
-    border-color: #929292;
-}
-
-.icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-}
-
-.icon-card {
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.icon-img {
-    width: 64px;
-    height: 64px;
-}
-
-/*Boton subir documento*/
-.floating-button {
+ Botón flotante 
+.boton-flotante {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #1b6ec2;
     color: white;
-    border: 1px solid #1861ac;
+    border: none;
     padding: 12px 18px;
     font-size: 16px;
-    font-weight: bold;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
     z-index: 9999;
 }
 
-    .floating-button:hover {
+    .boton-flotante:hover {
         background-color: #1861ac;
         transform: scale(1.05);
-        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .floating-button:active {
-        background-color: #258cfb;
-        transform: scale(0.98);
-        box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.3);
-    }
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+ Estilos de la lista de archivos en la búsqueda 
+.lista-archivos {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
 }
 
-.modal-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    width: 400px;
-    max-width: 90%; /* Asegura que no sea demasiado ancho en pantallas pequeñas */
-}
-
-.dialog-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-    .dialog-buttons button {
-        margin-left: 10px;
-    }
-
-
-
-/*Pop up de subir archivo*/
-.titulo-subida {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.subtitulo {
-    text-align: center;
-    color: #555;
-}
-
-.info-archivo {
-    background-color: #f9f9f9;
+.archivo-item {
     padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.campo {
-    margin-bottom: 15px;
-}
-
-    .campo label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
+    .archivo-item:hover {
+        background: #f1f1f1;
     }
-
-.botones {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.rz-calendar {
-    z-index: 9999 !important;
-}
-
