@@ -2,6 +2,7 @@
 using GestorDocumental.Data.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage; // Agregar esta librería
+using System;
 using System.Threading.Tasks;
 
 public class AuthService
@@ -42,13 +43,34 @@ public class AuthService
     {
         if (_usuarioActual == null)
         {
-            // Intentar recuperar la sesión
-            var result = await _sessionStorage.GetAsync<Usuario>("usuario");
-            _usuarioActual = result.Success ? result.Value : null;
-            IsAuthenticated = _usuarioActual != null;
+            try
+            {
+                // Solo intentamos obtener la sesión si Blazor ya es interactivo
+                var result = await _sessionStorage.GetAsync<Usuario>("usuario");
+
+                // Verificamos si la recuperación fue exitosa
+                if (result.Success)
+                {
+                    _usuarioActual = result.Value;
+                    IsAuthenticated = true;
+                    Console.WriteLine($"Usuario recuperado de sesión: {_usuarioActual.Nombre}");
+                }
+                else
+                {
+                    Console.WriteLine("No hay usuario en sesión.");
+                    IsAuthenticated = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener usuario de la sesión: {ex.Message}");
+                _usuarioActual = null;
+                IsAuthenticated = false;
+            }
         }
         return _usuarioActual;
     }
+
 
     public async Task Logout()
     {
@@ -61,7 +83,6 @@ public class AuthService
         _navigationManager.NavigateTo("/");
     }
 }
-
 
 
 

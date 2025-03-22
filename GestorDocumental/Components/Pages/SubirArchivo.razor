@@ -13,24 +13,13 @@
         <div>
             <label>Selecciona un archivo:</label>
             <RadzenUpload @ref="upload"
-                          Auto="false"
-                          Multiple="false"
-                          Change="OnFileSelected"
-                          Progress="@(args => OnProgress(args))"
-                          Style="width: 100%" />
+            Auto="false"
+            Multiple="false"
+            Change="OnFileSelected"
+            Progress="@(args => OnProgress(args))"
+            Style="width: 100%" 
+            ChooseText="Seleccionar archivo" />
         </div>
-
-        @if (archivoSubido.Contenido != null)
-        {
-            <div class="archivo-seleccionado"
-                 style="padding: 10px; background: #f5f5f5; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-                <span>@archivoSubido.NombreArchivo (@archivoSubido.Tamaño KB)</span>
-                <RadzenButton Icon="close"
-                              ButtonStyle="ButtonStyle.Danger"
-                              Click="CancelarArchivo"
-                              Size="ButtonSize.Small" />
-            </div>
-        }
 
         <div>
             <label>Etiquetas:</label>
@@ -70,12 +59,12 @@
 
         <div class="botones" style="display: flex; justify-content: space-between;">
             <RadzenButton Text="Guardar"
-                          Click="ConfirmarSubida"
-                          ButtonStyle="ButtonStyle.Primary" />
+            Click="ConfirmarSubida"
+            ButtonStyle="ButtonStyle.Primary" />
 
             <RadzenButton Text="Cancelar"
-                          ButtonStyle="ButtonStyle.Secondary"
-                          Click="CancelarSubida" />
+            ButtonStyle="ButtonStyle.Secondary"
+            Click="CancelarSubida" />
         </div>
     </div>
 </RadzenCard>
@@ -85,6 +74,8 @@
     RadzenUpload upload;
 
     [Parameter] public int CodigoCurso { get; set; }
+    [Parameter] public int CodigoUsuario { get; set; }
+
     private Archivo archivoSubido = new() { };
     private string nuevaEtiqueta = "";
     private List<string> listaEtiquetas = new();
@@ -102,17 +93,20 @@
         {
             try
             {
-                using (var stream = archivo.OpenReadStream())
+                using (var stream = archivo.OpenReadStream(maxAllowedSize: 50 * 1024 * 1024))
                 {
+                    // Lee el contenido del archivo como un array de bytes
                     var buffer = new byte[archivo.Size];
                     await stream.ReadAsync(buffer, 0, (int)archivo.Size);
 
+                    // Asigna los valores al objeto `archivoSubido`
                     archivoSubido.NombreArchivo = archivo.Name;
                     archivoSubido.Tipo = archivo.ContentType;
                     archivoSubido.Tamaño = (int)archivo.Size;
-                    archivoSubido.Curso = CodigoCurso;
+                    archivoSubido.Contenido = buffer; // Guardar el contenido binario
                     archivoSubido.FechaAlta = DateTime.Now;
-                    archivoSubido.Contenido = buffer;
+                    archivoSubido.Curso = CodigoCurso;
+                    archivoSubido.Propietario = CodigoUsuario; // Ejemplo, ajusta según tu lógica
                 }
             }
             catch (Exception ex)
@@ -121,6 +115,7 @@
             }
         }
     }
+
 
     private void CancelarArchivo()
     {

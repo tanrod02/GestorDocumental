@@ -26,13 +26,19 @@ namespace GestorDocumental.Data.Repositories
 
         public async Task AgregarArchivoAsync(Archivo archivo)
         {
-            using 
-                
-                
-                var context = _contextFactory.CreateDbContext();
-            context.Archivos.Add(archivo);
-            await context.SaveChangesAsync();
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                context.Archivos.Add(archivo);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al agregar archivo: {ex.Message}");
+                throw; 
+            }
         }
+
 
 
     }

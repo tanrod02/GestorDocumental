@@ -16,12 +16,12 @@ var builder = WebApplication.CreateBuilder(args);
 //limite de tamaño de los archivos 
 builder.Services.Configure<IISServerOptions>(options =>
 {
-    options.MaxRequestBodySize = 2147483648; // 2 GB
+    options.MaxRequestBodySize = 50 * 1024 * 1024; ; // 2 GB
 });
 
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 2147483648; // 2 GB
+    options.MultipartBodyLengthLimit = 50 * 1024 * 1024; ; // 2 GB
 });
 
 
@@ -53,6 +53,7 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 // Servicio para la autenticación de usuario
 builder.Services.AddScoped<AuthService>();
+
 
 // Servicios de Radzen para UI
 builder.Services.AddScoped<ContextMenuService>();

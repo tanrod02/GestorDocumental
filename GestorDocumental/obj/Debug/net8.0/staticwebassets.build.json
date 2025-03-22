@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9KGH3ch0UG32x3+Xz8m0/roVly9GZjOUj2Rc+gaAKfM=",
+  "Hash": "oWinmfNyFj0ifVQ/cQy3nhmlx0PBcav6cJMEw1HoeUE=",
   "Source": "GestorDocumental",
   "BasePath": "_content/GestorDocumental",
   "Mode": "Default",
@@ -3076,8 +3076,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "gzqj26qus9",
-      "Integrity": "XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk=",
+      "Fingerprint": "a55znbxywp",
+      "Integrity": "MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css"
@@ -3097,8 +3097,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "gzqj26qus9",
-      "Integrity": "XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk=",
+      "Fingerprint": "a55znbxywp",
+      "Integrity": "MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css"
@@ -3118,8 +3118,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "i4doxtrjjr",
-      "Integrity": "ch3YSfMHxNY2BgD+ACcEzvj+ZOU9t5ZrwzMgKq/lcuU=",
+      "Fingerprint": "y8cmr58n90",
+      "Integrity": "fqmtu/gOwWrXFLnXXxYTT8SzcU2QT3I+9gmDsi0ZHMM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
@@ -12364,7 +12364,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2495"
+          "Value": "3104"
         },
         {
           "Name": "Content-Type",
@@ -12372,11 +12372,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ch3YSfMHxNY2BgD+ACcEzvj+ZOU9t5ZrwzMgKq/lcuU=\""
+          "Value": "\"fqmtu/gOwWrXFLnXXxYTT8SzcU2QT3I+9gmDsi0ZHMM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 12:11:04 GMT"
+          "Value": "Sat, 22 Mar 2025 10:35:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12386,12 +12386,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ch3YSfMHxNY2BgD+ACcEzvj+ZOU9t5ZrwzMgKq/lcuU="
+          "Value": "sha256-fqmtu/gOwWrXFLnXXxYTT8SzcU2QT3I+9gmDsi0ZHMM="
         }
       ]
     },
     {
-      "Route": "app.i4doxtrjjr.css",
+      "Route": "app.y8cmr58n90.css",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -12401,7 +12401,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2495"
+          "Value": "3104"
         },
         {
           "Name": "Content-Type",
@@ -12409,11 +12409,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ch3YSfMHxNY2BgD+ACcEzvj+ZOU9t5ZrwzMgKq/lcuU=\""
+          "Value": "\"fqmtu/gOwWrXFLnXXxYTT8SzcU2QT3I+9gmDsi0ZHMM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 12:11:04 GMT"
+          "Value": "Sat, 22 Mar 2025 10:35:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12423,7 +12423,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i4doxtrjjr"
+          "Value": "y8cmr58n90"
         },
         {
           "Name": "label",
@@ -12431,7 +12431,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ch3YSfMHxNY2BgD+ACcEzvj+ZOU9t5ZrwzMgKq/lcuU="
+          "Value": "sha256-fqmtu/gOwWrXFLnXXxYTT8SzcU2QT3I+9gmDsi0ZHMM="
         }
       ]
     },
@@ -12682,6 +12682,96 @@
       ]
     },
     {
+      "Route": "GestorDocumental.a55znbxywp.bundle.scp.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6311"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a55znbxywp"
+        },
+        {
+          "Name": "label",
+          "Value": "GestorDocumental.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go="
+        }
+      ]
+    },
+    {
+      "Route": "GestorDocumental.a55znbxywp.styles.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6311"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a55znbxywp"
+        },
+        {
+          "Name": "label",
+          "Value": "GestorDocumental.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go="
+        }
+      ]
+    },
+    {
       "Route": "GestorDocumental.bundle.scp.css",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
       "Selectors": [],
@@ -12692,7 +12782,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6303"
+          "Value": "6311"
         },
         {
           "Name": "Content-Type",
@@ -12700,11 +12790,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk=\""
+          "Value": "\"MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12714,97 +12804,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk="
-        }
-      ]
-    },
-    {
-      "Route": "GestorDocumental.gzqj26qus9.bundle.scp.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6303"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gzqj26qus9"
-        },
-        {
-          "Name": "label",
-          "Value": "GestorDocumental.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk="
-        }
-      ]
-    },
-    {
-      "Route": "GestorDocumental.gzqj26qus9.styles.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6303"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gzqj26qus9"
-        },
-        {
-          "Name": "label",
-          "Value": "GestorDocumental.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk="
+          "Value": "sha256-MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go="
         }
       ]
     },
@@ -12819,7 +12819,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6303"
+          "Value": "6311"
         },
         {
           "Name": "Content-Type",
@@ -12827,11 +12827,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk=\""
+          "Value": "\"MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12841,7 +12841,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XEnU+ObQ+XBZSS84YK5HSMQysy1GZHky1Yc+Jo2ynIk="
+          "Value": "sha256-MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go="
         }
       ]
     },
