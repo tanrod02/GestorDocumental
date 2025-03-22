@@ -7,5 +7,6 @@ namespace GestorDocumental.Business.Interfaces
     {
         Task<bool> RegistrarUsuarioAsync(Usuario usuario);
         Task<Usuario?> IniciarSesionAsync(string correo, string contraseña);
+        
     }
 }

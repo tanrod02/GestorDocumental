@@ -6,5 +6,6 @@ namespace GestorDocumental.Data.Interfaces
     {
         Task<IEnumerable<Archivo>> ObtenerArchivosPorCursoAsync(int codigoCurso);
         Task AgregarArchivoAsync(Archivo archivo);
+        Task VerificarArchivoGuardadoEnDB(string nombreArchivo);
     }
 }

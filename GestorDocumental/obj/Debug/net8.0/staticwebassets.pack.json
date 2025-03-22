@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\folder-regular.svg",
+      "PackagePath": "staticwebassets\\icons\\folder-regular.svg"
+    },
+    {
+      "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
+      "PackagePath": "staticwebassets\\icons\\pdf.png"
+    },
+    {
       "Id": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
       "PackagePath": "staticwebassets\\script.js"
     },

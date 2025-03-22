@@ -7,6 +7,7 @@ namespace GestorDocumental.Data.Interfaces
         Task<IEnumerable<Curso>> ObtenerCursosAsync();
 
         Task AgregarCursoAsync(Curso curso);
+        Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso);
 
     }
 }

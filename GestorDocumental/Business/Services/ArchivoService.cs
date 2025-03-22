@@ -24,5 +24,10 @@ namespace GestorDocumental.Business.Services
         {
             await _archivoRepository.AgregarArchivoAsync(archivo);
         }
+
+        public async Task VerificarArchivoGuardadoEnDB(string archivo)
+        {
+            await _archivoRepository.VerificarArchivoGuardadoEnDB(archivo);
+        }
     }
 }

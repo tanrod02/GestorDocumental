@@ -1,4 +1,10 @@
-﻿@page "/home"
+﻿
+
+
+
+
+
+@page "/home"
 @page "/home/{CodigoCurso:int}"
 @layout MainLayout
 @rendermode InteractiveServer
@@ -13,21 +19,19 @@
 @inject IJSRuntime JSRuntime
 @inject DialogService DialogService
 @inject AuthService AuthenticationService
+@inject ICursoService CursoService
 
 <PageTitle>Documentos</PageTitle>
 
 <!-- Contenedor del encabezado -->
 <div class="header-container">
-    <!-- Título "Documentos" -->
     <h1 class="header-title">Documentos</h1>
-
-    <!-- Menú de usuario RadzenProfileMenu -->
     <div class="header-menu">
         <RadzenProfileMenu>
             <Template>
-                @if (usuario != null)
+                @if (usuarioActual != null)
                 {
-                    <span>Bienvenido, @usuario.Nombre</span> 
+                    <span>Bienvenido, @usuarioActual.Nombre</span>
                 }
             </Template>
             <ChildContent>
@@ -38,6 +42,15 @@
 </div>
 
 
+@if(CodigoCurso != 0){
+
+    <div class="curso-toggle-container">
+        <span class="curso-nombre"> @(CodigoCurso != 0 ? "Curso " + cursoActual.Descripcion : "Ninguno seleccionado")</span>
+        <button class="toggle-view-button" @onclick="ToggleVista">
+            @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
+        </button>
+    </div>
+}
 
 @if (CodigoCurso == 0)
 {
@@ -53,62 +66,67 @@ else if (!archivos.Any())
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Fecha Alta</th>
-                <th>Etiquetas</th>
-                <th>Visible</th>
-            </tr>
-        </thead>
-        <tbody>
+    @if (modoTarjetas)
+    {
+        <div class="tarjetas-container">
             @foreach (var archivo in archivos)
             {
-                <tr>
-                    <td>
-                        <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)">
-                            @archivo.NombreArchivo
-                        </a>
-                    </td>
-                    <td>@archivo.Tipo</td>
-                    <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
-                    <td>
-                        @if (!string.IsNullOrEmpty(archivo.Etiquetas))
-                        {
-                            var etiquetas = archivo.Etiquetas.Split(';');
-                            foreach (var etiqueta in etiquetas)
-                            {
-                                <span class="badge badge-primary" style="margin-right: 5px;">@etiqueta</span>
-                            }
-                        }
-                        else
-                        {
-                            <span>-</span>
-                        }
-                    </td>
-                    <td>@(archivo.Visible ? "Sí" : "No")</td>
-                </tr>
+                <RadzenCard class="rz-my-12 rz-mx-auto" Style="max-width: 420px" @ondblclick="() => VerContenidoArchivo(archivo)">
+                    <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
+                        <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
+                        <RadzenText TextStyle="TextStyle.Body1">
+                            <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"><b>@archivo.NombreArchivo</b></a>
+                        </RadzenText>
+                    </RadzenStack>
+                </RadzenCard>
             }
-        </tbody>
-    </table>
-}
+        </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Fecha Alta</th>
+                    <th>Etiquetas</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var archivo in archivos)
+                {
+                    <tr>
+                        <td>
+                            <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)">
+                                @archivo.NombreArchivo
+                            </a>
+                        </td>
+                        <td>@archivo.Tipo</td>
+                        <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(archivo.Etiquetas))
+                            {
+                                var etiquetas = archivo.Etiquetas.Split(';');
+                                <p>@string.Join(", ", etiquetas)</p>  
+                                @foreach (var etiqueta in etiquetas)
+                                {
+                                    <span class="badge badge-primary" style="margin-right: 5px;">@etiqueta.Trim()</span>
+                                }
+                            }
+                            else
+                            {
+                                <span>-</span>
+                            }
+                        </td>
 
-@if (contenidoArchivo != null)
-{
-    <h3>Contenido del archivo: @contenidoArchivo.NombreArchivo</h3>
-    <div>
-        @if (contenidoArchivo.Tipo == "application/pdf" && contenidoArchivo.Contenido != null && contenidoArchivo.Contenido.Length > 0)
-        {
-            <embed src="data:application/pdf;base64,@Convert.ToBase64String(contenidoArchivo.Contenido)" width="100%" height="600px" type="application/pdf" />
-        }
-        else
-        {
-            <p>El contenido del archivo no puede mostrarse directamente.</p>
-        }
-    </div>
-    <button class="btn btn-secondary" @onclick="LimpiarContenido">Cerrar</button>
+                    </tr>
+                }
+            </tbody>
+        </table>
+      
+
+    }
 }
 
 @if (CodigoCurso != 0)
@@ -116,42 +134,62 @@ else
     <button class="floating-button" type="button" @onclick="AbrirModalSubida">
         📤 Subir Documento
     </button>
+
+
+
 }
 
 @code {
     [Parameter] public int CodigoCurso { get; set; }
     private IEnumerable<Archivo> archivos = new List<Archivo>();
-    private Archivo contenidoArchivo;
+    private Usuario usuarioActual = new Usuario();
+    private Curso cursoActual = new Curso();
+
+    private bool modoTarjetas = false;
     private bool modalAbierto = false;
-    private Usuario usuario;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            usuario = await AuthenticationService.ObtenerUsuarioActualAsync(); // Obtener el usuario actual desde el servicio
-            StateHasChanged(); // Forzar una nueva renderización
+            usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+            StateHasChanged();
         }
         await CargarArchivos();
     }
 
     protected override async Task OnParametersSetAsync()
     {
+
+        await CargarCurso();
         await CargarArchivos();
+    }
+
+    private async Task CargarCurso()
+    {
+        try
+        {
+            if (CodigoCurso != 0)
+            {
+                cursoActual = await CursoService.ObtenerCursoPorCodigoAsync(CodigoCurso);
+            }
+            else
+            {
+                cursoActual = new Curso(); // Si no hay curso seleccionado, evita errores
+            }
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error en CargarCurso: {e.Message}");
+        }
     }
 
     private async Task CargarArchivos()
     {
         try
         {
-            if (CodigoCurso != 0)
-            {
-                archivos = await ArchivoService.ObtenerArchivosPorCursoAsync(CodigoCurso);
-            }
-            else
-            {
-                archivos = new List<Archivo>();
-            }
+            archivos = CodigoCurso != 0 ? await ArchivoService.ObtenerArchivosPorCursoAsync(CodigoCurso) : new List<Archivo>();
             StateHasChanged();
         }
         catch (Exception e)
@@ -160,51 +198,45 @@ else
         }
     }
 
-    async Task VerContenidoArchivo(Archivo archivo)
+    private void ToggleVista()
     {
-        if (archivo.Tipo == "application/pdf" && archivo.Contenido != null && archivo.Contenido.Length > 0)
-        {
-            var base64 = Convert.ToBase64String(archivo.Contenido);
-            var url = $"data:application/pdf;base64,{base64}";
-            await JSRuntime.InvokeVoidAsync("open", url, "_blank");
-        }
-        else
-        {
-            contenidoArchivo = null;
-            StateHasChanged();
-        }
+        modoTarjetas = !modoTarjetas;
     }
 
-    void LimpiarContenido()
+    async Task VerContenidoArchivo(Archivo archivo)
     {
-        contenidoArchivo = null;
-        StateHasChanged();
+        if (archivo.Tipo == "application/pdf" && archivo.Contenido?.Length > 0)
+        {
+            var base64 = Convert.ToBase64String(archivo.Contenido);
+            await JSRuntime.InvokeVoidAsync("abrirPdfDesdeBytes", base64);
+        }
     }
 
     async Task AbrirModalSubida()
     {
         if (modalAbierto) return;
-
         modalAbierto = true;
         var resultado = await DialogService.OpenAsync<SubirArchivo>("Subir Archivo", new Dictionary<string, object>
         {
             { "CodigoCurso", CodigoCurso },
-            { "CodigoUsuario", usuario.CodigoUsuario}
+            { "CodigoUsuario", usuarioActual.CodigoUsuario }
         }, new DialogOptions { Width = "600px", Height = "auto" });
-
         modalAbierto = false;
-
-        if (resultado is bool archivoSubido && archivoSubido)
-        {
-            await CargarArchivos(); // Recargar lista después de subir un archivo
-        }
+        if (resultado is bool archivoSubido && archivoSubido) await CargarArchivos();
     }
 
     private async Task CerrarSesion()
     {
-        await AuthenticationService.Logout(); // Llamar al servicio de logout
-        Navigation.NavigateTo("/"); // Redirigir al inicio después de cerrar sesión
+        await AuthenticationService.Logout();
+        Navigation.NavigateTo("/");
+    }
+
+    private string ObtenerIconoArchivo(string tipoArchivo)
+    {
+        return tipoArchivo switch
+        {
+            "application/pdf" => "icons/pdf.png"
+        };
     }
 }
-
 

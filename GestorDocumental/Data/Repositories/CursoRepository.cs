@@ -24,5 +24,10 @@ namespace GestorDocumental.Data.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso)
+        {
+            return await _context.Cursos.FirstOrDefaultAsync(c => c.CodigoCurso == codigoCurso);
+        }
+
     }
 }

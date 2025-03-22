@@ -22,5 +22,13 @@ namespace GestorDocumental.Business.Services
         {
             await _cursoRepository.AgregarCursoAsync(curso);
         }
+
+        public async Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso)
+        {
+            if (codigoCurso <= 0)
+                throw new ArgumentException("El código del curso no es válido.", nameof(codigoCurso));
+
+            return await _cursoRepository.ObtenerCursoPorCodigoAsync(codigoCurso);
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace GestorDocumental.Business.Interfaces
     {
         Task<IEnumerable<Archivo>> ObtenerArchivosPorCursoAsync(int codigoCurso);
         Task GuardarArchivoAsync(Archivo archivo);
+        Task VerificarArchivoGuardadoEnDB(string nombreArchivo);
     }
 
 }
