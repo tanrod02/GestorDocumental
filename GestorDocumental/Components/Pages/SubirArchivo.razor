@@ -144,9 +144,9 @@
         archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
 
         await ArchivoService.GuardarArchivoAsync(archivoSubido);
-        await ArchivoService.VerificarArchivoGuardadoEnDB(archivoSubido.NombreArchivo);
+       
 
-        DialogService.Close(true); // Se cierra el modal y se indica que hubo un archivo subido
+        DialogService.Close(true); 
     }
 
     private void CancelarSubida()

@@ -4,8 +4,9 @@
 @inject AuthService AuthService
 @rendermode InteractiveServer
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow p-4" style="width: 400px;">
+
+<div class="login-background">
+    <div class="card login-card">
         <h3 class="text-center">Iniciar Sesión</h3>
 
         <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
@@ -17,8 +18,7 @@
                 <label for="correo" class="form-label">Correo:</label>
                 <InputText id="correo"
                            @bind-Value="loginModel.Correo"
-                           class="@($"form-control{(correoIncorrecto ? " is-invalid" : "")}")" />
-
+                           class="@(correoIncorrecto ? "form-control is-invalid" : "form-control")" />
             </div>
 
             <!-- Campo de Contraseña -->
@@ -28,117 +28,11 @@
                     <InputText id="contraseña"
                                type="@contraseñaTipo"
                                @bind-Value="loginModel.Contraseña"
-                               class="@($"form-control{(contraseñaIncorrecta ? " is-invalid" : "")}")" />
+                               class="@(contraseñaIncorrecta ? "form-control is-invalid" : "form-control")" />
                     <button type="button" class="btn btn-outline-secondary" @onclick="TogglePasswordVisibility">
                         <i class="bi @iconoOjo"></i>
                     </button>
                 </div>
-
-            </div>
-
-            <!-- Botón Ingresar -->
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
-            </div>
-        </EditForm>
-
-        <!-- Registro -->
-        <div class="text-center mt-3">
-            <span>¿No tienes cuenta? </span>
-            <a href="register" class="text-primary" style="cursor: pointer;">Regístrate aquí</a>
-        </div>
-    </div>
-</div>
-
-@code {
-    private LoginModel loginModel = new LoginModel();
-    private string contraseñaTipo = "password";
-    private string iconoOjo = "bi-eye-slash";
-    private bool correoIncorrecto = false;
-    private bool contraseñaIncorrecta = false;
-
-    private async Task HandleLogin()
-    {
-        correoIncorrecto = false;
-        contraseñaIncorrecta = false;
-
-
-        // Intentar autenticar al usuario
-        var isAuthenticated = await AuthService.LoginAsync(loginModel.Correo, loginModel.Contraseña);
-
-        if (isAuthenticated)
-        {
-            // Navegar a Home solo después de una autenticación exitosa
-            Navigation.NavigateTo("/home");
-        }
-        else
-        {
-            correoIncorrecto = true;
-            contraseñaIncorrecta = true;
-        }
-    }
-
-    private void TogglePasswordVisibility()
-    {
-        // Alternar visibilidad de la contraseña
-        if (contraseñaTipo == "password")
-        {
-            contraseñaTipo = "text";
-            iconoOjo = "bi-eye";
-        }
-        else
-        {
-            contraseñaTipo = "password";
-            iconoOjo = "bi-eye-slash";
-        }
-    }
-
-    // Creamos entidad para verificar correo y contraseña
-    public class LoginModel
-    {
-        public string Correo { get; set; }
-        public string Contraseña { get; set; }
-    }
-}
-
-
-
-@* @page "/"
-@using GestorDocumental.Business.Services
-@inject NavigationManager Navigation
-@inject AuthService AuthService
-@rendermode InteractiveServer
-
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow p-4" style="width: 400px;">
-        <h3 class="text-center">Iniciar Sesión</h3>
-
-        <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-
-            <!-- Campo de Correo -->
-            <div class="mb-3">
-                <label for="correo" class="form-label">Correo:</label>
-                <InputText id="correo"
-                           @bind-Value="loginModel.Correo"
-                           class="@($"form-control{(correoIncorrecto ? " is-invalid" : "")}")" />
-              
-            </div>
-
-            <!-- Campo de Contraseña -->
-            <div class="mb-3">
-                <label for="contraseña" class="form-label">Contraseña:</label>
-                <div class="input-group">
-                    <InputText id="contraseña"
-                               type="@contraseñaTipo"
-                               @bind-Value="loginModel.Contraseña"
-                               class="@($"form-control{(contraseñaIncorrecta ? " is-invalid" : "")}")" />
-                    <button type="button" class="btn btn-outline-secondary" @onclick="TogglePasswordVisibility">
-                        <i class="bi @iconoOjo"></i>
-                    </button>
-                </div>
-                
             </div>
 
             <!-- Botón Ingresar -->
@@ -166,7 +60,6 @@
     {
         correoIncorrecto = false;
         contraseñaIncorrecta = false;
-        
 
         // Intentar autenticar al usuario
         var isAuthenticated = await AuthService.LoginAsync(loginModel.Correo, loginModel.Contraseña);
@@ -179,7 +72,6 @@
         {
             correoIncorrecto = true; 
             contraseñaIncorrecta = true; 
-            
         }
 
         StateHasChanged(); 
@@ -187,7 +79,6 @@
 
     private void TogglePasswordVisibility()
     {
-        // Alternar visibilidad de la contraseña
         if (contraseñaTipo == "password")
         {
             contraseñaTipo = "text";  
@@ -202,13 +93,9 @@
         StateHasChanged(); 
     }
 
-
-    //Creamos entidad para verificar correo y contraseña 
     public class LoginModel
     {
         public string Correo { get; set; }
         public string Contraseña { get; set; }
     }
 }
-
- *@

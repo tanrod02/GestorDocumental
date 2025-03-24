@@ -5,9 +5,10 @@ namespace GestorDocumental.Business.Interfaces
 {
     public interface IArchivoService
     {
-        Task<IEnumerable<Archivo>> ObtenerArchivosPorCursoAsync(int codigoCurso);
+        Task<(IEnumerable<Carpeta> Carpetas, IEnumerable<Archivo> ArchivosSinCarpeta)> ObtenerArchivosYCarpetasPorCursoAsync(int codigoCurso);
         Task GuardarArchivoAsync(Archivo archivo);
-        Task VerificarArchivoGuardadoEnDB(string nombreArchivo);
+        Task<Carpeta> ObtenerInfoCarpeta(int CodigoCarpeta);
+        Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta);
     }
 
 }

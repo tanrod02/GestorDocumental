@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WRrgvfm7YjMTi1zML+OJF2d86I38MqmwsqxddKW9AnE=",
+  "Hash": "kALDzAJSn9ErHILzIc8SXKgWArp7Dt7S/PiT2jNKrvo=",
   "Source": "GestorDocumental",
   "BasePath": "_content/GestorDocumental",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "GestorDocumental\\wwwroot",
       "Source": "GestorDocumental",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "Pattern": "**"
     }
@@ -3062,10 +3062,10 @@
       "OriginalItemSpec": "C:\\Users\\tania\\.nuget\\packages\\radzen.blazor\\6.2.4\\staticwebassets\\Radzen.Blazor.js"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
       "SourceId": "GestorDocumental",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "GestorDocumental#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -3080,13 +3080,13 @@
       "Integrity": "MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css"
+      "OriginalItemSpec": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
       "SourceId": "GestorDocumental",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "GestorDocumental#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -3101,13 +3101,13 @@
       "Integrity": "MujaXQ/F3g+83pbfEEOJNqBO9nzuH5kkhYJCXbK52go=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -3118,17 +3118,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "jwutek08cf",
-      "Integrity": "TSDlzGL2dTToXBw65RM5S3zlL0E7ysLtlsRjiPkbr6M=",
+      "Fingerprint": "xzipxq7mnq",
+      "Integrity": "bYWmPuHMkrBUuFLfJjCdHw5KtE7P1LB83QqHTMc5ouA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -3146,10 +3146,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -3167,10 +3167,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\favicon.png",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "favicon#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -3188,12 +3188,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\folder-regular.svg",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\carpeta.png",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
-      "RelativePath": "icons/folder-regular#[.{fingerprint}]?.svg",
+      "RelativePath": "icons/carpeta#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3202,17 +3202,59 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4i86rc5fsz",
-      "Integrity": "jCvB5IakMIJnjBtPBIhrysb+ANzpmdvgafPisx9noG8=",
+      "Fingerprint": "tx9k1omh7s",
+      "Integrity": "URC89Y9Bmas4PRbk8hLhAyIMbi0msz5a0mie/3pzfBE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\folder-regular.svg"
+      "OriginalItemSpec": "wwwroot\\icons\\carpeta.png"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\logo.png",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "BasePath": "_content/GestorDocumental",
+      "RelativePath": "icons/logo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bgso8a9a4n",
+      "Integrity": "9dlQgeJNb+XgEzFpEyvkKfzCsk/UVRxbyR5r8wsJcRo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\logosinfondo.png",
+      "SourceId": "GestorDocumental",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "BasePath": "_content/GestorDocumental",
+      "RelativePath": "icons/logosinfondo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kc7ysir3fr",
+      "Integrity": "tO0h0Hipk8Z+hOsdSclY0o88qJNGLEFOOCz2hdJUFiQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\logosinfondo.png"
+    },
+    {
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
+      "SourceId": "GestorDocumental",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "icons/pdf#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -3230,10 +3272,10 @@
       "OriginalItemSpec": "wwwroot\\icons\\pdf.png"
     },
     {
-      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
+      "Identity": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
       "SourceId": "GestorDocumental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\",
       "BasePath": "_content/GestorDocumental",
       "RelativePath": "script#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -12397,7 +12439,7 @@
     },
     {
       "Route": "app.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12406,7 +12448,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3504"
+          "Value": "3695"
         },
         {
           "Name": "Content-Type",
@@ -12414,11 +12456,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TSDlzGL2dTToXBw65RM5S3zlL0E7ysLtlsRjiPkbr6M=\""
+          "Value": "\"bYWmPuHMkrBUuFLfJjCdHw5KtE7P1LB83QqHTMc5ouA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 16:26:50 GMT"
+          "Value": "Mon, 24 Mar 2025 20:06:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12428,13 +12470,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TSDlzGL2dTToXBw65RM5S3zlL0E7ysLtlsRjiPkbr6M="
+          "Value": "sha256-bYWmPuHMkrBUuFLfJjCdHw5KtE7P1LB83QqHTMc5ouA="
         }
       ]
     },
     {
-      "Route": "app.jwutek08cf.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
+      "Route": "app.xzipxq7mnq.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12443,7 +12485,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3504"
+          "Value": "3695"
         },
         {
           "Name": "Content-Type",
@@ -12451,11 +12493,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TSDlzGL2dTToXBw65RM5S3zlL0E7ysLtlsRjiPkbr6M=\""
+          "Value": "\"bYWmPuHMkrBUuFLfJjCdHw5KtE7P1LB83QqHTMc5ouA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 16:26:50 GMT"
+          "Value": "Mon, 24 Mar 2025 20:06:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12465,7 +12507,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "jwutek08cf"
+          "Value": "xzipxq7mnq"
         },
         {
           "Name": "label",
@@ -12473,13 +12515,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-TSDlzGL2dTToXBw65RM5S3zlL0E7ysLtlsRjiPkbr6M="
+          "Value": "sha256-bYWmPuHMkrBUuFLfJjCdHw5KtE7P1LB83QqHTMc5ouA="
         }
       ]
     },
     {
       "Route": "bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12500,7 +12542,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12524,7 +12566,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12545,7 +12587,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12561,7 +12603,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12582,7 +12624,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12606,7 +12648,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12627,7 +12669,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12643,7 +12685,7 @@
     },
     {
       "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12664,7 +12706,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12688,7 +12730,7 @@
     },
     {
       "Route": "favicon.png",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12709,7 +12751,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 19:24:42 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12725,7 +12767,7 @@
     },
     {
       "Route": "GestorDocumental.a55znbxywp.bundle.scp.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12746,7 +12788,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12770,7 +12812,7 @@
     },
     {
       "Route": "GestorDocumental.a55znbxywp.styles.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12791,7 +12833,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12815,7 +12857,7 @@
     },
     {
       "Route": "GestorDocumental.bundle.scp.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GestorDocumental.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12836,7 +12878,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12852,7 +12894,7 @@
     },
     {
       "Route": "GestorDocumental.styles.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestorDocumental.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12873,7 +12915,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Mar 2025 18:23:58 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12888,8 +12930,8 @@
       ]
     },
     {
-      "Route": "icons/folder-regular.4i86rc5fsz.svg",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\folder-regular.svg",
+      "Route": "icons/carpeta.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\carpeta.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12898,64 +12940,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "564"
+          "Value": "5527"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/svg+xml"
+          "Value": "image/png"
         },
         {
           "Name": "ETag",
-          "Value": "\"jCvB5IakMIJnjBtPBIhrysb+ANzpmdvgafPisx9noG8=\""
+          "Value": "\"URC89Y9Bmas4PRbk8hLhAyIMbi0msz5a0mie/3pzfBE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 15:47:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4i86rc5fsz"
-        },
-        {
-          "Name": "label",
-          "Value": "icons/folder-regular.svg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-jCvB5IakMIJnjBtPBIhrysb+ANzpmdvgafPisx9noG8="
-        }
-      ]
-    },
-    {
-      "Route": "icons/folder-regular.svg",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\folder-regular.svg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "564"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/svg+xml"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"jCvB5IakMIJnjBtPBIhrysb+ANzpmdvgafPisx9noG8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 15:47:33 GMT"
+          "Value": "Sat, 22 Mar 2025 16:18:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12965,13 +12962,222 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jCvB5IakMIJnjBtPBIhrysb+ANzpmdvgafPisx9noG8="
+          "Value": "sha256-URC89Y9Bmas4PRbk8hLhAyIMbi0msz5a0mie/3pzfBE="
+        }
+      ]
+    },
+    {
+      "Route": "icons/carpeta.tx9k1omh7s.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\carpeta.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5527"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"URC89Y9Bmas4PRbk8hLhAyIMbi0msz5a0mie/3pzfBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 22 Mar 2025 16:18:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tx9k1omh7s"
+        },
+        {
+          "Name": "label",
+          "Value": "icons/carpeta.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-URC89Y9Bmas4PRbk8hLhAyIMbi0msz5a0mie/3pzfBE="
+        }
+      ]
+    },
+    {
+      "Route": "icons/logo.bgso8a9a4n.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "101523"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9dlQgeJNb+XgEzFpEyvkKfzCsk/UVRxbyR5r8wsJcRo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 15:34:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bgso8a9a4n"
+        },
+        {
+          "Name": "label",
+          "Value": "icons/logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9dlQgeJNb+XgEzFpEyvkKfzCsk/UVRxbyR5r8wsJcRo="
+        }
+      ]
+    },
+    {
+      "Route": "icons/logo.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "101523"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9dlQgeJNb+XgEzFpEyvkKfzCsk/UVRxbyR5r8wsJcRo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 15:34:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9dlQgeJNb+XgEzFpEyvkKfzCsk/UVRxbyR5r8wsJcRo="
+        }
+      ]
+    },
+    {
+      "Route": "icons/logosinfondo.kc7ysir3fr.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\logosinfondo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "69880"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tO0h0Hipk8Z+hOsdSclY0o88qJNGLEFOOCz2hdJUFiQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 16:01:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kc7ysir3fr"
+        },
+        {
+          "Name": "label",
+          "Value": "icons/logosinfondo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tO0h0Hipk8Z+hOsdSclY0o88qJNGLEFOOCz2hdJUFiQ="
+        }
+      ]
+    },
+    {
+      "Route": "icons/logosinfondo.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\logosinfondo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "69880"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tO0h0Hipk8Z+hOsdSclY0o88qJNGLEFOOCz2hdJUFiQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 16:01:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tO0h0Hipk8Z+hOsdSclY0o88qJNGLEFOOCz2hdJUFiQ="
         }
       ]
     },
     {
       "Route": "icons/pdf.png",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12992,7 +13198,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 16:11:26 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13008,7 +13214,7 @@
     },
     {
       "Route": "icons/pdf.u0g5dosz57.png",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13029,7 +13235,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 16:11:26 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13053,7 +13259,7 @@
     },
     {
       "Route": "script.3r8b2a0bt1.js",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13074,7 +13280,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 19:19:41 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13098,7 +13304,7 @@
     },
     {
       "Route": "script.js",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13119,7 +13325,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 22 Mar 2025 19:19:41 GMT"
+          "Value": "Sun, 23 Mar 2025 15:20:29 GMT"
         },
         {
           "Name": "Cache-Control",

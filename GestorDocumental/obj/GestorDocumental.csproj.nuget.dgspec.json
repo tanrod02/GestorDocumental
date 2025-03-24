@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {}
+    "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {
+    "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
+        "projectUniqueName": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
         "projectName": "GestorDocumental",
-        "projectPath": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
+        "projectPath": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
         "packagesPath": "C:\\Users\\tania\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tania\\OneDrive\\Desktop\\GestorDocumental\\GestorDocumental\\obj\\",
+        "outputPath": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

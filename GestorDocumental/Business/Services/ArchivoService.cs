@@ -15,19 +15,25 @@ namespace GestorDocumental.Business.Services
             _archivoRepository = archivoRepository;
         }
 
-        public async Task<IEnumerable<Archivo>> ObtenerArchivosPorCursoAsync(int codigoCurso)
+        public async Task<(IEnumerable<Carpeta> Carpetas, IEnumerable<Archivo> ArchivosSinCarpeta)> ObtenerArchivosYCarpetasPorCursoAsync(int codigoCurso)
         {
-            return await _archivoRepository.ObtenerArchivosPorCursoAsync(codigoCurso);
+            return await _archivoRepository.ObtenerArchivosYCarpetasPorCursoAsync(codigoCurso);
         }
+
 
         public async Task GuardarArchivoAsync(Archivo archivo)
         {
             await _archivoRepository.AgregarArchivoAsync(archivo);
         }
 
-        public async Task VerificarArchivoGuardadoEnDB(string archivo)
+        public async Task<Carpeta> ObtenerInfoCarpeta(int CodigoCarpeta)
         {
-            await _archivoRepository.VerificarArchivoGuardadoEnDB(archivo);
+            return await _archivoRepository.ObtenerInfoCarpeta(CodigoCarpeta);
+        }
+
+        public async Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
+        {
+            return await _archivoRepository.ObtenerArchivosCarpeta(CodigoCarpeta);
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿
-
-
-html, body {
+﻿html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -33,6 +30,7 @@ html, body {
     overflow: auto;
     background-color: #f8f9fa;
 }
+
 
 .contenido-principal {
     width: 100%;
@@ -69,29 +67,44 @@ html, body {
         transform: scale(1.05);
     }
 
- Estilos de la lista de archivos en la búsqueda 
-.lista-archivos {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0;
+
+
+/*login + logo*/
+.login-background {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-.archivo-item {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-    transition: background 0.3s;
+.login-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/icons/logo.png') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.8; 
+    z-index: -1; 
 }
 
-    .archivo-item:hover {
-        background: #f1f1f1;
-    }
+.login-card {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 
 /*visualizacion encabezado home + menu perfil*/
 .header-container {
-    position: relative; /* Permite posicionar elementos hijos sin afectar el contenido principal */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    position: relative; 
+    width: 100%; 
 }
 
 .header-menu {
@@ -100,13 +113,14 @@ html, body {
     right: 0;
     margin: 0;
     padding: 0;
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    z-index: 10;
 }
 
 .contenido-wrapper {
-    flex: 1; /* Asegura que se expanda correctamente */
-    width: 100%; /* Garantiza que el contenido principal mantenga su tamaño */
-    overflow: auto; /* Evita que el contenido se desborde */
+    flex: 1; 
+    width: 100%; 
+    width: 100%;
+    overflow: auto; 
 }
 
 /* Visualización modo tarjetas de los documentos */
@@ -124,6 +138,7 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    
 }
 
 .tarjeta {
@@ -143,16 +158,16 @@ html, body {
 /* Botón ver en lista/tarjetas + nombre del curso en home */
 .curso-toggle-container {
     display: flex;
-    justify-content: space-between; /* Separa los elementos en los extremos */
+    justify-content: space-between;
     align-items: center;
-    width: 100%; /* Asegura que ocupe todo el ancho */
+    width: 100%;
     margin-bottom: 15px;
 }
 
 .curso-nombre {
     font-size: 18px;
     font-weight: bold;
-    flex-grow: 1; /* Permite que el nombre ocupe el espacio disponible */
+    flex-grow: 1; 
     text-align: left;
 }
 
@@ -160,5 +175,21 @@ html, body {
     text-align: right;
 }
 
+
+
+/*Pantalla mostrar carpeta y sus archivos */
+.carpeta-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%; 
+    margin-bottom: 15px;
+}
+.carpeta-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    flex-grow: 1; 
+    text-align: left;
+}
 
 

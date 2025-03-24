@@ -16,13 +16,23 @@ namespace GestorDocumental.Data.Repositories
         }
 
 
-        public async Task<IEnumerable<Archivo>> ObtenerArchivosPorCursoAsync(int codigoCurso)
+        public async Task<(IEnumerable<Carpeta> Carpetas, IEnumerable<Archivo> ArchivosSinCarpeta)> ObtenerArchivosYCarpetasPorCursoAsync(int codigoCurso)
         {
             using var context = _contextFactory.CreateDbContext();
-            return await context.Archivos.Where(a => a.Curso.HasValue && a.Curso == codigoCurso) 
-      .ToListAsync();
 
+            // Obtener las carpetas asociadas al curso
+            var carpetas = await context.Carpeta
+                                        .Where(c => c.Curso == codigoCurso)
+                                        .ToListAsync();
+
+            // Obtener los archivos sin carpeta asociada
+            var archivosSinCarpeta = await context.Archivos
+                                                  .Where(a => a.Curso == codigoCurso)
+                                                  .ToListAsync();
+
+            return (carpetas, archivosSinCarpeta);
         }
+
 
 
         public async Task AgregarArchivoAsync(Archivo archivo)
@@ -40,36 +50,31 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
-
-        public async Task VerificarArchivoGuardadoEnDB(string nombreArchivo)
+        public async Task<Carpeta> ObtenerInfoCarpeta(int CodigoCarpeta)
         {
             try
             {
                 using var context = _contextFactory.CreateDbContext();
-
-                // Buscar el archivo en la base de datos usando LINQ
-                var archivo = await context.Archivos
-                    .Where(a => a.NombreArchivo == nombreArchivo)
-                    .FirstOrDefaultAsync();
-
-                if (archivo != null && archivo.Contenido != null && archivo.Contenido.Length > 0)
-                {
-                    Console.WriteLine($"Archivo {archivo.NombreArchivo} recuperado correctamente desde la base de datos.");
-
-                    // Guardar el archivo en una ubicación temporal para verificar
-                    var filePath = Path.Combine(Path.GetTempPath(), archivo.NombreArchivo);
-                    File.WriteAllBytes(filePath, archivo.Contenido);
-
-                    Console.WriteLine($"Archivo guardado en la ruta temporal: {filePath}");
-                }
-                else
-                {
-                    Console.WriteLine($"El archivo {nombreArchivo} está vacío o no se guardó correctamente.");
-                }
+                return await context.Carpeta.FindAsync(CodigoCarpeta);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al verificar archivo: {ex.Message}");
+                Console.WriteLine($"Error al obtener infor de la carpeta: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                return await context.Archivos.Where(a => a.CodigoCarpeta == CodigoCarpeta).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar los archivos de la carpeta: {ex.Message}");
+                throw;
             }
         }
 

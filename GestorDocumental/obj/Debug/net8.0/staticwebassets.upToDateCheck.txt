@@ -2,6 +2,8 @@ wwwroot\app.css
 wwwroot\bootstrap\bootstrap.min.css
 wwwroot\bootstrap\bootstrap.min.css.map
 wwwroot\favicon.png
-wwwroot\icons\folder-regular.svg
+wwwroot\icons\carpeta.png
+wwwroot\icons\logo.png
+wwwroot\icons\logosinfondo.png
 wwwroot\icons\pdf.png
 wwwroot\script.js
