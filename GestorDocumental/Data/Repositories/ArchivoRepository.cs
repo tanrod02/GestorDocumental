@@ -20,15 +20,9 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
 
-            // Obtener las carpetas asociadas al curso
-            var carpetas = await context.Carpeta
-                                        .Where(c => c.Curso == codigoCurso)
-                                        .ToListAsync();
+            var carpetas = await context.Carpeta.Where(c => c.Curso == codigoCurso).ToListAsync();
 
-            // Obtener los archivos sin carpeta asociada
-            var archivosSinCarpeta = await context.Archivos
-                                                  .Where(a => a.Curso == codigoCurso)
-                                                  .ToListAsync();
+            var archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso).ToListAsync();
 
             return (carpetas, archivosSinCarpeta);
         }
@@ -126,6 +120,46 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+
+        public async Task<EstadisticasArchivo> ObtenerEstadisticasArchivo(int CodigoArchivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                return await context.Estadistica.FirstOrDefaultAsync(e => e.CodigoArchivo == CodigoArchivo);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener infor del archivo: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<string> ObtenerInfoPropietario(int CodigoArchivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                Archivo archivo = await context.Archivos.FindAsync(CodigoArchivo);
+                Usuario propietario = await context.Usuarios.FirstOrDefaultAsync(u => u.CodigoUsuario == archivo.Propietario);
+
+                var nombre = $"{propietario.Nombre} {propietario.Apellido1}";
+
+                if (!string.IsNullOrEmpty(propietario.Apellido2))
+                {
+                    nombre += " " + propietario.Apellido2;
+                }
+
+                return nombre;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener infor del propietario: {ex.Message}");
+                throw;
+            }
+        }
 
     }
 }

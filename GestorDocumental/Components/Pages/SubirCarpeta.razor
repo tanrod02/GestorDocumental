@@ -1,0 +1,114 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using GestorDocumental.Business.Interfaces
+@using GestorDocumental.Data.Entities
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.JSInterop
+@inject IArchivoService ArchivoService
+@inject DialogService DialogService
+@rendermode InteractiveServer
+
+<RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        @if(CodigoOpcion == 1){ //subir carpeta
+            <div>
+                <label>Selecciona una carpeta:</label>
+                <input type="file" webkitdirectory multiple @onchange="OnFolderSelected" />
+
+            </div>
+
+            <div>
+                <label>Grupo:</label>
+                <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+            </div>
+
+            <div class="botones" style="display: flex; justify-content: space-between;">
+                <RadzenButton Text="Guardar"
+                              Click="ConfirmarSubida"
+                              ButtonStyle="ButtonStyle.Primary" />
+
+                <RadzenButton Text="Cancelar"
+                              ButtonStyle="ButtonStyle.Secondary"
+                              Click="CancelarSubida" />
+            </div>
+        }else{ //crear una carpeta
+           
+            <div>
+                <label>Nombre:</label>
+                <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+            </div>
+
+            <div>
+                <label>Grupo:</label>
+                <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+            </div>
+
+            <div class="botones" style="display: flex; justify-content: space-between;">
+                <RadzenButton Text="Guardar"
+                              Click="ConfirmarSubida"
+                              ButtonStyle="ButtonStyle.Primary" />
+
+                <RadzenButton Text="Cancelar"
+                              ButtonStyle="ButtonStyle.Secondary"
+                              Click="CancelarSubida" />
+            </div>
+        }
+       
+    </div>
+</RadzenCard>
+
+
+@code {
+    RadzenUpload upload;
+
+    [Parameter] public int CodigoCurso { get; set; }
+    [Parameter] public int CodigoUsuario { get; set; }
+    [Parameter] public int CodigoOpcion { get; set; }
+
+    private Archivo archivoSubido = new() { };
+    private string nuevaEtiqueta = "";
+    private List<string> listaEtiquetas = new();
+    private DateTime? fechaSeleccionada = null;
+
+    private void OnProgress(UploadProgressArgs args)
+    {
+        StateHasChanged();
+    }
+
+    private async Task OnFolderSelected(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            var files = (IEnumerable<IBrowserFile>)e.Value;
+
+            foreach (var file in files)
+            {
+                Console.WriteLine($"Archivo seleccionado: {file.Name}");
+            }
+        }
+    }
+
+
+    private void CancelarArchivo()
+    {
+        archivoSubido = new Archivo();
+        StateHasChanged();
+    }
+
+    private async Task ConfirmarSubida()
+    {
+        archivoSubido.FechaBaja = fechaSeleccionada;
+        archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
+
+        await ArchivoService.GuardarArchivoAsync(archivoSubido);
+
+
+        DialogService.Close(true);
+    }
+
+    private void CancelarSubida()
+    {
+        DialogService.Close(false);
+    }
+}

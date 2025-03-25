@@ -12,7 +12,7 @@ namespace GestorDocumental.Data
         public DbSet<Archivo> Archivos { get; set; }
         public DbSet<Carpeta> Carpeta { get; set; }
         public DbSet<Curso> Cursos { get; set; }
-
+        public DbSet<EstadisticasArchivo> Estadistica { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

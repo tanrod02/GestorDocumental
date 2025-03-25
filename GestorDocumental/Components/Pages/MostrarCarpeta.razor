@@ -51,16 +51,16 @@
         {
             if(a.Visible == true){
                 <RadzenCard class="rz-my-12 rz-mx-auto"
-                            Style="max-width: 420px; background: transparent; box-shadow: none; border: none;"
-                            @ondblclick="() => VerContenidoArchivo(a)"
-                            @oncontextmenu="args => ShowContextMenu(args, a)">
+                Style="max-width: 420px; background: transparent; box-shadow: none; border: none;"
+                @ondblclick="() => VerContenidoArchivo(a)"
+                @oncontextmenu="args => ShowContextMenu(args, a)">
 
                     <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                         <RadzenImage Path="@ObtenerIconoArchivo(a.Tipo)" Style="width: 50px; height: 50px;" />
                         <RadzenText TextStyle="TextStyle.Body1">
                             <a href="javascript:void(0);"
-                               @onclick="() => VerContenidoArchivo(a)"
-                               style="color: black; text-decoration: none; font-weight: bold;">
+                            @onclick="() => VerContenidoArchivo(a)"
+                            style="color: black; text-decoration: none; font-weight: bold;">
                                 @a.NombreArchivo
                             </a>
                         </RadzenText>
@@ -88,6 +88,7 @@
     private bool modalAbierto = false;
     private bool modalAbiertoFecha = false;
     private bool modalAbiertoRenombrar = false;
+    private bool modalAbiertoEstadisticas = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -240,7 +241,14 @@
 
     public async void MostrarEstadisticas(Archivo archivo)
     {
-
+        if (modalAbiertoEstadisticas) return;
+        modalAbiertoEstadisticas = true;
+        var resultado = await DialogService.OpenAsync<MostrarEstadisticasArchivo>("Modificar Fecha", new Dictionary<string, object>
+        {
+            { "CodigoArchivo", archivo.CodigoArchivo},
+            { "NombreArchivo", archivo.NombreArchivo}
+        }, new DialogOptions { Width = "600px", Height = "auto" });
+        modalAbiertoEstadisticas = false;
     }
 
     public async void CarmbiarFecha(Archivo archivo)

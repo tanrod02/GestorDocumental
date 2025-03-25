@@ -11,5 +11,7 @@ namespace GestorDocumental.Data.Interfaces
         Task ModificarArchivo(Archivo archivo);
         Task<Archivo> ObtenerInfoArchivo(int CodigoArchivo);
         Task EliminarArchivo(int CodigoArchivo);
+        Task<EstadisticasArchivo> ObtenerEstadisticasArchivo(int CodigoArchivo);
+        Task<string> ObtenerInfoPropietario(int CodigoArchivo);
     }
 }

@@ -36,7 +36,7 @@
     width: 100%;
     max-width: 1200px;
     background: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -66,7 +66,6 @@
         background-color: #1861ac;
         transform: scale(1.05);
     }
-
 
 
 /*boton crear curso navmenu*/
@@ -160,7 +159,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .tarjeta {
@@ -177,13 +177,25 @@
         margin-bottom: 10px;
     }
 
+.card-hover {
+    transition: background-color 0.3s ease-in-out;
+    background-color: white; /* Color por defecto */
+}
+
+    .card-hover:hover {
+        background-color: #e0e0e0 !important; /* Gris más notorio */
+        cursor: pointer;
+    }
+
+
+
 /* Botón ver en lista/tarjetas + nombre del curso en home */
 .curso-toggle-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .curso-nombre {
