@@ -1,0 +1,82 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using GestorDocumental.Business.Interfaces
+@using GestorDocumental.Data.Entities
+@using Radzen
+@using Radzen.Blazor
+@inject IArchivoService ArchivoService
+@inject DialogService DialogService
+@rendermode InteractiveServer
+
+<RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        <!-- Mostrar el nombre del archivo actual -->
+        <div>
+            <label><b>Nombre del archivo:</b></label>
+            <p>@archivoActual.NombreArchivo</p>
+        </div>
+
+        <!-- Campo para el nuevo nombre de archivo -->
+        <div>
+            <label><b>Nuevo nombre de archivo:</b></label>
+            <RadzenTextBox @bind-Value="nuevoNombre" Style="width: 100%;" />
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="botones" style="display: flex; justify-content: space-between;">
+            <RadzenButton Text="Modificar"
+            ButtonStyle="ButtonStyle.Primary"
+            Click="ModificarNombreArchivo" />
+
+            <RadzenButton Text="Cancelar"
+            ButtonStyle="ButtonStyle.Secondary"
+            Click="Cancelar" />
+        </div>
+    </div>
+</RadzenCard>
+
+@code {
+    RadzenUpload radzenUpload;
+
+    [Parameter] public int CodigoArchivo { get; set; }
+
+    private string nuevoNombre;
+    private Archivo archivoActual = new Archivo();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await CargarArchivo();
+    }
+
+    private async Task CargarArchivo()
+    {
+        try
+        {
+            if (CodigoArchivo != 0)
+            {
+                archivoActual = await ArchivoService.ObtenerInfoArchivo(CodigoArchivo);
+            }
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error en ObtenerInfoArchivo: {e.Message}");
+        }
+    }
+
+    private async void ModificarNombreArchivo()
+    {
+        
+        archivoActual.NombreArchivo = nuevoNombre;
+        
+        await ArchivoService.ModificarArchivo(archivoActual);
+
+
+        DialogService.Close(true);
+    }
+
+    private void Cancelar()
+    {
+        DialogService.Close(false);
+    }
+}

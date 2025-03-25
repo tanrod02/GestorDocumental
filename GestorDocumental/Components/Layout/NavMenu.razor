@@ -1,7 +1,15 @@
 ﻿@using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
+@using GestorDocumental.Components.Pages
 @rendermode InteractiveServer
 @inject ICursoService CursoService
+@inject AuthService AuthenticationService
+@using Microsoft.AspNetCore.Authentication
+@using Radzen
+@using Radzen.Blazor
+@inject DialogService DialogService
+@inject Radzen.DialogService DialogService
+
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -46,57 +54,45 @@
     </nav>
 </div>
 
-<!-- Modal nativo -->
-<!-- Modal con estilo Radzen -->
-@if (mostrarModal)
-{
-    <div class="modal-overlay">
-        <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
-            <h3 class="titulo-subida">Añadir nuevo curso</h3>
-
-            <div class="campo">
-                <label>Descripción:</label>
-                <RadzenTextBox @bind-Value="nuevoCurso.Descripcion" Placeholder="Descripción del curso" Style="width: 100%;" />
-            </div>
-
-            <div class="campo">
-                <label>Grupo:</label>
-                <RadzenTextBox @bind-Value="nuevoCurso.CodigoGrupo" Placeholder="Grupo" Style="width: 100%;" />
-            </div>
-
-            <div class="botones">
-                <RadzenButton Text="Crear" Click="AgregarCurso" ButtonStyle="ButtonStyle.Primary" />
-                <RadzenButton Text="Cancelar" Click="CerrarModal" ButtonStyle="ButtonStyle.Secondary" />
-            </div>
-        </RadzenCard>
-    </div>
-}
 
 
 @code {
+    private Usuario usuarioActual = new Usuario();
+
     private List<Curso> cursos = new();
     private bool mostrarModal = false;
     private Curso nuevoCurso = new();
+    private bool modalAbierto = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+            StateHasChanged();
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
         cursos = (await CursoService.ObtenerCursosAsync()).ToList();
     }
 
-    private void AbrirModal()
+    async Task AbrirModal()
     {
-        nuevoCurso = new Curso(); 
+        if (modalAbierto) return;
+        modalAbierto = true;
+        var resultado = await DialogService.OpenAsync<CrearCurso>("Crear Curso", new Dictionary<string, object>
+        {
+           { "CodigoUsuario", usuarioActual.CodigoUsuario }
+        }, new DialogOptions { Width = "600px", Height = "auto" });
+        modalAbierto = false;
+
+        cursos = (await CursoService.ObtenerCursosAsync()).ToList();
+        StateHasChanged();
     }
 
     private void CerrarModal() => mostrarModal = false;
 
-    private async Task AgregarCurso()
-    {
-        if (!string.IsNullOrWhiteSpace(nuevoCurso.Descripcion) && !string.IsNullOrWhiteSpace(nuevoCurso.CodigoGrupo))
-        {
-            await CursoService.AgregarCursoAsync(nuevoCurso);
-            cursos = (await CursoService.ObtenerCursosAsync()).ToList();
-            CerrarModal();
-        }
-    }
+    
 }

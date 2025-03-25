@@ -35,5 +35,20 @@ namespace GestorDocumental.Business.Services
         {
             return await _archivoRepository.ObtenerArchivosCarpeta(CodigoCarpeta);
         }
+
+        public async Task ModificarArchivo(Archivo archivo)
+        {
+            await _archivoRepository.ModificarArchivo(archivo);
+        }
+
+        public async Task<Archivo> ObtenerInfoArchivo(int CodigoArchivo)
+        {
+            return await _archivoRepository.ObtenerInfoArchivo(CodigoArchivo);
+        }
+
+        public async Task EliminarArchivo(int CodigoArchivo)
+        {
+            await _archivoRepository.EliminarArchivo(CodigoArchivo);
+        }
     }
 }

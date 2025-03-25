@@ -8,5 +8,8 @@ namespace GestorDocumental.Data.Interfaces
         Task AgregarArchivoAsync(Archivo archivo);
         Task<Carpeta> ObtenerInfoCarpeta(int CodigoCarpeta);
         Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta);
+        Task ModificarArchivo(Archivo archivo);
+        Task<Archivo> ObtenerInfoArchivo(int CodigoArchivo);
+        Task EliminarArchivo(int CodigoArchivo);
     }
 }

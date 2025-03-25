@@ -78,6 +78,53 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+        public async Task ModificarArchivo(Archivo archivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                context.Archivos.Update(archivo);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al modificar archivo: {ex.Message}");
+                throw;
+            }
+        }
+
+
+        public async Task<Archivo> ObtenerInfoArchivo(int CodigoArchivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                return await context.Archivos.FindAsync(CodigoArchivo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener infor del archivo: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task EliminarArchivo(int CodigoArchivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                Archivo archivo = await context.Archivos.FindAsync(CodigoArchivo);
+
+               context.Archivos.Remove(archivo);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar archivo: {ex.Message}");
+                throw;
+            }
+        }
 
 
     }
