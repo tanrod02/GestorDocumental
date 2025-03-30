@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestorDocumental.Data.Entities
 {
@@ -15,9 +16,9 @@ namespace GestorDocumental.Data.Entities
         public int Propietario { get; set; }
         public int? Curso { get; set; }
         public string? Grupo { get; set; }
-        public string? Etiquetas { get; set; }
-
         public int? Tamaño { get; set; }
         public bool Visible { get; set; }
+        [NotMapped]
+        public List<string> Etiquetas { get; set; }
     }
 }

@@ -13,6 +13,8 @@ namespace GestorDocumental.Data
         public DbSet<Carpeta> Carpeta { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<EstadisticasArchivo> Estadistica { get; set; }
+        public DbSet<Etiqueta> Etiqueta { get; set; }
+        public DbSet<ArchivoEtiqueta> ArchivosEtiquetas{get; set;}
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,6 +23,7 @@ namespace GestorDocumental.Data
 
             modelBuilder.Entity<Archivo>().HasKey(d => d.CodigoArchivo);
             modelBuilder.Entity<Curso>().HasKey(d => d.CodigoCurso);
+            modelBuilder.Entity<ArchivoEtiqueta>().HasKey(ae => new { ae.CodigoEtiqueta, ae.CodigoArchivo });
         }
 
 

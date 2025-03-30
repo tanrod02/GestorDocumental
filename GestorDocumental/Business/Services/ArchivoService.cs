@@ -31,11 +31,7 @@ namespace GestorDocumental.Business.Services
             return await _archivoRepository.ObtenerInfoCarpeta(CodigoCarpeta);
         }
 
-        public async Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
-        {
-            return await _archivoRepository.ObtenerArchivosCarpeta(CodigoCarpeta);
-        }
-
+       
         public async Task ModificarArchivo(Archivo archivo)
         {
             await _archivoRepository.ModificarArchivo(archivo);
@@ -59,6 +55,11 @@ namespace GestorDocumental.Business.Services
         public async Task<string> ObtenerInfoPropietario(int CodigoArchivo)
         {
             return await _archivoRepository.ObtenerInfoPropietario(CodigoArchivo);
+        }
+
+        public async Task GuardarListaArchivoAsync(List<Archivo> archivos)
+        {
+            await _archivoRepository.GuardarListaArchivoAsync(archivos);
         }
     }
 }

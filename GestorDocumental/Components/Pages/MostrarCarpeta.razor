@@ -4,6 +4,7 @@
 @using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
 @inject IArchivoService ArchivoService
+@inject ICarpetaService CarpetaService
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 @inject AuthService AuthenticationService
@@ -129,7 +130,7 @@
         {
             if (CodigoCarpeta != 0)
             {
-                archivos = await ArchivoService.ObtenerArchivosCarpeta(CodigoCarpeta);
+                archivos = await CarpetaService.ObtenerArchivosCarpeta(CodigoCarpeta);
             }
             StateHasChanged();
         }

@@ -42,6 +42,9 @@
     {
         <div class="curso-toggle-container">
             <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
+            <button class="toggle-view-button" @onclick="VerNoVisibles">
+                @("📄 Ver archivos no visibles")
+            </button>
             <button class="toggle-view-button" @onclick="ToggleVista">
                 @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
             </button>
@@ -151,6 +154,7 @@
         <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
             📤 Subir Documento
         </button>
+
     }
 </div>
 
@@ -233,6 +237,11 @@
         modoTarjetas = !modoTarjetas;
     }
 
+    private void VerNoVisibles()
+    {
+
+    }
+
     async Task VerContenidoArchivo(Archivo archivo)
     {
         if (archivo.Tipo == "application/pdf" && archivo.Contenido?.Length > 0)
@@ -270,33 +279,43 @@
 
     async Task AbrirModalSubidaCarpeta(int opcion)
     {
+        bool resultado = false;
         //crear carpeta
         if (opcion == 1)
         {
             if (modalAbiertoCarpetaNueva) return;
             modalAbiertoCarpetaNueva = true;
-            var resultado = await DialogService.OpenAsync<SubirCarpeta>("Crear Carpeta", new Dictionary<string, object>
+            var parameters = new Dictionary<string, object>()
             {
                 { "CodigoCurso", CodigoCurso },
                 { "CodigoUsuario", usuarioActual.CodigoUsuario },
-                { "CodigoOpcion", opcion}
-            }, new DialogOptions { Width = "600px", Height = "auto" });
+                { "CodigoOpcion", opcion},
+                { "DescripcionCurso", cursoActual.Descripcion}
+            };
+            resultado = await DialogService.OpenAsync<SubirCarpeta>(
+                "Título del Modal",
+                parameters,
+                new DialogOptions { Width = "600px", Height = "auto" }
+            );
             modalAbiertoCarpetaNueva = false;
         }
         else
         { //subir carpeta
             if (modalAbiertoCarpetaNueva) return;
             modalAbiertoCarpetaNueva = true;
-            var resultado = await DialogService.OpenAsync<SubirCarpeta>("Subir Carpeta", new Dictionary<string, object>
+            resultado = await DialogService.OpenAsync<SubirCarpeta>("Subir Carpeta", new Dictionary<string, object>
             {
                 { "CodigoCurso", CodigoCurso },
                 { "CodigoUsuario", usuarioActual.CodigoUsuario },
-                { "CodigoOpcion", opcion}
+                { "CodigoOpcion", opcion}, 
+                { "DescripcionCurso", cursoActual.Descripcion}
             }, new DialogOptions { Width = "600px", Height = "auto" });
             modalAbiertoCarpetaNueva = false;
         }
 
+        if (resultado is bool archivoSubido && archivoSubido) await CargarArchivos();
 
+        StateHasChanged();
     }
 
     private async Task CerrarSesion()
@@ -307,12 +326,11 @@
 
     private string ObtenerIconoArchivo(string tipoArchivo)
     {
-        // return tipoArchivo switch
-        // {
-        //     "application/pdf" => "icons/pdf.png"
-        // };
+        return tipoArchivo switch
+        {
+            "application/pdf" => "icons/pdf.png"
+        };
 
-        return "";
     }
 
 
@@ -463,15 +481,12 @@
         {
             case 1:
                 AbrirModalSubida();
-                Console.WriteLine($"Ocultando/Mostrando archivo: ");
                 break;
             case 2:
-                AbrirModalSubidaCarpeta(1);
-                Console.WriteLine($"Mostrando estadísticas de: ");
+                AbrirModalSubidaCarpeta(2);
                 break;
             case 3:
-                AbrirModalSubidaCarpeta(2);
-                Console.WriteLine($"Cambiando fecha de: ");
+                AbrirModalSubidaCarpeta(1);
                 break;
 
         }

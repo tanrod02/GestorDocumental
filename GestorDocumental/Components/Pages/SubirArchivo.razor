@@ -141,7 +141,7 @@
     private async Task ConfirmarSubida()
     {
         archivoSubido.FechaBaja = fechaSeleccionada;
-        archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
+        archivoSubido.Etiquetas = listaEtiquetas;
 
         await ArchivoService.GuardarArchivoAsync(archivoSubido);
        

@@ -20,9 +20,24 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
 
-            var carpetas = await context.Carpeta.Where(c => c.Curso == codigoCurso).ToListAsync();
+            List<Carpeta> carpetas = await context.Carpeta.Where(c => c.Curso == codigoCurso).ToListAsync();
 
-            var archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso).ToListAsync();
+            List<Archivo> archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso).ToListAsync();
+
+            foreach (Archivo archivo in archivosSinCarpeta)
+            {
+                var codigoEtiquetas = await context.ArchivosEtiquetas
+                    .Where(ae => ae.CodigoArchivo == archivo.CodigoArchivo)
+                    .Select(ae => ae.CodigoEtiqueta)
+                    .ToListAsync();
+
+                var etiquetas = await context.Etiqueta
+                    .Where(e => codigoEtiquetas.Contains(e.CodigoEtiqueta))
+                    .Select(e => e.DescripcionEtiqueta)
+                    .ToListAsync();
+
+                archivo.Etiquetas = etiquetas;
+            }
 
             return (carpetas, archivosSinCarpeta);
         }
@@ -36,7 +51,7 @@ namespace GestorDocumental.Data.Repositories
                 using var context = _contextFactory.CreateDbContext();
                 context.Archivos.Add(archivo);
 
-                context.SaveChanges();
+                await context.SaveChangesAsync();
 
                 EstadisticasArchivo est = new EstadisticasArchivo();
 
@@ -48,6 +63,29 @@ namespace GestorDocumental.Data.Repositories
                 est.TiempoEnDocumento = 0;
 
                 context.Estadistica.Add(est);
+
+                List<ArchivoEtiqueta> archivoEtiquetas = new();
+
+                foreach (string et in archivo.Etiquetas)
+                {
+                    Etiqueta etiqueta = context.Etiqueta.FirstOrDefault(e => e.DescripcionEtiqueta == et);
+                    if(etiqueta == null)
+                    {
+                        etiqueta = new Etiqueta { DescripcionEtiqueta = et };
+                        context.Etiqueta.Add(etiqueta);
+                        await context.SaveChangesAsync();
+                    }
+                    
+                    archivoEtiquetas.Add(new ArchivoEtiqueta
+                    {
+                        CodigoEtiqueta = etiqueta.CodigoEtiqueta,
+                        CodigoArchivo = archivo.CodigoArchivo
+
+                    });
+                   
+                }
+
+                await context.ArchivosEtiquetas.AddRangeAsync(archivoEtiquetas);
                 await context.SaveChangesAsync();
             }
             catch (Exception ex)
@@ -71,19 +109,7 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
-        {
-            try
-            {
-                using var context = _contextFactory.CreateDbContext();
-                return await context.Archivos.Where(a => a.CodigoCarpeta == CodigoCarpeta).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al cargar los archivos de la carpeta: {ex.Message}");
-                throw;
-            }
-        }
+        
 
         public async Task ModificarArchivo(Archivo archivo)
         {
@@ -170,6 +196,23 @@ namespace GestorDocumental.Data.Repositories
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al obtener infor del propietario: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task GuardarListaArchivoAsync(List<Archivo> archivos)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                await context.AddRangeAsync(archivos);
+
+                await context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener infor del archivo: {ex.Message}");
                 throw;
             }
         }

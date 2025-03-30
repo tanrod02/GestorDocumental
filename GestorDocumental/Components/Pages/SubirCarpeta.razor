@@ -5,43 +5,49 @@
 @using Radzen
 @using Radzen.Blazor
 @using Microsoft.JSInterop
+@using System.IO
+@inject ICarpetaService CarpetaService
 @inject IArchivoService ArchivoService
 @inject DialogService DialogService
+@inject IJSRuntime JS
 @rendermode InteractiveServer
 
 <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
     <div style="display: flex; flex-direction: column; gap: 15px;">
-        @if(CodigoOpcion == 1){ //subir carpeta
-            <div>
-                <label>Selecciona una carpeta:</label>
-                <input type="file" webkitdirectory multiple @onchange="OnFolderSelected" />
+        @if(CodigoOpcion == 1){ //crear carpeta
 
+            <div>
+                <label>Nombre:</label>
+                <RadzenTextBox @bind-Value="carpetaNueva.Descripcion" Placeholder="Nombre carpeta" Style="width: 100%;" />
             </div>
 
             <div>
                 <label>Grupo:</label>
-                <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+                <RadzenTextBox @bind-Value="carpetaNueva.Grupo" Placeholder="Grupo" Style="width: 100%;" />
             </div>
 
             <div class="botones" style="display: flex; justify-content: space-between;">
                 <RadzenButton Text="Guardar"
-                              Click="ConfirmarSubida"
-                              ButtonStyle="ButtonStyle.Primary" />
+                Click="ConfirmarSubida"
+                ButtonStyle="ButtonStyle.Primary" />
 
                 <RadzenButton Text="Cancelar"
-                              ButtonStyle="ButtonStyle.Secondary"
-                              Click="CancelarSubida" />
+                ButtonStyle="ButtonStyle.Secondary"
+                Click="CancelarSubida" />
             </div>
-        }else{ //crear una carpeta
-           
+        }else{ //subir una carpeta
+
             <div>
-                <label>Nombre:</label>
-                <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+                <label>Selecciona una carpeta:</label>
+              
+
+
+
             </div>
 
             <div>
                 <label>Grupo:</label>
-                <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+                <RadzenTextBox @bind-Value="carpetaNueva.Grupo" Placeholder="Grupo" Style="width: 100%;" />
             </div>
 
             <div class="botones" style="display: flex; justify-content: space-between;">
@@ -54,7 +60,7 @@
                               Click="CancelarSubida" />
             </div>
         }
-       
+
     </div>
 </RadzenCard>
 
@@ -65,43 +71,43 @@
     [Parameter] public int CodigoCurso { get; set; }
     [Parameter] public int CodigoUsuario { get; set; }
     [Parameter] public int CodigoOpcion { get; set; }
+    [Parameter] public string DescripcionCurso{ get; set; }
 
-    private Archivo archivoSubido = new() { };
-    private string nuevaEtiqueta = "";
-    private List<string> listaEtiquetas = new();
-    private DateTime? fechaSeleccionada = null;
+    private Carpeta carpetaNueva = new() { };
+    private List<Archivo> archivos = new List<Archivo>();
+
+    private ElementReference fileInputElement;
+
 
     private void OnProgress(UploadProgressArgs args)
     {
         StateHasChanged();
     }
 
-    private async Task OnFolderSelected(ChangeEventArgs e)
-    {
-        if (e.Value is not null)
-        {
-            var files = (IEnumerable<IBrowserFile>)e.Value;
 
-            foreach (var file in files)
-            {
-                Console.WriteLine($"Archivo seleccionado: {file.Name}");
-            }
-        }
-    }
 
 
     private void CancelarArchivo()
     {
-        archivoSubido = new Archivo();
+        carpetaNueva = new Carpeta();
         StateHasChanged();
     }
 
     private async Task ConfirmarSubida()
     {
-        archivoSubido.FechaBaja = fechaSeleccionada;
-        archivoSubido.Etiquetas = string.Join(";", listaEtiquetas);
+        if(CodigoOpcion == 1){
+            carpetaNueva.Path = DescripcionCurso + "/" + carpetaNueva.Descripcion;
+            carpetaNueva.Subida = DateTime.Now;
+            carpetaNueva.Propietario = CodigoUsuario;
+            carpetaNueva.Curso = CodigoCurso;
 
-        await ArchivoService.GuardarArchivoAsync(archivoSubido);
+            await CarpetaService.CrearCarpeta(carpetaNueva);
+
+            DialogService.Close(true);
+        }
+        else{
+
+        }
 
 
         DialogService.Close(true);
@@ -111,4 +117,7 @@
     {
         DialogService.Close(false);
     }
+
+  
+
 }

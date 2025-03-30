@@ -54,6 +54,9 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IEstadisticaRepository, EstadisticaRepository>();
 builder.Services.AddScoped<IEstadisticaService, EstadisticaService>();
 
+builder.Services.AddScoped<ICarpetaRepository, CarpetaRepository>();
+builder.Services.AddScoped<ICarpetaService, CarpetaService>();
+
 // Servicio para la autenticación de usuario
 builder.Services.AddScoped<AuthService>();
 
