@@ -27,14 +27,13 @@
     align-items: flex-start; 
     height: 100vh;
     padding: 20px;
-    overflow: auto;
+    overflow: hidden;
     background-color: #f8f9fa;
 }
 
 
 .contenido-principal {
     width: 100%;
-    max-width: 1200px;
     background: white;
     padding: 10px;
     border-radius: 8px;
@@ -43,8 +42,15 @@
     flex-direction: column;
     align-items: flex-start;  
     justify-content: flex-start;  
+    overflow: hidden;
 }
 
+.documentos-container {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 0; /* Permite que flexbox maneje correctamente el tamaño */
+    overflow: auto; /* Permite scroll solo si es necesario */
+}
  
 .boton-flotante {
     position: fixed;
@@ -144,6 +150,8 @@
     overflow: auto; 
 }
 
+
+
 /* Visualización modo tarjetas de los documentos */
 .toggle-view-button {
     padding: 10px;
@@ -186,6 +194,7 @@
         background-color: #e0e0e0 !important; /* Gris más notorio */
         cursor: pointer;
     }
+
 
 
 
