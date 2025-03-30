@@ -35,6 +35,19 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
                 context.Archivos.Add(archivo);
+
+                context.SaveChanges();
+
+                EstadisticasArchivo est = new EstadisticasArchivo();
+
+                est.Propietario = archivo.Propietario;
+                est.CodigoArchivo = archivo.CodigoArchivo;
+                est.FechaAcceso = null;
+                est.FechaSubida = archivo.FechaAlta;
+                est.NumeroVisitas = 0;
+                est.TiempoEnDocumento = 0;
+
+                context.Estadistica.Add(est);
                 await context.SaveChangesAsync();
             }
             catch (Exception ex)

@@ -51,6 +51,9 @@ builder.Services.AddScoped<ICursoService, CursoService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
+builder.Services.AddScoped<IEstadisticaRepository, EstadisticaRepository>();
+builder.Services.AddScoped<IEstadisticaService, EstadisticaService>();
+
 // Servicio para la autenticación de usuario
 builder.Services.AddScoped<AuthService>();
 

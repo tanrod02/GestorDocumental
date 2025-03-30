@@ -1,0 +1,35 @@
+﻿@page "/MenuArchivos"
+@rendermode InteractiveServer
+
+@* Componente de menú contextual funcional *@
+@if (Visible)
+{
+    <div class="context-menu" style="top:@PositionTop; left:@PositionLeft;" @onmouseleave="OcultarMenu">
+        <ul>
+            <li @onclick="@(() => EjecutarAccion("ocultar"))">Ocultar/Mostrar</li>
+            <li @onclick="@(() => EjecutarAccion("estadisticas"))">Estadísticas</li>
+            <li @onclick="@(() => EjecutarAccion("fecha"))">Cambiar Fecha</li>
+            <li @onclick="@(() => EjecutarAccion("etiquetas"))">Etiquetas</li>
+            <li @onclick="@(() => EjecutarAccion("eliminar"))">Eliminar</li>
+            <li @onclick="@(() => EjecutarAccion("renombrar"))">Renombrar</li>
+        </ul>
+    </div>
+}
+
+@code {
+    [Parameter] public bool Visible { get; set; }
+    [Parameter] public string PositionTop { get; set; } = "0px";
+    [Parameter] public string PositionLeft { get; set; } = "0px";
+    [Parameter] public EventCallback<string> OnAccionSeleccionada { get; set; }
+
+    private async Task EjecutarAccion(string accion)
+    {
+        await OnAccionSeleccionada.InvokeAsync(accion);
+    }
+
+    private void OcultarMenu()
+    {
+        Visible = false;
+    }
+}
+
