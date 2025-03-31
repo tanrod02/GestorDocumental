@@ -56,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZW51QXJjaGl2b3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/ModificarEtiquetas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RpZmljYXJFdGlxdWV0YXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/ModificarFechaArchivo.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RpZmljYXJGZWNoYUFyY2hpdm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/RenombrarArchivo.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZW5vbWJyYXJBcmNoaXZvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/RenombrarCarpeta.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZW5vbWJyYXJDYXJwZXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/SubirArchivo.razor]

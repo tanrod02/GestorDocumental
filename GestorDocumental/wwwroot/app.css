@@ -48,8 +48,8 @@
 .documentos-container {
     flex-grow: 1;
     width: 100%;
-    min-height: 0; /* Permite que flexbox maneje correctamente el tamaño */
-    overflow: auto; /* Permite scroll solo si es necesario */
+    min-height: 0;
+    overflow: auto; 
 }
  
 .boton-flotante {

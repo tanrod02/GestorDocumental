@@ -24,6 +24,9 @@ builder.Services.Configure<FormOptions>(options =>
     options.MultipartBodyLengthLimit = 50 * 1024 * 1024; ; // 2 GB
 });
 
+builder.Services.AddSignalR(e => {
+    e.MaximumReceiveMessageSize = 50 * 1024 * 1024;
+});
 
 
 // Obtener la cadena de conexión desde la configuración
@@ -56,6 +59,9 @@ builder.Services.AddScoped<IEstadisticaService, EstadisticaService>();
 
 builder.Services.AddScoped<ICarpetaRepository, CarpetaRepository>();
 builder.Services.AddScoped<ICarpetaService, CarpetaService>();
+
+builder.Services.AddScoped<IEtiquetasRepository, EtiquetasRepository>();
+builder.Services.AddScoped<IEtiquetasService, EtiquetasService>();
 
 // Servicio para la autenticación de usuario
 builder.Services.AddScoped<AuthService>();

@@ -1,0 +1,192 @@
+﻿@using Microsoft.AspNetCore.Components
+@using GestorDocumental.Business.Interfaces
+@using GestorDocumental.Data.Entities
+@using Radzen
+@using Radzen.Blazor
+@inject IArchivoService ArchivoService
+@inject IEtiquetasService EtiquetasService
+@inject DialogService DialogService
+
+<RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div>
+            <label><b>Nombre del archivo:</b></label>
+            <p>@archivoActual.NombreArchivo</p>
+        </div>
+
+        <!-- Etiquetas ACTUALES en la BD con opción para eliminarlas -->
+        <div>
+            <label><b>Etiquetas actuales:</b></label>
+            @if (etiquetasSeleccionadas.Any())
+            {
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px;">
+                    @foreach (var etiqueta in etiquetasSeleccionadas)
+                    {
+                        <span style="display: flex; align-items: center; background: #e0e0e0; padding: 5px 10px; border-radius: 5px;">
+                            @etiqueta
+                            <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Danger" Click="@(() => RemoverEtiquetaExistente(etiqueta))" Size="ButtonSize.Small" Style="margin-left: 5px;" />
+                        </span>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No hay etiquetas asignadas.</p>
+            }
+        </div>
+
+        <!-- Campo de entrada para AÑADIR NUEVAS etiquetas -->
+        <div>
+            <label><b>Añadir nueva etiqueta:</b></label>
+            <div style="display: flex; gap: 10px;">
+                <!-- AutoComplete para buscar etiquetas existentes o escribir una nueva -->
+                <RadzenAutoComplete @bind-Value="etiquetaSeleccionada"
+                                    Data="@etiquetas.Select(e => e.DescripcionEtiqueta).ToList()"
+                                    Placeholder="Escribe o selecciona una etiqueta..."
+                                    Style="flex-grow: 1;"
+                                    AllowClear="true" />
+
+                <!-- Botón siempre habilitado, sólo se deshabilita si el valor es vacío -->
+                <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Click="AñadirEtiqueta" Disabled="@string.IsNullOrWhiteSpace(etiquetaSeleccionada)" />
+            </div>
+        </div>
+
+        <!-- Etiquetas NUEVAS que se agregarán cuando se guarde -->
+        @if (etiquetasNuevas.Any())
+        {
+            <div>
+                <label><b>Etiquetas nuevas:</b></label>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px;">
+                    @foreach (var etiqueta in etiquetasNuevas)
+                    {
+                        <span style="display: flex; align-items: center; background: #d0f0c0; padding: 5px 10px; border-radius: 5px;">
+                            @etiqueta
+                            <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Danger" Click="@(() => RemoverEtiquetaNueva(etiqueta))" Size="ButtonSize.Small" Style="margin-left: 5px;" />
+                        </span>
+                    }
+                </div>
+            </div>
+        }
+
+
+
+        <!-- Botones de acción -->
+        <div class="botones" style="display: flex; justify-content: space-between; margin-top: 15px;">
+            <RadzenButton Text="Modificar" Click="ModificarEtiquetasArchivo" ButtonStyle="ButtonStyle.Primary" />
+            <RadzenButton Text="Cancelar" ButtonStyle="ButtonStyle.Secondary" Click="Cancelar" />
+        </div>
+    </div>
+</RadzenCard>
+
+@code {
+    [Parameter] public int CodigoArchivo { get; set; }
+
+    private Archivo archivoActual = new();
+    private List<Etiqueta> etiquetas = new(); // Todas las etiquetas en BD
+    private List<string> etiquetasSeleccionadas = new(); // Etiquetas actuales del archivo en BD
+    private List<string> etiquetasEliminadas = new(); // Etiquetas eliminadas
+    private List<string> etiquetasNuevas = new(); // Etiquetas nuevas
+    private string etiquetaSeleccionada = string.Empty; // Etiqueta en el input
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await CargarDatos();
+    }
+
+    private async Task CargarDatos()
+    {
+        try
+        {
+            if (CodigoArchivo != 0)
+            {
+                archivoActual = await ArchivoService.ObtenerInfoArchivo(CodigoArchivo);
+                etiquetas = await EtiquetasService.ObtenerEtiquetas();
+
+                // Cargar etiquetas actuales del archivo
+                var etiquetasArchivo = await EtiquetasService.ObtenerEtiquetasArchivo(CodigoArchivo);
+                etiquetasSeleccionadas = etiquetasArchivo.Select(e => e.DescripcionEtiqueta).ToList();
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error en CargarDatos: {e.Message}");
+        }
+    }
+
+    private void VerificarNuevaEtiqueta(string value)
+    {
+        etiquetaSeleccionada = value.Trim();
+    }
+
+    private void AñadirEtiqueta()
+    {
+        if (!string.IsNullOrWhiteSpace(etiquetaSeleccionada))
+        {
+            if (!etiquetasSeleccionadas.Contains(etiquetaSeleccionada, StringComparer.OrdinalIgnoreCase) &&
+                !etiquetasNuevas.Contains(etiquetaSeleccionada, StringComparer.OrdinalIgnoreCase))
+            {
+                etiquetasNuevas.Add(etiquetaSeleccionada);
+            }
+
+            etiquetaSeleccionada = string.Empty;
+        }
+    }
+
+
+
+    private void RemoverEtiquetaExistente(string etiqueta)
+    {
+        etiquetasSeleccionadas.Remove(etiqueta);
+        etiquetasEliminadas.Add(etiqueta);
+    }
+
+    private void RemoverEtiquetaNueva(string etiqueta)
+    {
+        etiquetasNuevas.Remove(etiqueta);
+    }
+
+    private async Task ModificarEtiquetasArchivo()
+    {
+        try
+        {
+            // Eliminar las relaciones de las etiquetas eliminadas
+            if (etiquetasEliminadas.Any())
+            {
+                var etiquetasEliminarBD = etiquetas.Where(e => etiquetasEliminadas.Contains(e.DescripcionEtiqueta)).ToList();
+                await EtiquetasService.EliminarEtiquetasArchivo(CodigoArchivo, etiquetasEliminarBD);
+            }
+
+            // Agregar nuevas etiquetas
+            if (etiquetasNuevas.Any())
+            {
+                var etiquetasAgregarBD = new List<Etiqueta>();
+                foreach (var etiqueta in etiquetasNuevas)
+                {
+                    var etiquetaBD = etiquetas.FirstOrDefault(e => e.DescripcionEtiqueta == etiqueta);
+                    if (etiquetaBD == null)
+                    {
+                        Etiqueta etiquetaNueva = new() { DescripcionEtiqueta = etiqueta };
+                        etiquetaBD = await EtiquetasService.CrearEtiqueta(etiquetaNueva);
+                        etiquetas.Add(etiquetaBD);
+                    }
+                    etiquetasAgregarBD.Add(etiquetaBD);
+                }
+
+                await EtiquetasService.AgregarEtiquetasArchivo(CodigoArchivo, etiquetasAgregarBD);
+            }
+
+            etiquetasEliminadas.Clear();
+            etiquetasNuevas.Clear();
+            DialogService.Close(true);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error al modificar etiquetas: {e.Message}");
+        }
+    }
+
+    private void Cancelar()
+    {
+        DialogService.Close(false);
+    }
+}

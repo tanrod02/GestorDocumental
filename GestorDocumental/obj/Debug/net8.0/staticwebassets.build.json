@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i5iZAW5zN595yREkthZGB753/xX5egL7ujdjS51R1E0=",
+  "Hash": "beEp0YlRYyjtZLinfhR44kuhOwOL7YScBPIZAJ9Buec=",
   "Source": "GestorDocumental",
   "BasePath": "_content/GestorDocumental",
   "Mode": "Default",
@@ -3118,8 +3118,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "1c9jeru3il",
-      "Integrity": "/48H4UpUJ3O9N0UzZsVM5XnLNYrQoRNFbA2HqoFF8IY=",
+      "Fingerprint": "hzu57toqb0",
+      "Integrity": "HSdjS0yJZHAcbGelJxV0pI4aBDybx8xLd59jrIf2bVo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
@@ -3286,8 +3286,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3r8b2a0bt1",
-      "Integrity": "8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=",
+      "Fingerprint": "iu4zo91m4c",
+      "Integrity": "tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\script.js"
@@ -12438,51 +12438,6 @@
       ]
     },
     {
-      "Route": "app.1c9jeru3il.css",
-      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4731"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"/48H4UpUJ3O9N0UzZsVM5XnLNYrQoRNFbA2HqoFF8IY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 18:03:07 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1c9jeru3il"
-        },
-        {
-          "Name": "label",
-          "Value": "app.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-/48H4UpUJ3O9N0UzZsVM5XnLNYrQoRNFbA2HqoFF8IY="
-        }
-      ]
-    },
-    {
       "Route": "app.css",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
       "Selectors": [],
@@ -12493,7 +12448,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4731"
+          "Value": "4632"
         },
         {
           "Name": "Content-Type",
@@ -12501,11 +12456,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/48H4UpUJ3O9N0UzZsVM5XnLNYrQoRNFbA2HqoFF8IY=\""
+          "Value": "\"HSdjS0yJZHAcbGelJxV0pI4aBDybx8xLd59jrIf2bVo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 18:03:07 GMT"
+          "Value": "Mon, 31 Mar 2025 10:23:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12515,7 +12470,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/48H4UpUJ3O9N0UzZsVM5XnLNYrQoRNFbA2HqoFF8IY="
+          "Value": "sha256-HSdjS0yJZHAcbGelJxV0pI4aBDybx8xLd59jrIf2bVo="
+        }
+      ]
+    },
+    {
+      "Route": "app.hzu57toqb0.css",
+      "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4632"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HSdjS0yJZHAcbGelJxV0pI4aBDybx8xLd59jrIf2bVo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 31 Mar 2025 10:23:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hzu57toqb0"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HSdjS0yJZHAcbGelJxV0pI4aBDybx8xLd59jrIf2bVo="
         }
       ]
     },
@@ -12788,7 +12788,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 17:58:31 GMT"
+          "Value": "Mon, 31 Mar 2025 15:40:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12833,7 +12833,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 17:58:31 GMT"
+          "Value": "Mon, 31 Mar 2025 15:40:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12878,7 +12878,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 17:58:31 GMT"
+          "Value": "Mon, 31 Mar 2025 15:40:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12915,7 +12915,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 17:58:31 GMT"
+          "Value": "Mon, 31 Mar 2025 15:40:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13258,7 +13258,7 @@
       ]
     },
     {
-      "Route": "script.3r8b2a0bt1.js",
+      "Route": "script.iu4zo91m4c.js",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -13268,7 +13268,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3"
+          "Value": "972"
         },
         {
           "Name": "Content-Type",
@@ -13276,11 +13276,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
+          "Value": "\"tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 17:26:12 GMT"
+          "Value": "Mon, 31 Mar 2025 10:52:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13290,7 +13290,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3r8b2a0bt1"
+          "Value": "iu4zo91m4c"
         },
         {
           "Name": "label",
@@ -13298,7 +13298,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
+          "Value": "sha256-tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0="
         }
       ]
     },
@@ -13313,7 +13313,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3"
+          "Value": "972"
         },
         {
           "Name": "Content-Type",
@@ -13321,11 +13321,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
+          "Value": "\"tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 30 Mar 2025 17:26:12 GMT"
+          "Value": "Mon, 31 Mar 2025 10:52:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13335,7 +13335,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
+          "Value": "sha256-tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0="
         }
       ]
     }

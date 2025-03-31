@@ -22,7 +22,8 @@ namespace GestorDocumental.Data.Repositories
 
             List<Carpeta> carpetas = await context.Carpeta.Where(c => c.Curso == codigoCurso).ToListAsync();
 
-            List<Archivo> archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso).ToListAsync();
+            List<Archivo> archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso &&
+                a.CodigoCarpeta == null).ToListAsync();
 
             foreach (Archivo archivo in archivosSinCarpeta)
             {

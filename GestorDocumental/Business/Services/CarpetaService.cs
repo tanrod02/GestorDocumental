@@ -23,5 +23,20 @@ namespace GestorDocumental.Business.Services
             return await _carpetaRepository.CrearCarpeta(carpeta);
         }
 
+        public async Task EliminarCarpeta(Carpeta Carpeta)
+        {
+            await _carpetaRepository.EliminarCarpeta(Carpeta);
+        }
+
+        public async Task<Carpeta> ObtenerCarpeta(int CodigoCarpeta)
+        {
+            return await _carpetaRepository.ObtenerCarpeta(CodigoCarpeta);
+        }
+
+        public async Task ModificarCarpeta(Carpeta Carpeta)
+        {
+            await _carpetaRepository.ModificarCarpeta(Carpeta);
+        }
+
     }
 }

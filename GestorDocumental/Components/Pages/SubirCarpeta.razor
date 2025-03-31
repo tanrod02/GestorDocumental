@@ -39,11 +39,10 @@
 
             <div>
                 <label>Selecciona una carpeta:</label>
-              
-
-
-
+                <RadzenButton Text="Seleccionar Carpeta" Click="AbrirSelectorCarpeta" />
+                <p>@carpetaNueva.Path</p> 
             </div>
+
 
             <div>
                 <label>Grupo:</label>
@@ -52,12 +51,12 @@
 
             <div class="botones" style="display: flex; justify-content: space-between;">
                 <RadzenButton Text="Guardar"
-                              Click="ConfirmarSubida"
-                              ButtonStyle="ButtonStyle.Primary" />
+                Click="ConfirmarSubida"
+                ButtonStyle="ButtonStyle.Primary" />
 
                 <RadzenButton Text="Cancelar"
-                              ButtonStyle="ButtonStyle.Secondary"
-                              Click="CancelarSubida" />
+                ButtonStyle="ButtonStyle.Secondary"
+                Click="CancelarSubida" />
             </div>
         }
 
@@ -84,6 +83,24 @@
         StateHasChanged();
     }
 
+    private async Task AbrirSelectorCarpeta()
+    {
+        var result = await JS.InvokeAsync<FolderResult>("abrirSelectorCarpeta");
+
+        if (result != null)
+        {
+            carpetaNueva.Descripcion = result.NombreCarpeta; 
+            archivos = result.Archivos.Select(a => new Archivo
+                {
+                    NombreArchivo = a.Nombre,
+                    Tipo = a.Tipo,
+                    Contenido = a.Contenido.ToArray(),
+                    Tamaño = a.Tamaño,
+                    FechaAlta = DateTime.Now,
+                    Visible = true
+                }).ToList();
+        }
+    }
 
 
 
@@ -106,11 +123,25 @@
             DialogService.Close(true);
         }
         else{
+            carpetaNueva.Path = DescripcionCurso + "/" + carpetaNueva.Descripcion;
+            carpetaNueva.Subida = DateTime.Now;
+            carpetaNueva.Propietario = CodigoUsuario;
+            carpetaNueva.Curso = CodigoCurso;
+            int codigoCarpeta = await CarpetaService.CrearCarpeta(carpetaNueva);
 
+
+            foreach(Archivo archivo in archivos){
+                archivo.Curso = CodigoCurso;
+                archivo.Propietario = CodigoUsuario;
+                archivo.CodigoCarpeta = codigoCarpeta;
+                archivo.Grupo = carpetaNueva.Grupo;
+            }
+            await ArchivoService.GuardarListaArchivoAsync(archivos);
+            DialogService.Close(true);
         }
 
 
-        DialogService.Close(true);
+        DialogService.Close(false);
     }
 
     private void CancelarSubida()
@@ -118,6 +149,19 @@
         DialogService.Close(false);
     }
 
-  
+    public class FolderResult
+    {
+        public string NombreCarpeta { get; set; }
+        public List<FileResult> Archivos { get; set; }
+    }
+
+
+    public class FileResult
+    {
+        public string Nombre { get; set; }
+        public string Tipo { get; set; }
+        public List<byte> Contenido { get; set; }
+        public int Tamaño { get; set; }
+    }
 
 }

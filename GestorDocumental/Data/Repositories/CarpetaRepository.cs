@@ -48,5 +48,51 @@ namespace GestorDocumental.Data.Repositories
                 throw;
             }
         }
+
+        public async Task EliminarCarpeta(Carpeta Carpeta)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                context.Carpeta.Remove(Carpeta);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar carpeta: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<Carpeta> ObtenerCarpeta(int CodigoCarpeta)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                return await context.Carpeta.FindAsync(CodigoCarpeta);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener carpeta: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task ModificarCarpeta(Carpeta Carpeta)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                context.Carpeta.Update(Carpeta);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al modificar carpeta: {ex.Message}");
+                throw;
+            }
+        }
     }
 }
