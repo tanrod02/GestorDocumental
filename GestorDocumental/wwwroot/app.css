@@ -236,3 +236,11 @@
 }
 
 
+.content-expanded {
+    margin-right: 250px; /* Espacio reservado para la sidebar expandida */
+}
+
+.content-collapsed {
+    margin-right: 0; /* Sidebar contraída, ocupa todo el ancho */
+    width: 100%; /* El contenido se ajusta para ocupar todo el espacio disponible */
+}

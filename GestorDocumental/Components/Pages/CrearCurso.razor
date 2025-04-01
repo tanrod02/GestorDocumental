@@ -56,7 +56,7 @@
     private async Task ConfirmarSubida()
     {
         nuevoCurso.Descripcion = nombreCurso;
-        nuevoCurso.CodigoGrupo = nombreGrupo;
+        nuevoCurso.Grupo = nombreGrupo;
 
         await CursoService.AgregarCursoAsync(nuevoCurso);
 

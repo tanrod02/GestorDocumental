@@ -387,6 +387,13 @@ C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\obj\Debug\net8
 C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\obj\Debug\net8.0\ref\GestorDocumental.dll
 C:\Users\tania\OneDrive\Desktop\GestorDocumental\GestorDocumental\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.csproj.AssemblyReference.cache
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.AssemblyInfoInputs.cache
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.AssemblyInfo.cs
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.csproj.CoreCompileInputs.cache
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.sourcelink.json
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\Debug\net8.0\appsettings.json
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\Debug\net8.0\GestorDocumental.staticwebassets.runtime.json
@@ -495,13 +502,6 @@ C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.csproj.AssemblyReference.cache
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.AssemblyInfoInputs.cache
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.AssemblyInfo.cs
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.csproj.CoreCompileInputs.cache
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.sourcelink.json
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\scopedcss\bundle\GestorDocumental.styles.css

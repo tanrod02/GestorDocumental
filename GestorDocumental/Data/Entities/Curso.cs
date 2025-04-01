@@ -7,6 +7,6 @@ namespace GestorDocumental.Data.Entities
         [Key]
         public int CodigoCurso { get; set; }
         public string Descripcion { get; set; }
-        public string CodigoGrupo { get; set; }
+        public string Grupo { get; set; }
     }
 }

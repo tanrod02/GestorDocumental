@@ -1,0 +1,39 @@
+﻿@using Radzen
+@using Radzen.Blazor
+@rendermode InteractiveServer
+
+<RadzenSidebar @bind-Expanded="IsExpanded" Position="SidebarPosition.Right">
+    <RadzenCard>
+        <RadzenStack Orientation="Orientation.Vertical" Gap="1rem">
+            <RadzenText TextStyle="TextStyle.H6">Buscar y Filtrar</RadzenText>
+
+            <!-- Barra de Búsqueda -->
+            <RadzenTextBox @bind-Value="Busqueda" Placeholder="Buscar..." />
+            <RadzenButton Text="Buscar" Icon="search" Style="width:100%" />
+
+            <!-- Filtros -->
+            <RadzenCheckBox @bind-Value="FiltroPorFecha" /> Fecha
+            <RadzenCheckBox @bind-Value="FiltroMasVistos" /> Más vistos
+            <RadzenListBox @bind-Value="EtiquetaSeleccionada" Data="Etiquetas" Placeholder="Selecciona una etiqueta" />
+
+            <RadzenButton Text="Aplicar Filtros" Icon="filter_alt" ButtonStyle="ButtonStyle.Primary" Style="width:100%" />
+            <RadzenButton Text="Cerrar" Icon="close" ButtonStyle="ButtonStyle.Secondary" Style="width:100%" Click="CerrarSidebar" />
+        </RadzenStack>
+    </RadzenCard>
+</RadzenSidebar>
+
+@code {
+    [Parameter] public bool IsExpanded { get; set; }
+    [Parameter] public EventCallback<bool> IsExpandedChanged { get; set; }
+
+    private string Busqueda { get; set; } = "";
+    private bool FiltroPorFecha { get; set; } = false;
+    private bool FiltroMasVistos { get; set; } = false;
+    private string EtiquetaSeleccionada { get; set; } = "";
+    private List<string> Etiquetas { get; set; } = new() { "Trabajo", "Personal", "Importante" };
+
+    private async Task CerrarSidebar()
+    {
+        await IsExpandedChanged.InvokeAsync(false);
+    }
+}
