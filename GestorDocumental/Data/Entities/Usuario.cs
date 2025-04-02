@@ -23,7 +23,7 @@ namespace GestorDocumental.Data.Entities
         [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
         public string Contraseña { get; set; }
 
-        public string? Curso { get; set; }
+        public int? Curso { get; set; }
 
         public string? Grupo { get; set; }
 

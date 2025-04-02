@@ -236,11 +236,57 @@
 }
 
 
-.content-expanded {
-    margin-right: 250px; /* Espacio reservado para la sidebar expandida */
+/*Side bar filtros y busqueda */
+.search-filters-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(173, 216, 230, 0.8); /* Azul claro con transparencia */
 }
 
-.content-collapsed {
-    margin-right: 0; /* Sidebar contraída, ocupa todo el ancho */
-    width: 100%; /* El contenido se ajusta para ocupar todo el espacio disponible */
+.title {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex-grow: 1;
+    width: auto;
+}
+
+.search-button {
+    min-width: 40px;
+}
+
+.subtitle, .filter-subtitle {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-label {
+    flex-grow: 1;
+    color: black;
+}
+
+.tag-list {
+    width: 100%;
+    color: black;
 }

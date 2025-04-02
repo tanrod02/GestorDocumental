@@ -18,177 +18,9 @@
 @inject IEstadisticaService EstadisticaService
 @inject ICarpetaService CarpetaService
 
-<RadzenLayout Style="@ObtenerEstiloLayout()">
-    <!-- Header -->
+
+<RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
     <RadzenHeader>
-        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
-            <h1 class="header-title">Documentos</h1>
-            <RadzenProfileMenu>
-                <Template>
-                    @if (usuarioActual != null)
-                    {
-                        <span>Bienvenido, @usuarioActual.Nombre</span>
-                    }
-                </Template>
-                <ChildContent>
-                    <RadzenProfileMenuItem Text="Cerrar sesión" Path="" Icon="exit_to_app" @onclick="CerrarSesion"></RadzenProfileMenuItem>
-                </ChildContent>
-            </RadzenProfileMenu>
-        </div>
-    </RadzenHeader>
-
-    <!-- Sidebar -->
-    <RadzenSidebar @bind-Expanded="@sidebarExpanded">
-        <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@(value => sidebarExpanded = value)" />
-    </RadzenSidebar>
-
-    <!-- Body -->
-    <RadzenBody>
-        <div style="width: 100%; height: 100vh; transition: margin-right 0.3s;" class="@((sidebarExpanded) ? "content-expanded" : "content-collapsed")" @oncontextmenu="args => ShowContextMenuWithItems(args)">
-            <PageTitle>Documentos</PageTitle>
-            <div style="flex: 1; padding-right: 250px;">
-                <!-- Contenedor del encabezado -->
-                <button class="toggle-view-button" @onclick="ToggleSidebar">📌 Mostrar/Ocultar Filtros</button>
-                @if (CodigoCurso != 0)
-                {
-                    <div class="curso-toggle-container">
-                        <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
-                        <button class="toggle-view-button" @onclick="VerNoVisibles">📄 Ver archivos no visibles</button>
-                        <button class="toggle-view-button" @onclick="ToggleVista">@(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")</button>
-                    </div>
-                }
-
-                @if (CodigoCurso == 0)
-                {
-                    <p>Bienvenido. Selecciona el curso para ver los documentos.</p>
-                }
-                else if (carpetas == null || archivos == null)
-                {
-                    <p>Cargando archivos y carpetas...</p>
-                }
-                else if (elementos == null || !elementos.Any())
-                {
-                    <p>Este curso todavía no tiene documentos ni carpetas.</p>
-                }
-                else
-                {
-                    <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
-                        <div style="width: 100%; height: 100%;">
-                            @if (modoTarjetas)
-                            {
-                                <div class="tarjetas-container" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
-                                    @foreach (var item in elementos)
-                                    {
-                                        @if (item is Carpeta carpeta)
-                                        {
-                                            <RadzenCard class="rz-my-2 card-hover"
-                                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
-                                                <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                                    <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
-                                                    <RadzenText TextStyle="TextStyle.Body1">
-                                                        <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                           style="color: black; text-decoration: none; font-weight: bold;">
-                                                            @carpeta.Descripcion
-                                                        </a>
-                                                    </RadzenText>
-                                                </RadzenStack>
-                                            </RadzenCard>
-                                        }
-                                        else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
-                                        {
-                                            var cardClass = archivo.Visible ? "card-visible" : "card-invisible";
-                                            var opacityStyle = archivo.Visible ? "" : "opacity: 0.5;";
-                                            var combinedStyle = $"max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0; {opacityStyle}";
-                                            var classAttribute = $"rz-my-2 card-hover {cardClass}";
-
-                                            <RadzenCard class="@classAttribute"
-                                                        Style="@combinedStyle"
-                                                        @ondblclick="() => VerContenidoArchivo(archivo)"
-                                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
-                                                <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                                    <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
-                                                    <RadzenText TextStyle="TextStyle.Body1">
-                                                        <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
-                                                           style="color: black; text-decoration: none; font-weight: bold;">
-                                                            @archivo.NombreArchivo
-                                                        </a>
-                                                    </RadzenText>
-
-                                                    @if (!archivo.Visible)
-                                                    {
-                                                        <RadzenText TextStyle="TextStyle.Body2" Color="Color.Danger">
-                                                            (No visible)
-                                                        </RadzenText>
-                                                    }
-                                                </RadzenStack>
-                                            </RadzenCard>
-                                        }
-                                    }
-                                </div>
-                            }
-                            else
-                            {
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Tipo</th>
-                                            <th>Fecha Alta</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in elementos)
-                                        {
-                                            <tr>
-                                                @if (item is Carpeta carpeta)
-                                                {
-                                                    <td>
-                                                        <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)">
-                                                            @carpeta.Descripcion
-                                                        </a>
-                                                    </td>
-                                                }
-                                                else if (item is Archivo archivo && archivo.Visible)
-                                                {
-                                                    <td>
-                                                        <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)">
-                                                            @archivo.NombreArchivo
-                                                        </a>
-                                                    </td>
-                                                    <td>@archivo.Tipo</td>
-                                                    <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
-                                                }
-                                            </tr>
-                                        }
-                                        }
-                                    </tbody>
-                                </table>
-                            }
-                        </div>
-                    </RadzenStack>
-                }
-
-                <!-- Botón flotante -->
-                @if (CodigoCurso != 0)
-                {
-                    <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
-                        📤 Subir Documento
-                    </button>
-                }
-            </div>
-        </div>
-    </RadzenBody>
-</RadzenLayout>
-
-@* 
-
-<!-- Contenedor de documentos -->
-<div style="width: 100%; height: 100vh; transition: margin-right 0.3s;" class="@((sidebarExpanded) ? "content-expanded" : "content-collapsed")" @oncontextmenu="args => ShowContextMenuWithItems(args)">
-    <PageTitle>Documentos</PageTitle>
-    <div style="flex: 1; padding-right: 250px;">
-            <!-- Contenedor del encabezado -->
         <div class="header-container">
             <h1 class="header-title">Documentos</h1>
             <div class="header-menu">
@@ -203,157 +35,116 @@
                         <RadzenProfileMenuItem Text="Cerrar sesión" Path="" Icon="exit_to_app" @onclick="CerrarSesion"></RadzenProfileMenuItem>
                     </ChildContent>
                 </RadzenProfileMenu>
+
             </div>
         </div>
+    </RadzenHeader>
 
-        <button class="toggle-view-button" @onclick="ToggleSidebar">📌 Mostrar/Ocultar Filtros</button>
-        @if (CodigoCurso != 0)
-        {
+    @if(CodigoCurso != 0){
+        <RadzenSidebar @bind-Expanded="@sidebarExpanded" Style="height: 100vh;">
+            <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@((value) => sidebarExpanded = value)" />
+        </RadzenSidebar>
+    }
+  
+    <RadzenBody Style="height: 100vh; overflow: auto;">
+        <div style="width: 100%; height: 100%;" @oncontextmenu="args => ShowContextMenuWithItems(args)">
+            <PageTitle>Documentos</PageTitle>
+
             <div class="curso-toggle-container">
-                <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
-                <button class="toggle-view-button" @onclick="VerNoVisibles">📄 Ver archivos no visibles</button>
-                <button class="toggle-view-button" @onclick="ToggleVista">@(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")</button>
-                
+
+                @if (CodigoCurso != 0)
+                {
+                    <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
+                    <button class="toggle-view-button" @onclick="VerNoVisibles">
+                        📄 Ver archivos no visibles
+                    </button>
+                    <button class="toggle-view-button" @onclick="ToggleVista">
+                        @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
+                    </button>
+                    <RadzenSidebarToggle Click="@(() => sidebarExpanded = !sidebarExpanded)" class="rz-m-0" Style="margin-left: 1rem;" />
+                }
+
+
             </div>
-        }
-        
-        @if (CodigoCurso == 0)
-        {
-            <p>Bienvenido. Selecciona el curso para ver los documentos.</p>
-        }
-        else if (carpetas == null || archivos == null)
-        {
-            <p>Cargando archivos y carpetas...</p>
-        }
-        else if (elementos == null || !elementos.Any())
-        {
-            <p>Este curso todavía no tiene documentos ni carpetas.</p>
-        }
-        else
-        {
-            <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
-                <div style="width: 100%; height: 100%;">
-                    @if (modoTarjetas)
-                    {
-                        <div class="tarjetas-container" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
-                            @foreach (var item in elementos)
-                            {
-                                @if (item is Carpeta carpeta)
-                                {
-                                    <RadzenCard class="rz-my-2 card-hover"
-                                                Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                                @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
-                                        <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                            <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
-                                            <RadzenText TextStyle="TextStyle.Body1">
-                                                <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
-                                                    @carpeta.Descripcion
-                                                </a>
-                                            </RadzenText>
-                                        </RadzenStack>
-                                    </RadzenCard>
-                                }
-                                else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
-                                {
-                                    // Establecer la clase dependiendo de si es visible o no
-                                    var cardClass = archivo.Visible ? "card-visible" : "card-invisible";
 
-                                    // Estilo de opacidad dinámico
-                                    var opacityStyle = archivo.Visible ? "" : "opacity: 0.5;";
 
-                                    // Concatenamos los estilos fijos con el estilo dinámico
-                                    var combinedStyle = $"max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0; {opacityStyle}";
-
-                                    // Crear el atributo de clase combinado
-                                    var classAttribute = $"rz-my-2 card-hover {cardClass}";
-
-                                    <RadzenCard class="@classAttribute"
-                                                Style="@combinedStyle"
-                                                @ondblclick="() => VerContenidoArchivo(archivo)"
-                                                @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
-                                        <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                            <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
-                                            <RadzenText TextStyle="TextStyle.Body1">
-                                                <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
-                                                    @archivo.NombreArchivo
-                                                </a>
-                                            </RadzenText>
-
-                                            @if (!archivo.Visible)
-                                            {
-                                                <RadzenText TextStyle="TextStyle.Body2" Color="Color.Danger">
-                                                    (No visible)
-                                                </RadzenText>
-                                            }
-                                        </RadzenStack>
-                                    </RadzenCard>
-                                }
-                            }
-                        </div>
-                    }
-                    else
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Tipo</th>
-                                    <th>Fecha Alta</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+            @if (CodigoCurso == 0)
+            {
+                <p>Bienvenido. Selecciona el curso para ver los documentos.</p>
+            }
+            else if (carpetas == null || archivos == null)
+            {
+                <p>Cargando archivos y carpetas...</p>
+            }
+            else if (elementos == null || !elementos.Any())
+            {
+                <p>Este curso todavía no tiene documentos ni carpetas.</p>
+            }
+            else
+            {
+                <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
+                    <div style="width: 100%; height: 100%;">
+                        @if (modoTarjetas)
+                        {
+                            <div class="tarjetas-container" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
                                 @foreach (var item in elementos)
                                 {
-                                    <tr>
-                                        @if (item is Carpeta carpeta)
-                                        {
-                                            <td>
-                                                <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)">
-                                                    @carpeta.Descripcion
-                                                </a>
-                                            </td>
-                                        }
-                                        else if (item is Archivo archivo && archivo.Visible)
-                                        {
-                                            <td>
-                                                <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)">
-                                                    @archivo.NombreArchivo
-                                                </a>
-                                            </td>
-                                            <td>@archivo.Tipo</td>
-                                            <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
-                                        }
-                                    </tr>
+                                    @if (item is Carpeta carpeta)
+                                    {
+                                        <RadzenCard class="rz-my-2 card-hover"
+                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
+                                            <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
+                                                <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
+                                                <RadzenText TextStyle="TextStyle.Body1">
+                                                    <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                                    style="color: black; text-decoration: none; font-weight: bold;">
+                                                        @carpeta.Descripcion
+                                                    </a>
+                                                </RadzenText>
+                                            </RadzenStack>
+                                        </RadzenCard>
+                                    }
+                                    else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
+                                    {
+                                        <RadzenCard class="rz-my-2 card-hover"
+                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        @ondblclick="() => VerContenidoArchivo(archivo)"
+                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
+                                            <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
+                                                <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
+                                                <RadzenText TextStyle="TextStyle.Body1">
+                                                    <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)" 
+                                                    style="color: black; text-decoration: none; font-weight: bold;">
+                                                        @archivo.NombreArchivo
+                                                    </a>
+                                                </RadzenText>
+                                                @if (!archivo.Visible)
+                                                {
+                                                    <RadzenText TextStyle="TextStyle.Body2" Color="Color.Danger">
+                                                        (No visible)
+                                                    </RadzenText>
+                                                }
+                                            </RadzenStack>
+                                        </RadzenCard>
+                                    }
                                 }
-                            </tbody>
-                        </table>
-                    }
-                </div>
-            </RadzenStack>
-        }
+                            </div>
+                        }
+                    </div>
+                </RadzenStack>
+            }
 
-        <!-- Botón flotante -->
-        @if (CodigoCurso != 0)
-        {
-            <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
-                📤 Subir Documento
-            </button>
-        }
-    </div>
-    <!-- Sidebar -->
-    <RadzenSidebar Style="grid-area: rz-sidebar; height: 100vh; position: fixed; right: 0;" @bind-Expanded="@sidebarExpanded">
-        <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@(value => sidebarExpanded = value)" />
-    </RadzenSidebar>
-</div>
- *@
-
-    
- 
-
-
+            @if (CodigoCurso != 0)
+            {
+                <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
+                    📤 Subir Documento
+                </button>
+            }
+        </div>
+    </RadzenBody>
+</RadzenLayout>
 
 
 
@@ -380,20 +171,7 @@
     private bool clickArchivo = false;
     private bool mostrarNoVisibles = false;
 
-    private bool sidebarExpanded = false;
-
-    private void ToggleSidebar()
-    {
-        sidebarExpanded = !sidebarExpanded;
-    }
-
-    private string ObtenerEstiloLayout()
-    {
-        return sidebarExpanded
-            ? "grid-template-columns: 1fr 250px; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar';"
-            : "grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar';";
-    }
-    
+    bool sidebarExpanded = true;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -636,7 +414,6 @@
         modalAbiertoFecha = true;
         var resultado = await DialogService.OpenAsync<ModificarFechaArchivo>("Modificar Fecha", new Dictionary<string, object>
         {
-            { "CodigoCurso", CodigoCurso },
             { "CodigoUsuario", usuarioActual.CodigoUsuario },
             { "CodigoArchivo", archivo.CodigoArchivo}
         }, new DialogOptions { Width = "600px", Height = "auto" });

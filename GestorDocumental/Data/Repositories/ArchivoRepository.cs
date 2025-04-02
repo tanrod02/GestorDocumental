@@ -218,5 +218,22 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+        public async Task<List<Archivo>> BuscarArchivos(string Palabra, int CodigoUsuario)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                
+                return await context.Archivos.Where(a => a.NombreArchivo.Contains(Palabra) && a.Curso == CodigoUsuario).ToListAsync();
+
+                 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener infor del archivo: {ex.Message}");
+                throw;
+            }
+        }
+
     }
 }

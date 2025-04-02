@@ -61,5 +61,10 @@ namespace GestorDocumental.Business.Services
         {
             await _archivoRepository.GuardarListaArchivoAsync(archivos);
         }
+
+        public async Task<List<Archivo>> BuscarArchivos(string Palabra, int CodigoUsuario)
+        {
+            return await _archivoRepository.BuscarArchivos( Palabra, CodigoUsuario);
+        }
     }
 }

@@ -88,6 +88,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZW5vbWJyYXJDYXJwZXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/ResultadoBusquedaDocumentos.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZXN1bHRhZG9CdXNxdWVkYURvY3VtZW50b3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tania/OneDrive/Desktop/TFG INFOR/GestorDocumental/GestorDocumental/Components/Pages/SubirArchivo.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdWJpckFyY2hpdm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

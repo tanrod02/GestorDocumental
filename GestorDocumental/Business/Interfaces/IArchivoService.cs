@@ -13,7 +13,8 @@ namespace GestorDocumental.Business.Interfaces
         Task EliminarArchivo(int CodigoArchivo);
         Task<EstadisticasArchivo> ObtenerEstadisticasArchivo(int CodigoArchivo);
         Task<string> ObtenerInfoPropietario(int CodigoArchivo);
-        Task GuardarListaArchivoAsync(List<Archivo> archivos);
+        Task GuardarListaArchivoAsync(List<Archivo> Archivos);
+        Task<List<Archivo>> BuscarArchivos(string Palabra, int CodigoUsuario);
     }
 
 }

@@ -258,7 +258,6 @@
         modalAbiertoFecha = true;
         var resultado = await DialogService.OpenAsync<ModificarFechaArchivo>("Modificar Fecha", new Dictionary<string, object>
         {
-            { "CodigoCurso", archivo.Curso },
             { "CodigoUsuario", usuarioActual.CodigoUsuario },
             { "CodigoArchivo", archivo.CodigoArchivo}
         }, new DialogOptions { Width = "600px", Height = "auto" });
