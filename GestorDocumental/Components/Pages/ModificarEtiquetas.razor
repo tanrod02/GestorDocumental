@@ -35,7 +35,6 @@
             }
         </div>
 
-        <!-- Campo de entrada para AÑADIR NUEVAS etiquetas -->
         <div>
             <label><b>Añadir nueva etiqueta:</b></label>
             <div style="display: flex; gap: 10px;">
@@ -46,7 +45,6 @@
                                     Style="flex-grow: 1;"
                                     AllowClear="true" />
 
-                <!-- Botón siempre habilitado, sólo se deshabilita si el valor es vacío -->
                 <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Click="AñadirEtiqueta" Disabled="@string.IsNullOrWhiteSpace(etiquetaSeleccionada)" />
             </div>
         </div>
@@ -102,7 +100,6 @@
                 archivoActual = await ArchivoService.ObtenerInfoArchivo(CodigoArchivo);
                 etiquetas = await EtiquetasService.ObtenerEtiquetas();
 
-                // Cargar etiquetas actuales del archivo
                 var etiquetasArchivo = await EtiquetasService.ObtenerEtiquetasArchivo(CodigoArchivo);
                 etiquetasSeleccionadas = etiquetasArchivo.Select(e => e.DescripcionEtiqueta).ToList();
             }

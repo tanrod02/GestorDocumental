@@ -16,12 +16,12 @@ var builder = WebApplication.CreateBuilder(args);
 //limite de tamaño de los archivos 
 builder.Services.Configure<IISServerOptions>(options =>
 {
-    options.MaxRequestBodySize = 50 * 1024 * 1024; ; // 2 GB
+    options.MaxRequestBodySize = 50 * 1024 * 1024;
 });
 
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 50 * 1024 * 1024; ; // 2 GB
+    options.MultipartBodyLengthLimit = 50 * 1024 * 1024; 
 });
 
 builder.Services.AddSignalR(e => {

@@ -19,7 +19,7 @@
         <!-- Campo para el nuevo nombre de archivo -->
         <div>
             <label><b>Nuevo nombre de archivo:</b></label>
-            <RadzenTextBox @bind-Value="nuevoNombre" Style="width: 100%;" />
+            <RadzenTextBox @bind-Value="archivoActual.NombreArchivo" Style="width: 100%;" />
         </div>
 
         <!-- Botones de acción -->
@@ -36,11 +36,9 @@
 </RadzenCard>
 
 @code {
-    RadzenUpload radzenUpload;
 
     [Parameter] public int CodigoArchivo { get; set; }
 
-    private string nuevoNombre;
     private Archivo archivoActual = new Archivo();
 
     protected override async Task OnParametersSetAsync()
@@ -67,7 +65,6 @@
     private async void ModificarNombreArchivo()
     {
         
-        archivoActual.NombreArchivo = nuevoNombre;
         
         await ArchivoService.ModificarArchivo(archivoActual);
 

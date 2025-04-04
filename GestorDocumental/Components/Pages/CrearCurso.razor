@@ -12,12 +12,12 @@
     <div style="display: flex; flex-direction: column; gap: 15px;">
         <div>
             <label>Nombre del curso:</label>
-            <RadzenTextBox @bind-Value="nombreCurso" Placeholder="Grupo" Style="width: 100%;" />
+            <RadzenTextBox @bind-Value="nuevoCurso.Descripcion" Placeholder="Nombre curso" Style="width: 100%;" />
         </div>
 
         <div>
             <label>Grupo:</label>
-            <RadzenTextBox @bind-Value="nombreGrupo" Placeholder="Grupo" Style="width: 100%;" />
+            <RadzenTextBox @bind-Value="nuevoCurso.Grupo" Placeholder="Grupo" Style="width: 100%;" />
         </div>
 
         <div class="botones" style="display: flex; justify-content: space-between;">
@@ -39,24 +39,14 @@
     [Parameter] public int CodigoUsuario { get; set; }
 
     private Curso nuevoCurso = new() { };
-    private string nombreCurso;
-    private string nombreGrupo;
 
     private void OnProgress(UploadProgressArgs args)
     {
         StateHasChanged();
     }
 
-    private void CancelarArchivo()
-    {
-        nuevoCurso = new Curso();
-        StateHasChanged();
-    }
-
     private async Task ConfirmarSubida()
     {
-        nuevoCurso.Descripcion = nombreCurso;
-        nuevoCurso.Grupo = nombreGrupo;
 
         await CursoService.AgregarCursoAsync(nuevoCurso);
 

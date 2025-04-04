@@ -3,8 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\modificaretiquetas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\modificaretiquetas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\modificarfechaarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\modificarfechaarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\mostrarestadisticasarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\mostrarestadisticasarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\renombrararchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\renombrararchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\renombrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\renombrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\mostrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\mostrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\repositories\\etiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\etiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\interfaces\\ietiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\ietiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\business\\services\\etiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\etiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\business\\interfaces\\ietiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\ietiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\wwwroot\\scripts\\verdocumento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\scripts\\verdocumento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\wwwroot\\scripts\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\scripts\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\crearcurso.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\crearcurso.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\layout\\navbusquedafiltros.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -13,14 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\resultadobusquedadocumentos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\resultadobusquedadocumentos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\modificaretiquetas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\modificaretiquetas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\modificarfechaarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\modificarfechaarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,15 +111,7 @@
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\iarchivoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\mostrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\mostrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tania\\AppData\\Local\\Temp\\9de9584c-7e54-4bb8-9ebb-7c800bbf2095_version anterior.zip.095\\Components\\Pages\\Home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -60,14 +120,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\crearcurso.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\crearcurso.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\entities\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,40 +146,8 @@
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\icarpetaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\renombrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\renombrarcarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\renombrararchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\renombrararchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\repositories\\etiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\etiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\business\\services\\etiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\etiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\entities\\etiqueta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\etiqueta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\business\\interfaces\\ietiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\ietiquetasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\interfaces\\ietiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\ietiquetasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\gestordocumentaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -136,14 +156,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\entities\\carpeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\carpeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\tania\\onedrive\\desktop\\tfg infor\\gestordocumental\\gestordocumental\\data\\repositories\\estadisticarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -189,17 +201,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAP4BAAAAAAAAAAAAAC8AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAHcBAAAAAAAAAAAAAKMBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-24T20:08:29.704Z",
               "IsPinned": true,
@@ -207,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 21,
               "Title": "ResultadoBusquedaDocumentos.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ResultadoBusquedaDocumentos.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ResultadoBusquedaDocumentos.razor",
@@ -216,12 +228,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-02T11:48:19.16Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 20,
               "Title": "NavBusquedaFiltros.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavBusquedaFiltros.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavBusquedaFiltros.razor",
@@ -230,24 +241,240 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-01T17:21:56.192Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
+              "Title": "SubirArchivo.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\SubirArchivo.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
+              "RelativeToolTip": "Components\\Pages\\SubirArchivo.razor",
+              "ViewState": "AgIAAIQAAAAAAAAAAAArwJEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T15:02:01.227Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ModificarEtiquetas.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarEtiquetas.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ModificarEtiquetas.razor",
               "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarEtiquetas.razor",
               "RelativeToolTip": "Components\\Pages\\ModificarEtiquetas.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T14:35:55.009Z"
+              "WhenOpened": "2025-04-02T14:35:55.009Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "MostrarEstadisticasArchivo.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarEstadisticasArchivo.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\MostrarEstadisticasArchivo.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarEstadisticasArchivo.razor",
+              "RelativeToolTip": "Components\\Pages\\MostrarEstadisticasArchivo.razor",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T19:02:18.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ModificarFechaArchivo.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarFechaArchivo.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\ModificarFechaArchivo.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarFechaArchivo.razor",
+              "RelativeToolTip": "Components\\Pages\\ModificarFechaArchivo.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T11:38:21.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RenombrarArchivo.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarArchivo.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\RenombrarArchivo.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarArchivo.razor",
+              "RelativeToolTip": "Components\\Pages\\RenombrarArchivo.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T15:54:50.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RenombrarCarpeta.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarCarpeta.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\RenombrarCarpeta.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarCarpeta.razor",
+              "RelativeToolTip": "Components\\Pages\\RenombrarCarpeta.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T15:54:48.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MostrarCarpeta.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarCarpeta.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\MostrarCarpeta.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarCarpeta.razor",
+              "RelativeToolTip": "Components\\Pages\\MostrarCarpeta.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T11:43:22.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EtiquetasRepository.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EtiquetasRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repositories\\EtiquetasRepository.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EtiquetasRepository.cs",
+              "RelativeToolTip": "Data\\Repositories\\EtiquetasRepository.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAwwIAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T11:19:08.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IEtiquetasRepository.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEtiquetasRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\IEtiquetasRepository.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEtiquetasRepository.cs",
+              "RelativeToolTip": "Data\\Interfaces\\IEtiquetasRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T11:18:54.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EtiquetasService.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\EtiquetasService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\EtiquetasService.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\EtiquetasService.cs",
+              "RelativeToolTip": "Business\\Services\\EtiquetasService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAjwCkAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T11:18:30.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IEtiquetasService.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEtiquetasService.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\IEtiquetasService.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEtiquetasService.cs",
+              "RelativeToolTip": "Business\\Interfaces\\IEtiquetasService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T11:18:18.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "verDocumento.js",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
+              "RelativeDocumentMoniker": "wwwroot\\scripts\\verDocumento.js",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
+              "RelativeToolTip": "wwwroot\\scripts\\verDocumento.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-03T15:16:10.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CrearCurso.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\CrearCurso.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\CrearCurso.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\CrearCurso.razor",
+              "RelativeToolTip": "Components\\Pages\\CrearCurso.razor",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T14:05:38.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T10:28:17.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "script.js",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\script.js",
+              "RelativeDocumentMoniker": "wwwroot\\scripts\\script.js",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\script.js",
+              "RelativeToolTip": "wwwroot\\scripts\\script.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-25T12:04:51.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\app.css",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
+              "RelativeToolTip": "wwwroot\\app.css",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAkwDgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-25T10:42:16.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T11:38:23.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Archivo.cs",
+              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\Archivo.cs",
+              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
+              "RelativeToolTip": "Data\\Entities\\Archivo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T19:07:00.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "ArchivoRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\ArchivoRepository.cs",
@@ -259,31 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ModificarFechaArchivo.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarFechaArchivo.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\ModificarFechaArchivo.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarFechaArchivo.razor",
-              "RelativeToolTip": "Components\\Pages\\ModificarFechaArchivo.razor",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-30T11:38:21.433Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MostrarCarpeta.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarCarpeta.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\MostrarCarpeta.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarCarpeta.razor",
-              "RelativeToolTip": "Components\\Pages\\MostrarCarpeta.razor",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAQwAMBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-25T11:43:22.407Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 23,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Usuario.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Usuario.cs",
@@ -295,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 24,
               "Title": "IArchivoRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IArchivoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IArchivoRepository.cs",
@@ -307,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 27,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\tania\\AppData\\Local\\Temp\\9de9584c-7e54-4bb8-9ebb-7c800bbf2095_version anterior.zip.095\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\9de9584c-7e54-4bb8-9ebb-7c800bbf2095_version anterior.zip.095\\Components\\Pages\\Home.razor",
@@ -320,19 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "app.css",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
-              "RelativeDocumentMoniker": "wwwroot\\app.css",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
-              "RelativeToolTip": "wwwroot\\app.css",
-              "ViewState": "AgIAAAQBAAAAAAAAAAAIwCMBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-25T10:42:16.075Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 26,
               "Title": "IArchivoService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IArchivoService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IArchivoService.cs",
@@ -344,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 25,
               "Title": "ArchivoService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\ArchivoService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\ArchivoService.cs",
@@ -356,19 +547,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEQAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-25T18:55:09.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 30,
               "Title": "Curso.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Curso.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Curso.cs",
@@ -380,19 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CrearCurso.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\CrearCurso.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\CrearCurso.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\CrearCurso.razor",
-              "RelativeToolTip": "Components\\Pages\\CrearCurso.razor",
-              "ViewState": "AgIAACoAAAAAAAAAAAApwDoAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-01T14:05:38.826Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 33,
               "Title": "CarpetaService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\CarpetaService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\CarpetaService.cs",
@@ -404,7 +583,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 28,
               "Title": "MainLayout.razor.css",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor.css",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor.css",
@@ -416,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 29,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
@@ -428,7 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 31,
               "Title": "CarpetaRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CarpetaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\CarpetaRepository.cs",
@@ -440,7 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 32,
               "Title": "ICarpetaRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\ICarpetaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\ICarpetaRepository.cs",
@@ -452,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 34,
               "Title": "CursoService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\CursoService.cs",
@@ -464,19 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "RenombrarCarpeta.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarCarpeta.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\RenombrarCarpeta.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarCarpeta.razor",
-              "RelativeToolTip": "Components\\Pages\\RenombrarCarpeta.razor",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T15:54:48.497Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 35,
               "Title": "ICarpetaService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICarpetaService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\ICarpetaService.cs",
@@ -488,67 +655,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "RenombrarArchivo.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarArchivo.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\RenombrarArchivo.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarArchivo.razor",
-              "RelativeToolTip": "Components\\Pages\\RenombrarArchivo.razor",
-              "ViewState": "AgIAADQAAAAAAAAAAAAgwFIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T15:54:50.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "EtiquetasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EtiquetasRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\EtiquetasRepository.cs",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EtiquetasRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\EtiquetasRepository.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAArwHQAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T11:19:08.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "SubirArchivo.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\SubirArchivo.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
-              "RelativeToolTip": "Components\\Pages\\SubirArchivo.razor",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T15:02:01.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "EtiquetasService.cs",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\EtiquetasService.cs",
-              "RelativeDocumentMoniker": "Business\\Services\\EtiquetasService.cs",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\EtiquetasService.cs",
-              "RelativeToolTip": "Business\\Services\\EtiquetasService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAjwCQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T11:18:30.459Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAD8AAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:38:23.579Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 36,
               "Title": "Etiqueta.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Etiqueta.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Etiqueta.cs",
@@ -560,31 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "IEtiquetasService.cs",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEtiquetasService.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\IEtiquetasService.cs",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEtiquetasService.cs",
-              "RelativeToolTip": "Business\\Interfaces\\IEtiquetasService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T11:18:18.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "IEtiquetasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEtiquetasRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\IEtiquetasRepository.cs",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEtiquetasRepository.cs",
-              "RelativeToolTip": "Data\\Interfaces\\IEtiquetasRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T11:18:54.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "GestorDocumentalDbContext.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\GestorDocumentalDbContext.cs",
               "RelativeDocumentMoniker": "Data\\GestorDocumentalDbContext.cs",
@@ -596,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "Carpeta.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Carpeta.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Carpeta.cs",
@@ -608,31 +691,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "script.js",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
-              "RelativeDocumentMoniker": "wwwroot\\script.js",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
-              "RelativeToolTip": "wwwroot\\script.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-25T12:04:51.364Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Components\\App.razor",
-              "ToolTip": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
-              "RelativeToolTip": "Components\\App.razor",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T10:28:17.485Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "EstadisticaRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EstadisticaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\EstadisticaRepository.cs",
@@ -644,7 +703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "MenuArchivos.razor",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MenuArchivos.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\MenuArchivos.razor",
@@ -656,7 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "ArchivoEtiqueta.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\ArchivoEtiqueta.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\ArchivoEtiqueta.cs",
@@ -668,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "EstadisticasArchivo.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Entities\\EstadisticasArchivo.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\EstadisticasArchivo.cs",
@@ -680,7 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "CursoRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\CursoRepository.cs",
@@ -692,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "ICursoService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\ICursoService.cs",
@@ -704,7 +763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "IEstadisticaRepository.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEstadisticaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IEstadisticaRepository.cs",
@@ -716,7 +775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "IEstadisticaService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEstadisticaService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IEstadisticaService.cs",
@@ -728,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "EstadisticaService.cs",
               "DocumentMoniker": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\Business\\Services\\EstadisticaService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\EstadisticaService.cs",

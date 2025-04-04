@@ -17,6 +17,7 @@
 @inject Radzen.DialogService DialogService
 @inject IEstadisticaService EstadisticaService
 @inject ICarpetaService CarpetaService
+@inject IEtiquetasService EtiquetasService
 
 
 <RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
@@ -45,10 +46,17 @@
             <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@((value) => sidebarExpanded = value)" />
         </RadzenSidebar>
     }
-  
+
     <RadzenBody Style="height: 100vh; overflow: auto;">
         <div style="width: 100%; height: 100%;" @oncontextmenu="args => ShowContextMenuWithItems(args)">
             <PageTitle>Documentos</PageTitle>
+
+            @if (CodigoCurso != 0)
+            {
+                <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
+                    📤 Subir Documento
+                </button>
+            }
 
             <div class="curso-toggle-container">
 
@@ -58,9 +66,9 @@
                     <button class="toggle-view-button" @onclick="VerNoVisibles">
                         📄 Ver archivos no visibles
                     </button>
-                    <button class="toggle-view-button" @onclick="ToggleVista">
-                        @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
-                    </button>
+
+
+
                     <RadzenSidebarToggle Click="@(() => sidebarExpanded = !sidebarExpanded)" class="rz-m-0" Style="margin-left: 1rem;" />
                 }
 
@@ -84,65 +92,61 @@
             {
                 <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
                     <div style="width: 100%; height: 100%;">
-                        @if (modoTarjetas)
-                        {
-                            <div class="tarjetas-container" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
-                                @foreach (var item in elementos)
+
+                        <div class="tarjetas-container" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
+                            @foreach (var item in elementos)
+                            {
+                                @if (item is Carpeta carpeta)
                                 {
-                                    @if (item is Carpeta carpeta)
-                                    {
-                                        <RadzenCard class="rz-my-2 card-hover"
-                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
-                                            <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                                <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
-                                                <RadzenText TextStyle="TextStyle.Body1">
-                                                    <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
-                                                        @carpeta.Descripcion
-                                                    </a>
-                                                </RadzenText>
-                                            </RadzenStack>
-                                        </RadzenCard>
-                                    }
-                                    else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
-                                    {
-                                        <RadzenCard class="rz-my-2 card-hover"
-                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                        @ondblclick="() => VerContenidoArchivo(archivo)"
-                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
-                                            <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                                <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
-                                                <RadzenText TextStyle="TextStyle.Body1">
-                                                    <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)" 
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
-                                                        @archivo.NombreArchivo
-                                                    </a>
-                                                </RadzenText>
-                                                @if (!archivo.Visible)
-                                                {
-                                                    <RadzenText TextStyle="TextStyle.Body2" Color="Color.Danger">
-                                                        (No visible)
-                                                    </RadzenText>
-                                                }
-                                            </RadzenStack>
-                                        </RadzenCard>
-                                    }
+                                    <RadzenCard class="rz-my-2 card-hover"
+                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                    @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                    @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
+                                        <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
+                                            <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
+                                            <RadzenText TextStyle="TextStyle.Body1">
+                                                <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                                style="color: black; text-decoration: none; font-weight: bold;">
+                                                    @carpeta.Descripcion
+                                                </a>
+                                            </RadzenText>
+                                        </RadzenStack>
+                                    </RadzenCard>
                                 }
-                            </div>
-                        }
+                                else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
+                                {
+                                    <RadzenCard class="rz-my-2 card-hover"
+                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                    @ondblclick="() => VerContenidoArchivo(archivo)"
+                                    @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
+                                        <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
+                                            <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
+                                            <RadzenText TextStyle="TextStyle.Body1">
+                                                <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)" 
+                                                style="color: black; text-decoration: none; font-weight: bold;">
+                                                    @archivo.NombreArchivo
+                                                </a>
+                                            </RadzenText>
+                                            @if (!archivo.Visible)
+                                            {
+                                                <RadzenText TextStyle="TextStyle.Body2" Color="Color.Danger">
+                                                    (No visible)
+                                                </RadzenText>
+                                            }
+                                        </RadzenStack>
+                                    </RadzenCard>
+                                }
+                            }
+                        </div>
+
                     </div>
                 </RadzenStack>
+
             }
 
-            @if (CodigoCurso != 0)
-            {
-                <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
-                    📤 Subir Documento
-                </button>
-            }
+
         </div>
+
     </RadzenBody>
 </RadzenLayout>
 
@@ -157,7 +161,6 @@
     private Usuario usuarioActual = new Usuario();
     private Curso cursoActual = new Curso();
 
-    private bool modoTarjetas = true;
     private bool modalAbierto = false;
     private bool mostrandoArchivosDeCarpeta = false;
     private string carpetaSeleccionada = string.Empty;
@@ -180,7 +183,6 @@
             usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
             StateHasChanged();
         }
-        await CargarArchivos();
     }
 
     protected override async Task OnParametersSetAsync()
@@ -226,10 +228,6 @@
         }
     }
 
-    private void ToggleVista()
-    {
-        modoTarjetas = !modoTarjetas;
-    }
 
     private void VerNoVisibles()
     {
@@ -241,7 +239,7 @@
         if (archivo.Tipo == "application/pdf" && archivo.Contenido?.Length > 0)
         {
             var base64 = Convert.ToBase64String(archivo.Contenido);
-            await JSRuntime.InvokeVoidAsync("abrirPdfDesdeBytes", base64);
+            await JSRuntime.InvokeVoidAsync("abrirPdf", base64);
 
             EstadisticaService.ActualizarEstadisticasArchivo(archivo).Wait();
         }
@@ -384,13 +382,19 @@
 
     public async void CambiarVisibilidad(Archivo archivo)
     {
-        if (archivo.Visible == true)
-        {
-            archivo.Visible = false;
-        }
-        else archivo.Visible = true;
+        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres cambiar la visibilidad de este documento?", "Confirmar eliminación",
+          new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        await ArchivoService.ModificarArchivo(archivo);
+        if(confirmacion == true){
+            if (archivo.Visible == true)
+            {
+                archivo.Visible = false;
+            }
+            else archivo.Visible = true;
+
+            await ArchivoService.ModificarArchivo(archivo);
+        }
+       
 
         await CargarArchivos();
         StateHasChanged();
@@ -400,7 +404,7 @@
     {
         if (modalAbiertoEstadisticas) return;
         modalAbiertoEstadisticas = true;
-        var resultado = await DialogService.OpenAsync<MostrarEstadisticasArchivo>("Modificar Fecha", new Dictionary<string, object>
+        var resultado = await DialogService.OpenAsync<MostrarEstadisticasArchivo>("Estadísticas", new Dictionary<string, object>
         {
             { "CodigoArchivo", archivo.CodigoArchivo},
             { "NombreArchivo", archivo.NombreArchivo}
@@ -439,6 +443,7 @@
 
         if (confirmacion == true)
         {
+            await EtiquetasService.EliminarTodasEtiquetasArchivo(archivo.CodigoArchivo);
             await ArchivoService.EliminarArchivo(archivo.CodigoArchivo);
 
         }
