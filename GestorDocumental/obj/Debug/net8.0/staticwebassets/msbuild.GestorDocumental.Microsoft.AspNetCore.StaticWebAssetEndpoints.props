@@ -1,16 +1,16 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAssetEndpoint Include="_content/GestorDocumental/app.7rxhi1ivu6.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7rxhi1ivu6"},{"Name":"integrity","Value":"sha256-I5szlVHnRdcg5nJEF9nxQEyIjqiDOCjvRP0xU2QZ7Ew="},{"Name":"label","Value":"_content/GestorDocumental/app.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5523"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022I5szlVHnRdcg5nJEF9nxQEyIjqiDOCjvRP0xU2QZ7Ew=\u0022"},{"Name":"Last-Modified","Value":"Thu, 03 Apr 2025 11:13:12 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/app.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-I5szlVHnRdcg5nJEF9nxQEyIjqiDOCjvRP0xU2QZ7Ew="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5523"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022I5szlVHnRdcg5nJEF9nxQEyIjqiDOCjvRP0xU2QZ7Ew=\u0022"},{"Name":"Last-Modified","Value":"Thu, 03 Apr 2025 11:13:12 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-S0bG/pHsOi6KUTXnEn\u002BaBcnHeqNMBgy2iDZ7JZsELnc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6029"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022S0bG/pHsOi6KUTXnEn\u002BaBcnHeqNMBgy2iDZ7JZsELnc=\u0022"},{"Name":"Last-Modified","Value":"Sat, 05 Apr 2025 15:55:12 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/GestorDocumental/app.teyme568pu.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"teyme568pu"},{"Name":"integrity","Value":"sha256-S0bG/pHsOi6KUTXnEn\u002BaBcnHeqNMBgy2iDZ7JZsELnc="},{"Name":"label","Value":"_content/GestorDocumental/app.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6029"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022S0bG/pHsOi6KUTXnEn\u002BaBcnHeqNMBgy2iDZ7JZsELnc=\u0022"},{"Name":"Last-Modified","Value":"Sat, 05 Apr 2025 15:55:12 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/bootstrap/bootstrap.min.6gzpyzhau4.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\bootstrap\bootstrap.min.css'))</AssetFile>

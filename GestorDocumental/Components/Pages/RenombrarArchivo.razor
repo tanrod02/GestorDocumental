@@ -65,9 +65,12 @@
     private async void ModificarNombreArchivo()
     {
         
-        
-        await ArchivoService.ModificarArchivo(archivoActual);
+        var confirmacion = await DialogService.Confirm("¿Quiere renombrar el documento?", "Confirmar renombrar documento",
+          new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
+        if(confirmacion == true){
+            await ArchivoService.ModificarArchivo(archivoActual);
+        }
 
         DialogService.Close(true);
     }

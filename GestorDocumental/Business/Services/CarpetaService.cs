@@ -13,7 +13,7 @@ namespace GestorDocumental.Business.Services
             _carpetaRepository = carpetaRepository;
         }
 
-        public async Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
+        public async Task<List<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
         {
             return await _carpetaRepository.ObtenerArchivosCarpeta(CodigoCarpeta);
         }

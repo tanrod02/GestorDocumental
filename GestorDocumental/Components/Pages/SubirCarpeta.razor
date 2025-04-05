@@ -112,34 +112,42 @@
 
     private async Task ConfirmarSubida()
     {
-        if(CodigoOpcion == 1){
-            carpetaNueva.Path = DescripcionCurso + "/" + carpetaNueva.Descripcion;
-            carpetaNueva.Subida = DateTime.Now;
-            carpetaNueva.Propietario = CodigoUsuario;
-            carpetaNueva.Curso = CodigoCurso;
+        var confirmacion = await DialogService.Confirm("¿Quiere subir la carpeta?", "Confirmar subir carpeta",
+         new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-            await CarpetaService.CrearCarpeta(carpetaNueva);
+        if (confirmacion == true)
+        {
+            if (CodigoOpcion == 1)
+            {
+                carpetaNueva.Path = DescripcionCurso + "/" + carpetaNueva.Descripcion;
+                carpetaNueva.Subida = DateTime.Now;
+                carpetaNueva.Propietario = CodigoUsuario;
+                carpetaNueva.Curso = CodigoCurso;
 
-            DialogService.Close(true);
-        }
-        else{
-            carpetaNueva.Path = DescripcionCurso + "/" + carpetaNueva.Descripcion;
-            carpetaNueva.Subida = DateTime.Now;
-            carpetaNueva.Propietario = CodigoUsuario;
-            carpetaNueva.Curso = CodigoCurso;
-            int codigoCarpeta = await CarpetaService.CrearCarpeta(carpetaNueva);
+                await CarpetaService.CrearCarpeta(carpetaNueva);
 
-
-            foreach(Archivo archivo in archivos){
-                archivo.Curso = CodigoCurso;
-                archivo.Propietario = CodigoUsuario;
-                archivo.CodigoCarpeta = codigoCarpeta;
-                archivo.Grupo = carpetaNueva.Grupo;
+                DialogService.Close(true);
             }
-            await ArchivoService.GuardarListaArchivoAsync(archivos);
-            DialogService.Close(true);
-        }
+            else
+            {
+                carpetaNueva.Path = DescripcionCurso + "/" + carpetaNueva.Descripcion;
+                carpetaNueva.Subida = DateTime.Now;
+                carpetaNueva.Propietario = CodigoUsuario;
+                carpetaNueva.Curso = CodigoCurso;
+                int codigoCarpeta = await CarpetaService.CrearCarpeta(carpetaNueva);
 
+
+                foreach (Archivo archivo in archivos)
+                {
+                    archivo.Curso = CodigoCurso;
+                    archivo.Propietario = CodigoUsuario;
+                    archivo.CodigoCarpeta = codigoCarpeta;
+                    archivo.Grupo = carpetaNueva.Grupo;
+                }
+                await ArchivoService.GuardarListaArchivoAsync(archivos);
+                DialogService.Close(true);
+            }
+        }
 
         DialogService.Close(false);
     }

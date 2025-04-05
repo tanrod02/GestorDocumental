@@ -61,7 +61,6 @@
         correoIncorrecto = false;
         contraseñaIncorrecta = false;
 
-        // Intentar autenticar al usuario
         var isAuthenticated = await AuthService.LoginAsync(loginModel.Correo, loginModel.Contraseña);
 
         if (isAuthenticated)

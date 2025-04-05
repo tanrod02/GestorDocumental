@@ -382,7 +382,7 @@
 
     public async void CambiarVisibilidad(Archivo archivo)
     {
-        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres cambiar la visibilidad de este documento?", "Confirmar eliminación",
+        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres cambiar la visibilidad de este documento?", "Cambiar visibilidad",
           new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
         if(confirmacion == true){

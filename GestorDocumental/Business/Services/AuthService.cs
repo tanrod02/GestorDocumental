@@ -31,7 +31,6 @@ public class AuthService
             IsAuthenticated = true;
             _usuarioActual = usuario;
 
-            // Guardar en sesión
             await _sessionStorage.SetAsync("usuario", usuario);
             return true;
         }

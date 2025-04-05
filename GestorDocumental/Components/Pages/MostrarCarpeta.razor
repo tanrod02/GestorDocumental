@@ -40,43 +40,43 @@
 
     <span class="carpeta-nombre">@DescripcionCurso / @carpetaActual.Descripcion</span>
 
-    <button class="toggle-view-button" @onclick="ToggleVista">
-        @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
+    <button class="toggle-view-button" @onclick="VerNoVisibles">
+        📄 Ver archivos no visibles
     </button>
 </div>
 
-
-
-@if (modoTarjetas)
-{
-    <div class="tarjetas-container" oncontextmenu="return false;">
-        @foreach (var a in archivos)
-        {
-            if(a.Visible == true){
-                <RadzenCard class="rz-my-12 rz-mx-auto"
-                Style="max-width: 420px; background: transparent; box-shadow: none; border: none;"
-                @ondblclick="() => VerContenidoArchivo(a)"
-                @oncontextmenu="args => ShowContextMenu(args, a)">
-
-                    <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                        <RadzenImage Path="@ObtenerIconoArchivo(a.Tipo)" Style="width: 50px; height: 50px;" />
-                        <RadzenText TextStyle="TextStyle.Body1">
-                            <a href="javascript:void(0);"
-                            @onclick="() => VerContenidoArchivo(a)"
-                            style="color: black; text-decoration: none; font-weight: bold;">
-                                @a.NombreArchivo
-                            </a>
+<div class="tarjetas-container" oncontextmenu="return false;">
+    @foreach (var a in archivos)
+    {
+        if(a.Visible == true || mostrarNoVisibles){
+            <RadzenCard class="rz-my-2 card-hover"
+                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                        @ondblclick="() => VerContenidoArchivo(a)"
+                        @oncontextmenu="args => { ShowContextMenu(args, a); }">
+                <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
+                    <RadzenImage Path="@ObtenerIconoArchivo(a.Tipo)" Style="width: 50px; height: 50px;" />
+                    <RadzenText TextStyle="TextStyle.Body1">
+                        <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(a)"
+                           style="color: black; text-decoration: none; font-weight: bold;">
+                            @a.NombreArchivo
+                        </a>
+                    </RadzenText>
+                    @if (!a.Visible)
+                    {
+                        <RadzenText TextStyle="TextStyle.Body2" Color="Color.Danger">
+                            (No visible)
                         </RadzenText>
-                    </RadzenStack>
-                </RadzenCard>
-
-            }
+                    }
+                </RadzenStack>
+            </RadzenCard>
 
         }
-    </div>
-}
 
-<button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
+    }
+</div>
+
+
+<button class="boton-flotante-carpeta" type="button" @onclick="AbrirModalSubida">
     📤 Subir Documento
 </button>
 
@@ -84,14 +84,17 @@
     [Parameter] public int CodigoCarpeta { get; set; }
     [Parameter] public int CodigoUsuario { get; set; }
     [Parameter] public string DescripcionCurso { get; set; }
+
     public Usuario usuarioActual = new Usuario();
     public Carpeta carpetaActual = new Carpeta();
-    private IEnumerable<Archivo> archivos = new List<Archivo>();
-    private bool modoTarjetas = true;
+    private List<Archivo> archivos = new List<Archivo>();
+
     private bool modalAbierto = false;
     private bool modalAbiertoFecha = false;
     private bool modalAbiertoRenombrar = false;
     private bool modalAbiertoEstadisticas = false;
+    private bool modalAbiertoEtiquetas = false;
+    private bool mostrarNoVisibles = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -122,7 +125,7 @@
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error en CargarCurso: {e.Message}");
+            Console.WriteLine($"Error en CargarCarpeta: {e.Message}");
         }
     }
 
@@ -138,7 +141,7 @@
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error en CargarCurso: {e.Message}");
+            Console.WriteLine($"Error en CargarCarpeta: {e.Message}");
         }
     }
 
@@ -159,9 +162,9 @@
         }
     }
 
-    private void ToggleVista()
+    private void VerNoVisibles()
     {
-        modoTarjetas = !modoTarjetas;
+        mostrarNoVisibles = !mostrarNoVisibles;
     }
 
     private async Task CerrarSesion()
@@ -231,15 +234,23 @@
 
     public async void CambiarVisibilidad(Archivo archivo)
     {
-        if (archivo.Visible == true)
+        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres cambiar la visibilidad de este documento?", "Confirmar eliminación",
+           new ConfirmOptions { OkButtonText = "Sí, eliminar", CancelButtonText = "Cancelar" });
+
+        if (confirmacion == true)
         {
-            archivo.Visible = false;
+            if (archivo.Visible == true)
+            {
+                archivo.Visible = false;
+            }
+            else archivo.Visible = true;
+
+            await ArchivoService.ModificarArchivo(archivo);
+
+            StateHasChanged();
         }
-        else archivo.Visible = true;
 
-        await ArchivoService.ModificarArchivo(archivo);
-
-        StateHasChanged();
+       
     }
 
     public async void MostrarEstadisticas(Archivo archivo)
@@ -269,7 +280,13 @@
 
     public async void ModificarEtiquetas(Archivo archivo)
     {
-
+        if (modalAbiertoEtiquetas) return;
+        modalAbiertoEtiquetas = true;
+        var resultado = await DialogService.OpenAsync<ModificarEtiquetas>("Modificar Etiquetas", new Dictionary<string, object>
+        {
+            { "CodigoArchivo", archivo.CodigoArchivo}
+        }, new DialogOptions { Width = "600px", Height = "auto" });
+        modalAbiertoEtiquetas = false;
     }
 
     public async Task EliminarArchivo(Archivo archivo)

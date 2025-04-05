@@ -65,28 +65,6 @@ namespace GestorDocumental.Data.Repositories
 
                 context.Estadistica.Add(est);
 
-                List<ArchivoEtiqueta> archivoEtiquetas = new();
-
-                foreach (string et in archivo.Etiquetas)
-                {
-                    Etiqueta etiqueta = context.Etiqueta.FirstOrDefault(e => e.DescripcionEtiqueta == et);
-                    if(etiqueta == null)
-                    {
-                        etiqueta = new Etiqueta { DescripcionEtiqueta = et };
-                        context.Etiqueta.Add(etiqueta);
-                        await context.SaveChangesAsync();
-                    }
-                    
-                    archivoEtiquetas.Add(new ArchivoEtiqueta
-                    {
-                        CodigoEtiqueta = etiqueta.CodigoEtiqueta,
-                        CodigoArchivo = archivo.CodigoArchivo
-
-                    });
-                   
-                }
-
-                await context.ArchivosEtiquetas.AddRangeAsync(archivoEtiquetas);
                 await context.SaveChangesAsync();
             }
             catch (Exception ex)
