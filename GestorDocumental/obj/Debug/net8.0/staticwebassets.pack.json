@@ -41,8 +41,12 @@
       "PackagePath": "staticwebassets\\icons\\pdf.png"
     },
     {
-      "Id": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
-      "PackagePath": "staticwebassets\\script.js"
+      "Id": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\script.js",
+      "PackagePath": "staticwebassets\\scripts\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
+      "PackagePath": "staticwebassets\\scripts\\verDocumento.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GestorDocumental.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
