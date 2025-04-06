@@ -1,0 +1,30 @@
+﻿@page "/ResultadoBusqueda"
+@using Microsoft.AspNetCore.WebUtilities
+@inject NavigationManager Navigation
+
+@code {
+    private string keyword;
+    private bool filtroRecientes;
+    private bool filtroMasVistos;
+    private List<string> tags = new();
+
+    protected override void OnInitialized()
+    {
+
+        var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query) is var query)
+        {
+            if (query.TryGetValue("keyword", out var keywordParam))
+                keyword = keywordParam;
+
+            if (query.TryGetValue("recientes", out var recientesParam))
+                filtroRecientes = bool.Parse(recientesParam);
+
+            if (query.TryGetValue("masVistos", out var masVistosParam))
+                filtroMasVistos = bool.Parse(masVistosParam);
+
+            if (query.TryGetValue("tags", out var tagsParam))
+                tags = tagsParam.ToString().Split(',').ToList();
+        }
+    }
+}

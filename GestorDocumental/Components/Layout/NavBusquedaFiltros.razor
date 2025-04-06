@@ -6,50 +6,52 @@
 @inject NavigationManager Navigation
 @inject IEtiquetasService EtiquetasService
 
+<div class="search-filters-container" style="display: flex; flex-direction: column; padding: 0.5rem; gap: 0.5rem; max-width: 280px;">
+    <h3 class="title" style="margin:0; font-size:1.1rem;">Búsqueda</h3>
 
-<div class="search-filters-container">
-    <h3 class="title">Búsqueda</h3>
-    <div class="search-bar">
-        <RadzenTextBox @bind-Value="keyword" Placeholder="Buscar..." class="search-input" />
-        <RadzenButton Icon="search" Click="Buscar" class="search-button" />
+    <!-- Barra de búsqueda por texto sin texto en el botón -->
+    <div class="search-bar" style="display: flex; gap: 0.25rem; align-items: center;">
+        <RadzenTextBox @bind-Value="keyword" Placeholder="Buscar..." class="search-input" style="flex:1; font-size:0.9rem;" />
+        <!-- Botón con ícono centrado y sin texto -->
+        <RadzenButton Icon="search" Click="Buscar" style="min-width: 2.5rem; height:2.5rem; display: flex; align-items: center; justify-content: center;" />
     </div>
 
-    <h4 class="subtitle">Filtros</h4>
+    <h4 class="subtitle" style="margin:0; font-size:1rem;">Filtros</h4>
 
-    <div class="filter-item">
+    <div class="filter-item" style="display: flex; align-items: center; gap: 0.25rem; font-size:0.9rem;">
         <RadzenCheckBox @bind-Value="filtroRecientes" />
-        <label class="filter-label">Fecha subida más reciente</label>
+        <label class="filter-label" style="margin:0;">Fecha subida más reciente</label>
     </div>
-
-    <div class="filter-item">
+    <div class="filter-item" style="display: flex; align-items: center; gap: 0.25rem; font-size:0.9rem;">
         <RadzenCheckBox @bind-Value="filtroMasVistos" />
-        <label class="filter-label">Documentos más vistos</label>
+        <label class="filter-label" style="margin:0;">Documentos más vistos</label>
     </div>
 
-    <h5 class="filter-subtitle">Etiquetas</h5>
-
-    <RadzenTextBox @bind-Value="etiquetaFiltro" Placeholder="Buscar etiquetas..." Style="width: 100%;" />
+    <h5 class="filter-subtitle" style="margin:0; font-size:0.9rem;">Etiquetas</h5>
+    <RadzenTextBox @bind-Value="etiquetaFiltro" Placeholder="Buscar etiquetas..." Style="width: 100%; font-size:0.9rem;" />
     <RadzenListBox @bind-Value="selectedTags" Data="etiquetasFiltradas" TextProperty="DescripcionEtiqueta"
-                   ValueProperty="CodigoEtiqueta" Multiple="true" class="tag-list" />
+                   ValueProperty="CodigoEtiqueta" Multiple="true" class="tag-list" Style="font-size:0.9rem;" />
 
-
-
+    <!-- Botón para aplicar filtros (ordenación) -->
+    <div style="margin-top: 0.5rem; display: flex; justify-content: center;">
+        <RadzenButton Icon="filter_list" Text="Filtrar" Click="Filtrar" style="font-size:0.9rem; padding: 0.25rem 0.5rem;" />
+    </div>
 </div>
 
-
 @code {
-
     [Parameter]
     public bool IsExpanded { get; set; }
 
     [Parameter]
     public EventCallback<bool> IsExpandedChanged { get; set; }
 
+    // Recibir el código del curso para conservarlo en la navegación
+    [Parameter]
+    public int CodigoCurso { get; set; }
 
     private string keyword = "";
     private bool filtroRecientes = false;
     private bool filtroMasVistos = false;
-
     private string etiquetaFiltro = null;
     private List<string> selectedTags = new();
     private List<Etiqueta> etiquetas = new List<Etiqueta>();
@@ -57,36 +59,42 @@
        ? etiquetas
        : etiquetas.Where(tag => tag.DescripcionEtiqueta.Contains(etiquetaFiltro, StringComparison.OrdinalIgnoreCase)).ToList();
 
-
-
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await BuscarEtiquetas();
         }
-
     }
 
     private async Task BuscarEtiquetas()
     {
         try
         {
-
             etiquetas = await EtiquetasService.ObtenerEtiquetas();
             StateHasChanged();
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error en BuscarArchivos: {e.Message}");
+            Console.WriteLine($"Error en BuscarEtiquetas: {e.Message}");
         }
     }
 
-
+    // Navegar a Home con el parámetro "keyword" para buscar por texto
     private void Buscar()
     {
-        Navigation.NavigateTo($"/ResultadoBusqueda/{keyword}");
-        StateHasChanged();
+        var query = $"?keyword={Uri.EscapeDataString(keyword)}";
+        Navigation.NavigateTo($"/home/{CodigoCurso}{query}", forceLoad: true);
+    }
+
+    // Navegar a Home con los parámetros de filtrado (checks y etiquetas)
+    private void Filtrar()
+    {
+        var query = $"?recientes={filtroRecientes}&masVistos={filtroMasVistos}";
+        if (selectedTags != null && selectedTags.Any())
+        {
+            query += "&tags=" + Uri.EscapeDataString(string.Join(",", selectedTags));
+        }
+        Navigation.NavigateTo($"/home/{CodigoCurso}{query}", forceLoad: true);
     }
 }

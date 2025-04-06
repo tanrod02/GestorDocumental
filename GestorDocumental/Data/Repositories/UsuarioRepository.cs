@@ -18,14 +18,15 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
 
-            if (await context.Usuarios.AnyAsync(u => u.Correo == usuario.Correo))
+            if (context.Usuarios.Any(u => u.Correo == usuario.Correo))
                 return false; // Ya existe un usuario con este correo
 
             //de base todos los que se registran son alumnos Rol = 3
-            usuario.CodigoRol = 3;
+            usuario.CodigoRol = 2;
+            usuario.Curso = 1;
 
             context.Usuarios.Add(usuario);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
             return true;
         }
 

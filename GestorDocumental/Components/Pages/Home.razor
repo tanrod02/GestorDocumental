@@ -6,6 +6,7 @@
 @using GestorDocumental.Components.Layout
 @using GestorDocumental.Data.Entities
 @using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.WebUtilities
 @using Radzen
 @using Radzen.Blazor
 @inject IArchivoService ArchivoService
@@ -17,7 +18,6 @@
 @inject Radzen.DialogService DialogService
 @inject IEstadisticaService EstadisticaService
 @inject ICarpetaService CarpetaService
-
 
 <RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
     <RadzenHeader>
@@ -32,26 +32,25 @@
                         }
                     </Template>
                     <ChildContent>
-                        <RadzenProfileMenuItem Text="Cerrar sesión" Path="" Icon="exit_to_app" @onclick="CerrarSesion"></RadzenProfileMenuItem>
+                        <RadzenProfileMenuItem Text="Cerrar sesión" Path="" Icon="exit_to_app" @onclick="CerrarSesion" />
                     </ChildContent>
                 </RadzenProfileMenu>
-
             </div>
         </div>
     </RadzenHeader>
 
-    @if(CodigoCurso != 0){
+    @if (CodigoCurso != 0)
+    {
         <RadzenSidebar @bind-Expanded="@sidebarExpanded" Style="height: 100vh;">
-            <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@((value) => sidebarExpanded = value)" />
+            <!-- Se pasa el código del curso al componente de búsqueda -->
+            <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@((value) => sidebarExpanded = value)" CodigoCurso="@CodigoCurso" />
         </RadzenSidebar>
     }
-  
+
     <RadzenBody Style="height: 100vh; overflow: auto;">
         <div style="width: 100%; height: 100%;" @oncontextmenu="args => ShowContextMenuWithItems(args)">
             <PageTitle>Documentos</PageTitle>
-
             <div class="curso-toggle-container">
-
                 @if (CodigoCurso != 0)
                 {
                     <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
@@ -63,10 +62,7 @@
                     </button>
                     <RadzenSidebarToggle Click="@(() => sidebarExpanded = !sidebarExpanded)" class="rz-m-0" Style="margin-left: 1rem;" />
                 }
-
-
             </div>
-
 
             @if (CodigoCurso == 0)
             {
@@ -78,28 +74,29 @@
             }
             else if (elementos == null || !elementos.Any())
             {
-                <p>Este curso todavía no tiene documentos ni carpetas.</p>
+                <p>No se encontraron documentos que cumplan con los criterios de búsqueda.</p>
             }
             else
             {
-                <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
-                    <div style="width: 100%; height: 100%;">
-                        @if (modoTarjetas)
-                        {
+                @if (modoTarjetas)
+                {
+                    <!-- Vista en tarjetas -->
+                    <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
+                        <div style="width: 100%; height: 100%;">
                             <div class="tarjetas-container" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
                                 @foreach (var item in elementos)
                                 {
-                                    @if (item is Carpeta carpeta)
+                                    if (item is Carpeta carpeta)
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
+                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                                    @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                                    @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                                                 <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
                                                     <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
+                                                       style="color: black; text-decoration: none; font-weight: bold;">
                                                         @carpeta.Descripcion
                                                     </a>
                                                 </RadzenText>
@@ -109,14 +106,14 @@
                                     else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                        @ondblclick="() => VerContenidoArchivo(archivo)"
-                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
+                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                                    @ondblclick="() => VerContenidoArchivo(archivo)"
+                                                    @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                                                 <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
-                                                    <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)" 
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
+                                                    <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
+                                                       style="color: black; text-decoration: none; font-weight: bold;">
                                                         @archivo.NombreArchivo
                                                     </a>
                                                 </RadzenText>
@@ -131,9 +128,47 @@
                                     }
                                 }
                             </div>
-                        }
-                    </div>
-                </RadzenStack>
+                        </div>
+                    </RadzenStack>
+                }
+                else
+                {
+                    <!-- Vista en lista -->
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">Tipo</th>
+                                <th>Nombre</th>
+                                <th style="width: 10%;">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in elementos)
+                            {
+                                if (item is Carpeta carpeta)
+                                {
+                                    <tr @onclick="() => MostrarArchivosDeCarpeta(carpeta)" style="cursor:pointer;">
+                                        <td>
+                                            <img src="@ObtenerIconoCarpeta()" alt="Carpeta" style="width:20px; height:20px;" />
+                                        </td>
+                                        <td>@carpeta.Descripcion</td>
+                                        <td><!-- Opciones adicionales --></td>
+                                    </tr>
+                                }
+                                else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
+                                {
+                                    <tr @ondblclick="() => VerContenidoArchivo(archivo)" @oncontextmenu="args => { ShowContextMenu(args, archivo); }" style="cursor:pointer;">
+                                        <td>
+                                            <img src="@ObtenerIconoArchivo(archivo.Tipo)" alt="Archivo" style="width:20px; height:20px;" />
+                                        </td>
+                                        <td>@archivo.NombreArchivo</td>
+                                        <td><!-- Opciones adicionales --></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
             }
 
             @if (CodigoCurso != 0)
@@ -146,9 +181,6 @@
     </RadzenBody>
 </RadzenLayout>
 
-
-
-
 @code {
     [Parameter] public int CodigoCurso { get; set; }
     private IEnumerable<Archivo> archivos = new List<Archivo>();
@@ -160,34 +192,89 @@
     private bool modoTarjetas = true;
     private bool modalAbierto = false;
     private bool mostrandoArchivosDeCarpeta = false;
-    private string carpetaSeleccionada = string.Empty;
     private bool modalAbiertoFecha = false;
     private bool modalAbiertoRenombrar = false;
     private bool modalAbiertoEstadisticas = false;
     private bool modalAbiertoCarpetaNueva = false;
     private bool modalAbiertoEtiquetas = false;
     private bool modalAbiertoRenombrarCarpeta = false;
-
     private bool clickArchivo = false;
     private bool mostrarNoVisibles = false;
-
-    bool sidebarExpanded = true;
+    bool sidebarExpanded = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+            sidebarExpanded = false;
             StateHasChanged();
         }
-        await CargarArchivos();
     }
 
     protected override async Task OnParametersSetAsync()
     {
-
+        sidebarExpanded = false;
         await CargarCurso();
         await CargarArchivos();
+
+        // Leer query string y aplicar el filtrado u ordenación según corresponda
+        var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+        var query = QueryHelpers.ParseQuery(uri.Query);
+        if (query.ContainsKey("keyword"))
+        {
+            // Filtrado por búsqueda de texto (por ejemplo, "Buscar")
+            var searchTerm = query["keyword"].FirstOrDefault();
+            if (!string.IsNullOrWhiteSpace(searchTerm) && elementos != null)
+            {
+                elementos = elementos.Where(item =>
+                {
+                    if (item is Archivo a)
+                        return a.NombreArchivo.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase);
+                    else if (item is Carpeta c)
+                        return c.Descripcion.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase);
+                    return false;
+                }).ToList();
+            }
+        }
+        else
+        {
+            // Si no se envió "keyword", revisamos si se envían filtros (ordenación)
+            bool recientes = false;
+            bool masVistos = false;
+            if (query.TryGetValue("recientes", out var rec))
+            {
+                bool.TryParse(rec.FirstOrDefault(), out recientes);
+            }
+            if (query.TryGetValue("masVistos", out var mv))
+            {
+                bool.TryParse(mv.FirstOrDefault(), out masVistos);
+            }
+            if (recientes || masVistos)
+            {
+                if (elementos != null)
+                {
+                    if (recientes)
+                    {
+                        elementos = elementos.OrderByDescending(item =>
+                        {
+                            if (item is Archivo a)
+                                return a.FechaAlta;
+                            return DateTime.MinValue;
+                        }).ToList();
+                    }
+                    // if (masVistos)
+                    // {
+                    //     elementos = elementos.OrderByDescending(item =>
+                    //     {
+                    //         if (item is Archivo a)
+                    //             return a.NumeroVisitas;
+                    //         return 0;
+                    //     }).ToList();
+                    // }
+                }
+            }
+        }
     }
 
     private async Task CargarCurso()
@@ -214,11 +301,12 @@
     {
         try
         {
-            var (carpetas, archivos) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
+            var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
+            carpetas = carpetasData;
+            archivos = archivosData;
             elementos = new List<object>();
             elementos.AddRange(carpetas.ToList());
             elementos.AddRange(archivos.ToList());
-
         }
         catch (Exception e)
         {
@@ -226,35 +314,46 @@
         }
     }
 
-    private void ToggleVista()
-    {
-        modoTarjetas = !modoTarjetas;
-    }
-
-    private void VerNoVisibles()
-    {
-        mostrarNoVisibles = !mostrarNoVisibles;
-    }
+    private void ToggleVista() => modoTarjetas = !modoTarjetas;
+    private void VerNoVisibles() => mostrarNoVisibles = !mostrarNoVisibles;
 
     async Task VerContenidoArchivo(Archivo archivo)
     {
-        if (archivo.Tipo == "application/pdf" && archivo.Contenido?.Length > 0)
+        if (archivo.Contenido?.Length > 0)
         {
             var base64 = Convert.ToBase64String(archivo.Contenido);
-            await JSRuntime.InvokeVoidAsync("abrirPdfDesdeBytes", base64);
+            var tipoLower = archivo.Tipo?.ToLower() ?? string.Empty;
 
-            EstadisticaService.ActualizarEstadisticasArchivo(archivo).Wait();
+            if (tipoLower.Contains("pdf"))
+            {
+                await JSRuntime.InvokeVoidAsync("abrirPdfDesdeBytes", base64);
+            }
+            else if (tipoLower.Contains("plain"))
+            {
+                var texto = System.Text.Encoding.UTF8.GetString(archivo.Contenido);
+                await JSRuntime.InvokeVoidAsync("mostrarTexto", texto);
+            }
+            else if (tipoLower.StartsWith("image/"))
+            {
+                await JSRuntime.InvokeVoidAsync("mostrarImagen", base64);
+            }
+            else if (tipoLower.Contains("word"))
+            {
+                await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
+            }
+            await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
         }
     }
-
 
     private void MostrarArchivosDeCarpeta(Carpeta carpeta)
     {
         Navigation.NavigateTo($"/MostrarCarpeta/{carpeta.CodigoCarpeta}/{usuarioActual.CodigoUsuario}/{cursoActual.Descripcion}");
         StateHasChanged();
     }
-
-
 
     async Task AbrirModalSubida()
     {
@@ -266,15 +365,14 @@
             { "CodigoUsuario", usuarioActual.CodigoUsuario }
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbierto = false;
-        if (resultado is bool archivoSubido && archivoSubido) await CargarArchivos();
-
+        if (resultado is bool archivoSubido && archivoSubido)
+            await CargarArchivos();
         StateHasChanged();
     }
 
     async Task AbrirModalSubidaCarpeta(int opcion)
     {
         bool resultado = false;
-        //crear carpeta
         if (opcion == 1)
         {
             if (modalAbiertoCarpetaNueva) return;
@@ -283,32 +381,27 @@
             {
                 { "CodigoCurso", CodigoCurso },
                 { "CodigoUsuario", usuarioActual.CodigoUsuario },
-                { "CodigoOpcion", opcion},
-                { "DescripcionCurso", cursoActual.Descripcion}
+                { "CodigoOpcion", opcion },
+                { "DescripcionCurso", cursoActual.Descripcion }
             };
-            resultado = await DialogService.OpenAsync<SubirCarpeta>(
-                "Título del Modal",
-                parameters,
-                new DialogOptions { Width = "600px", Height = "auto" }
-            );
+            resultado = await DialogService.OpenAsync<SubirCarpeta>("Título del Modal", parameters, new DialogOptions { Width = "600px", Height = "auto" });
             modalAbiertoCarpetaNueva = false;
         }
         else
-        { //subir carpeta
+        {
             if (modalAbiertoCarpetaNueva) return;
             modalAbiertoCarpetaNueva = true;
             resultado = await DialogService.OpenAsync<SubirCarpeta>("Subir Carpeta", new Dictionary<string, object>
             {
                 { "CodigoCurso", CodigoCurso },
                 { "CodigoUsuario", usuarioActual.CodigoUsuario },
-                { "CodigoOpcion", opcion}, 
-                { "DescripcionCurso", cursoActual.Descripcion}
+                { "CodigoOpcion", opcion },
+                { "DescripcionCurso", cursoActual.Descripcion }
             }, new DialogOptions { Width = "600px", Height = "auto" });
             modalAbiertoCarpetaNueva = false;
         }
-
-        if (resultado is bool archivoSubido && archivoSubido) await CargarArchivos();
-
+        if (resultado is bool archivoSubido && archivoSubido)
+            await CargarArchivos();
         StateHasChanged();
     }
 
@@ -322,31 +415,27 @@
     {
         return tipoArchivo switch
         {
-            "application/pdf" => "icons/pdf.png"
+            "application/pdf" => "icons/pdf.png",
+            _ => "icons/archivo.png"
         };
-
     }
 
-    private string ObtenerIconoCarpeta()
-    {
-        return "icons/carpeta.png";
-    }
+    private string ObtenerIconoCarpeta() => "icons/carpeta.png";
 
     void ShowContextMenu(MouseEventArgs args, Archivo archivo)
     {
-
         clickArchivo = true;
         ContextMenuService.Open(args,
-            new List<ContextMenuItem> {
+            new List<ContextMenuItem>
+                {
                 new ContextMenuItem(){ Text = "Ocultar/Mostrar", Value = "visibilidad", Icon = "visibility" },
                 new ContextMenuItem(){ Text = "Estadísticas", Value = "estadisticas", Icon = "bar_chart" },
                 new ContextMenuItem(){ Text = "Cambiar Fecha", Value = "cambiar_fecha", Icon = "event" },
                 new ContextMenuItem(){ Text = "Etiquetas", Value = "etiquetas", Icon = "label" },
                 new ContextMenuItem(){ Text = "Eliminar", Value = "eliminar", Icon = "delete" },
                 new ContextMenuItem(){ Text = "Renombrar", Value = "renombrar", Icon = "edit" }
-                            },
+                },
             item => OnMenuItemClick(item, archivo));
-
         Task.Delay(300).ContinueWith(_ => clickArchivo = false);
     }
 
@@ -384,14 +473,8 @@
 
     public async void CambiarVisibilidad(Archivo archivo)
     {
-        if (archivo.Visible == true)
-        {
-            archivo.Visible = false;
-        }
-        else archivo.Visible = true;
-
+        archivo.Visible = !archivo.Visible;
         await ArchivoService.ModificarArchivo(archivo);
-
         await CargarArchivos();
         StateHasChanged();
     }
@@ -402,8 +485,8 @@
         modalAbiertoEstadisticas = true;
         var resultado = await DialogService.OpenAsync<MostrarEstadisticasArchivo>("Modificar Fecha", new Dictionary<string, object>
         {
-            { "CodigoArchivo", archivo.CodigoArchivo},
-            { "NombreArchivo", archivo.NombreArchivo}
+            { "CodigoArchivo", archivo.CodigoArchivo },
+            { "NombreArchivo", archivo.NombreArchivo }
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbiertoEstadisticas = false;
     }
@@ -415,10 +498,9 @@
         var resultado = await DialogService.OpenAsync<ModificarFechaArchivo>("Modificar Fecha", new Dictionary<string, object>
         {
             { "CodigoUsuario", usuarioActual.CodigoUsuario },
-            { "CodigoArchivo", archivo.CodigoArchivo}
+            { "CodigoArchivo", archivo.CodigoArchivo }
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbiertoFecha = false;
-
     }
 
     public async void ModificarEtiquetas(Archivo archivo)
@@ -427,7 +509,7 @@
         modalAbiertoEtiquetas = true;
         var resultado = await DialogService.OpenAsync<ModificarEtiquetas>("Modificar Etiquetas", new Dictionary<string, object>
         {
-            { "CodigoArchivo", archivo.CodigoArchivo}
+            { "CodigoArchivo", archivo.CodigoArchivo }
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbiertoEtiquetas = false;
     }
@@ -436,17 +518,13 @@
     {
         var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres eliminar este archivo?", "Confirmar eliminación",
             new ConfirmOptions { OkButtonText = "Sí, eliminar", CancelButtonText = "Cancelar" });
-
         if (confirmacion == true)
         {
             await ArchivoService.EliminarArchivo(archivo.CodigoArchivo);
-
         }
-
         await CargarArchivos();
         StateHasChanged();
     }
-
 
     public async void RenombrarArchivo(Archivo archivo)
     {
@@ -454,24 +532,24 @@
         modalAbiertoRenombrar = true;
         var resultado = await DialogService.OpenAsync<RenombrarArchivo>("Renombrar Archivo", new Dictionary<string, object>
         {
-            { "CodigoArchivo", archivo.CodigoArchivo}
+            { "CodigoArchivo", archivo.CodigoArchivo }
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbiertoRenombrar = false;
-
         await CargarArchivos();
         StateHasChanged();
     }
-
 
     void ShowContextMenuWithItems(MouseEventArgs args)
     {
         if (clickArchivo) return;
         ContextMenuService.Open(args,
-            new List<ContextMenuItem> {
+            new List<ContextMenuItem>
+                {
                 new ContextMenuItem(){ Text = "Subir Archivo", Value = 1, Icon = "upload" },
-                new ContextMenuItem(){ Text = "Subir Carpeta", Value = 2, Icon = "create_new_folder"},
-                new ContextMenuItem(){ Text = "Crear Carpeta", Value = 3, Icon = "create_new_folder" },
-                 }, OnMenuItemClickGeneral);
+                new ContextMenuItem(){ Text = "Subir Carpeta", Value = 2, Icon = "create_new_folder" },
+                new ContextMenuItem(){ Text = "Crear Carpeta", Value = 3, Icon = "create_new_folder" }
+                },
+            OnMenuItemClickGeneral);
     }
 
     void OnMenuItemClickGeneral(MenuItemEventArgs args)
@@ -487,25 +565,22 @@
             case 3:
                 AbrirModalSubidaCarpeta(1);
                 break;
-
         }
         ContextMenuService.Close();
-
         CargarArchivos();
         StateHasChanged();
     }
 
     void ShowContextMenuCarpeta(MouseEventArgs args, Carpeta carpeta)
     {
-
         clickArchivo = true;
         ContextMenuService.Open(args,
-            new List<ContextMenuItem> {
+            new List<ContextMenuItem>
+                {
                 new ContextMenuItem(){ Text = "Eliminar", Value = "eliminar", Icon = "delete" },
                 new ContextMenuItem(){ Text = "Renombrar", Value = "renombrar", Icon = "edit" }
-                                    },
+                },
             item => OnMenuItemCarpetaClick(item, carpeta));
-
         Task.Delay(300).ContinueWith(_ => clickArchivo = false);
     }
 
@@ -515,32 +590,27 @@
         {
             case "eliminar":
                 EliminarCarpeta(carpeta);
-                Console.WriteLine($"Eliminando archivo: {carpeta.Descripcion}");
+                Console.WriteLine($"Eliminando carpeta: {carpeta.Descripcion}");
                 break;
             case "renombrar":
                 RenombrarCarpeta(carpeta);
-                Console.WriteLine($"Renombrando archivo: {carpeta.Descripcion}");
+                Console.WriteLine($"Renombrando carpeta: {carpeta.Descripcion}");
                 break;
         }
         ContextMenuService.Close();
     }
 
-
     public async Task EliminarCarpeta(Carpeta carpeta)
     {
         var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres eliminar esta carpeta?", "Confirmar eliminación",
             new ConfirmOptions { OkButtonText = "Sí, eliminar", CancelButtonText = "Cancelar" });
-
         if (confirmacion == true)
         {
             await CarpetaService.EliminarCarpeta(carpeta);
-
         }
-
         await CargarArchivos();
         StateHasChanged();
     }
-
 
     public async void RenombrarCarpeta(Carpeta carpeta)
     {
@@ -548,13 +618,10 @@
         modalAbiertoRenombrarCarpeta = true;
         var resultado = await DialogService.OpenAsync<RenombrarCarpeta>("Renombrar Carpeta", new Dictionary<string, object>
         {
-            { "CodigoCarpeta", carpeta.CodigoCarpeta}
+            { "CodigoCarpeta", carpeta.CodigoCarpeta }
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbiertoRenombrarCarpeta = false;
-
         await CargarArchivos();
         StateHasChanged();
     }
 }
-
-

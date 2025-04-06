@@ -1,32 +1,36 @@
 ﻿using GestorDocumental.Data.Entities;
 using GestorDocumental.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace GestorDocumental.Data.Repositories
 {
     public class CursoRepository: ICursoRepository
     {
-        private readonly GestorDocumentalDbContext _context;
+        private readonly IDbContextFactory<GestorDocumentalDbContext> _contextFactory;
 
-        public CursoRepository(GestorDocumentalDbContext context)
+        public CursoRepository(IDbContextFactory<GestorDocumentalDbContext> contextFactory)
         {
-            _context = context;
+            _contextFactory = contextFactory;
         }
 
         public async Task<IEnumerable<Curso>> ObtenerCursosAsync()
         {
-            return await _context.Cursos.ToListAsync();
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Cursos.ToListAsync();
         }
 
         public async Task AgregarCursoAsync(Curso curso)
         {
-            await _context.Cursos.AddAsync(curso);
-            await _context.SaveChangesAsync();
+            using var context = _contextFactory.CreateDbContext();
+            await context.Cursos.AddAsync(curso);
+            await context.SaveChangesAsync();
         }
 
         public async Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso)
         {
-            return await _context.Cursos.FirstOrDefaultAsync(c => c.CodigoCurso == codigoCurso);
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Cursos.FirstOrDefaultAsync(c => c.CodigoCurso == codigoCurso);
         }
 
     }

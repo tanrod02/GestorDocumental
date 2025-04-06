@@ -9,6 +9,7 @@
 @inject IJSRuntime JSRuntime
 @inject AuthService AuthenticationService
 @inject ContextMenuService ContextMenuService
+@inject IEstadisticaService EstadisticaService
 @using Radzen
 @using Radzen.Blazor
 
@@ -150,10 +151,37 @@
 
     async Task VerContenidoArchivo(Archivo archivo)
     {
-        if (archivo.Tipo == "application/pdf" && archivo.Contenido?.Length > 0)
+        async Task VerContenidoArchivo(Archivo archivo)
         {
-            var base64 = Convert.ToBase64String(archivo.Contenido);
-            await JSRuntime.InvokeVoidAsync("abrirPdfDesdeBytes", base64);
+            if (archivo.Contenido?.Length > 0)
+            {
+                var base64 = Convert.ToBase64String(archivo.Contenido);
+                var tipoLower = archivo.Tipo?.ToLower() ?? string.Empty;
+
+                if (tipoLower.Contains("pdf"))
+                {
+                    await JSRuntime.InvokeVoidAsync("abrirPdfDesdeBytes", base64);
+                }
+                else if (tipoLower.Contains("plain"))
+                {
+                    var texto = System.Text.Encoding.UTF8.GetString(archivo.Contenido);
+                    await JSRuntime.InvokeVoidAsync("mostrarTexto", texto);
+                }
+                else if (tipoLower.StartsWith("image/"))
+                {
+                    await JSRuntime.InvokeVoidAsync("mostrarImagen", base64);
+                }
+                else if (tipoLower.Contains("word"))
+                {
+                    await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
+                }
+                else
+                {
+                    await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
+                }
+
+                await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
+            }
         }
     }
 
