@@ -9,5 +9,6 @@ namespace GestorDocumental.Business.Interfaces
         Task EliminarEtiquetasArchivo(int codigoArchivo, List<Etiqueta> etiquetas);
         Task<Etiqueta> CrearEtiqueta(Etiqueta Etiqueta);
         Task AgregarEtiquetasArchivo(int codigoArchivo, List<Etiqueta> etiquetas);
+        Task EliminarTodasEtiquetasArchivo(int CodigoArchivo);
     }
 }

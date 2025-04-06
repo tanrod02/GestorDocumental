@@ -5,6 +5,7 @@
 @using Radzen
 @using Radzen.Blazor
 @inject IArchivoService ArchivoService
+@inject IEtiquetasService EtiquetasService
 @inject DialogService DialogService
 @rendermode InteractiveServer
 
@@ -19,13 +20,24 @@
             Progress="@(args => OnProgress(args))"
             Style="width: 100%" 
             ChooseText="Seleccionar archivo" />
+
+            @if (!archivoSeleccionado)
+            {
+                <div style="color: red;">Debes seleccionar un archivo.</div>
+            }
         </div>
 
         <div>
-            <label>Etiquetas:</label>
-            <div class="input-con-boton" style="display: flex; gap: 10px;">
-                <RadzenTextBox @bind-Value="nuevaEtiqueta" Placeholder="Añadir etiqueta..." Style="flex-grow: 1;" />
-                <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Click="@AgregarEtiqueta" />
+            <label><b>Etiquetas:</b></label>
+            <div style="display: flex; gap: 10px;">
+                <!-- AutoComplete para buscar etiquetas existentes o escribir una nueva -->
+                <RadzenAutoComplete @bind-Value="nuevaEtiqueta"
+                Data="@etiquetas.Select(e => e.DescripcionEtiqueta).ToList()"
+                Placeholder="Escribe o selecciona una etiqueta..."
+                Style="flex-grow: 1;"
+                AllowClear="true" />
+
+                <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Click="AgregarEtiqueta"/>
             </div>
         </div>
 
@@ -44,12 +56,16 @@
 
         <div>
             <label>Fecha de vencimiento:</label>
-            <RadzenDatePicker Value="@fechaSeleccionada" ValueChanged="@((DateTime? value) => fechaSeleccionada = value)" />
+            <RadzenDatePicker Value="@archivoSubido.FechaBaja" ValueChanged="@((DateTime? value) => archivoSubido.FechaBaja = value)" />
         </div>
 
         <div>
             <label>Grupo:</label>
             <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+            @if (grupoNoSeleccionado)
+            {
+                <div style="color: red;">El grupo es obligatorio.</div>
+            }
         </div>
 
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -77,9 +93,18 @@
     [Parameter] public int CodigoUsuario { get; set; }
 
     private Archivo archivoSubido = new() { };
+    private List<Etiqueta> etiquetas = new();
     private string nuevaEtiqueta = "";
     private List<string> listaEtiquetas = new();
-    private DateTime? fechaSeleccionada = null;
+
+    bool archivoSeleccionado = false;
+    bool grupoNoSeleccionado = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        etiquetas = await EtiquetasService.ObtenerEtiquetas();
+    }
+
 
     private void OnProgress(UploadProgressArgs args)
     {
@@ -87,32 +112,36 @@
     }
 
     private async Task OnFileSelected(UploadChangeEventArgs args)
-{
-    var archivo = args.Files.FirstOrDefault();
-    if (archivo != null)
     {
-        try
+        var archivo = args.Files.FirstOrDefault();
+        if (archivo != null)
         {
-            using (var stream = new MemoryStream())
+            try
             {
-                await archivo.OpenReadStream(maxAllowedSize: 50 * 1024 * 1024).CopyToAsync(stream);
-                stream.Position = 0;
-                
-                archivoSubido.NombreArchivo = archivo.Name;
-                archivoSubido.Tipo = archivo.ContentType;
-                archivoSubido.Tamaño = (int)archivo.Size;
-                archivoSubido.Contenido = stream.ToArray();
-                archivoSubido.FechaAlta = DateTime.Now;
-                archivoSubido.Curso = CodigoCurso;
-                archivoSubido.Propietario = CodigoUsuario;
+                using (var stream = new MemoryStream())
+                {
+                    await archivo.OpenReadStream(maxAllowedSize: 50 * 1024 * 1024).CopyToAsync(stream);
+                    stream.Position = 0;
+
+                    archivoSubido.NombreArchivo = archivo.Name;
+                    archivoSubido.Tipo = archivo.ContentType;
+                    archivoSubido.Tamaño = (int)archivo.Size;
+                    archivoSubido.Contenido = stream.ToArray();
+                    archivoSubido.FechaAlta = DateTime.Now;
+                    archivoSubido.Curso = CodigoCurso;
+                    archivoSubido.Propietario = CodigoUsuario;
+                    archivoSubido.Visible = true; //por defecto es visible
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error al procesar el archivo: {ex.Message}");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al procesar el archivo: {ex.Message}");
+            }
+
+            archivoSeleccionado = !archivoSeleccionado;
+
         }
     }
-}
 
 
     private void CancelarArchivo()
@@ -140,13 +169,41 @@
 
     private async Task ConfirmarSubida()
     {
-        archivoSubido.FechaBaja = fechaSeleccionada;
-        archivoSubido.Etiquetas = listaEtiquetas;
 
-        await ArchivoService.GuardarArchivoAsync(archivoSubido);
+        grupoNoSeleccionado = string.IsNullOrEmpty(archivoSubido.Grupo);
+        if(!archivoSeleccionado || grupoNoSeleccionado){
+            return;
+        }
+
+        var confirmacion = await DialogService.Confirm("¿Subir este documento?", "Confirmar subir documento",
+           new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+
+        if(confirmacion == true){
+            await ArchivoService.GuardarArchivoAsync(archivoSubido);
+
+
+            if (listaEtiquetas.Any())
+            {
+                List<Etiqueta> etiquetasAgregarBD = new List<Etiqueta>();
+                foreach (string etiqueta in listaEtiquetas)
+                {
+                    Etiqueta? etiquetaBD = etiquetas.FirstOrDefault(e => e.DescripcionEtiqueta == etiqueta);
+                    if (etiquetaBD == null)
+                    {
+                        Etiqueta etiquetaNueva = new() { DescripcionEtiqueta = etiqueta };
+                        etiquetaBD = await EtiquetasService.CrearEtiqueta(etiquetaNueva);
+                        etiquetas.Add(etiquetaBD);
+                    }
+                    etiquetasAgregarBD.Add(etiquetaBD);
+                }
+
+                await EtiquetasService.AgregarEtiquetasArchivo(archivoSubido.CodigoArchivo, etiquetasAgregarBD);
+            }
+
+            DialogService.Close(true);
+        }
+
        
-
-        DialogService.Close(true); 
     }
 
     private void CancelarSubida()

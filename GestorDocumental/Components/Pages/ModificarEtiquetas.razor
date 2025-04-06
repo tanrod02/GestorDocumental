@@ -35,7 +35,6 @@
             }
         </div>
 
-        <!-- Campo de entrada para AÑADIR NUEVAS etiquetas -->
         <div>
             <label><b>Añadir nueva etiqueta:</b></label>
             <div style="display: flex; gap: 10px;">
@@ -46,7 +45,6 @@
                                     Style="flex-grow: 1;"
                                     AllowClear="true" />
 
-                <!-- Botón siempre habilitado, sólo se deshabilita si el valor es vacío -->
                 <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Click="AñadirEtiqueta" Disabled="@string.IsNullOrWhiteSpace(etiquetaSeleccionada)" />
             </div>
         </div>
@@ -102,7 +100,6 @@
                 archivoActual = await ArchivoService.ObtenerInfoArchivo(CodigoArchivo);
                 etiquetas = await EtiquetasService.ObtenerEtiquetas();
 
-                // Cargar etiquetas actuales del archivo
                 var etiquetasArchivo = await EtiquetasService.ObtenerEtiquetasArchivo(CodigoArchivo);
                 etiquetasSeleccionadas = etiquetasArchivo.Select(e => e.DescripcionEtiqueta).ToList();
             }
@@ -149,35 +146,42 @@
     {
         try
         {
-            // Eliminar las relaciones de las etiquetas eliminadas
-            if (etiquetasEliminadas.Any())
-            {
-                var etiquetasEliminarBD = etiquetas.Where(e => etiquetasEliminadas.Contains(e.DescripcionEtiqueta)).ToList();
-                await EtiquetasService.EliminarEtiquetasArchivo(CodigoArchivo, etiquetasEliminarBD);
-            }
 
-            // Agregar nuevas etiquetas
-            if (etiquetasNuevas.Any())
-            {
-                var etiquetasAgregarBD = new List<Etiqueta>();
-                foreach (var etiqueta in etiquetasNuevas)
+           var confirmacion = await DialogService.Confirm("¿Modificar las etiquetas?", "Confirmar modificar etiquetas documento",
+           new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+
+           if(confirmacion == true){
+                // Eliminar las relaciones de las etiquetas eliminadas
+                if (etiquetasEliminadas.Any())
                 {
-                    var etiquetaBD = etiquetas.FirstOrDefault(e => e.DescripcionEtiqueta == etiqueta);
-                    if (etiquetaBD == null)
-                    {
-                        Etiqueta etiquetaNueva = new() { DescripcionEtiqueta = etiqueta };
-                        etiquetaBD = await EtiquetasService.CrearEtiqueta(etiquetaNueva);
-                        etiquetas.Add(etiquetaBD);
-                    }
-                    etiquetasAgregarBD.Add(etiquetaBD);
+                    var etiquetasEliminarBD = etiquetas.Where(e => etiquetasEliminadas.Contains(e.DescripcionEtiqueta)).ToList();
+                    await EtiquetasService.EliminarEtiquetasArchivo(CodigoArchivo, etiquetasEliminarBD);
                 }
 
-                await EtiquetasService.AgregarEtiquetasArchivo(CodigoArchivo, etiquetasAgregarBD);
-            }
+                // Agregar nuevas etiquetas
+                if (etiquetasNuevas.Any())
+                {
+                    var etiquetasAgregarBD = new List<Etiqueta>();
+                    foreach (var etiqueta in etiquetasNuevas)
+                    {
+                        var etiquetaBD = etiquetas.FirstOrDefault(e => e.DescripcionEtiqueta == etiqueta);
+                        if (etiquetaBD == null)
+                        {
+                            Etiqueta etiquetaNueva = new() { DescripcionEtiqueta = etiqueta };
+                            etiquetaBD = await EtiquetasService.CrearEtiqueta(etiquetaNueva);
+                            etiquetas.Add(etiquetaBD);
+                        }
+                        etiquetasAgregarBD.Add(etiquetaBD);
+                    }
 
-            etiquetasEliminadas.Clear();
-            etiquetasNuevas.Clear();
-            DialogService.Close(true);
+                    await EtiquetasService.AgregarEtiquetasArchivo(CodigoArchivo, etiquetasAgregarBD);
+                }
+
+                etiquetasEliminadas.Clear();
+                etiquetasNuevas.Clear();
+                DialogService.Close(true);
+           }
+            
         }
         catch (Exception e)
         {

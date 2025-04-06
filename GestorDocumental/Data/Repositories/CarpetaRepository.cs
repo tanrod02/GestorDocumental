@@ -13,7 +13,7 @@ namespace GestorDocumental.Data.Repositories
         {
             _contextFactory = contextFactory;
         }
-        public async Task<IEnumerable<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
+        public async Task<List<Archivo>> ObtenerArchivosCarpeta(int CodigoCarpeta)
         {
             try
             {

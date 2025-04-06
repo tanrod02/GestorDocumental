@@ -7,4 +7,5 @@ wwwroot\icons\carpeta.png
 wwwroot\icons\logo.png
 wwwroot\icons\logosinfondo.png
 wwwroot\icons\pdf.png
-wwwroot\script.js
+wwwroot\scripts\script.js
+wwwroot\scripts\verDocumento.js

@@ -28,7 +28,7 @@ namespace GestorDocumental.Business.Services
             var usuario = await _usuarioRepository.ObtenerUsuarioPorCorreoAsync(correo);
             if (usuario == null || !BCrypt.Net.BCrypt.Verify(contraseña, usuario.Contraseña))
             {
-                return null; // Usuario no encontrado o credenciales incorrectas
+                return null; 
             }
 
             return usuario;

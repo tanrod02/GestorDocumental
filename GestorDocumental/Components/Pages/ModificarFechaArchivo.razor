@@ -88,8 +88,13 @@
     {
         archivoActual.FechaBaja = nuevaFechaBaja;
         
+        var confirmacion = await DialogService.Confirm("¿Quiere modificar la fecha baja del documento?", "Confirmar modificar fecha documento",
+          new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        await ArchivoService.ModificarArchivo(archivoActual);
+        if(confirmacion == true){
+            await ArchivoService.ModificarArchivo(archivoActual);
+        }
+       
 
 
         DialogService.Close(true);

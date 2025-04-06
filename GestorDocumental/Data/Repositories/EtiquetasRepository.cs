@@ -119,5 +119,25 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+        public async Task EliminarTodasEtiquetasArchivo(int CodigoArchivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                List<ArchivoEtiqueta> etiquetas = context.ArchivosEtiquetas.Where(ae => ae.CodigoArchivo == CodigoArchivo).ToList();
+                context.ArchivosEtiquetas.RemoveRange(etiquetas);
+
+                await context.SaveChangesAsync();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al agregar las etiquetas al archivo {ex.Message}");
+                throw;
+            }
+        }
+
     }
 }
