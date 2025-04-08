@@ -1,5 +1,6 @@
 ﻿@page "/home"
 @page "/home/{CodigoCurso:int}"
+@page "/home/{CodigoCurso:int}/{CodigoCarpeta:int}"
 @layout MainLayout
 @rendermode InteractiveServer
 @using GestorDocumental.Business.Interfaces
@@ -47,7 +48,7 @@
     {
         <RadzenSidebar Expanded="@sidebarExpanded"  Style="height: 100vh;" >
 
-            <NavBusquedaFiltros  CodigoCurso="@CodigoCurso" /> 
+            <NavBusquedaFiltros  CodigoCurso="@CodigoCurso" CodigoCarpeta="@CodigoCarpeta" /> 
         </RadzenSidebar>
     }
 
@@ -58,7 +59,17 @@
             <div class="curso-toggle-container">
                 @if (CodigoCurso != 0)
                 {
-                    <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
+                    @if (CodigoCarpeta == 0)
+                    {
+                        <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
+                    }
+                    else
+                    {
+                        <button class="back-button" @onclick="VolverHome" style="border: none; background: transparent; cursor: pointer; display: inline-flex; align-items: center; margin-right: 5px;">
+                            <span style="font-size: 1.5rem; color: #007bff;">←</span>
+                        </button>
+                        <span class="curso-nombre" style="display: inline; margin: 0; padding: 0;">@cursoActual.Descripcion/@carpetaActual.Descripcion</span>
+                    }
 
                     <div class="curso-toggle-buttons">
                         <button class="toggle-view-button" @onclick="VerNoVisibles">
@@ -71,6 +82,7 @@
                     </div>
                 }
             </div>
+
 
 
 
@@ -126,13 +138,18 @@
             }
             else if (elementos == null || !elementos.Any())
             {
-                <p>No se encontraron documentos que cumplan con los criterios de búsqueda.</p>
+                if(CodigoCarpeta > 0){
+                    <p>Carpeta vacía.</p>
+                }
+                else{
+                    <p>No se encontraron documentos que cumplan con los criterios de búsqueda.</p>
+                }
+                
             }
             else
             {
                 @if (modoTarjetas)
                 {
-
                     <!-- Vista en tarjetas -->
                     <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
                         <div style="width: 100%; height: 100%;">
@@ -192,7 +209,10 @@
                             <tr>
                                 <th style="width: 5%;">Tipo</th>
                                 <th>Nombre</th>
-                                <th style="width: 10%;">Acciones</th>
+                                <th style="width: 10%;">Tamaño</th>
+                                <th style="width: 10%;">Fecha Alta</th>
+                                <th style="width: 10%;">Fecha Baja</th>
+                                <th style="width: 10%;">Visible</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -205,7 +225,11 @@
                                             <img src="@ObtenerIconoCarpeta()" alt="Carpeta" style="width:20px; height:20px;" />
                                         </td>
                                         <td>@carpeta.Descripcion</td>
-                                        <td><!-- Opciones adicionales --></td>
+                                        <td>  </td>
+                                        <td>  </td>
+                                        <td>  </td>
+                                        <td>  </td>
+
                                     </tr>
                                 }
                                 else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
@@ -215,12 +239,16 @@
                                             <img src="@ObtenerIconoArchivo(archivo.Tipo)" alt="Archivo" style="width:20px; height:20px;" />
                                         </td>
                                         <td>@archivo.NombreArchivo</td>
-                                        <td><!-- Opciones adicionales --></td>
+                                        <td>@archivo.Tamaño KB</td>
+                                        <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
+                                        <td>@archivo.FechaBaja?.ToString("dd/MM/yyyy")</td>
+                                        <td>@(archivo.Visible ? "Si" : "No")</td> 
                                     </tr>
                                 }
                             }
                         </tbody>
                     </table>
+
                 }
             }
 
@@ -236,8 +264,11 @@
 
 @code {
     [Parameter] public int CodigoCurso { get; set; }
+    [Parameter] public int CodigoCarpeta{ get; set; }
     private IEnumerable<Archivo> archivos = new List<Archivo>();
     private IEnumerable<Carpeta> carpetas = new List<Carpeta>();
+    private Carpeta carpetaActual = new Carpeta();
+    private List<Archivo> archivosCarpeta = new List<Archivo>();
     private List<object> elementos;
     private Usuario usuarioActual = new Usuario();
     private Curso cursoActual = new Curso();
@@ -247,6 +278,7 @@
     private List<Etiqueta> TodasEtiquetas = new List<Etiqueta>();
 
     private bool modoTarjetas = true;
+    private bool mostrarCarpeta => CodigoCarpeta > 0;
     private bool modalAbierto = false;
     private bool mostrandoArchivosDeCarpeta = false;
     private bool modalAbiertoFecha = false;
@@ -385,17 +417,36 @@
     {
         try
         {
-            var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
-            carpetas = carpetasData;
-            archivos = archivosData;
-            elementos = new List<object>();
-            elementos.AddRange(carpetas.ToList());
-            elementos.AddRange(archivos.ToList());
+            if(CodigoCarpeta == 0){
+                var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
+                carpetas = carpetasData;
+                archivos = archivosData;
+                elementos = new List<object>();
+                elementos.AddRange(carpetas.ToList());
+                elementos.AddRange(archivos.ToList());
+                if (archivos.Any())
+                {
+                    await CargarEstadisticas(archivos.ToList());
+                    await CargarEtiquetas(archivos.ToList());
+                }
 
-            if(archivos.Any()){
-                await CargarEstadisticas(archivos.ToList());
-                await CargarEtiquetas(archivos.ToList());
+
             }
+            else
+            {
+                carpetaActual = await CarpetaService.ObtenerCarpeta(CodigoCarpeta);
+                archivosCarpeta = await CarpetaService.ObtenerArchivosCarpeta(CodigoCarpeta);
+                if (archivosCarpeta.Any())
+                {
+                    elementos = new List<object>();
+                    elementos.AddRange(archivosCarpeta);
+                    await CargarEstadisticas(archivosCarpeta.ToList());
+                    await CargarEtiquetas(archivosCarpeta.ToList());
+                }
+
+            }
+
+           
         }
         catch (Exception e)
         {
@@ -428,14 +479,16 @@
         }
     }
 
-
+    private void VolverHome()
+    {
+        Navigation.NavigateTo($"/home/{carpetaActual.Curso}");
+    }
 
     private void ToggleSidebar()
     {
         sidebarExpanded = !sidebarExpanded;
 
     }
-
 
     private void ToggleVista() => modoTarjetas = !modoTarjetas;
     private void VerNoVisibles() => mostrarNoVisibles = !mostrarNoVisibles;
@@ -474,7 +527,7 @@
 
     private void MostrarArchivosDeCarpeta(Carpeta carpeta)
     {
-        Navigation.NavigateTo($"/MostrarCarpeta/{carpeta.CodigoCarpeta}/{usuarioActual.CodigoUsuario}/{cursoActual.Descripcion}");
+        Navigation.NavigateTo($"/Home/{CodigoCurso}/{carpeta.CodigoCarpeta}");
         StateHasChanged();
     }
 
@@ -485,7 +538,8 @@
         var resultado = await DialogService.OpenAsync<SubirArchivo>("Subir Archivo", new Dictionary<string, object>
         {
             { "CodigoCurso", CodigoCurso },
-            { "CodigoUsuario", usuarioActual.CodigoUsuario }
+            { "CodigoUsuario", usuarioActual.CodigoUsuario },
+            { "CodigoCarpeta", CodigoCarpeta}
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbierto = false;
         if (resultado is bool archivoSubido && archivoSubido)

@@ -32,16 +32,16 @@
 
     <h5 class="filter-subtitle" style="margin:0; font-size:0.9rem;">Etiquetas</h5>
     <RadzenDropDown @bind-Value="selectedTags"
-                    Data="etiquetas"
-                    TextProperty="DescripcionEtiqueta"
-                    ValueProperty="CodigoEtiqueta"
-                    Multiple="true"
-                    AllowClear="true"
-                    AllowFiltering="true"
-                    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                    Chips="true"
-                    Placeholder="Selecciona etiquetas..."
-                    Style="width: 100%; font-size:0.9rem;" />
+    Data="etiquetas"
+    TextProperty="DescripcionEtiqueta"
+    ValueProperty="CodigoEtiqueta"
+    Multiple="true"
+    AllowClear="true"
+    AllowFiltering="true"
+    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+    Chips="true"
+    Placeholder="Selecciona etiquetas..."
+    Style="width: 100%; font-size:0.9rem;" />
 
 
     <div style="margin-top: 50rem; display: flex; justify-content: center;">
@@ -59,6 +59,8 @@
 @code {
     [Parameter]
     public int CodigoCurso { get; set; }
+    [Parameter]
+    public int CodigoCarpeta{ get; set; }
 
 
     private string keyword = "";
@@ -118,7 +120,12 @@
         {
             query += "&tags=" + Uri.EscapeDataString(string.Join(",", selectedTags));
         }
-        Navigation.NavigateTo($"/home/{CodigoCurso}{query}", forceLoad: true);
+        if(CodigoCarpeta == 0){
+            Navigation.NavigateTo($"/home/{CodigoCurso}{query}", forceLoad: true);
+        }else{
+            Navigation.NavigateTo($"/home/{CodigoCurso}/{CodigoCarpeta}{query}", forceLoad: true);
+        }
+       
     }
 
     private void QuitarBusqueda()

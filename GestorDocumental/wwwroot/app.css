@@ -202,12 +202,10 @@
     }
 
 
-
-
 /* Botón ver en lista/tarjetas + nombre del curso en home */
 .curso-toggle-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     width: 100%;
     margin-bottom: 5px;
@@ -223,6 +221,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-left: auto; 
 }
 
 .toggle-view-button {

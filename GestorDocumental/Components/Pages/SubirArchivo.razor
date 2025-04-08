@@ -58,7 +58,8 @@
 
         <div>
             <label>Fecha de vencimiento:</label>
-            <RadzenDatePicker Value="@archivoSubido.FechaBaja" ValueChanged="@((DateTime? value) => archivoSubido.FechaBaja = value)" />
+            <RadzenDatePicker Value="@archivoSubido.FechaBaja" ValueChanged="@((DateTime? value) => archivoSubido.FechaBaja = value)" ShowTime="false" DateFormat="dd/MM/yyyy"/>
+           
         </div>
 
         <div>
@@ -93,6 +94,7 @@
 
     [Parameter] public int CodigoCurso { get; set; }
     [Parameter] public int CodigoUsuario { get; set; }
+    [Parameter] public int CodigoCarpeta { get; set; }
 
     private Archivo archivoSubido = new() { };
     private List<Etiqueta> etiquetas = new();
@@ -133,6 +135,9 @@
                     archivoSubido.Curso = CodigoCurso;
                     archivoSubido.Propietario = CodigoUsuario;
                     archivoSubido.Visible = true; //por defecto es visible
+                    if(CodigoCarpeta > 0){
+                        archivoSubido.CodigoCarpeta = CodigoCarpeta;
+                    }
                 }
             }
             catch (Exception ex)
@@ -207,7 +212,7 @@
             // Enviar correo al usuario logueado
             string subject = "Documento subido correctamente";
             string body = $"Hola {usuarioActual.Nombre}, se ha subido el documento '{archivoSubido.NombreArchivo}' a tu curso.";
-            await EmailService.EnviarCorreoAsync(usuarioActual.Correo, subject, body);
+           //await EmailService.EnviarCorreoAsync(usuarioActual.Correo, subject, body);
 
             DialogService.Close(true);
         }
