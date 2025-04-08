@@ -23,5 +23,19 @@ namespace GestorDocumental.Business.Services
             _estadisticaRepository.ActualizarEstadisticasArchivo(est).Wait();
 
         }
+
+        public async Task<List<EstadisticasArchivo>> ObtenerEstadisticas(List<Archivo> archivos)
+        {
+
+            List<EstadisticasArchivo> estadisticas = new List<EstadisticasArchivo>();
+
+            foreach (Archivo archivo in archivos)
+            {
+                EstadisticasArchivo est = _estadisticaRepository.ObtenerEstadisticasArchivo(archivo.CodigoArchivo).Result;
+                estadisticas.Add(est);
+            }
+
+            return estadisticas;
+        }
     }
 }

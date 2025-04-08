@@ -18,6 +18,9 @@
 @inject Radzen.DialogService DialogService
 @inject IEstadisticaService EstadisticaService
 @inject ICarpetaService CarpetaService
+@inject IEstadisticaService EstadisticasService
+@inject IEtiquetasService EtiquetasService
+
 
 <RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
     <RadzenHeader>
@@ -39,30 +42,79 @@
         </div>
     </RadzenHeader>
 
-    @if (CodigoCurso != 0)
+
+    @if (CodigoCurso != 0 && sidebarExpanded)
     {
-        <RadzenSidebar @bind-Expanded="@sidebarExpanded" Style="height: 100vh;">
-            <!-- Se pasa el código del curso al componente de búsqueda -->
-            <NavBusquedaFiltros IsExpanded="@sidebarExpanded" IsExpandedChanged="@((value) => sidebarExpanded = value)" CodigoCurso="@CodigoCurso" />
+        <RadzenSidebar Expanded="@sidebarExpanded"  Style="height: 100vh;" >
+
+            <NavBusquedaFiltros  CodigoCurso="@CodigoCurso" /> 
         </RadzenSidebar>
     }
 
-    <RadzenBody Style="height: 100vh; overflow: auto;">
+
+    <RadzenBody Style="height: 100vh; overflow: auto; background-color: white">
         <div style="width: 100%; height: 100%;" @oncontextmenu="args => ShowContextMenuWithItems(args)">
             <PageTitle>Documentos</PageTitle>
             <div class="curso-toggle-container">
                 @if (CodigoCurso != 0)
                 {
                     <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
-                    <button class="toggle-view-button" @onclick="VerNoVisibles">
-                        📄 Ver archivos no visibles
-                    </button>
-                    <button class="toggle-view-button" @onclick="ToggleVista">
-                        @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
-                    </button>
-                    <RadzenSidebarToggle Click="@(() => sidebarExpanded = !sidebarExpanded)" class="rz-m-0" Style="margin-left: 1rem;" />
+
+                    <div class="curso-toggle-buttons">
+                        <button class="toggle-view-button" @onclick="VerNoVisibles">
+                            📄 Ver archivos no visibles
+                        </button>
+                        <button class="toggle-view-button" @onclick="ToggleVista">
+                            @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
+                        </button>
+                        <RadzenSidebarToggle class="sidebar-toggle-btn" Click="@ToggleSidebar" />
+                    </div>
                 }
             </div>
+
+
+
+            <div class="filters-message">
+                @if (!string.IsNullOrWhiteSpace(keyword))
+                {
+                    <p><strong>Resultados para:</strong> "@keyword"</p>
+                }
+
+                @if (etiquetasFiltro.Any() || recientes || masVistos)
+                {
+                    var mensajes = new List<string>();
+
+                    if (etiquetasFiltro.Any())
+                    {
+                        List<string> etiquetasSeleccionadas = TodasEtiquetas
+                        .Where(e => etiquetasFiltro.Contains(e.CodigoEtiqueta))
+                        .Select(e => e.DescripcionEtiqueta)
+                        .ToList();
+
+                        mensajes.Add($"Documentos con etiquetas: {string.Join(", ", etiquetasSeleccionadas)}");
+                    }
+
+                    if (recientes)
+                    {
+                        mensajes.Add("Ordenado por: Más recientes");
+                    }
+
+                    if (masVistos)
+                    {
+                        mensajes.Add("Ordenado por: Más vistos");
+                    }
+
+                    if (mensajes.Any())
+                    {
+                        foreach (var mensaje in mensajes)
+                        {
+                            <p>@mensaje</p>
+                        }
+                    }
+                }
+            </div>
+
+
 
             @if (CodigoCurso == 0)
             {
@@ -80,6 +132,7 @@
             {
                 @if (modoTarjetas)
                 {
+
                     <!-- Vista en tarjetas -->
                     <RadzenStack Gap="1rem" class="rz-p-sm-12 documentos-container">
                         <div style="width: 100%; height: 100%;">
@@ -89,14 +142,14 @@
                                     if (item is Carpeta carpeta)
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                                    @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                    @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
+                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                                                 <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
                                                     <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                       style="color: black; text-decoration: none; font-weight: bold;">
+                                                    style="color: black; text-decoration: none; font-weight: bold;">
                                                         @carpeta.Descripcion
                                                     </a>
                                                 </RadzenText>
@@ -106,14 +159,14 @@
                                     else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                                    @ondblclick="() => VerContenidoArchivo(archivo)"
-                                                    @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
+                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        @ondblclick="() => VerContenidoArchivo(archivo)"
+                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                                                 <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
                                                     <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
-                                                       style="color: black; text-decoration: none; font-weight: bold;">
+                                                    style="color: black; text-decoration: none; font-weight: bold;">
                                                         @archivo.NombreArchivo
                                                     </a>
                                                 </RadzenText>
@@ -188,6 +241,10 @@
     private List<object> elementos;
     private Usuario usuarioActual = new Usuario();
     private Curso cursoActual = new Curso();
+    private List<EstadisticasArchivo> estadisticas = new List<EstadisticasArchivo>();
+    private List<int> etiquetasFiltro = new List<int>();
+    private List<ArchivoEtiqueta> etiquetasArchivos = new List<ArchivoEtiqueta>();
+    private List<Etiqueta> TodasEtiquetas = new List<Etiqueta>();
 
     private bool modoTarjetas = true;
     private bool modalAbierto = false;
@@ -200,21 +257,28 @@
     private bool modalAbiertoRenombrarCarpeta = false;
     private bool clickArchivo = false;
     private bool mostrarNoVisibles = false;
+
     bool sidebarExpanded = false;
+    private string keyword = "";
+    private bool masVistos = false;
+    private bool recientes = false;
+
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
-            sidebarExpanded = false;
             StateHasChanged();
         }
     }
 
+
+
     protected override async Task OnParametersSetAsync()
     {
-        sidebarExpanded = false;
+
         await CargarCurso();
         await CargarArchivos();
 
@@ -227,21 +291,19 @@
             var searchTerm = query["keyword"].FirstOrDefault();
             if (!string.IsNullOrWhiteSpace(searchTerm) && elementos != null)
             {
+                keyword = searchTerm;
                 elementos = elementos.Where(item =>
                 {
                     if (item is Archivo a)
-                        return a.NombreArchivo.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase);
+                        return a.NombreArchivo.Contains(searchTerm, StringComparison.OrdinalIgnoreCase);
                     else if (item is Carpeta c)
-                        return c.Descripcion.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase);
+                        return c.Descripcion.Contains(searchTerm, StringComparison.OrdinalIgnoreCase);
                     return false;
                 }).ToList();
             }
         }
         else
         {
-            // Si no se envió "keyword", revisamos si se envían filtros (ordenación)
-            bool recientes = false;
-            bool masVistos = false;
             if (query.TryGetValue("recientes", out var rec))
             {
                 bool.TryParse(rec.FirstOrDefault(), out recientes);
@@ -263,18 +325,40 @@
                             return DateTime.MinValue;
                         }).ToList();
                     }
-                    // if (masVistos)
-                    // {
-                    //     elementos = elementos.OrderByDescending(item =>
-                    //     {
-                    //         if (item is Archivo a)
-                    //             return a.NumeroVisitas;
-                    //         return 0;
-                    //     }).ToList();
-                    // }
+                    if (masVistos)
+                    {
+                        var estadisticasDic = estadisticas.ToDictionary(e => e.CodigoArchivo, e => e.NumeroVisitas);
+
+                        elementos = elementos.OrderByDescending(item =>
+                        {
+                            if (item is Archivo a && estadisticasDic.TryGetValue(a.CodigoArchivo, out var visitas))
+                                return visitas;
+                            return 0;
+                        }).ToList();
+                    }
                 }
             }
+            if (query.TryGetValue("tags", out var tagsRaw) && !String.IsNullOrEmpty(tagsRaw))
+            {
+                etiquetasFiltro = tagsRaw.ToString()
+                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse)
+                    .ToList();
+            }
+            if(etiquetasFiltro.Any()){
+                var codigosArchivosFiltrados = etiquetasArchivos.Where(rel => etiquetasFiltro.Contains(rel.CodigoEtiqueta))
+                        .Select(rel => rel.CodigoArchivo).Distinct().ToHashSet();
+
+                elementos = elementos.Where(item =>
+                    {
+                        if (item is Archivo a)
+                            return codigosArchivosFiltrados.Contains(a.CodigoArchivo);
+                        return true; 
+                    }).ToList();
+            }
+
         }
+
     }
 
     private async Task CargarCurso()
@@ -289,7 +373,7 @@
             {
                 cursoActual = new Curso();
             }
-            StateHasChanged();
+            //StateHasChanged();
         }
         catch (Exception e)
         {
@@ -307,12 +391,51 @@
             elementos = new List<object>();
             elementos.AddRange(carpetas.ToList());
             elementos.AddRange(archivos.ToList());
+
+            if(archivos.Any()){
+                await CargarEstadisticas(archivos.ToList());
+                await CargarEtiquetas(archivos.ToList());
+            }
         }
         catch (Exception e)
         {
             Console.WriteLine($"Error en CargarArchivos: {e.Message}");
         }
     }
+
+    private async Task CargarEstadisticas(List<Archivo> archivos)
+    {
+        try
+        {
+            estadisticas = await EstadisticasService.ObtenerEstadisticas(archivos);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error en CargarArchivos: {e.Message}");
+        }
+    }
+
+    private async Task CargarEtiquetas(List<Archivo> archivos)
+    {
+        try
+        {
+            etiquetasArchivos = await EtiquetasService.ObtenerRelacionesEtiquetasArchivos(archivos);
+            TodasEtiquetas = await EtiquetasService.ObtenerEtiquetas();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error en CargarArchivos: {e.Message}");
+        }
+    }
+
+
+
+    private void ToggleSidebar()
+    {
+        sidebarExpanded = !sidebarExpanded;
+
+    }
+
 
     private void ToggleVista() => modoTarjetas = !modoTarjetas;
     private void VerNoVisibles() => mostrarNoVisibles = !mostrarNoVisibles;
@@ -416,8 +539,13 @@
         return tipoArchivo switch
         {
             "application/pdf" => "icons/pdf.png",
+            "text/plain" => "icons/plain.png", // icono para archivos de texto plano
+            "application/msword" => "icons/word.png", // .doc
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" => "icons/word.png", // .docx
+            string t when t.StartsWith("image/") => "icons/imagen.png", // cualquier imagen (png, jpg, etc.)
             _ => "icons/archivo.png"
         };
+
     }
 
     private string ObtenerIconoCarpeta() => "icons/carpeta.png";

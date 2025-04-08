@@ -7,5 +7,6 @@ namespace GestorDocumental.Data.Interfaces
         Task ActualizarEstadisticasArchivo(EstadisticasArchivo estadisticas);
 
         Task<EstadisticasArchivo> ObtenerEstadisticasArchivo(int CodigoArchivo);
+        Task EliminarEstadisticasArchivo(EstadisticasArchivo Estadisticas);
     }
 }

@@ -213,5 +213,22 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+        public async Task<List<Archivo>> ObtenerArchivosExpirados()
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                return await context.Archivos.Where(a => a.FechaBaja.HasValue && a.FechaBaja.Value < DateTime.Now).ToListAsync();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener archivos de baja: {ex.Message}");
+                throw;
+            }
+        }
+
     }
 }

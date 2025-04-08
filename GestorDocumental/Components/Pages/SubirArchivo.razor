@@ -12,7 +12,7 @@
 <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
     <div style="display: flex; flex-direction: column; gap: 15px;">
         <div>
-            <label>Selecciona un archivo:</label>
+            <label>Selecciona un archivo: (*)</label>
             <RadzenUpload @ref="upload"
             Auto="false"
             Multiple="false"
@@ -60,7 +60,7 @@
         </div>
 
         <div>
-            <label>Grupo:</label>
+            <label>Grupo: (*)</label>
             <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
             @if (grupoNoSeleccionado)
             {

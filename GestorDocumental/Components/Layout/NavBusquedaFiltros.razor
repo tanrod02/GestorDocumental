@@ -6,73 +6,86 @@
 @inject NavigationManager Navigation
 @inject IEtiquetasService EtiquetasService
 
+
+
 <div class="search-filters-container" style="display: flex; flex-direction: column; padding: 0.5rem; gap: 0.5rem; max-width: 280px;">
     <h3 class="title" style="margin:0; font-size:1.1rem;">Búsqueda</h3>
 
-    <!-- Barra de búsqueda por texto sin texto en el botón -->
     <div class="search-bar" style="display: flex; gap: 0.25rem; align-items: center;">
         <RadzenTextBox @bind-Value="keyword" Placeholder="Buscar..." class="search-input" style="flex:1; font-size:0.9rem;" />
-        <!-- Botón con ícono centrado y sin texto -->
         <RadzenButton Icon="search" Click="Buscar" style="min-width: 2.5rem; height:2.5rem; display: flex; align-items: center; justify-content: center;" />
     </div>
 
+    <button class="btn btn-outline-secondary w-100 mb-2" @onclick="QuitarBusqueda">
+        Limpiar búsqueda
+    </button>
+
     <h4 class="subtitle" style="margin:0; font-size:1rem;">Filtros</h4>
 
-    <div class="filter-item" style="display: flex; align-items: center; gap: 0.25rem; font-size:0.9rem;">
-        <RadzenCheckBox @bind-Value="filtroRecientes" />
-        <label class="filter-label" style="margin:0;">Fecha subida más reciente</label>
+    <div class="filter-item" style="display: flex; flex-direction: column; gap: 0.25rem; font-size:0.9rem;">
+        <label class="filter-label" style="margin:0;">Ordenar por:</label>
+        <RadzenDropDown @bind-Value="ordenacion" Data="ordenacionOpciones" TextProperty="Texto" ValueProperty="Valor"
+        Style="font-size: 0.9rem; width: 100%;" Placeholder="Seleccionar..." />
     </div>
-    <div class="filter-item" style="display: flex; align-items: center; gap: 0.25rem; font-size:0.9rem;">
-        <RadzenCheckBox @bind-Value="filtroMasVistos" />
-        <label class="filter-label" style="margin:0;">Documentos más vistos</label>
-    </div>
+
+    <hr style="margin: 1.5rem;" />
 
     <h5 class="filter-subtitle" style="margin:0; font-size:0.9rem;">Etiquetas</h5>
-    <RadzenTextBox @bind-Value="etiquetaFiltro" Placeholder="Buscar etiquetas..." Style="width: 100%; font-size:0.9rem;" />
-    <RadzenListBox @bind-Value="selectedTags" Data="etiquetasFiltradas" TextProperty="DescripcionEtiqueta"
-                   ValueProperty="CodigoEtiqueta" Multiple="true" class="tag-list" Style="font-size:0.9rem;" />
+    <RadzenDropDown @bind-Value="selectedTags"
+                    Data="etiquetas"
+                    TextProperty="DescripcionEtiqueta"
+                    ValueProperty="CodigoEtiqueta"
+                    Multiple="true"
+                    AllowClear="true"
+                    AllowFiltering="true"
+                    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                    Chips="true"
+                    Placeholder="Selecciona etiquetas..."
+                    Style="width: 100%; font-size:0.9rem;" />
 
-    <!-- Botón para aplicar filtros (ordenación) -->
-    <div style="margin-top: 0.5rem; display: flex; justify-content: center;">
+
+    <div style="margin-top: 50rem; display: flex; justify-content: center;">
         <RadzenButton Icon="filter_list" Text="Filtrar" Click="Filtrar" style="font-size:0.9rem; padding: 0.25rem 0.5rem;" />
     </div>
+
+    <button class="btn btn-outline-danger w-100 mt-2" @onclick="LimpiarFiltros">
+        Limpiar filtros
+    </button>
 </div>
+
+
+
 
 @code {
     [Parameter]
-    public bool IsExpanded { get; set; }
-
-    [Parameter]
-    public EventCallback<bool> IsExpandedChanged { get; set; }
-
-    // Recibir el código del curso para conservarlo en la navegación
-    [Parameter]
     public int CodigoCurso { get; set; }
 
+
     private string keyword = "";
+    private string ordenacion = null;
     private bool filtroRecientes = false;
     private bool filtroMasVistos = false;
-    private string etiquetaFiltro = null;
-    private List<string> selectedTags = new();
+    private IList<int> selectedTags = new List<int>();
     private List<Etiqueta> etiquetas = new List<Etiqueta>();
-    private List<Etiqueta> etiquetasFiltradas => string.IsNullOrWhiteSpace(etiquetaFiltro)
-       ? etiquetas
-       : etiquetas.Where(tag => tag.DescripcionEtiqueta.Contains(etiquetaFiltro, StringComparison.OrdinalIgnoreCase)).ToList();
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private List<OrdenacionItem> ordenacionOpciones = new()
     {
-        if (firstRender)
-        {
-            await BuscarEtiquetas();
-        }
+        new OrdenacionItem { Texto = "Fecha subida más reciente", Valor = "recientes" },
+        new OrdenacionItem { Texto = "Documentos más vistos", Valor = "masVistos" }
+    };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await BuscarEtiquetas();
     }
+
 
     private async Task BuscarEtiquetas()
     {
         try
         {
             etiquetas = await EtiquetasService.ObtenerEtiquetas();
-            StateHasChanged();
         }
         catch (Exception e)
         {
@@ -80,21 +93,56 @@
         }
     }
 
-    // Navegar a Home con el parámetro "keyword" para buscar por texto
     private void Buscar()
     {
         var query = $"?keyword={Uri.EscapeDataString(keyword)}";
         Navigation.NavigateTo($"/home/{CodigoCurso}{query}", forceLoad: true);
     }
 
-    // Navegar a Home con los parámetros de filtrado (checks y etiquetas)
     private void Filtrar()
     {
+        if (ordenacion == "recientes")
+        {
+            filtroRecientes = true;
+            filtroMasVistos = false;
+        }
+        else if (ordenacion == "masVistos")
+        {
+            filtroMasVistos = true;
+            filtroRecientes = false;
+        }
+
         var query = $"?recientes={filtroRecientes}&masVistos={filtroMasVistos}";
+
         if (selectedTags != null && selectedTags.Any())
         {
             query += "&tags=" + Uri.EscapeDataString(string.Join(",", selectedTags));
         }
         Navigation.NavigateTo($"/home/{CodigoCurso}{query}", forceLoad: true);
     }
+
+    private void QuitarBusqueda()
+    {
+        Navigation.NavigateTo($"/home/{CodigoCurso}", forceLoad: true);
+    }
+
+    private void LimpiarFiltros()
+    {
+        keyword = string.Empty;
+        ordenacion = null; 
+        filtroRecientes = false;
+        filtroMasVistos = false;
+        selectedTags.Clear();
+
+        Navigation.NavigateTo($"/home/{CodigoCurso}", forceLoad: true);
+    }
+
+    // Clase para representar las opciones de ordenación
+    public class OrdenacionItem
+    {
+        public string Texto { get; set; }
+        public string Valor { get; set; }
+    }
 }
+
+

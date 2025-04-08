@@ -44,6 +44,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRadzenComponents();
 
+//Retencion documental 
+builder.Services.AddSingleton<RetencionDocumentalService>();
+
 // Inyección de dependencias para repositorios y servicios
 builder.Services.AddScoped<IArchivoRepository, ArchivoRepository>();
 builder.Services.AddScoped<IArchivoService, ArchivoService>();

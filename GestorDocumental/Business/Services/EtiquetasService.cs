@@ -5,7 +5,7 @@ using GestorDocumental.Data.Interfaces;
 
 namespace GestorDocumental.Business.Services
 {
-    public class EtiquetasService: IEtiquetasService
+    public class EtiquetasService : IEtiquetasService
     {
         private readonly IEtiquetasRepository _etiquetasRepository;
         public EtiquetasService(IEtiquetasRepository etiquetasRepository)
@@ -34,12 +34,24 @@ namespace GestorDocumental.Business.Services
 
         public async Task AgregarEtiquetasArchivo(int codigoArchivo, List<Etiqueta> etiquetas)
         {
-            await _etiquetasRepository.AgregarEtiquetasArchivo(codigoArchivo , etiquetas);
+            await _etiquetasRepository.AgregarEtiquetasArchivo(codigoArchivo, etiquetas);
         }
 
         public async Task EliminarTodasEtiquetasArchivo(int CodigoArchivo)
         {
             await _etiquetasRepository.EliminarTodasEtiquetasArchivo(CodigoArchivo);
+        }
+
+        public async Task<List<ArchivoEtiqueta>> ObtenerRelacionesEtiquetasArchivos(List<Archivo> archivos)
+        {
+            List<ArchivoEtiqueta> archivoEtiquetas = new List<ArchivoEtiqueta>();
+            foreach (Archivo archivo in archivos)
+            {
+                List<ArchivoEtiqueta> resultado = await _etiquetasRepository.ObtenerRelacionesEtiquetasArchivos(archivo.CodigoArchivo);
+                archivoEtiquetas.AddRange(resultado);
+            }
+
+            return archivoEtiquetas;
         }
     }
 }

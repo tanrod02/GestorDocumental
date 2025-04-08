@@ -139,5 +139,22 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+
+        public async Task<List<ArchivoEtiqueta>> ObtenerRelacionesEtiquetasArchivos(int CodigoArchivo)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                return context.ArchivosEtiquetas.Where(ae => ae.CodigoArchivo == CodigoArchivo).ToList();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al agregar las etiquetas al archivo {ex.Message}");
+                throw;
+            }
+        }
     }
 }

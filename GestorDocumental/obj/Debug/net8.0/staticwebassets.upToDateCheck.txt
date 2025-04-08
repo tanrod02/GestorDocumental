@@ -4,8 +4,12 @@ wwwroot\bootstrap\bootstrap.min.css.map
 wwwroot\favicon.png
 wwwroot\icons\archivo.png
 wwwroot\icons\carpeta.png
+wwwroot\icons\imagen.png
 wwwroot\icons\logo.png
 wwwroot\icons\logosinfondo.png
 wwwroot\icons\pdf.png
+wwwroot\icons\plain.png
+wwwroot\icons\word.png
+wwwroot\scripts\drag&drop.js
 wwwroot\scripts\script.js
 wwwroot\scripts\verDocumento.js

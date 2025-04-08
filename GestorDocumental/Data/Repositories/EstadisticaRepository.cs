@@ -34,9 +34,21 @@ namespace GestorDocumental.Data.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al obtener infor del archivo: {ex.Message}");
+                Console.WriteLine($"Error al obtener estadisticas del archivo: {ex.Message}");
                 throw;
             }
         }
+
+        public async Task EliminarEstadisticasArchivo(EstadisticasArchivo Estadisticas)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            context.Remove(Estadisticas);
+
+            context.SaveChangesAsync();
+        }
+
+
+
     }
 }
