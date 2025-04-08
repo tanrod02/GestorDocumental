@@ -66,6 +66,8 @@ builder.Services.AddScoped<ICarpetaService, CarpetaService>();
 builder.Services.AddScoped<IEtiquetasRepository, EtiquetasRepository>();
 builder.Services.AddScoped<IEtiquetasService, EtiquetasService>();
 
+builder.Services.AddTransient<IEmailService, EmailService>();
+
 // Servicio para la autenticación de usuario
 builder.Services.AddScoped<AuthService>();
 

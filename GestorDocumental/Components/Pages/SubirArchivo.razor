@@ -5,8 +5,10 @@
 @using Radzen
 @using Radzen.Blazor
 @inject IArchivoService ArchivoService
+@inject IEmailService EmailService
 @inject IEtiquetasService EtiquetasService
 @inject DialogService DialogService
+@inject AuthService AuthenticationService
 @rendermode InteractiveServer
 
 <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
@@ -169,18 +171,20 @@
 
     private async Task ConfirmarSubida()
     {
+        Usuario usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
 
         grupoNoSeleccionado = string.IsNullOrEmpty(archivoSubido.Grupo);
-        if(!archivoSeleccionado || grupoNoSeleccionado){
+        if (!archivoSeleccionado || grupoNoSeleccionado)
+        {
             return;
         }
 
         var confirmacion = await DialogService.Confirm("¿Subir este documento?", "Confirmar subir documento",
            new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        if(confirmacion == true){
+        if (confirmacion == true)
+        {
             await ArchivoService.GuardarArchivoAsync(archivoSubido);
-
 
             if (listaEtiquetas.Any())
             {
@@ -200,11 +204,15 @@
                 await EtiquetasService.AgregarEtiquetasArchivo(archivoSubido.CodigoArchivo, etiquetasAgregarBD);
             }
 
+            // Enviar correo al usuario logueado
+            string subject = "Documento subido correctamente";
+            string body = $"Hola {usuarioActual.Nombre}, se ha subido el documento '{archivoSubido.NombreArchivo}' a tu curso.";
+            await EmailService.EnviarCorreoAsync(usuarioActual.Correo, subject, body);
+
             DialogService.Close(true);
         }
-
-       
     }
+
 
     private void CancelarSubida()
     {
