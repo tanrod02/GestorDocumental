@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rs0UuvFw5GwFO9xx+evEpG75fcwCVgOMWqtAsRFiiRY=",
+  "Hash": "Fb9wjrLI5lTmawVRSAxmC5QdkB0GAk33XkIjKjVvZ3A=",
   "Source": "GestorDocumental",
   "BasePath": "_content/GestorDocumental",
   "Mode": "Default",
@@ -3118,8 +3118,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "oi4xwzjvhz",
-      "Integrity": "4O7qM/gB/WKpOXnryxOhGeesSrwcq8SHg1ZSwImUQJg=",
+      "Fingerprint": "sil7ivgnt4",
+      "Integrity": "TKkNihmJW52OsvurWdbPexKb5nVZbX4bMDke7rLAyII=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
@@ -3370,8 +3370,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "cd58mumlxu",
-      "Integrity": "0ISX460YPES5odhSvn2g8xHa6dQIXGZw7ud8STEQMPk=",
+      "Fingerprint": "e9qit65yw3",
+      "Integrity": "jsVfkmrSbjapEJOimmJLXDqfrG5lhznGWUrjkhuuF+w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\scripts\\drag&drop.js"
@@ -12574,7 +12574,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6362"
+          "Value": "6360"
         },
         {
           "Name": "Content-Type",
@@ -12582,11 +12582,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4O7qM/gB/WKpOXnryxOhGeesSrwcq8SHg1ZSwImUQJg=\""
+          "Value": "\"TKkNihmJW52OsvurWdbPexKb5nVZbX4bMDke7rLAyII=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 18:02:41 GMT"
+          "Value": "Wed, 09 Apr 2025 13:48:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12596,12 +12596,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4O7qM/gB/WKpOXnryxOhGeesSrwcq8SHg1ZSwImUQJg="
+          "Value": "sha256-TKkNihmJW52OsvurWdbPexKb5nVZbX4bMDke7rLAyII="
         }
       ]
     },
     {
-      "Route": "app.oi4xwzjvhz.css",
+      "Route": "app.sil7ivgnt4.css",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -12611,7 +12611,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6362"
+          "Value": "6360"
         },
         {
           "Name": "Content-Type",
@@ -12619,11 +12619,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4O7qM/gB/WKpOXnryxOhGeesSrwcq8SHg1ZSwImUQJg=\""
+          "Value": "\"TKkNihmJW52OsvurWdbPexKb5nVZbX4bMDke7rLAyII=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 18:02:41 GMT"
+          "Value": "Wed, 09 Apr 2025 13:48:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12633,7 +12633,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "oi4xwzjvhz"
+          "Value": "sil7ivgnt4"
         },
         {
           "Name": "label",
@@ -12641,7 +12641,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4O7qM/gB/WKpOXnryxOhGeesSrwcq8SHg1ZSwImUQJg="
+          "Value": "sha256-TKkNihmJW52OsvurWdbPexKb5nVZbX4bMDke7rLAyII="
         }
       ]
     },
@@ -12914,7 +12914,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 18:17:56 GMT"
+          "Value": "Wed, 09 Apr 2025 14:52:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12959,7 +12959,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 18:17:56 GMT"
+          "Value": "Wed, 09 Apr 2025 14:52:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13004,7 +13004,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 18:17:56 GMT"
+          "Value": "Wed, 09 Apr 2025 14:52:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13041,7 +13041,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 18:17:56 GMT"
+          "Value": "Wed, 09 Apr 2025 14:52:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13712,7 +13712,7 @@
       ]
     },
     {
-      "Route": "scripts/drag&drop.cd58mumlxu.js",
+      "Route": "scripts/drag&drop.e9qit65yw3.js",
       "AssetFile": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\drag&drop.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -13722,7 +13722,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1019"
+          "Value": "1356"
         },
         {
           "Name": "Content-Type",
@@ -13730,11 +13730,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0ISX460YPES5odhSvn2g8xHa6dQIXGZw7ud8STEQMPk=\""
+          "Value": "\"jsVfkmrSbjapEJOimmJLXDqfrG5lhznGWUrjkhuuF+w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 18:59:09 GMT"
+          "Value": "Wed, 09 Apr 2025 14:22:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13744,7 +13744,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "cd58mumlxu"
+          "Value": "e9qit65yw3"
         },
         {
           "Name": "label",
@@ -13752,7 +13752,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0ISX460YPES5odhSvn2g8xHa6dQIXGZw7ud8STEQMPk="
+          "Value": "sha256-jsVfkmrSbjapEJOimmJLXDqfrG5lhznGWUrjkhuuF+w="
         }
       ]
     },
@@ -13767,7 +13767,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1019"
+          "Value": "1356"
         },
         {
           "Name": "Content-Type",
@@ -13775,11 +13775,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0ISX460YPES5odhSvn2g8xHa6dQIXGZw7ud8STEQMPk=\""
+          "Value": "\"jsVfkmrSbjapEJOimmJLXDqfrG5lhznGWUrjkhuuF+w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 18:59:09 GMT"
+          "Value": "Wed, 09 Apr 2025 14:22:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13789,7 +13789,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0ISX460YPES5odhSvn2g8xHa6dQIXGZw7ud8STEQMPk="
+          "Value": "sha256-jsVfkmrSbjapEJOimmJLXDqfrG5lhznGWUrjkhuuF+w="
         }
       ]
     },

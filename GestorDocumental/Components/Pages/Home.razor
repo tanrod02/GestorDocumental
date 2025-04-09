@@ -144,7 +144,7 @@
                 else{
                     <p>No se encontraron documentos que cumplan con los criterios de búsqueda.</p>
                 }
-                
+
             }
             else
             {
@@ -160,8 +160,14 @@
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
                                         Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        draggable="true"
                                         @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
+                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }"
+                                        @attributes="@(new Dictionary<string, object>() {
+                                            { "data-carpeta-id", carpeta.CodigoCarpeta },
+                                            { "ondragover", "onDragOver(event)" },
+                                            { "ondrop", "onDrop(event)" }
+                                        })">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                                                 <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
@@ -177,15 +183,23 @@
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
                                         Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        draggable="true"
                                         @ondblclick="() => VerContenidoArchivo(archivo)"
-                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }">
-                                            <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
-                                                <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;" />
-                                                <RadzenText TextStyle="TextStyle.Body1">
+                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }"
+                                        data-archivo-id="@archivo.CodigoArchivo"
+                                        @attributes="@(new Dictionary<string, object>() {
+                                                    { "ondragstart", "onDragStart(event)" }
+                                                    })">
+                                            <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4"
+                                            data-archivo-id="@archivo.CodigoArchivo">
+                                                <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;"
+                                                data-archivo-id="@archivo.CodigoArchivo" />
+                                                <RadzenText TextStyle="TextStyle.Body1" data-archivo-id="@archivo.CodigoArchivo">
                                                     <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
                                                     style="color: black; text-decoration: none; font-weight: bold;">
                                                         @archivo.NombreArchivo
                                                     </a>
+
                                                 </RadzenText>
                                                 @if (!archivo.Visible)
                                                 {
@@ -195,6 +209,9 @@
                                                 }
                                             </RadzenStack>
                                         </RadzenCard>
+
+
+
                                     }
                                 }
                             </div>
@@ -296,14 +313,23 @@
     private bool recientes = false;
 
 
+    private DotNetObjectReference<Home>? dotNetRef;
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+            dotNetRef = DotNetObjectReference.Create(this);
+            await JSRuntime.InvokeVoidAsync("registrarObjetoDotNet", dotNetRef);
             StateHasChanged();
         }
+    }
+
+    public void Dispose()
+    {
+        dotNetRef?.Dispose();
     }
 
 
@@ -446,7 +472,7 @@
 
             }
 
-           
+
         }
         catch (Exception e)
         {
@@ -805,5 +831,40 @@
         modalAbiertoRenombrarCarpeta = false;
         await CargarArchivos();
         StateHasChanged();
+    }
+
+
+    [JSInvokable]
+    public async Task MoverArchivoACarpeta(int archivoId, int carpetaId)
+    {
+        try
+        {
+
+            var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres mover el archivo a la carpeta?", "Confirmar mover archivo",
+            new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+            if (confirmacion == true)
+            {
+                var archivo = await ArchivoService.ObtenerInfoArchivo(archivoId);
+
+                if (archivo != null)
+                {
+                    archivo.CodigoCarpeta = carpetaId;
+                    await ArchivoService.ModificarArchivo(archivo);
+                    Console.WriteLine("Archivo movido correctamente");
+
+                    await CargarArchivos();
+                    StateHasChanged();
+                }
+                else
+                {
+                    Console.Error.WriteLine("Archivo o Carpeta no encontrados");
+                }
+            }
+            
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error moviendo archivo: {ex.Message}");
+        }
     }
 }

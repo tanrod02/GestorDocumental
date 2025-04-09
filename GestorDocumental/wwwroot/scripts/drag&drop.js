@@ -1,30 +1,37 @@
-﻿window.addEventListener("DOMContentLoaded", (event) => {
-    let draggedItem = null;
-
-    window.handleDragStart = (e, id) => {
-        draggedItem = id;
-        e.dataTransfer.setData("text", id.toString());  // Convertir a string
-    };
+﻿window.registrarObjetoDotNet = function (dotNetHelper) {
+    window.miObjetoDotNet = dotNetHelper;
+}
 
 
-    // Función para permitir el drop
-    window.handleDragOver = (e) => {
-        e.preventDefault();
-    };
+let archivoArrastradoId = null;
 
-    window.handleDrop = (e, dropTargetId) => {
-        e.preventDefault();
-        const archivoId = parseInt(e.dataTransfer.getData("text"));  // Convertir de vuelta a int
+function onDragStart(event) {
+    const archivoId = event.target.getAttribute('data-archivo-id');
+    console.log("data-archivo-id:", archivoId);  // Verifica el valor aquí
+    archivoArrastradoId = archivoId;
+    console.log("hecho el ondragstart");
+}
 
-        if (!isNaN(archivoId)) {
-            // Llamar a la función de Blazor para cambiar la carpeta del archivo
-            DotNet.invokeMethodAsync('TuNombreDeProyecto', 'MoverArchivo', archivoId, dropTargetId)
-                .then(result => {
-                    console.log("Archivo movido correctamente");
-                }).catch(error => {
-                    console.error("Error moviendo archivo", error);
-                });
-        }
-    };
 
-});
+function onDragOver(event) {
+    event.preventDefault(); // Necesario para permitir el drop
+    console.log("hecho el ondragover");
+}
+
+function onDrop(event) {
+    event.preventDefault();
+    const carpetaId = event.currentTarget.getAttribute('data-carpeta-id');
+    console.log("estamos en el ondrop");
+    console.log("archivoArrastradoId:", archivoArrastradoId);
+    console.log("carpetaId:", carpetaId);
+    console.log("miObjetoDotNet:", window.miObjetoDotNet);
+    if (archivoArrastradoId && carpetaId && window.miObjetoDotNet) {
+        console.log("Vamos a llamar a la funcion moverarchivoacarpeta");
+        window.miObjetoDotNet.invokeMethodAsync('MoverArchivoACarpeta', parseInt(archivoArrastradoId), parseInt(carpetaId))
+            .then(() => {
+                console.log('Archivo movido correctamente');
+            })
+            .catch(err => console.error('Error al invocar método .NET', err));
+    }
+}
+

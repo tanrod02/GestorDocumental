@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oi4xwzjvhz</Fingerprint>
-      <Integrity>4O7qM/gB/WKpOXnryxOhGeesSrwcq8SHg1ZSwImUQJg=</Integrity>
+      <Fingerprint>sil7ivgnt4</Fingerprint>
+      <Integrity>TKkNihmJW52OsvurWdbPexKb5nVZbX4bMDke7rLAyII=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</OriginalItemSpec>
@@ -246,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>cd58mumlxu</Fingerprint>
-      <Integrity>0ISX460YPES5odhSvn2g8xHa6dQIXGZw7ud8STEQMPk=</Integrity>
+      <Fingerprint>e9qit65yw3</Fingerprint>
+      <Integrity>jsVfkmrSbjapEJOimmJLXDqfrG5lhznGWUrjkhuuF+w=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts\drag&amp;drop.js'))</OriginalItemSpec>
