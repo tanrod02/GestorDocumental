@@ -522,3 +522,9 @@ C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.pdb
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\GestorDocumental.genruntimeconfig.cache
 C:\Users\tania\OneDrive\Desktop\TFG INFOR\GestorDocumental\GestorDocumental\obj\Debug\net8.0\ref\GestorDocumental.dll
+C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\MailKit.dll
+C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\MimeKit.dll
+C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\vcapa\OneDrive\Documentos\GestorDocumental\GestorDocumental\bin\Debug\net8.0\Postmark.dll
