@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {}
+    "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {
+    "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
+        "projectUniqueName": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
         "projectName": "GestorDocumental",
-        "projectPath": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
-        "packagesPath": "C:\\Users\\tania\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tania\\OneDrive\\Desktop\\TFG INFOR\\GestorDocumental\\GestorDocumental\\obj\\",
+        "projectPath": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\GestorDocumental.csproj",
+        "packagesPath": "C:\\Users\\vcapa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tania\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vcapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,6 +58,10 @@
               "target": "Package",
               "version": "[9.4.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.11.0, )"
+            },
             "Microsoft.AspNetCore.Components.Forms": {
               "target": "Package",
               "version": "[8.0.13, )"
@@ -70,6 +73,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.2, )"
+            },
+            "Postmark": {
+              "target": "Package",
+              "version": "[5.2.0, )"
             },
             "Radzen.Blazor": {
               "target": "Package",

@@ -213,7 +213,7 @@
             // Enviar correo al usuario logueado
             string subject = "Documento subido correctamente";
             string body = $"Hola {usuarioActual.Nombre}, se ha subido el documento '{archivoSubido.NombreArchivo}' a tu curso.";
-           //await EmailService.EnviarCorreoAsync(usuarioActual.Correo, subject, body);
+            await EmailService.EnviarCorreoAsync(usuarioActual.Correo, subject, body);
 
             DialogService.Close(true);
         }

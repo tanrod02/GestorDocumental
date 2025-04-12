@@ -1,8 +1,8 @@
-﻿using System.Net;
-using System.Net.Mail;
+﻿using System;
 using System.Threading.Tasks;
 using GestorDocumental.Business.Interfaces;
 using Microsoft.Extensions.Configuration;
+using PostmarkDotNet;
 
 public class EmailService : IEmailService
 {
@@ -15,30 +15,27 @@ public class EmailService : IEmailService
 
     public async Task EnviarCorreoAsync(string destinatario, string asunto, string cuerpo)
     {
-        // Recupera la configuración del correo desde el archivo appsettings.json
-        string host = _configuration["Email:Host"];
-        int port = int.Parse(_configuration["Email:Port"]);
-        string username = _configuration["Email:Username"];
-        string password = _configuration["Email:Password"];
-        string from = _configuration["Email:From"];
+        string apiToken = _configuration["Postmark:ApiToken"];
+        string from = _configuration["Postmark:From"];
+        string fromName = _configuration["Postmark:FromName"];
 
-        using (var smtpClient = new SmtpClient(host, port))
+        var client = new PostmarkClient(apiToken);
+
+        var message = new PostmarkMessage
         {
-            smtpClient.Credentials = new NetworkCredential(username, password);
-            smtpClient.EnableSsl = true;
+            From = $"{fromName} <{from}>",
+            To = destinatario,
+            Subject = asunto,
+            TextBody = cuerpo,
+            HtmlBody = $"<p>{cuerpo}</p>"
+        };
 
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress(from),
-                Subject = asunto,
-                Body = cuerpo,
-                IsBodyHtml = false,
-            };
+        // Envia el mensaje de forma asíncrona
+        var sendResult = await client.SendMessageAsync(message);
 
-            mailMessage.To.Add(destinatario);
-
-            await smtpClient.SendMailAsync(mailMessage);
+        if (sendResult.Status != PostmarkStatus.Success)
+        {
+            throw new Exception($"Error al enviar correo: {sendResult.Message}. Código de estado: {sendResult.Status}");
         }
     }
 }
-
