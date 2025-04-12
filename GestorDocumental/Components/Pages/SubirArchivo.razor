@@ -59,7 +59,7 @@
         <div>
             <label>Fecha de vencimiento:</label>
             <RadzenDatePicker Value="@archivoSubido.FechaBaja" ValueChanged="@((DateTime? value) => archivoSubido.FechaBaja = value)" ShowTime="false" DateFormat="dd/MM/yyyy"/>
-           
+
         </div>
 
         <div>
@@ -95,6 +95,7 @@
     [Parameter] public int CodigoCurso { get; set; }
     [Parameter] public int CodigoUsuario { get; set; }
     [Parameter] public int CodigoCarpeta { get; set; }
+    [Parameter] public string Grupo { get; set; }
 
     private Archivo archivoSubido = new() { };
     private List<Etiqueta> etiquetas = new();

@@ -4,10 +4,11 @@ namespace GestorDocumental.Data.Interfaces
 {
     public interface ICursoRepository
     {
-        Task<IEnumerable<Curso>> ObtenerCursosAsync();
+        Task<List<Curso>> ObtenerCursosUsuario(int CodigoUsuario);
 
         Task AgregarCursoAsync(Curso curso);
         Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso);
+        Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario);
 
     }
 }

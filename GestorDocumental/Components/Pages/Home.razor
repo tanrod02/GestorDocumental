@@ -565,7 +565,8 @@
         {
             { "CodigoCurso", CodigoCurso },
             { "CodigoUsuario", usuarioActual.CodigoUsuario },
-            { "CodigoCarpeta", CodigoCarpeta}
+            { "CodigoCarpeta", CodigoCarpeta}, 
+            {  "Grupo", cursoActual.Grupo}
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbierto = false;
         if (resultado is bool archivoSubido && archivoSubido)

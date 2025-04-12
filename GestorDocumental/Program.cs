@@ -99,4 +99,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
+//Necesario para que se ejecute el servicio de gestor documental
+app.Services.GetRequiredService<RetencionDocumentalService>();
+
 app.Run();

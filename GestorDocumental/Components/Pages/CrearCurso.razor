@@ -50,9 +50,10 @@
 
         var confirmacion = await DialogService.Confirm("¿Quiere crear este curso?", "Confirmar añadir curso",
           new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
-    
+
         if(confirmacion == true){
             await CursoService.AgregarCursoAsync(nuevoCurso);
+            await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario);
         }
 
 

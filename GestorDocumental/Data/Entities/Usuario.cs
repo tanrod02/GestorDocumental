@@ -22,9 +22,6 @@ namespace GestorDocumental.Data.Entities
         [Required(ErrorMessage = "La contraseña es obligatoria")]
         [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
         public string Contraseña { get; set; }
-
-        public int? Curso { get; set; }
-
         public string? Grupo { get; set; }
 
         public int CodigoRol {  get; set; }

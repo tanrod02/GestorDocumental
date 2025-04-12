@@ -23,7 +23,6 @@ namespace GestorDocumental.Data.Repositories
 
             //de base todos los que se registran son alumnos Rol = 3
             usuario.CodigoRol = 2;
-            usuario.Curso = 1;
 
             context.Usuarios.Add(usuario);
             context.SaveChanges();

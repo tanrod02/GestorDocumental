@@ -14,10 +14,11 @@ namespace GestorDocumental.Data.Repositories
             _contextFactory = contextFactory;
         }
 
-        public async Task<IEnumerable<Curso>> ObtenerCursosAsync()
+        public async Task<List<Curso>> ObtenerCursosUsuario(int CodigoUsuario)
         {
             using var context = _contextFactory.CreateDbContext();
-            return await context.Cursos.ToListAsync();
+            List<int> cursosUsuario = await context.CursosUsuario.Where(cu => cu.CodigoUsuario == CodigoUsuario).Select(cu => cu.CodigoCurso).ToListAsync(); 
+            return await context.Cursos.Where(c => cursosUsuario.Contains(c.CodigoCurso)).ToListAsync(); ;
         }
 
         public async Task AgregarCursoAsync(Curso curso)
@@ -31,6 +32,18 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
             return await context.Cursos.FirstOrDefaultAsync(c => c.CodigoCurso == codigoCurso);
+        }
+
+        public async Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            CursosUsuario cursoUsuario = new CursosUsuario
+            {
+                CodigoCurso = CodigoCurso,
+                CodigoUsuario = CodigoUsuario
+            };
+            await context.CursosUsuario.AddAsync(cursoUsuario);
+            await context.SaveChangesAsync();
         }
 
     }

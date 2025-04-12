@@ -4,7 +4,7 @@ using GestorDocumental.Data.Interfaces;
 
 namespace GestorDocumental.Business.Services
 {
-    public class CursoService: ICursoService
+    public class CursoService : ICursoService
     {
         private readonly ICursoRepository _cursoRepository;
 
@@ -13,9 +13,9 @@ namespace GestorDocumental.Business.Services
             _cursoRepository = cursoRepository;
         }
 
-        public async Task<IEnumerable<Curso>> ObtenerCursosAsync()
+        public async Task<List<Curso>> ObtenerCursosUsuario(int CodigoUsuario)
         {
-            return await _cursoRepository.ObtenerCursosAsync();
+            return await _cursoRepository.ObtenerCursosUsuario(CodigoUsuario);
         }
 
         public async Task AgregarCursoAsync(Curso curso)
@@ -29,6 +29,11 @@ namespace GestorDocumental.Business.Services
                 throw new ArgumentException("El código del curso no es válido.", nameof(codigoCurso));
 
             return await _cursoRepository.ObtenerCursoPorCodigoAsync(codigoCurso);
+        }
+
+        public async Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario)
+        {
+            await _cursoRepository.AgregarRelacionCursoUsuario(CodigoCurso, CodigoUsuario);
         }
     }
 }

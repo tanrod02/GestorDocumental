@@ -69,13 +69,12 @@
         if (firstRender)
         {
             usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
-            StateHasChanged();
+            if(usuarioActual != null){
+                cursos = await CursoService.ObtenerCursosUsuario(usuarioActual.CodigoUsuario);
+                StateHasChanged();
+            }
+           
         }
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        cursos = (await CursoService.ObtenerCursosAsync()).ToList();
     }
 
     async Task AbrirModal()
@@ -88,7 +87,7 @@
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbierto = false;
 
-        cursos = (await CursoService.ObtenerCursosAsync()).ToList();
+        cursos = await CursoService.ObtenerCursosUsuario(usuarioActual.CodigoUsuario);
         StateHasChanged();
     }
 
