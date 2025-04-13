@@ -34,7 +34,7 @@
                 <div class="nav-item px-3">
                     <div class="d-flex justify-content-between align-items-center">
                         <NavLink class="nav-link" href="@($"/home/{curso.CodigoCurso}")">
-                            📖 @curso.Descripcion (@curso.Grupo)
+                            📖 @curso.Descripcion
                         </NavLink>
                         <button class="btn btn-link p-0" @onclick="() => ToggleCourseExpansion(curso.CodigoCurso)">
                             @if (expandedCourses.ContainsKey(curso.CodigoCurso) && expandedCourses[curso.CodigoCurso])

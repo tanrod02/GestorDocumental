@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\interfaces\\igruporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\igruporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\subircarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -286,8 +286,7 @@
               "ViewState": "AgIAAGoAAAAAAAAAAAAqwIYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-25T11:43:22.407Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -300,8 +299,7 @@
               "ViewState": "AgIAABsAAAAAAAAAAAAYwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T17:38:26.115Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -318,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "SubirArchivo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\SubirArchivo.razor",
@@ -327,26 +325,24 @@
               "ViewState": "AgIAAMAAAAAAAAAAAAAiwOkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-31T15:02:01.227Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAE0DAAAAAAAAAADwv4IDAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEwCAAAAAAAAAADgv2UCAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-24T20:08:29.704Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "IUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IUsuarioRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IUsuarioRepository.cs",
@@ -354,12 +350,11 @@
               "RelativeToolTip": "Data\\Interfaces\\IUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T17:35:58.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T17:35:58.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "IUsuarioService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IUsuarioService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IUsuarioService.cs",
@@ -367,12 +362,11 @@
               "RelativeToolTip": "Business\\Interfaces\\IUsuarioService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T17:28:06.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T17:28:06.248Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "GrupoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\GrupoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\GrupoRepository.cs",
@@ -380,12 +374,11 @@
               "RelativeToolTip": "Data\\Repositories\\GrupoRepository.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T14:51:02.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T14:51:02.855Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "IGrupoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IGrupoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IGrupoRepository.cs",
@@ -393,8 +386,7 @@
               "RelativeToolTip": "Data\\Interfaces\\IGrupoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T14:50:32.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T14:50:32.742Z"
             },
             {
               "$type": "Document",
@@ -406,12 +398,11 @@
               "RelativeToolTip": "Business\\Services\\CarpetaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T14:48:59.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T14:48:59.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "GrupoService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\GrupoService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\GrupoService.cs",
@@ -419,12 +410,11 @@
               "RelativeToolTip": "Business\\Services\\GrupoService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T14:47:51.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T14:47:51.707Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IGrupoService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IGrupoService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IGrupoService.cs",
@@ -432,18 +422,17 @@
               "RelativeToolTip": "Business\\Interfaces\\IGrupoService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T14:46:45.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T14:46:45.686Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
               "Title": "AgregarGrupo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\AgregarGrupo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\AgregarGrupo.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\AgregarGrupo.razor",
               "RelativeToolTip": "Components\\Pages\\AgregarGrupo.razor",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACkAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-13T14:40:46.363Z",
               "EditorCaption": ""
@@ -458,8 +447,7 @@
               "RelativeToolTip": "Data\\Entities\\Grupos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T10:09:35.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T10:09:35.794Z"
             },
             {
               "$type": "Document",
@@ -471,12 +459,11 @@
               "RelativeToolTip": "Business\\Services\\ArchivoService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T09:38:20.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T09:38:20.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\EmailService.cs",
@@ -484,8 +471,7 @@
               "RelativeToolTip": "Business\\Services\\EmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T20:33:26.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T20:33:26.033Z"
             },
             {
               "$type": "Document",
@@ -521,8 +507,7 @@
               "RelativeToolTip": "Components\\Pages\\SubirCarpeta.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-06T10:16:45.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T10:16:45.963Z"
             },
             {
               "$type": "Document",
@@ -538,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ArchivoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\ArchivoRepository.cs",
@@ -546,8 +531,7 @@
               "RelativeToolTip": "Data\\Repositories\\ArchivoRepository.cs",
               "ViewState": "AgIAANQAAAAAAAAAAADwv+0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T14:09:28.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T14:09:28.251Z"
             },
             {
               "$type": "Document",
@@ -595,8 +579,7 @@
               "RelativeToolTip": "Data\\Repositories\\CarpetaRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T15:14:21.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T15:14:21.59Z"
             },
             {
               "$type": "Document",
@@ -606,7 +589,7 @@
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-25T18:55:09.102Z",
               "EditorCaption": ""
@@ -657,8 +640,7 @@
               "RelativeToolTip": "Business\\Services\\EstadisticaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:19:58.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:19:58.633Z"
             },
             {
               "$type": "Document",
@@ -670,8 +652,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAASwD8AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:38:23.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:38:23.579Z"
             },
             {
               "$type": "Document",
@@ -683,8 +664,7 @@
               "RelativeToolTip": "Data\\GestorDocumentalDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T15:09:35.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T15:09:35.074Z"
             },
             {
               "$type": "Document",
@@ -696,8 +676,7 @@
               "RelativeToolTip": "Data\\Repositories\\EtiquetasRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T11:19:08.678Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T11:19:08.678Z"
             },
             {
               "$type": "Document",
@@ -769,12 +748,11 @@
               "RelativeToolTip": "Business\\Services\\EtiquetasService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T11:18:30.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T11:18:30.459Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "CursoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\CursoRepository.cs",
@@ -782,8 +760,7 @@
               "RelativeToolTip": "Data\\Repositories\\CursoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:32:23.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:32:23.839Z"
             },
             {
               "$type": "Document",
@@ -799,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "CrearCurso.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\CrearCurso.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\CrearCurso.razor",
@@ -807,8 +784,7 @@
               "RelativeToolTip": "Components\\Pages\\CrearCurso.razor",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-01T14:05:38.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T14:05:38.826Z"
             },
             {
               "$type": "Document",
@@ -880,12 +856,11 @@
               "RelativeToolTip": "Components\\Pages\\Register.razor",
               "ViewState": "AgIAAEoAAAAAAAAAAAAqwGQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-03T18:05:40.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T18:05:40.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "UsuarioService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\UsuarioService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\UsuarioService.cs",
@@ -893,12 +868,11 @@
               "RelativeToolTip": "Business\\Services\\UsuarioService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T18:05:59.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T18:05:59.575Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\UsuarioRepository.cs",
@@ -906,8 +880,7 @@
               "RelativeToolTip": "Data\\Repositories\\UsuarioRepository.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAowCUAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T18:04:52.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T18:04:52.855Z"
             },
             {
               "$type": "Document",
@@ -1026,8 +999,7 @@
               "RelativeToolTip": "Components\\Pages\\RenombrarCarpeta.razor",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T15:54:48.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T15:54:48.497Z"
             },
             {
               "$type": "Document",
@@ -1039,8 +1011,7 @@
               "RelativeToolTip": "Business\\Interfaces\\ICarpetaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:50:08.465Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T15:50:08.465Z"
             },
             {
               "$type": "Document",
