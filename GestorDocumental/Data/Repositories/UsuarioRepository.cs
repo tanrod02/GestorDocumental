@@ -34,5 +34,27 @@ namespace GestorDocumental.Data.Repositories
             using var context = _contextFactory.CreateDbContext();
             return await context.Usuarios.FirstOrDefaultAsync(u => u.Correo == correo);
         }
+
+        public async Task<List<Usuario>> ObtenerUsuariosPorGrupo(int codigoCurso, string Grupo)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            List<int> codigosUsuario = new List<int>();
+
+            codigosUsuario = context.CursosUsuario.Where(a =>a.CodigoCurso == codigoCurso).Select(x => x.CodigoUsuario).ToList();
+
+            List<Usuario> usuarios = new List<Usuario>();
+
+            foreach(int codUsuario in codigosUsuario)
+            {
+                Usuario user = context.Usuarios.FirstOrDefault(a => a.CodigoUsuario == codUsuario);
+
+                usuarios.Add(user);
+            }
+
+            usuarios = usuarios.Where(x => x.Grupo == Grupo).ToList();
+
+            return usuarios;
+        }
     }
 }

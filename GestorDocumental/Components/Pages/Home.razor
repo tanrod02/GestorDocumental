@@ -609,6 +609,29 @@
         StateHasChanged();
     }
 
+    async Task AbrirModalAgregarGrupo()
+    {
+        var parameters = new Dictionary<string, object>
+    {
+        { "CodigoCurso", CodigoCurso }
+    };
+
+        var resultado = await DialogService.OpenAsync<AgregarGrupo>(
+            "Agregar Grupo",
+            parameters,
+            new DialogOptions { Width = "600px", Height = "auto" }
+        );
+
+
+        if (resultado is bool agregado && agregado)
+        {
+
+            // await CargarGrupos();
+        }
+        StateHasChanged();
+    }
+
+
     private async Task CerrarSesion()
     {
         await AuthenticationService.Logout();
@@ -756,7 +779,8 @@
                 {
                 new ContextMenuItem(){ Text = "Subir Archivo", Value = 1, Icon = "upload" },
                 new ContextMenuItem(){ Text = "Subir Carpeta", Value = 2, Icon = "create_new_folder" },
-                new ContextMenuItem(){ Text = "Crear Carpeta", Value = 3, Icon = "create_new_folder" }
+                new ContextMenuItem(){ Text = "Crear Carpeta", Value = 3, Icon = "create_new_folder" },
+                new ContextMenuItem(){ Text = "Crear Grupo", Value = 4, Icon = "group_add"}
                 },
             OnMenuItemClickGeneral);
     }
@@ -773,6 +797,9 @@
                 break;
             case 3:
                 AbrirModalSubidaCarpeta(1);
+                break;
+            case 4:
+                AbrirModalAgregarGrupo(); // Nueva función para agregar grupo
                 break;
         }
         ContextMenuService.Close();

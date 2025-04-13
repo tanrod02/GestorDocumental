@@ -15,6 +15,7 @@ namespace GestorDocumental.Business.Interfaces
         Task<string> ObtenerInfoPropietario(int CodigoArchivo);
         Task GuardarListaArchivoAsync(List<Archivo> Archivos);
         Task<List<Archivo>> BuscarArchivos(string Palabra, int CodigoUsuario);
+        Task<List<Grupos>> ObtenerGruposPorCurso(int CodigoCurso);
     }
 
 }

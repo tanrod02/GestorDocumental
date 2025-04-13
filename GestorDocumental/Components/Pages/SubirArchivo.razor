@@ -7,6 +7,7 @@
 @inject IArchivoService ArchivoService
 @inject IEmailService EmailService
 @inject IEtiquetasService EtiquetasService
+@inject IUsuarioService UsuarioService
 @inject DialogService DialogService
 @inject AuthService AuthenticationService
 @rendermode InteractiveServer
@@ -64,12 +65,19 @@
 
         <div>
             <label>Grupo: (*)</label>
-            <RadzenTextBox @bind-Value="archivoSubido.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+            <RadzenDropDown 
+            @bind-Value="archivoSubido.Grupo" 
+            Data="@grupos" 
+            TextProperty="Grupo" 
+            ValueProperty="Grupo" 
+            Placeholder="Selecciona un grupo" 
+            Style="width: 100%;" />
             @if (grupoNoSeleccionado)
             {
                 <div style="color: red;">El grupo es obligatorio.</div>
             }
         </div>
+
 
         <div style="display: flex; align-items: center; gap: 10px;">
             <RadzenCheckBox @bind-Value="archivoSubido.Visible" TriState="false" />
@@ -101,6 +109,7 @@
     private List<Etiqueta> etiquetas = new();
     private string nuevaEtiqueta = "";
     private List<string> listaEtiquetas = new();
+    private List<Grupos> grupos = new();
 
     bool archivoSeleccionado = false;
     bool grupoNoSeleccionado = false;
@@ -108,6 +117,8 @@
     protected override async Task OnInitializedAsync()
     {
         etiquetas = await EtiquetasService.ObtenerEtiquetas();
+
+        grupos = await ArchivoService.ObtenerGruposPorCurso(CodigoCurso);
     }
 
 
@@ -210,10 +221,15 @@
                 await EtiquetasService.AgregarEtiquetasArchivo(archivoSubido.CodigoArchivo, etiquetasAgregarBD);
             }
 
-            // Enviar correo al usuario logueado
-            string subject = "Documento subido correctamente";
-            string body = $"Hola {usuarioActual.Nombre}, se ha subido el documento '{archivoSubido.NombreArchivo}' a tu curso.";
-            await EmailService.EnviarCorreoAsync(usuarioActual.Correo, subject, body);
+            List<Usuario> usuarios = await UsuarioService.ObtenerUsuariosPorGrupo(Convert.ToInt32(archivoSubido.Curso), archivoSubido.Grupo);
+
+            foreach(Usuario user in usuarios){
+
+                string subject = "Documento subido correctamente";
+                string body = $"Hola {user.Nombre}, se ha subido el documento '{archivoSubido.NombreArchivo}' a tu curso.";
+                await EmailService.EnviarCorreoAsync(user.Correo, subject, body);
+
+            }
 
             DialogService.Close(true);
         }

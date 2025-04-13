@@ -34,6 +34,12 @@ namespace GestorDocumental.Business.Services
             return usuario;
         }
 
+        public async Task<List<Usuario>> ObtenerUsuariosPorGrupo(int codigoCurso, string Grupo)
+        {
+            return await _usuarioRepository.ObtenerUsuariosPorGrupo(codigoCurso, Grupo);
+        }
+
+
 
         private static string HashPassword(string password)
         {

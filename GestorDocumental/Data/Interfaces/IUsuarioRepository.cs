@@ -6,5 +6,7 @@ namespace GestorDocumental.Data.Interfaces
     {
         Task<bool> RegistrarUsuarioAsync(Usuario usuario);
         Task<Usuario?> ObtenerUsuarioPorCorreoAsync(string correo);
+
+        Task<List<Usuario>> ObtenerUsuariosPorGrupo(int codigoCurso, string Grupo);
     }
 }

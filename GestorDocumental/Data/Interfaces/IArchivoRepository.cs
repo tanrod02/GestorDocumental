@@ -15,5 +15,8 @@ namespace GestorDocumental.Data.Interfaces
         Task GuardarListaArchivoAsync(List<Archivo> archivos);
         Task<List<Archivo>> BuscarArchivos(string Palabra, int CodigoUsuario);
         Task<List<Archivo>> ObtenerArchivosExpirados();
+        Task<List<Grupos>> ObtenerGruposPorCurso(int CodigoCurso);
+
+
     }
 }

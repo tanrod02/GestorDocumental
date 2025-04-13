@@ -66,5 +66,11 @@ namespace GestorDocumental.Business.Services
         {
             return await _archivoRepository.BuscarArchivos( Palabra, CodigoUsuario);
         }
+
+        public async Task<List<Grupos>>ObtenerGruposPorCurso(int CodigoCurso)
+        {
+            return await _archivoRepository.ObtenerGruposPorCurso(CodigoCurso);
+        }
+
     }
 }

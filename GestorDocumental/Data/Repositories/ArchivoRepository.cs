@@ -230,5 +230,25 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
+        public async Task<List<Grupos>> ObtenerGruposPorCurso(int CodigoCurso)
+        {
+
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+                return await context.Grupos.Where(a => a.CodigoCurso == CodigoCurso).ToListAsync();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener archivos de baja: {ex.Message}");
+                throw;
+            }
+
+        }
+
+
     }
 }

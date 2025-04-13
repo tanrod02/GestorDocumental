@@ -4,12 +4,12 @@
 @rendermode InteractiveServer
 @inject ICursoService CursoService
 @inject AuthService AuthenticationService
+@inject IGrupoService GrupoService
 @using Microsoft.AspNetCore.Authentication
 @using Radzen
 @using Radzen.Blazor
 @inject DialogService DialogService
 @inject Radzen.DialogService DialogService
-
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -32,9 +32,43 @@
             @foreach (Curso curso in cursos)
             {
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="@($"/home/{curso.CodigoCurso}")">
-                        📖 @curso.Descripcion (@curso.Grupo)
-                    </NavLink>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <NavLink class="nav-link" href="@($"/home/{curso.CodigoCurso}")">
+                            📖 @curso.Descripcion (@curso.Grupo)
+                        </NavLink>
+                        <button class="btn btn-link p-0" @onclick="() => ToggleCourseExpansion(curso.CodigoCurso)">
+                            @if (expandedCourses.ContainsKey(curso.CodigoCurso) && expandedCourses[curso.CodigoCurso])
+                            {
+                                <span style="color: white;">&#9650;</span>
+                                @* Flecha hacia arriba: contraer *@
+                            }
+                            else
+                            {
+                                <span style="color: white;">&#9660;</span>
+                                @* Flecha hacia abajo: expandir *@
+                            }
+                        </button>
+                    </div>
+                    @if (expandedCourses.ContainsKey(curso.CodigoCurso) && expandedCourses[curso.CodigoCurso])
+                    {
+                        if (courseGroups.ContainsKey(curso.CodigoCurso))
+                        {
+                            foreach (var grupo in courseGroups[curso.CodigoCurso])
+                            {
+                                <div class="nav-item px-4">
+                                    <NavLink class="nav-link" href="@($"/home/{curso.CodigoCurso}?grupo={grupo.Grupo}")">
+                                        👥 @grupo.Grupo
+                                    </NavLink>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="nav-item px-4">
+                                <small>Cargando grupos...</small>
+                            </div>
+                        }
+                    }
                 </div>
             }
         }
@@ -45,7 +79,7 @@
             </div>
         }
 
-        <!-- Botón para abrir el modal -->
+        <!-- Botón para abrir el modal de agregar curso -->
         <div class="nav-item px-3 mt-4 text-center">
             <button class="boton-agregar" @onclick="AbrirModal">
                 ➕ Añadir curso
@@ -54,26 +88,31 @@
     </nav>
 </div>
 
-
-
 @code {
     private Usuario usuarioActual = new Usuario();
-
     private List<Curso> cursos = new();
-    private bool mostrarModal = false;
-    private Curso nuevoCurso = new();
     private bool modalAbierto = false;
+
+    // Diccionario para controlar si un curso está expandido (clave: Código de curso)
+    private Dictionary<int, bool> expandedCourses = new Dictionary<int, bool>();
+    // Diccionario para guardar los grupos asociados a cada curso (clave: Código de curso)
+    private Dictionary<int, List<Grupos>> courseGroups = new Dictionary<int, List<Grupos>>();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
-            if(usuarioActual != null){
+            if (usuarioActual != null)
+            {
                 cursos = await CursoService.ObtenerCursosUsuario(usuarioActual.CodigoUsuario);
+                // Inicializa cada curso como contraído
+                foreach (var curso in cursos)
+                {
+                    expandedCourses[curso.CodigoCurso] = false;
+                }
                 StateHasChanged();
             }
-           
         }
     }
 
@@ -81,17 +120,42 @@
     {
         if (modalAbierto) return;
         modalAbierto = true;
-        var resultado = await DialogService.OpenAsync<CrearCurso>("Crear Curso", new Dictionary<string, object>
-        {
-           { "CodigoUsuario", usuarioActual.CodigoUsuario }
-        }, new DialogOptions { Width = "600px", Height = "auto" });
+        var resultado = await DialogService.OpenAsync<CrearCurso>(
+            "Crear Curso",
+            new Dictionary<string, object>
+                {
+                { "CodigoUsuario", usuarioActual.CodigoUsuario }
+                },
+            new DialogOptions { Width = "600px", Height = "auto" });
         modalAbierto = false;
 
         cursos = await CursoService.ObtenerCursosUsuario(usuarioActual.CodigoUsuario);
         StateHasChanged();
     }
 
-    private void CerrarModal() => mostrarModal = false;
+    void ToggleCourseExpansion(int codigoCurso)
+    {
+        // Alterna el estado de expansión para el curso
+        if (expandedCourses.ContainsKey(codigoCurso))
+        {
+            expandedCourses[codigoCurso] = !expandedCourses[codigoCurso];
+        }
+        else
+        {
+            expandedCourses[codigoCurso] = true;
+        }
+        // Si se expande el curso y aún no se han cargado sus grupos, cargarlos
+        if (expandedCourses[codigoCurso] && !courseGroups.ContainsKey(codigoCurso))
+        {
+            LoadGroups(codigoCurso);
+        }
+        StateHasChanged();
+    }
 
-    
+    private async void LoadGroups(int codigoCurso)
+    {
+        var grupos = await GrupoService.ObtenerGruposPorCurso(codigoCurso);
+        courseGroups[codigoCurso] = grupos;
+        StateHasChanged();
+    }
 }

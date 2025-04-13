@@ -1,0 +1,67 @@
+﻿@using GestorDocumental.Business.Services
+@using GestorDocumental.Data.Entities
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using GestorDocumental.Business.Interfaces
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.JSInterop
+@using System.IO
+@inject DialogService DialogService
+@inject IGrupoService GrupoService
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+
+<div class="modal-container">
+    <RadzenTemplateForm Data="@nuevoGrupoModel">
+        <div class="form-group">
+            <label>Nombre del Grupo:</label>
+            <RadzenTextBox @bind-Value="nuevoGrupoModel.Grupo" Style="width: 100%;" Name="Grupo" Placeholder="Ingresa el nombre del grupo" />
+        </div>
+        <div class="form-group" style="margin-top:10px;">
+            <RadzenButton Text="Aceptar" Icon="check" ButtonStyle="ButtonStyle.Primary" Click="@OnAceptar" Style="margin-right: 10px;" />
+            <RadzenButton Text="Cancelar" Icon="close" ButtonStyle="ButtonStyle.Secondary" Click="@OnCancelar" />
+        </div>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div style="color: red;">@errorMessage</div>
+        }
+    </RadzenTemplateForm>
+</div>
+
+@code {
+    [Parameter] public int CodigoCurso { get; set; }
+
+    private Grupos nuevoGrupoModel = new Grupos();
+    private string errorMessage = "";
+
+    protected override void OnInitialized()
+    {
+        nuevoGrupoModel.CodigoCurso = CodigoCurso;
+    }
+
+    async Task OnAceptar()
+    {
+        if (string.IsNullOrWhiteSpace(nuevoGrupoModel.Grupo))
+        {
+            errorMessage = "El nombre del grupo es obligatorio.";
+            return;
+        }
+
+        try
+        {
+            await GrupoService.AgregarGrupo(nuevoGrupoModel);
+            DialogService.Close(true);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error al agregar el grupo: {ex.Message}";
+        }
+    }
+
+    void OnCancelar()
+    {
+        DialogService.Close(false);
+    }
+}

@@ -68,6 +68,11 @@ builder.Services.AddScoped<IEtiquetasService, EtiquetasService>();
 
 builder.Services.AddTransient<IEmailService, EmailService>();
 
+builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
+builder.Services.AddScoped<IGrupoService, GrupoService>();
+
+
+
 // Servicio para la autenticación de usuario
 builder.Services.AddScoped<AuthService>();
 

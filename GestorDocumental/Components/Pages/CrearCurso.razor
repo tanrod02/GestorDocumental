@@ -5,6 +5,7 @@
 @using Radzen
 @using Radzen.Blazor
 @inject ICursoService CursoService
+@inject IGrupoService GrupoService
 @inject DialogService DialogService
 @rendermode InteractiveServer
 
@@ -54,6 +55,12 @@
         if(confirmacion == true){
             await CursoService.AgregarCursoAsync(nuevoCurso);
             await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario);
+            Grupos grupos = new Grupos();
+
+            grupos.CodigoCurso = nuevoCurso.CodigoCurso;
+            grupos.Grupo = nuevoCurso.Grupo;
+
+            await GrupoService.AgregarGrupo(grupos);
         }
 
 
