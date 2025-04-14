@@ -23,16 +23,15 @@
 
         <div class="botones" style="display: flex; justify-content: space-between;">
             <RadzenButton Text="Guardar"
-            Click="ConfirmarSubida"
-            ButtonStyle="ButtonStyle.Primary" />
+                          Click="ConfirmarSubida"
+                          ButtonStyle="ButtonStyle.Primary" />
 
             <RadzenButton Text="Cancelar"
-            ButtonStyle="ButtonStyle.Secondary"
-            Click="CancelarSubida" />
+                          ButtonStyle="ButtonStyle.Secondary"
+                          Click="CancelarSubida" />
         </div>
     </div>
 </RadzenCard>
-
 
 @code {
     RadzenUpload upload;
@@ -48,21 +47,33 @@
 
     private async Task ConfirmarSubida()
     {
+        // Validar que no exista un curso con el mismo nombre.
+        var cursoExistente = await CursoService.ObtenerCursoPorNombre(nuevoCurso.Descripcion);
+        if (cursoExistente != null)
+        {
+            await DialogService.Alert("Ya existe un curso con el mismo nombre. Por favor, elija otro nombre.",
+                                        "Validación",
+                                        new ConfirmOptions { OkButtonText = "Aceptar" });
+            return;
+        }
 
+        // Si no existe, se pide confirmación para crear el curso.
         var confirmacion = await DialogService.Confirm("¿Quiere crear este curso?", "Confirmar añadir curso",
-          new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+            new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        if(confirmacion == true){
+        if (confirmacion == true)
+        {
             await CursoService.AgregarCursoAsync(nuevoCurso);
             await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario);
-            Grupos grupos = new Grupos();
 
-            grupos.CodigoCurso = nuevoCurso.CodigoCurso;
-            grupos.Grupo = nuevoCurso.Grupo;
+            Grupos grupos = new Grupos
+                {
+                    CodigoCurso = nuevoCurso.CodigoCurso,
+                    Grupo = nuevoCurso.Grupo
+                };
 
             await GrupoService.AgregarGrupo(grupos);
         }
-
 
         DialogService.Close(true);
     }

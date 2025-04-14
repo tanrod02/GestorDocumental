@@ -9,7 +9,7 @@
 @using Radzen
 @using Radzen.Blazor
 @inject DialogService DialogService
-@inject Radzen.DialogService DialogService
+@inject ContextMenuService ContextMenuService
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -31,7 +31,10 @@
         {
             @foreach (Curso curso in cursos)
             {
-                <div class="nav-item px-3">
+                <!-- Se utiliza @oncontextmenu:preventDefault para evitar el menú predeterminado -->
+                <div class="nav-item px-3"
+                     @oncontextmenu="args => ShowContextMenuCurso(args, curso)"
+                     @oncontextmenu:preventDefault="true">
                     <div class="d-flex justify-content-between align-items-center">
                         <NavLink class="nav-link" href="@($"/home/{curso.CodigoCurso}")">
                             📖 @curso.Descripcion
@@ -40,12 +43,10 @@
                             @if (expandedCourses.ContainsKey(curso.CodigoCurso) && expandedCourses[curso.CodigoCurso])
                             {
                                 <span style="color: white;">&#9650;</span>
-                                @* Flecha hacia arriba: contraer *@
                             }
                             else
                             {
                                 <span style="color: white;">&#9660;</span>
-                                @* Flecha hacia abajo: expandir *@
                             }
                         </button>
                     </div>
@@ -79,7 +80,6 @@
             </div>
         }
 
-        <!-- Botón para abrir el modal de agregar curso -->
         <div class="nav-item px-3 mt-4 text-center">
             <button class="boton-agregar" @onclick="AbrirModal">
                 ➕ Añadir curso
@@ -92,10 +92,9 @@
     private Usuario usuarioActual = new Usuario();
     private List<Curso> cursos = new();
     private bool modalAbierto = false;
+    private int cursoSeleccionado;
 
-    // Diccionario para controlar si un curso está expandido (clave: Código de curso)
     private Dictionary<int, bool> expandedCourses = new Dictionary<int, bool>();
-    // Diccionario para guardar los grupos asociados a cada curso (clave: Código de curso)
     private Dictionary<int, List<Grupos>> courseGroups = new Dictionary<int, List<Grupos>>();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -106,7 +105,6 @@
             if (usuarioActual != null)
             {
                 cursos = await CursoService.ObtenerCursosUsuario(usuarioActual.CodigoUsuario);
-                // Inicializa cada curso como contraído
                 foreach (var curso in cursos)
                 {
                     expandedCourses[curso.CodigoCurso] = false;
@@ -126,16 +124,15 @@
                 {
                 { "CodigoUsuario", usuarioActual.CodigoUsuario }
                 },
-            new DialogOptions { Width = "600px", Height = "auto" });
+            new DialogOptions { Width = "600px", Height = "auto" }
+        );
         modalAbierto = false;
-
         cursos = await CursoService.ObtenerCursosUsuario(usuarioActual.CodigoUsuario);
         StateHasChanged();
     }
 
     void ToggleCourseExpansion(int codigoCurso)
     {
-        // Alterna el estado de expansión para el curso
         if (expandedCourses.ContainsKey(codigoCurso))
         {
             expandedCourses[codigoCurso] = !expandedCourses[codigoCurso];
@@ -144,7 +141,6 @@
         {
             expandedCourses[codigoCurso] = true;
         }
-        // Si se expande el curso y aún no se han cargado sus grupos, cargarlos
         if (expandedCourses[codigoCurso] && !courseGroups.ContainsKey(codigoCurso))
         {
             LoadGroups(codigoCurso);
@@ -156,6 +152,47 @@
     {
         var grupos = await GrupoService.ObtenerGruposPorCurso(codigoCurso);
         courseGroups[codigoCurso] = grupos;
+        StateHasChanged();
+    }
+
+    void ShowContextMenuCurso(MouseEventArgs args, Curso curso)
+    {
+        cursoSeleccionado = curso.CodigoCurso;
+        // Abre el menú contextual con una única opción "Agregar Grupo"
+        ContextMenuService.Open(args,
+            new List<ContextMenuItem>
+                {
+                new ContextMenuItem(){ Text = "Agregar Grupo", Value = "agregarGrupo", Icon = "group_add" }
+                },
+            OnMenuItemClickCurso);
+    }
+
+    async void OnMenuItemClickCurso(MenuItemEventArgs args)
+    {
+        if (args.Value.ToString() == "agregarGrupo")
+        {
+            await AbrirModalAgregarGrupo(cursoSeleccionado);
+        }
+        ContextMenuService.Close();
+    }
+
+    async Task AbrirModalAgregarGrupo(int codigoCurso)
+    {
+        var parameters = new Dictionary<string, object>
+        {
+            { "CodigoCurso", codigoCurso }
+        };
+
+        var resultado = await DialogService.OpenAsync<AgregarGrupo>(
+            "Agregar Grupo",
+            parameters,
+            new DialogOptions { Width = "600px", Height = "auto" }
+        );
+
+        if (expandedCourses.ContainsKey(codigoCurso) && expandedCourses[codigoCurso])
+        {
+            LoadGroups(codigoCurso);
+        }
         StateHasChanged();
     }
 }

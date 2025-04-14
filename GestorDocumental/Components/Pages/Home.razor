@@ -22,7 +22,6 @@
 @inject IEstadisticaService EstadisticasService
 @inject IEtiquetasService EtiquetasService
 
-
 <RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
     <RadzenHeader>
         <div class="header-container">
@@ -43,15 +42,12 @@
         </div>
     </RadzenHeader>
 
-
     @if (CodigoCurso != 0 && sidebarExpanded)
     {
-        <RadzenSidebar Expanded="@sidebarExpanded"  Style="height: 100vh;" >
-
-            <NavBusquedaFiltros  CodigoCurso="@CodigoCurso" CodigoCarpeta="@CodigoCarpeta" /> 
+        <RadzenSidebar Expanded="@sidebarExpanded" Style="height: 100vh;">
+            <NavBusquedaFiltros CodigoCurso="@CodigoCurso" CodigoCarpeta="@CodigoCarpeta" />
         </RadzenSidebar>
     }
-
 
     <RadzenBody Style="height: 100vh; overflow: auto; background-color: white">
         <div style="width: 100%; height: 100%;" @oncontextmenu="args => ShowContextMenuWithItems(args)">
@@ -59,7 +55,12 @@
             <div class="curso-toggle-container">
                 @if (CodigoCurso != 0)
                 {
-                    @if (CodigoCarpeta == 0)
+                    @* Si se selecciona un grupo lo mostramos en el encabezado *@
+                    @if (!string.IsNullOrEmpty(grupoFiltro))
+                    {
+                        <span class="curso-nombre">Curso @cursoActual.Descripcion - Grupo: @grupoFiltro</span>
+                    }
+                    else if (CodigoCarpeta == 0)
                     {
                         <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
                     }
@@ -83,39 +84,30 @@
                 }
             </div>
 
-
-
-
             <div class="filters-message">
                 @if (!string.IsNullOrWhiteSpace(keyword))
                 {
                     <p><strong>Resultados para:</strong> "@keyword"</p>
                 }
-
                 @if (etiquetasFiltro.Any() || recientes || masVistos)
                 {
                     var mensajes = new List<string>();
-
                     if (etiquetasFiltro.Any())
                     {
                         List<string> etiquetasSeleccionadas = TodasEtiquetas
                         .Where(e => etiquetasFiltro.Contains(e.CodigoEtiqueta))
                         .Select(e => e.DescripcionEtiqueta)
                         .ToList();
-
                         mensajes.Add($"Documentos con etiquetas: {string.Join(", ", etiquetasSeleccionadas)}");
                     }
-
                     if (recientes)
                     {
                         mensajes.Add("Ordenado por: Más recientes");
                     }
-
                     if (masVistos)
                     {
                         mensajes.Add("Ordenado por: Más vistos");
                     }
-
                     if (mensajes.Any())
                     {
                         foreach (var mensaje in mensajes)
@@ -125,8 +117,6 @@
                     }
                 }
             </div>
-
-
 
             @if (CodigoCurso == 0)
             {
@@ -138,13 +128,14 @@
             }
             else if (elementos == null || !elementos.Any())
             {
-                if(CodigoCarpeta > 0){
+                if (CodigoCarpeta > 0)
+                {
                     <p>Carpeta vacía.</p>
                 }
-                else{
+                else
+                {
                     <p>No se encontraron documentos que cumplan con los criterios de búsqueda.</p>
                 }
-
             }
             else
             {
@@ -159,20 +150,20 @@
                                     if (item is Carpeta carpeta)
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                        draggable="true"
-                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }"
-                                        @attributes="@(new Dictionary<string, object>() {
-                                            { "data-carpeta-id", carpeta.CodigoCarpeta },
-                                            { "ondragover", "onDragOver(event)" },
-                                            { "ondrop", "onDrop(event)" }
-                                        })">
+                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                                    draggable="true"
+                                                    @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                                    @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }"
+                                                    @attributes="@(new Dictionary<string, object>() {
+                                                        { "data-carpeta-id", carpeta.CodigoCarpeta },
+                                                        { "ondragover", "onDragOver(event)" },
+                                                        { "ondrop", "onDrop(event)" }
+                                                    })">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4">
                                                 <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
                                                     <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
+                                                       style="color: black; text-decoration: none; font-weight: bold;">
                                                         @carpeta.Descripcion
                                                     </a>
                                                 </RadzenText>
@@ -182,24 +173,23 @@
                                     else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                        draggable="true"
-                                        @ondblclick="() => VerContenidoArchivo(archivo)"
-                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }"
-                                        data-archivo-id="@archivo.CodigoArchivo"
-                                        @attributes="@(new Dictionary<string, object>() {
-                                                    { "ondragstart", "onDragStart(event)" }
+                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                                    draggable="true"
+                                                    @ondblclick="() => VerContenidoArchivo(archivo)"
+                                                    @oncontextmenu="args => { ShowContextMenu(args, archivo); }"
+                                                    data-archivo-id="@archivo.CodigoArchivo"
+                                                    @attributes="@(new Dictionary<string, object>() {
+                                                        { "ondragstart", "onDragStart(event)" }
                                                     })">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4"
-                                            data-archivo-id="@archivo.CodigoArchivo">
+                                                         data-archivo-id="@archivo.CodigoArchivo">
                                                 <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;"
-                                                data-archivo-id="@archivo.CodigoArchivo" />
+                                                             data-archivo-id="@archivo.CodigoArchivo" />
                                                 <RadzenText TextStyle="TextStyle.Body1" data-archivo-id="@archivo.CodigoArchivo">
                                                     <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
-                                                    style="color: black; text-decoration: none; font-weight: bold;">
+                                                       style="color: black; text-decoration: none; font-weight: bold;">
                                                         @archivo.NombreArchivo
                                                     </a>
-
                                                 </RadzenText>
                                                 @if (!archivo.Visible)
                                                 {
@@ -209,9 +199,6 @@
                                                 }
                                             </RadzenStack>
                                         </RadzenCard>
-
-
-
                                     }
                                 }
                             </div>
@@ -242,11 +229,10 @@
                                             <img src="@ObtenerIconoCarpeta()" alt="Carpeta" style="width:20px; height:20px;" />
                                         </td>
                                         <td>@carpeta.Descripcion</td>
-                                        <td>  </td>
-                                        <td>  </td>
-                                        <td>  </td>
-                                        <td>  </td>
-
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 }
                                 else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
@@ -259,13 +245,12 @@
                                         <td>@archivo.Tamaño KB</td>
                                         <td>@archivo.FechaAlta.ToString("dd/MM/yyyy")</td>
                                         <td>@archivo.FechaBaja?.ToString("dd/MM/yyyy")</td>
-                                        <td>@(archivo.Visible ? "Si" : "No")</td> 
+                                        <td>@(archivo.Visible ? "Si" : "No")</td>
                                     </tr>
                                 }
                             }
                         </tbody>
                     </table>
-
                 }
             }
 
@@ -280,8 +265,16 @@
 </RadzenLayout>
 
 @code {
-    [Parameter] public int CodigoCurso { get; set; }
-    [Parameter] public int CodigoCarpeta{ get; set; }
+    [Parameter]
+    public int CodigoCurso { get; set; }
+    [Parameter]
+    public int CodigoCarpeta { get; set; }
+
+    // Recibir el parámetro "grupo" desde la query string.
+    [Parameter, SupplyParameterFromQuery(Name = "grupo")]
+    public string GrupoFiltro { get; set; } = string.Empty;
+
+    // Resto de las variables y métodos...
     private IEnumerable<Archivo> archivos = new List<Archivo>();
     private IEnumerable<Carpeta> carpetas = new List<Carpeta>();
     private Carpeta carpetaActual = new Carpeta();
@@ -312,9 +305,9 @@
     private bool masVistos = false;
     private bool recientes = false;
 
+    private string grupoFiltro = string.Empty;
 
     private DotNetObjectReference<Home>? dotNetRef;
-
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -332,20 +325,29 @@
         dotNetRef?.Dispose();
     }
 
-
-
     protected override async Task OnParametersSetAsync()
     {
-
+        // Primero se carga el curso
         await CargarCurso();
-        await CargarArchivos();
 
-        // Leer query string y aplicar el filtrado u ordenación según corresponda
+        // Leer query string: se recupera el parámetro "grupo" (si se ha pasado)
         var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
         var query = QueryHelpers.ParseQuery(uri.Query);
+        // if (query.ContainsKey("grupo"))
+        // {
+        //     grupoFiltro = query["grupo"].FirstOrDefault();
+        // }
+        // else
+        // {
+        //     grupoFiltro = string.Empty;
+        // }
+
+        // Cargar archivos (filtrando por grupo si procede)
+        await CargarArchivos();
+
+        // Resto del procesamiento de query (palabra clave, filtros, etc.)
         if (query.ContainsKey("keyword"))
         {
-            // Filtrado por búsqueda de texto (por ejemplo, "Buscar")
             var searchTerm = query["keyword"].FirstOrDefault();
             if (!string.IsNullOrWhiteSpace(searchTerm) && elementos != null)
             {
@@ -386,7 +388,6 @@
                     if (masVistos)
                     {
                         var estadisticasDic = estadisticas.ToDictionary(e => e.CodigoArchivo, e => e.NumeroVisitas);
-
                         elementos = elementos.OrderByDescending(item =>
                         {
                             if (item is Archivo a && estadisticasDic.TryGetValue(a.CodigoArchivo, out var visitas))
@@ -403,20 +404,19 @@
                     .Select(int.Parse)
                     .ToList();
             }
-            if(etiquetasFiltro.Any()){
+            if (etiquetasFiltro.Any())
+            {
                 var codigosArchivosFiltrados = etiquetasArchivos.Where(rel => etiquetasFiltro.Contains(rel.CodigoEtiqueta))
                         .Select(rel => rel.CodigoArchivo).Distinct().ToHashSet();
 
                 elementos = elementos.Where(item =>
-                    {
-                        if (item is Archivo a)
-                            return codigosArchivosFiltrados.Contains(a.CodigoArchivo);
-                        return true; 
-                    }).ToList();
+                {
+                    if (item is Archivo a)
+                        return codigosArchivosFiltrados.Contains(a.CodigoArchivo);
+                    return true;
+                }).ToList();
             }
-
         }
-
     }
 
     private async Task CargarCurso()
@@ -431,7 +431,6 @@
             {
                 cursoActual = new Curso();
             }
-            //StateHasChanged();
         }
         catch (Exception e)
         {
@@ -443,20 +442,23 @@
     {
         try
         {
-            if(CodigoCarpeta == 0){
-                var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
-                carpetas = carpetasData;
-                archivos = archivosData;
+            if (CodigoCarpeta == 0)
+            {
+                if (!string.IsNullOrWhiteSpace(GrupoFiltro))
+                {
+                    var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoYGrupoAsync(CodigoCurso, GrupoFiltro);
+                    carpetas = carpetasData;
+                    archivos = archivosData;
+                }
+                else
+                {
+                    var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
+                    carpetas = carpetasData;
+                    archivos = archivosData;
+                }
                 elementos = new List<object>();
                 elementos.AddRange(carpetas.ToList());
                 elementos.AddRange(archivos.ToList());
-                if (archivos.Any())
-                {
-                    await CargarEstadisticas(archivos.ToList());
-                    await CargarEtiquetas(archivos.ToList());
-                }
-
-
             }
             else
             {
@@ -466,13 +468,8 @@
                 {
                     elementos = new List<object>();
                     elementos.AddRange(archivosCarpeta);
-                    await CargarEstadisticas(archivosCarpeta.ToList());
-                    await CargarEtiquetas(archivosCarpeta.ToList());
                 }
-
             }
-
-
         }
         catch (Exception e)
         {
@@ -513,7 +510,6 @@
     private void ToggleSidebar()
     {
         sidebarExpanded = !sidebarExpanded;
-
     }
 
     private void ToggleVista() => modoTarjetas = !modoTarjetas;
@@ -553,7 +549,7 @@
 
     private void MostrarArchivosDeCarpeta(Carpeta carpeta)
     {
-        Navigation.NavigateTo($"/Home/{CodigoCurso}/{carpeta.CodigoCarpeta}");
+        Navigation.NavigateTo($"/home/{CodigoCurso}/{carpeta.CodigoCarpeta}");
         StateHasChanged();
     }
 
@@ -565,8 +561,8 @@
         {
             { "CodigoCurso", CodigoCurso },
             { "CodigoUsuario", usuarioActual.CodigoUsuario },
-            { "CodigoCarpeta", CodigoCarpeta}, 
-            {  "Grupo", cursoActual.Grupo}
+            { "CodigoCarpeta", CodigoCarpeta},
+            { "Grupo", cursoActual.Grupo}
         }, new DialogOptions { Width = "600px", Height = "auto" });
         modalAbierto = false;
         if (resultado is bool archivoSubido && archivoSubido)
@@ -612,9 +608,9 @@
     async Task AbrirModalAgregarGrupo()
     {
         var parameters = new Dictionary<string, object>
-    {
-        { "CodigoCurso", CodigoCurso }
-    };
+        {
+            { "CodigoCurso", CodigoCurso }
+        };
 
         var resultado = await DialogService.OpenAsync<AgregarGrupo>(
             "Agregar Grupo",
@@ -622,15 +618,12 @@
             new DialogOptions { Width = "600px", Height = "auto" }
         );
 
-
         if (resultado is bool agregado && agregado)
         {
-
-            // await CargarGrupos();
+            // Acciones adicionales, si fuera necesario
         }
         StateHasChanged();
     }
-
 
     private async Task CerrarSesion()
     {
@@ -643,13 +636,12 @@
         return tipoArchivo switch
         {
             "application/pdf" => "icons/pdf.png",
-            "text/plain" => "icons/plain.png", // icono para archivos de texto plano
-            "application/msword" => "icons/word.png", // .doc
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" => "icons/word.png", // .docx
-            string t when t.StartsWith("image/") => "icons/imagen.png", // cualquier imagen (png, jpg, etc.)
+            "text/plain" => "icons/plain.png",
+            "application/msword" => "icons/word.png",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" => "icons/word.png",
+            string t when t.StartsWith("image/") => "icons/imagen.png",
             _ => "icons/archivo.png"
         };
-
     }
 
     private string ObtenerIconoCarpeta() => "icons/carpeta.png";
@@ -799,7 +791,7 @@
                 AbrirModalSubidaCarpeta(1);
                 break;
             case 4:
-                AbrirModalAgregarGrupo(); // Nueva función para agregar grupo
+                AbrirModalAgregarGrupo();
                 break;
         }
         ContextMenuService.Close();
@@ -861,25 +853,21 @@
         StateHasChanged();
     }
 
-
     [JSInvokable]
     public async Task MoverArchivoACarpeta(int archivoId, int carpetaId)
     {
         try
         {
-
             var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres mover el archivo a la carpeta?", "Confirmar mover archivo",
             new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
             if (confirmacion == true)
             {
                 var archivo = await ArchivoService.ObtenerInfoArchivo(archivoId);
-
                 if (archivo != null)
                 {
                     archivo.CodigoCarpeta = carpetaId;
                     await ArchivoService.ModificarArchivo(archivo);
                     Console.WriteLine("Archivo movido correctamente");
-
                     await CargarArchivos();
                     StateHasChanged();
                 }
@@ -888,7 +876,6 @@
                     Console.Error.WriteLine("Archivo o Carpeta no encontrados");
                 }
             }
-            
         }
         catch (Exception ex)
         {

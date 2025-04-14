@@ -40,7 +40,8 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
 
-                return await context.Grupos.Where(x => x.CodigoCurso == codigoCurso).ToListAsync();
+                List<Grupos> grupos = await context.Grupos.Where(x => x.CodigoCurso == codigoCurso).ToListAsync();
+                return grupos;
 
             }
             catch (Exception ex)

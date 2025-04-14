@@ -43,6 +43,33 @@ namespace GestorDocumental.Data.Repositories
             return (carpetas, archivosSinCarpeta);
         }
 
+        public async Task<(IEnumerable<Carpeta> Carpetas, IEnumerable<Archivo> ArchivosSinCarpeta)> ObtenerArchivosYCarpetasPorCursoYGrupoAsync(int codigoCurso, string grupo)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            List<Carpeta> carpetas = await context.Carpeta.Where(c => c.Curso == codigoCurso && c.Grupo == grupo).ToListAsync();
+
+            List<Archivo> archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso &&
+                a.CodigoCarpeta == null && a.Grupo == grupo).ToListAsync();
+
+            foreach (Archivo archivo in archivosSinCarpeta)
+            {
+                var codigoEtiquetas = await context.ArchivosEtiquetas
+                    .Where(ae => ae.CodigoArchivo == archivo.CodigoArchivo)
+                    .Select(ae => ae.CodigoEtiqueta)
+                    .ToListAsync();
+
+                var etiquetas = await context.Etiqueta
+                    .Where(e => codigoEtiquetas.Contains(e.CodigoEtiqueta))
+                    .Select(e => e.DescripcionEtiqueta)
+                    .ToListAsync();
+
+                archivo.Etiquetas = etiquetas;
+            }
+
+            return (carpetas, archivosSinCarpeta);
+        }
+
 
 
         public async Task AgregarArchivoAsync(Archivo archivo)

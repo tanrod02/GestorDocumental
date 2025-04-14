@@ -5,6 +5,9 @@ namespace GestorDocumental.Data.Interfaces
     public interface IArchivoRepository
     {
         Task<(IEnumerable<Carpeta> Carpetas, IEnumerable<Archivo> ArchivosSinCarpeta)> ObtenerArchivosYCarpetasPorCursoAsync(int codigoCurso);
+
+        Task<(IEnumerable<Carpeta> Carpetas, IEnumerable<Archivo> ArchivosSinCarpeta)> ObtenerArchivosYCarpetasPorCursoYGrupoAsync(int codigoCurso, string grupo);
+
         Task AgregarArchivoAsync(Archivo archivo);
         Task<Carpeta> ObtenerInfoCarpeta(int CodigoCarpeta);
         Task ModificarArchivo(Archivo archivo);

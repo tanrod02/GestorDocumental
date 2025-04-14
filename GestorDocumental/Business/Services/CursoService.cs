@@ -35,5 +35,10 @@ namespace GestorDocumental.Business.Services
         {
             await _cursoRepository.AgregarRelacionCursoUsuario(CodigoCurso, CodigoUsuario);
         }
+
+        public async Task<string?> ObtenerCursoPorNombre(string descripcion)
+        {
+            return await _cursoRepository.ObtenerCursoPorNombre(descripcion);
+        }
     }
 }

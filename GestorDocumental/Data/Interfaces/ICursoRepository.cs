@@ -10,5 +10,8 @@ namespace GestorDocumental.Data.Interfaces
         Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso);
         Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario);
 
+        Task<string?> ObtenerCursoPorNombre(string descripcion);
+
+
     }
 }

@@ -46,5 +46,17 @@ namespace GestorDocumental.Data.Repositories
             await context.SaveChangesAsync();
         }
 
+        public async Task<string?> ObtenerCursoPorNombre(string descripcion)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            if (context.Cursos.Any(x => x.Descripcion == descripcion))
+            {
+                return descripcion;
+            }
+            else return null;
+        }
+
+
     }
 }
