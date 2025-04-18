@@ -49,6 +49,13 @@
     </div>
 </div>
 
+<div id="blazor-error-ui">
+    Ha ocurrido un error inesperado.
+    <a href="" class="reload">Recargar</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+
 @code {
     private LoginModel loginModel = new LoginModel();
     private string contraseñaTipo = "password"; 
@@ -56,25 +63,31 @@
     private bool correoIncorrecto = false;     
     private bool contraseñaIncorrecta = false; 
 
-    private async Task HandleLogin()
-    {
-        correoIncorrecto = false;
-        contraseñaIncorrecta = false;
-
-        var isAuthenticated = await AuthService.LoginAsync(loginModel.Correo, loginModel.Contraseña);
-
-        if (isAuthenticated)
+    @code {
+        private async Task HandleLogin()
         {
-            Navigation.NavigateTo("/home");
+            try
+            {
+                var isAuthenticated = await AuthService.LoginAsync(loginModel.Correo, loginModel.Contraseña);
+                if (isAuthenticated)
+                {
+                    Navigation.NavigateTo("/home");
+                }
+                else
+                {
+                    correoIncorrecto = true;
+                    contraseñaIncorrecta = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en el login: {ex.Message}");
+                // Aquí puedes manejar el error de manera más detallada
+            }
+            StateHasChanged();
         }
-        else
-        {
-            correoIncorrecto = true; 
-            contraseñaIncorrecta = true; 
-        }
-
-        StateHasChanged(); 
     }
+
 
     private void TogglePasswordVisibility()
     {

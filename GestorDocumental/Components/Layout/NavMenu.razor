@@ -31,7 +31,6 @@
         {
             @foreach (Curso curso in cursos)
             {
-                <!-- Se utiliza @oncontextmenu:preventDefault para evitar el menú predeterminado -->
                 <div class="nav-item px-3"
                      @oncontextmenu="args => ShowContextMenuCurso(args, curso)"
                      @oncontextmenu:preventDefault="true">

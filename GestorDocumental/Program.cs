@@ -10,6 +10,7 @@ using Radzen;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Components.Server.Circuits;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,14 @@ builder.Services.AddRazorComponents()
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRadzenComponents();
+
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.Secure = CookieSecurePolicy.Always;  // Las cookies deben ser siempre seguras
+    options.MinimumSameSitePolicy = SameSiteMode.None;  // Permite que las cookies sean enviadas en solicitudes cross-site
+});
+
+
 
 //Retencion documental 
 builder.Services.AddSingleton<RetencionDocumentalService>();
@@ -83,6 +92,12 @@ builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddScoped<ProtectedSessionStorage>();
 
+builder.Services.AddAntiforgery(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
+
 var app = builder.Build();
 
 // Configuración del pipeline de la aplicación
@@ -99,6 +114,7 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
+app.UseCookiePolicy();
 
 // Mapeo de componentes Razor
 app.MapRazorComponents<App>()

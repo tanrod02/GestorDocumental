@@ -155,7 +155,7 @@ namespace GestorDocumental.Data.Repositories
 
                 Archivo archivo = await context.Archivos.FindAsync(CodigoArchivo);
 
-               context.Archivos.Remove(archivo);
+                context.Archivos.Remove(archivo);
                 await context.SaveChangesAsync();
             }
             catch (Exception ex)

@@ -119,6 +119,10 @@
         etiquetas = await EtiquetasService.ObtenerEtiquetas();
 
         grupos = await ArchivoService.ObtenerGruposPorCurso(CodigoCurso);
+
+        if (!string.IsNullOrEmpty(Grupo)){
+            archivoSubido.Grupo = Grupo;
+        }
     }
 
 

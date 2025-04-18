@@ -2,7 +2,6 @@
     window.miObjetoDotNet = dotNetHelper;
 }
 
-
 let archivoArrastradoId = null;
 
 function onDragStart(event) {

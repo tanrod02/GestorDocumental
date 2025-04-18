@@ -4,10 +4,6 @@
 @using Radzen
 @using Radzen.Blazor
 @inject NavigationManager Navigation
-@inject IArchivoService ArchivoService
-@inject ICursoService CursoService
-@inject IEstadisticaService EstadisticaService
-
 @inherits LayoutComponentBase
 <RadzenComponents @rendermode="InteractiveServer" />
 
@@ -21,7 +17,6 @@
     <div class="contenido-wrapper" oncontextmenu="return false;">
         <main class="contenido-principal">
             @Body
-            <RadzenDialog />
         </main>
     </div>
 </div>

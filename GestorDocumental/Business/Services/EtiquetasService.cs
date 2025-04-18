@@ -37,10 +37,6 @@ namespace GestorDocumental.Business.Services
             await _etiquetasRepository.AgregarEtiquetasArchivo(codigoArchivo, etiquetas);
         }
 
-        public async Task EliminarTodasEtiquetasArchivo(int CodigoArchivo)
-        {
-            await _etiquetasRepository.EliminarTodasEtiquetasArchivo(CodigoArchivo);
-        }
 
         public async Task<List<ArchivoEtiqueta>> ObtenerRelacionesEtiquetasArchivos(List<Archivo> archivos)
         {

@@ -50,5 +50,21 @@ namespace GestorDocumental.Data.Repositories
                 throw;
             }
         }
+
+        public async Task<List<Grupos>> ObtenerGrupos()
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+
+               return await context.Grupos.ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los grupos: {ex.Message}");
+                throw;
+            }
+        }
     }
 }

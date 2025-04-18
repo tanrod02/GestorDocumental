@@ -22,8 +22,13 @@
             </div>
 
             <div>
-                <label>Grupo:</label>
-                <RadzenTextBox @bind-Value="carpetaNueva.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+                <label>Grupo: </label>
+                <RadzenDropDown @bind-Value="carpetaNueva.Grupo"
+                                Data="@grupos"
+                                TextProperty="Grupo"
+                                ValueProperty="Grupo"
+                                Placeholder="Selecciona un grupo"
+                                Style="width: 100%;" />
             </div>
 
             <div class="botones" style="display: flex; justify-content: space-between;">
@@ -35,18 +40,24 @@
                 ButtonStyle="ButtonStyle.Secondary"
                 Click="CancelarSubida" />
             </div>
+
         }else{ //subir una carpeta
 
             <div>
                 <label>Selecciona una carpeta:</label>
                 <RadzenButton Text="Seleccionar Carpeta" Click="AbrirSelectorCarpeta" />
-                <p>@carpetaNueva.Path</p> 
+                <p>@carpetaNueva.Descripcion</p> 
             </div>
 
 
             <div>
-                <label>Grupo:</label>
-                <RadzenTextBox @bind-Value="carpetaNueva.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+                <label>Grupo: </label>
+                <RadzenDropDown @bind-Value="carpetaNueva.Grupo"
+                                Data="@grupos"
+                                TextProperty="Grupo"
+                                ValueProperty="Grupo"
+                                Placeholder="Selecciona un grupo"
+                                Style="width: 100%;" />
             </div>
 
             <div class="botones" style="display: flex; justify-content: space-between;">
@@ -71,11 +82,24 @@
     [Parameter] public int CodigoUsuario { get; set; }
     [Parameter] public int CodigoOpcion { get; set; }
     [Parameter] public string DescripcionCurso{ get; set; }
+    [Parameter] public string Grupo { get; set; }
 
     private Carpeta carpetaNueva = new() { };
     private List<Archivo> archivos = new List<Archivo>();
+    private List<Grupos> grupos = new();
 
     private ElementReference fileInputElement;
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+        grupos = await ArchivoService.ObtenerGruposPorCurso(CodigoCurso);
+
+        if (!string.IsNullOrEmpty(Grupo))
+        {
+            carpetaNueva.Grupo = Grupo;
+        }
+    }
 
 
     private void OnProgress(UploadProgressArgs args)
@@ -102,8 +126,6 @@
         }
     }
 
-
-
     private void CancelarArchivo()
     {
         carpetaNueva = new Carpeta();
@@ -123,7 +145,7 @@
                 carpetaNueva.Subida = DateTime.Now;
                 carpetaNueva.Propietario = CodigoUsuario;
                 carpetaNueva.Curso = CodigoCurso;
-
+                carpetaNueva.Grupo = Grupo;
                 await CarpetaService.CrearCarpeta(carpetaNueva);
 
                 DialogService.Close(true);
@@ -134,6 +156,7 @@
                 carpetaNueva.Subida = DateTime.Now;
                 carpetaNueva.Propietario = CodigoUsuario;
                 carpetaNueva.Curso = CodigoCurso;
+                carpetaNueva.Grupo = Grupo;
                 int codigoCarpeta = await CarpetaService.CrearCarpeta(carpetaNueva);
 
 

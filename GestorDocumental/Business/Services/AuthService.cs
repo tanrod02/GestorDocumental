@@ -24,19 +24,28 @@ public class AuthService
 
     public async Task<bool> LoginAsync(string correo, string contraseña)
     {
-        var usuario = await _usuarioService.IniciarSesionAsync(correo, contraseña);
-        if (usuario != null)
+        try
         {
-            Console.WriteLine($"Usuario autenticado: {usuario.Correo}");
-            IsAuthenticated = true;
-            _usuarioActual = usuario;
+            var usuario = await _usuarioService.IniciarSesionAsync(correo, contraseña);
+            if (usuario != null)
+            {
+                Console.WriteLine($"Usuario autenticado: {usuario.Correo}");
+                IsAuthenticated = true;
+                _usuarioActual = usuario;
 
-            await _sessionStorage.SetAsync("usuario", usuario);
-            return true;
+                await _sessionStorage.SetAsync("usuario", usuario);
+                return true;
+            }
+            Console.WriteLine("Credenciales incorrectas en AuthService.");
+            return false;
         }
-        Console.WriteLine("Credenciales incorrectas en AuthService.");
-        return false;
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[LoginAsync] Error: {ex.Message}");
+            return false;
+        }
     }
+
 
     public async Task<Usuario> ObtenerUsuarioActualAsync()
     {
