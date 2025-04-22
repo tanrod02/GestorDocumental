@@ -52,13 +52,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\GestorDocumental.2fpkv9vb1a.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2fpkv9vb1a"},{"Name":"integrity","Value":"sha256-Uk/eLMBg0ci9TydTAMm9qRwHNP4zivpRo0fLduN0\u002B6s="},{"Name":"label","Value":"_content/GestorDocumental/GestorDocumental.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5213"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Uk/eLMBg0ci9TydTAMm9qRwHNP4zivpRo0fLduN0\u002B6s=\u0022"},{"Name":"Last-Modified","Value":"Wed, 16 Apr 2025 11:04:35 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5213"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Uk/eLMBg0ci9TydTAMm9qRwHNP4zivpRo0fLduN0\u002B6s=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 16:59:01 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/GestorDocumental.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\GestorDocumental.2fpkv9vb1a.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Uk/eLMBg0ci9TydTAMm9qRwHNP4zivpRo0fLduN0\u002B6s="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5213"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Uk/eLMBg0ci9TydTAMm9qRwHNP4zivpRo0fLduN0\u002B6s=\u0022"},{"Name":"Last-Modified","Value":"Wed, 16 Apr 2025 11:04:35 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5213"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Uk/eLMBg0ci9TydTAMm9qRwHNP4zivpRo0fLduN0\u002B6s=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 16:59:01 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/icons/archivo.kbrvxawme7.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\icons\archivo.png'))</AssetFile>

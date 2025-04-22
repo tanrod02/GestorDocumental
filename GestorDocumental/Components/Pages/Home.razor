@@ -55,26 +55,36 @@
             <div class="curso-toggle-container">
                 @if (CodigoCurso != 0)
                 {
-                    @* Si se selecciona un grupo lo mostramos en el encabezado *@
-                    @if (!string.IsNullOrEmpty(grupoFiltro))
+
+                    if (CodigoCarpeta == 0)
                     {
-                        <span class="curso-nombre">Curso @cursoActual.Descripcion - Grupo: @grupoFiltro</span>
-                    }
-                    else if (CodigoCarpeta == 0)
-                    {
-                        <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
+                        @if (!string.IsNullOrEmpty(GrupoFiltro))
+                        {
+                            <span class="curso-nombre">Curso @cursoActual.Descripcion - Grupo @GrupoFiltro</span>
+                        }else{
+                            <span class="curso-nombre">Curso @cursoActual.Descripcion</span>
+                        }
+
                     }
                     else
                     {
                         <button class="back-button" @onclick="VolverHome" style="border: none; background: transparent; cursor: pointer; display: inline-flex; align-items: center; margin-right: 5px;">
                             <span style="font-size: 1.5rem; color: #007bff;">←</span>
                         </button>
-                        <span class="curso-nombre" style="display: inline; margin: 0; padding: 0;">@cursoActual.Descripcion/@carpetaActual.Descripcion</span>
+                        @if (!string.IsNullOrEmpty(GrupoFiltro))
+                        {
+                            <span class="curso-nombre" style="display: inline; margin: 0; padding: 0;">@cursoActual.Descripcion - Grupo @GrupoFiltro/@carpetaActual.Descripcion</span>
+                        }
+                        else
+                        {
+                            <span class="curso-nombre" style="display: inline; margin: 0; padding: 0;">@cursoActual.Descripcion/@carpetaActual.Descripcion</span>
+                        }
+
                     }
 
                     <div class="curso-toggle-buttons">
                         <button class="toggle-view-button" @onclick="VerNoVisibles">
-                            📄 Ver archivos no visibles
+                            📄 Ver documentos no visibles
                         </button>
                         <button class="toggle-view-button" @onclick="ToggleVista">
                             @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
@@ -150,11 +160,11 @@
                                     if (item is Carpeta carpeta)
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                                    draggable="true"
-                                                    @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                    @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }"
-                                                    @attributes="@(new Dictionary<string, object>() {
+                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        draggable="true"
+                                        @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
+                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }"
+                                        @attributes="@(new Dictionary<string, object>() {
                                                         { "data-carpeta-id", carpeta.CodigoCarpeta },
                                                         { "ondragover", "onDragOver(event)" },
                                                         { "ondrop", "onDrop(event)" }
@@ -163,7 +173,7 @@
                                                 <RadzenImage Path="@ObtenerIconoCarpeta()" Style="width: 50px; height: 50px;" />
                                                 <RadzenText TextStyle="TextStyle.Body1">
                                                     <a href="javascript:void(0);" @onclick="() => MostrarArchivosDeCarpeta(carpeta)"
-                                                       style="color: black; text-decoration: none; font-weight: bold;">
+                                                    style="color: black; text-decoration: none; font-weight: bold;">
                                                         @carpeta.Descripcion
                                                     </a>
                                                 </RadzenText>
@@ -173,21 +183,21 @@
                                     else if (item is Archivo archivo && (archivo.Visible || mostrarNoVisibles))
                                     {
                                         <RadzenCard class="rz-my-2 card-hover"
-                                                    Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
-                                                    draggable="true"
-                                                    @ondblclick="() => VerContenidoArchivo(archivo)"
-                                                    @oncontextmenu="args => { ShowContextMenu(args, archivo); }"
-                                                    data-archivo-id="@archivo.CodigoArchivo"
-                                                    @attributes="@(new Dictionary<string, object>() {
+                                        Style="max-width: 420px; box-shadow: none; border: none; margin:0; padding: 0;"
+                                        draggable="true"
+                                        @ondblclick="() => VerContenidoArchivo(archivo)"
+                                        @oncontextmenu="args => { ShowContextMenu(args, archivo); }"
+                                        data-archivo-id="@archivo.CodigoArchivo"
+                                        @attributes="@(new Dictionary<string, object>() {
                                                         { "ondragstart", "onDragStart(event)" }
                                                     })">
                                             <RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Right" AlignItems="AlignItems.Center" Gap="0.5rem" class="rz-p-4"
-                                                         data-archivo-id="@archivo.CodigoArchivo">
+                                            data-archivo-id="@archivo.CodigoArchivo">
                                                 <RadzenImage Path="@ObtenerIconoArchivo(archivo.Tipo)" Style="width: 50px; height: 50px;"
-                                                             data-archivo-id="@archivo.CodigoArchivo" />
+                                                data-archivo-id="@archivo.CodigoArchivo" />
                                                 <RadzenText TextStyle="TextStyle.Body1" data-archivo-id="@archivo.CodigoArchivo">
                                                     <a href="javascript:void(0);" @onclick="() => VerContenidoArchivo(archivo)"
-                                                       style="color: black; text-decoration: none; font-weight: bold;">
+                                                    style="color: black; text-decoration: none; font-weight: bold;">
                                                         @archivo.NombreArchivo
                                                     </a>
                                                 </RadzenText>
@@ -224,7 +234,8 @@
                             {
                                 if (item is Carpeta carpeta)
                                 {
-                                    <tr @onclick="() => MostrarArchivosDeCarpeta(carpeta)" style="cursor:pointer;">
+                                    <tr @onclick="() => MostrarArchivosDeCarpeta(carpeta)" style="cursor:pointer;"
+                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
                                         <td>
                                             <img src="@ObtenerIconoCarpeta()" alt="Carpeta" style="width:20px; height:20px;" />
                                         </td>
@@ -423,7 +434,7 @@
         {
             Console.WriteLine($"Error inesperado: {ex.Message}");
         }
-       
+
     }
 
     private async Task CargarCurso()
@@ -432,7 +443,7 @@
         {
             if (CodigoCurso != 0)
             {
-                
+
                 cursoActual = await CursoService.ObtenerCursoPorCodigoAsync(CodigoCurso);
             }
             else
@@ -593,7 +604,7 @@
                 { "DescripcionCurso", cursoActual.Descripcion }, 
                 { "Grupo", GrupoFiltro}
             };
-           
+
             resultado = await DialogService.OpenAsync<SubirCarpeta>("Crear Carpeta", parameters, new DialogOptions { Width = "600px", Height = "auto" });
             modalAbiertoCarpetaNueva = false;
         }
@@ -689,9 +700,22 @@
 
     public async void CambiarVisibilidad(Archivo archivo)
     {
-        archivo.Visible = !archivo.Visible;
-        await ArchivoService.ModificarArchivo(archivo);
-        await CargarArchivos();
+        string visible = "";
+        if (archivo.Visible)
+        {
+            visible = "ocultar";
+        }
+        else visible = "mostrar";
+
+        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres " + visible + " este documento?", "Confirmar",
+           new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+        if (confirmacion == true)
+        {
+            archivo.Visible = !archivo.Visible;
+            await ArchivoService.ModificarArchivo(archivo);
+            await CargarArchivos();
+        }
+       
         StateHasChanged();
     }
 
@@ -699,7 +723,7 @@
     {
         if (modalAbiertoEstadisticas) return;
         modalAbiertoEstadisticas = true;
-        var resultado = await DialogService.OpenAsync<MostrarEstadisticasArchivo>("Modificar Fecha", new Dictionary<string, object>
+        var resultado = await DialogService.OpenAsync<MostrarEstadisticasArchivo>("Estadísticas documento", new Dictionary<string, object>
         {
             { "CodigoArchivo", archivo.CodigoArchivo },
             { "NombreArchivo", archivo.NombreArchivo }
@@ -723,7 +747,7 @@
     {
         if (modalAbiertoEtiquetas) return;
         modalAbiertoEtiquetas = true;
-        var resultado = await DialogService.OpenAsync<ModificarEtiquetas>("Modificar Etiquetas", new Dictionary<string, object>
+        var resultado = await DialogService.OpenAsync<ModificarEtiquetas>("Etiquetas documento", new Dictionary<string, object>
         {
             { "CodigoArchivo", archivo.CodigoArchivo }
         }, new DialogOptions { Width = "600px", Height = "auto" });
@@ -732,7 +756,7 @@
 
     public async Task EliminarArchivo(Archivo archivo)
     {
-        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres eliminar este archivo?", "Confirmar eliminación",
+        var confirmacion = await DialogService.Confirm("¿Estás seguro de que quieres eliminar este documento?", "Confirmar eliminación",
             new ConfirmOptions { OkButtonText = "Sí, eliminar", CancelButtonText = "Cancelar" });
         if (confirmacion == true)
         {
