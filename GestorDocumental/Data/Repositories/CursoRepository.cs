@@ -57,6 +57,13 @@ namespace GestorDocumental.Data.Repositories
             else return null;
         }
 
+        public async Task<List<Curso>> ObtenerCursos()
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            return context.Cursos.ToList();
+        }
+
 
     }
 }

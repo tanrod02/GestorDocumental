@@ -83,9 +83,12 @@
                     }
 
                     <div class="curso-toggle-buttons">
-                        <button class="toggle-view-button" @onclick="VerNoVisibles">
-                            📄 Ver documentos no visibles
-                        </button>
+                        @if (usuarioActual.CodigoRol != rolUser){
+
+                            <button class="toggle-view-button" @onclick="VerNoVisibles">
+                                📄 Ver documentos no visibles
+                            </button>
+                        }
                         <button class="toggle-view-button" @onclick="ToggleVista">
                             @(modoTarjetas ? "📄 Ver en Lista" : "🗂️ Ver en Iconos Grandes")
                         </button>
@@ -235,7 +238,7 @@
                                 if (item is Carpeta carpeta)
                                 {
                                     <tr @onclick="() => MostrarArchivosDeCarpeta(carpeta)" style="cursor:pointer;"
-                                        @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
+                                    @oncontextmenu="args => { ShowContextMenuCarpeta(args, carpeta); }">
                                         <td>
                                             <img src="@ObtenerIconoCarpeta()" alt="Carpeta" style="width:20px; height:20px;" />
                                         </td>
@@ -265,7 +268,7 @@
                 }
             }
 
-            @if (CodigoCurso != 0)
+            @if (CodigoCurso != 0 && usuarioActual.CodigoRol != rolUser)
             {
                 <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
                     📤 Subir Documento
@@ -318,6 +321,8 @@
 
     private string grupoFiltro = string.Empty;
 
+    private const int rolUser = 3;
+
     private DotNetObjectReference<Home>? dotNetRef;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -339,25 +344,13 @@
     protected override async Task OnParametersSetAsync()
     {
         try{
-            // Primero se carga el curso
             await CargarCurso();
 
-            // Leer query string: se recupera el parámetro "grupo" (si se ha pasado)
             var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
             var query = QueryHelpers.ParseQuery(uri.Query);
-            // if (query.ContainsKey("grupo"))
-            // {
-            //     grupoFiltro = query["grupo"].FirstOrDefault();
-            // }
-            // else
-            // {
-            //     grupoFiltro = string.Empty;
-            // }
 
-            // Cargar archivos (filtrando por grupo si procede)
             await CargarArchivos();
 
-            // Resto del procesamiento de query (palabra clave, filtros, etc.)
             if (query.ContainsKey("keyword"))
             {
                 var searchTerm = query["keyword"].FirstOrDefault();
@@ -652,17 +645,29 @@
     void ShowContextMenu(MouseEventArgs args, Archivo archivo)
     {
         clickArchivo = true;
-        ContextMenuService.Open(args,
-            new List<ContextMenuItem>
-                {
+
+        var allItems = new List<ContextMenuItem>
+            { 
                 new ContextMenuItem(){ Text = "Ocultar/Mostrar", Value = "visibilidad", Icon = "visibility" },
                 new ContextMenuItem(){ Text = "Estadísticas", Value = "estadisticas", Icon = "bar_chart" },
                 new ContextMenuItem(){ Text = "Cambiar Fecha", Value = "cambiar_fecha", Icon = "event" },
                 new ContextMenuItem(){ Text = "Etiquetas", Value = "etiquetas", Icon = "label" },
                 new ContextMenuItem(){ Text = "Eliminar", Value = "eliminar", Icon = "delete" },
                 new ContextMenuItem(){ Text = "Renombrar", Value = "renombrar", Icon = "edit" }
-                },
-            item => OnMenuItemClick(item, archivo));
+            };
+
+        List<ContextMenuItem> itemsMostrar;
+
+        if(usuarioActual.CodigoRol == rolUser){
+
+            itemsMostrar = allItems.Where(x => x.Value == "estadisticas").ToList();
+        }
+        else{
+            itemsMostrar = allItems;
+        }
+
+        ContextMenuService.Open(args, itemsMostrar, item => OnMenuItemClick(item, archivo));
+
         Task.Delay(300).ContinueWith(_ => clickArchivo = false);
     }
 
@@ -782,14 +787,18 @@
     void ShowContextMenuWithItems(MouseEventArgs args)
     {
         if (clickArchivo) return;
-        ContextMenuService.Open(args,
-            new List<ContextMenuItem>
+
+        if(usuarioActual.CodigoRol != rolUser){
+            ContextMenuService.Open(args,
+                new List<ContextMenuItem>
                 {
-                new ContextMenuItem(){ Text = "Subir Archivo", Value = 1, Icon = "upload" },
-                new ContextMenuItem(){ Text = "Subir Carpeta", Value = 2, Icon = "create_new_folder" },
-                new ContextMenuItem(){ Text = "Crear Carpeta", Value = 3, Icon = "create_new_folder" },
+                    new ContextMenuItem(){ Text = "Subir Archivo", Value = 1, Icon = "upload" },
+                    new ContextMenuItem(){ Text = "Subir Carpeta", Value = 2, Icon = "create_new_folder" },
+                    new ContextMenuItem(){ Text = "Crear Carpeta", Value = 3, Icon = "create_new_folder" },
                 },
             OnMenuItemClickGeneral);
+        }
+
     }
 
     void OnMenuItemClickGeneral(MenuItemEventArgs args)
@@ -814,14 +823,18 @@
     void ShowContextMenuCarpeta(MouseEventArgs args, Carpeta carpeta)
     {
         clickArchivo = true;
-        ContextMenuService.Open(args,
-            new List<ContextMenuItem>
-                {
-                new ContextMenuItem(){ Text = "Eliminar", Value = "eliminar", Icon = "delete" },
-                new ContextMenuItem(){ Text = "Renombrar", Value = "renombrar", Icon = "edit" }
-                },
-            item => OnMenuItemCarpetaClick(item, carpeta));
-        Task.Delay(300).ContinueWith(_ => clickArchivo = false);
+
+        if(usuarioActual.CodigoRol != rolUser){
+            ContextMenuService.Open(args,
+                new List<ContextMenuItem>
+                    {
+                        new ContextMenuItem(){ Text = "Eliminar", Value = "eliminar", Icon = "delete" },
+                        new ContextMenuItem(){ Text = "Renombrar", Value = "renombrar", Icon = "edit" }
+                    },
+                item => OnMenuItemCarpetaClick(item, carpeta));
+                Task.Delay(300).ContinueWith(_ => clickArchivo = false);
+        }
+
     }
 
     void OnMenuItemCarpetaClick(MenuItemEventArgs args, Carpeta carpeta)

@@ -40,5 +40,10 @@ namespace GestorDocumental.Business.Services
         {
             return await _cursoRepository.ObtenerCursoPorNombre(descripcion);
         }
+
+        public async Task<List<Curso>> ObtenerCursos()
+        {
+            return await _cursoRepository.ObtenerCursos();
+        }
     }
 }

@@ -79,11 +79,13 @@
             </div>
         }
 
-        <div class="nav-item px-3 mt-4 text-center">
-            <button class="boton-agregar" @onclick="AbrirModal">
-                ➕ Añadir curso
-            </button>
-        </div>
+        @if(usuarioActual.CodigoRol != rolUser){
+            <div class="nav-item px-3 mt-4 text-center">
+                <button class="boton-agregar" @onclick="AbrirModal">
+                    ➕ Añadir curso
+                </button>
+            </div>
+        }
     </nav>
 </div>
 
@@ -95,6 +97,8 @@
 
     private Dictionary<int, bool> expandedCourses = new Dictionary<int, bool>();
     private Dictionary<int, List<Grupos>> courseGroups = new Dictionary<int, List<Grupos>>();
+
+    private const int rolUser = 3;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -157,13 +161,17 @@
     void ShowContextMenuCurso(MouseEventArgs args, Curso curso)
     {
         cursoSeleccionado = curso.CodigoCurso;
-        // Abre el menú contextual con una única opción "Agregar Grupo"
-        ContextMenuService.Open(args,
-            new List<ContextMenuItem>
+        
+        if(usuarioActual.CodigoRol != rolUser){
+
+            ContextMenuService.Open(args,
+                new List<ContextMenuItem>
                 {
-                new ContextMenuItem(){ Text = "Agregar Grupo", Value = "agregarGrupo", Icon = "group_add" }
+                    new ContextMenuItem(){ Text = "Agregar Grupo", Value = "agregarGrupo", Icon = "group_add" }
                 },
             OnMenuItemClickCurso);
+
+        }
     }
 
     async void OnMenuItemClickCurso(MenuItemEventArgs args)
@@ -172,6 +180,7 @@
         {
             await AbrirModalAgregarGrupo(cursoSeleccionado);
         }
+
         ContextMenuService.Close();
     }
 

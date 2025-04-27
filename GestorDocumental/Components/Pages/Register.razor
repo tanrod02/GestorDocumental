@@ -2,13 +2,12 @@
 @using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Data.Entities
 @inject IUsuarioService UsuarioService
+@inject ICursoService CursoService
+@inject IGrupoService GrupoService
 @inject NavigationManager Navigation
 @rendermode InteractiveServer
 
-
-@* <div class="container d-flex justify-content-center align-items-center vh-100"> *@
-
-    <div class="login-background">
+<div class="login-background">
     <div class="card login-card">
         <h3 class="text-center">Registro de Usuario</h3>
 
@@ -17,59 +16,111 @@
             <div class="alert alert-danger text-center">@Mensaje</div>
         }
 
-        <EditForm EditContext="@editContext" OnValidSubmit="RegistrarUsuario" FormName="registerForm">
+        <EditForm EditContext="@editContext" OnValidSubmit="RegistrarUsuario">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            <!-- Campo de Nombre -->
+            <!-- Nombre -->
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
-                <InputText id="nombre" @bind-Value="nuevoUsuario.Nombre" class="form-control" />
-                <ValidationMessage For="@(() => nuevoUsuario.Nombre)" class="text-danger" />
+                <InputText id="nombre" class="form-control"
+                @bind-Value="nuevoUsuario.Nombre" />
+                <ValidationMessage For="@(() => nuevoUsuario.Nombre)"
+                class="text-danger" />
             </div>
 
-            <!-- Campo de Apellido -->
+            <!-- Apellidos -->
             <div class="mb-3">
                 <label for="apellido1" class="form-label">Primer apellido:</label>
-                <InputText id="apellido" @bind-Value="nuevoUsuario.Apellido1" class="form-control" />
-                <ValidationMessage For="@(() => nuevoUsuario.Apellido1)" class="text-danger" />
+                <InputText id="apellido1" class="form-control"
+                @bind-Value="nuevoUsuario.Apellido1" />
+                <ValidationMessage For="@(() => nuevoUsuario.Apellido1)"
+                class="text-danger" />
             </div>
 
             <div class="mb-3">
                 <label for="apellido2" class="form-label">Segundo apellido:</label>
-                <InputText id="apellido" @bind-Value="nuevoUsuario.Apellido2" class="form-control" />
-                <ValidationMessage For="@(() => nuevoUsuario.Apellido2)" class="text-danger" />
+                <InputText id="apellido2" class="form-control"
+                @bind-Value="nuevoUsuario.Apellido2" />
+                <ValidationMessage For="@(() => nuevoUsuario.Apellido2)"
+                class="text-danger" />
             </div>
 
-            <!-- Campo de Correo -->
+            <!-- Correo -->
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo:</label>
-                <InputText id="correo" @bind-Value="nuevoUsuario.Correo" class="form-control" />
-                <ValidationMessage For="@(() => nuevoUsuario.Correo)" class="text-danger" />
+                <InputText id="correo" class="form-control"
+                @bind-Value="nuevoUsuario.Correo" />
+                <ValidationMessage For="@(() => nuevoUsuario.Correo)"
+                class="text-danger" />
             </div>
 
-            <!-- Campo de Contraseña -->
+            <!-- Contraseña -->
             <div class="mb-3">
                 <label for="contraseña" class="form-label">Contraseña:</label>
                 <div class="input-group">
-                    <InputText id="contraseña" type="@contraseñaTipo" @bind-Value="nuevoUsuario.Contraseña" class="form-control" />
-                    <button type="button" class="btn btn-outline-secondary" @onclick="TogglePasswordVisibility">
+                    <InputText id="contraseña"
+                    type="@contraseñaTipo"
+                    class="form-control"
+                    @bind-Value="nuevoUsuario.Contraseña" />
+                    <button type="button"
+                    class="btn btn-outline-secondary"
+                    @onclick="TogglePasswordVisibility">
                         <i class="bi @iconoOjo"></i>
                     </button>
                 </div>
-                <ValidationMessage For="@(() => nuevoUsuario.Contraseña)" class="text-danger" />
+                <ValidationMessage For="@(() => nuevoUsuario.Contraseña)"
+                class="text-danger" />
             </div>
 
-            <!-- Botón de Registro -->
+            <!-- Combo Curso -->
+            <div class="mb-3">
+                <label for="curso" class="form-label">Curso:</label>
+                <InputSelect id="curso"
+                             class="form-select"
+                             @bind-Value="codigoCurso"
+                             @bind-Value:after="OnCursoChanged">
+                    <option value="">-- Seleccione un curso --</option>
+                    @foreach (var c in Cursos)
+                    {
+                        <option value="@c.CodigoCurso">@c.Descripcion</option>
+                    }
+                </InputSelect>
+
+                <ValidationMessage For="@(() => codigoCurso)"
+                class="text-danger" />
+            </div>
+
+            <!-- Combo Grupo -->
+            <div class="mb-3">
+                <label for="grupo" class="form-label">Grupo:</label>
+                <InputSelect id="grupo"
+                class="form-select"
+                @bind-Value="nuevoUsuario.Grupo"
+                disabled="@(Grupos == null || !Grupos.Any())">
+                    <option value="">-- Seleccione un grupo --</option>
+                    @foreach (var g in Grupos)
+                    {
+                        <option value="@g.Grupo">@g.Grupo</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => nuevoUsuario.Grupo)"
+                class="text-danger" />
+            </div>
+
+            <!-- Botón Registrar -->
             <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <button type="submit" class="btn btn-primary">
+                    Registrarse
+                </button>
             </div>
         </EditForm>
 
-        <!-- Iniciar sesión -->
         <div class="text-center mt-3">
             <span>¿Ya tienes una cuenta? </span>
-            <a href="" class="text-primary" style="cursor: pointer;">Inicia sesión aquí</a>
+            <a href="" class="text-primary" style="cursor: pointer;">
+                Inicia sesión aquí
+            </a>
         </div>
     </div>
 </div>
@@ -81,27 +132,32 @@
     private string contraseñaTipo = "password";
     private string iconoOjo = "bi-eye-slash";
 
-    protected override void OnInitialized()
+    private List<Curso> Cursos = new();
+    private List<Grupos> Grupos = new();
+
+    int codigoCurso;
+
+    protected override async Task OnInitializedAsync()
     {
         nuevoUsuario = new Usuario();
         editContext = new EditContext(nuevoUsuario);
+
+        // Cargo lista de cursos
+        Cursos = await CursoService.ObtenerCursos();
+        // Inicialmente no hay grupos hasta elegir curso
+        Grupos = new List<Grupos>();
     }
 
-    private async Task RegistrarUsuario()
+    private async Task OnCursoChanged()
     {
-        if (!editContext.Validate()) return;
-
-        bool registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
-        if (registrado)
-        {
-            Mensaje = "Usuario registrado exitosamente";
-            Navigation.NavigateTo("/");
-        }
+        if (codigoCurso > 0)
+            Grupos = await GrupoService.ObtenerGruposPorCurso(codigoCurso);
         else
-        {
-            Mensaje = "El correo ya está en uso";
-        }
+            Grupos = new List<Grupos>();
+
+        nuevoUsuario.Grupo = "0";
     }
+
 
     private void TogglePasswordVisibility()
     {
@@ -115,7 +171,22 @@
             contraseñaTipo = "password";
             iconoOjo = "bi-eye-slash";
         }
+    }
 
-        StateHasChanged();
+    private async Task RegistrarUsuario()
+    {
+        if (!editContext.Validate())
+            return;
+
+        var registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
+        if (registrado)
+        {
+            Mensaje = "Usuario registrado exitosamente";
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            Mensaje = "El correo ya está en uso";
+        }
     }
 }

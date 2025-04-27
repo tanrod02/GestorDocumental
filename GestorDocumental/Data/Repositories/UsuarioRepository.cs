@@ -22,7 +22,7 @@ namespace GestorDocumental.Data.Repositories
                 return false; // Ya existe un usuario con este correo
 
             //de base todos los que se registran son alumnos Rol = 3
-            usuario.CodigoRol = 2;
+            usuario.CodigoRol = 3;
 
             context.Usuarios.Add(usuario);
             context.SaveChanges();

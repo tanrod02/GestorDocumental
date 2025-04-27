@@ -12,6 +12,9 @@ namespace GestorDocumental.Data.Interfaces
 
         Task<string?> ObtenerCursoPorNombre(string descripcion);
 
+        Task<List<Curso>> ObtenerCursos();
+
+
 
     }
 }
