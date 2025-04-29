@@ -3,16 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\interfaces\\icursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\icursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\interfaces\\icursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\icursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\entities\\grupos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\grupos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\archivoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\archivoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\subirarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -25,26 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\layout\\navbusquedafiltros.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\layout\\navbusquedafiltros.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\cursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\interfaces\\icursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\interfaces\\icursorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\interfaces\\icursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\interfaces\\icursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\entities\\grupos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\grupos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\subircarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\subircarpeta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\agregargrupo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\gruposervice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -109,10 +121,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\archivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\wwwroot\\scripts\\verdocumento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -211,10 +219,6 @@
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:business\\services\\estadisticaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\entities\\archivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\mostrarestadisticasarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\mostrarestadisticasarchivo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -289,11 +293,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 34,
+          "SelectedChildIndex": 40,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "RetencionDocumentalService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\RetencionDocumentalService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\RetencionDocumentalService.cs",
@@ -306,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "NavBusquedaFiltros.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavBusquedaFiltros.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavBusquedaFiltros.razor",
@@ -319,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "SubirArchivo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirArchivo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\SubirArchivo.razor",
@@ -332,33 +336,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAMkCAAAAAAAAAAAtwDwDAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-24T20:08:29.704Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAJAAAAAAAAAAAAArwLoAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAkwLgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-25T18:55:09.102Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "SubirCarpeta.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\SubirCarpeta.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\SubirCarpeta.razor",
@@ -371,7 +377,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
+              "Title": "ICursoService.cs",
+              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\ICursoService.cs",
+              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
+              "RelativeToolTip": "Business\\Interfaces\\ICursoService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T11:21:21.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ArchivoService.cs",
+              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\ArchivoService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\ArchivoService.cs",
+              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\ArchivoService.cs",
+              "RelativeToolTip": "Business\\Services\\ArchivoService.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAvwEUAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:23:05.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "RenombrarArchivo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarArchivo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\RenombrarArchivo.razor",
@@ -383,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "app.css",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\app.css",
@@ -395,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "Grupos.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Grupos.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Grupos.cs",
@@ -403,23 +435,25 @@
               "RelativeToolTip": "Data\\Entities\\Grupos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T10:09:35.794Z"
+              "WhenOpened": "2025-04-13T10:09:35.794Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 4,
               "Title": "AgregarGrupo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\AgregarGrupo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\AgregarGrupo.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\AgregarGrupo.razor",
               "RelativeToolTip": "Components\\Pages\\AgregarGrupo.razor",
-              "ViewState": "AgIAACwAAAAAAAAAAAAlwDYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADwAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-13T14:40:46.363Z"
+              "WhenOpened": "2025-04-13T14:40:46.363Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "GrupoService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\GrupoService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\GrupoService.cs",
@@ -431,7 +465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "GrupoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\GrupoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\GrupoRepository.cs",
@@ -443,7 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "IGrupoService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IGrupoService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IGrupoService.cs",
@@ -455,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "ModificarEtiquetas.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarEtiquetas.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ModificarEtiquetas.razor",
@@ -467,7 +501,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "IGrupoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IGrupoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IGrupoRepository.cs",
@@ -479,7 +513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "AgregarGrupoConCurso.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\AgregarGrupoConCurso.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\AgregarGrupoConCurso.razor",
@@ -491,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "CrearCurso.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\CrearCurso.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\CrearCurso.razor",
@@ -503,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "drag\u0026drop.js",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\drag\u0026drop.js",
               "RelativeDocumentMoniker": "wwwroot\\scripts\\drag\u0026drop.js",
@@ -515,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "script.js",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\script.js",
               "RelativeDocumentMoniker": "wwwroot\\scripts\\script.js",
@@ -527,7 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\App.razor",
               "RelativeDocumentMoniker": "Components\\App.razor",
@@ -539,7 +573,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "Curso.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Curso.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Curso.cs",
@@ -551,19 +585,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 11,
               "Title": "ArchivoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\ArchivoRepository.cs",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\ArchivoRepository.cs",
               "RelativeToolTip": "Data\\Repositories\\ArchivoRepository.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAvwEYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAnwEYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T14:09:28.251Z"
+              "WhenOpened": "2025-04-02T14:09:28.251Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "verDocumento.js",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
               "RelativeDocumentMoniker": "wwwroot\\scripts\\verDocumento.js",
@@ -575,7 +610,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "IEtiquetasService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEtiquetasService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IEtiquetasService.cs",
@@ -587,7 +622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "EtiquetasService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\EtiquetasService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\EtiquetasService.cs",
@@ -599,7 +634,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "IEtiquetasRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEtiquetasRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IEtiquetasRepository.cs",
@@ -611,7 +646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "EtiquetasRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EtiquetasRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\EtiquetasRepository.cs",
@@ -623,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -635,7 +670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
@@ -647,7 +682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
@@ -659,7 +694,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -671,7 +706,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "CarpetaRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CarpetaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\CarpetaRepository.cs",
@@ -683,7 +718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\AuthService.cs",
@@ -695,7 +730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\UsuarioRepository.cs",
@@ -707,20 +742,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Register.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Register.razor",
               "RelativeToolTip": "Components\\Pages\\Register.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAIwLsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-03T18:05:40.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -732,7 +767,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -744,7 +779,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEmailService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IEmailService.cs",
@@ -756,31 +791,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "CursoService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\CursoService.cs",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\CursoService.cs",
               "RelativeToolTip": "Business\\Services\\CursoService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wCsAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwEEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T18:21:26.191Z"
+              "WhenOpened": "2025-04-14T18:21:26.191Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "ICursoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\ICursoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\ICursoRepository.cs",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\ICursoRepository.cs",
               "RelativeToolTip": "Data\\Interfaces\\ICursoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T18:24:34.653Z"
+              "WhenOpened": "2025-04-14T18:24:34.653Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "IUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IUsuarioRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IUsuarioRepository.cs",
@@ -792,7 +829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "IUsuarioService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IUsuarioService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IUsuarioService.cs",
@@ -804,7 +841,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "CarpetaService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\CarpetaService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\CarpetaService.cs",
@@ -816,7 +853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\EmailService.cs",
@@ -829,7 +866,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "MostrarEstadisticasArchivo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MostrarEstadisticasArchivo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\MostrarEstadisticasArchivo.razor",
@@ -841,7 +878,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "Etiqueta.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Etiqueta.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Etiqueta.cs",
@@ -853,7 +890,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "EstadisticaRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EstadisticaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\EstadisticaRepository.cs",
@@ -865,7 +902,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "EstadisticaService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Services\\EstadisticaService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\EstadisticaService.cs",
@@ -877,7 +914,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "GestorDocumentalDbContext.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\GestorDocumentalDbContext.cs",
               "RelativeDocumentMoniker": "Data\\GestorDocumentalDbContext.cs",
@@ -889,7 +926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "IEstadisticaRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IEstadisticaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IEstadisticaRepository.cs",
@@ -901,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "IArchivoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\IArchivoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\IArchivoRepository.cs",
@@ -913,7 +950,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "EstadisticasArchivo.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\EstadisticasArchivo.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\EstadisticasArchivo.cs",
@@ -925,7 +962,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "ResultadoBusqueda.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ResultadoBusqueda.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ResultadoBusqueda.razor",
@@ -937,19 +974,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "CursoRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\CursoRepository.cs",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\CursoRepository.cs",
               "RelativeToolTip": "Data\\Repositories\\CursoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAYwG4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:32:23.839Z"
+              "WhenOpened": "2025-03-30T11:32:23.839Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 10,
               "Title": "Archivo.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Archivo.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Archivo.cs",
@@ -957,11 +995,12 @@
               "RelativeToolTip": "Data\\Entities\\Archivo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T18:30:57.434Z"
+              "WhenOpened": "2025-04-06T18:30:57.434Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "IEstadisticaService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IEstadisticaService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IEstadisticaService.cs",
@@ -973,7 +1012,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "Carpeta.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Carpeta.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Carpeta.cs",
@@ -985,7 +1024,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "pdf.png",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\icons\\pdf.png",
               "RelativeDocumentMoniker": "wwwroot\\icons\\pdf.png",
@@ -996,7 +1035,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "ModificarFechaArchivo.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\ModificarFechaArchivo.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ModificarFechaArchivo.razor",
@@ -1008,7 +1047,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\Usuario.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Usuario.cs",
@@ -1020,7 +1059,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\tania\\AppData\\Local\\Temp\\9de9584c-7e54-4bb8-9ebb-7c800bbf2095_version anterior.zip.095\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\tania\\AppData\\Local\\Temp\\9de9584c-7e54-4bb8-9ebb-7c800bbf2095_version anterior.zip.095\\Components\\Pages\\Home.razor",
@@ -1032,7 +1071,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "IArchivoService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\IArchivoService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\IArchivoService.cs",
@@ -1044,7 +1083,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "MainLayout.razor.css",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Layout\\MainLayout.razor.css",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor.css",
@@ -1056,7 +1095,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "ICarpetaRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Interfaces\\ICarpetaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\ICarpetaRepository.cs",
@@ -1068,7 +1107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "RenombrarCarpeta.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\RenombrarCarpeta.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\RenombrarCarpeta.razor",
@@ -1080,7 +1119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "ICarpetaService.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICarpetaService.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\ICarpetaService.cs",
@@ -1092,7 +1131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "script.js",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\script.js",
               "RelativeDocumentMoniker": "wwwroot\\script.js",
@@ -1103,7 +1142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "MenuArchivos.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\MenuArchivos.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\MenuArchivos.razor",
@@ -1115,7 +1154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "ArchivoEtiqueta.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Entities\\ArchivoEtiqueta.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\ArchivoEtiqueta.cs",
@@ -1124,18 +1163,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T14:38:36.291Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ICursoService.cs",
-              "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\ICursoService.cs",
-              "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Business\\Interfaces\\ICursoService.cs",
-              "RelativeToolTip": "Business\\Interfaces\\ICursoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:21:21.338Z"
             }
           ]
         }

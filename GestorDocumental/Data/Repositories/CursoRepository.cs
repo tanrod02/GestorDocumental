@@ -64,6 +64,54 @@ namespace GestorDocumental.Data.Repositories
             return context.Cursos.ToList();
         }
 
+        public async Task<List<Curso>> ObtenerCursosPorGrupo(string grupo)
+        {
+
+            using var context = _contextFactory.CreateDbContext();
+
+            List<Curso> cursos = new List<Curso>();
+
+            var ultimoDeParametro = grupo.Substring(grupo.Length - 1, 1);
+
+            List<Grupos> grupos = context.Grupos
+                .Where(x =>
+                    x.Grupo != null
+                    && x.Grupo.Length > 0
+                    && x.Grupo.Substring(x.Grupo.Length - 1, 1) == ultimoDeParametro
+                )
+                .ToList();
+
+            foreach (Grupos group in grupos)
+            {
+                Curso curso = context.Cursos.FirstOrDefault( x => x.CodigoCurso == group.CodigoCurso);
+
+                if(!cursos.Any(x => x.CodigoCurso == curso.CodigoCurso))
+                {
+                    cursos.Add(curso);
+                }
+            }
+
+            return cursos;
+        }
+
+        public async Task<List<Usuario>> ObtenerUsuariosPorGrupo(string grupo)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            var ultimoDeParametro = grupo.Substring(grupo.Length - 1, 1);
+
+            List<Usuario> usuarios = context.Usuarios
+                .Where(x =>
+                    x.Grupo != null
+                    && x.Grupo.Length > 0
+                    && x.Grupo.Substring(x.Grupo.Length - 1, 1) == ultimoDeParametro
+                )
+                .ToList();
+
+            return usuarios;
+        }
+
+
 
     }
 }

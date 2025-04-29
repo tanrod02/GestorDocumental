@@ -14,6 +14,9 @@ namespace GestorDocumental.Data.Interfaces
 
         Task<List<Curso>> ObtenerCursos();
 
+        Task<List<Curso>> ObtenerCursosPorGrupo(string grupo);
+
+        Task<List<Usuario>> ObtenerUsuariosPorGrupo(string grupo);
 
 
     }

@@ -9,6 +9,8 @@
 @using System.IO
 @inject DialogService DialogService
 @inject IGrupoService GrupoService
+@inject ICursoService CursoService
+@inject AuthService AuthService
 @inject IJSRuntime JS
 @rendermode InteractiveServer
 
@@ -51,7 +53,12 @@
 
         try
         {
+            Usuario user = await AuthService.ObtenerUsuarioActualAsync();
+
+            Curso curso = await CursoService.ObtenerCursoPorCodigoAsync(CodigoCurso);
+            nuevoGrupoModel.Grupo = curso.Descripcion + " " + nuevoGrupoModel.Grupo;
             await GrupoService.AgregarGrupo(nuevoGrupoModel);
+            await CursoService.AgregarRelacionCursosUsuarioGrupo(nuevoGrupoModel.Grupo);
             DialogService.Close(true);
         }
         catch (Exception ex)

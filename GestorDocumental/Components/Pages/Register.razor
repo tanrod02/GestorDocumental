@@ -5,6 +5,7 @@
 @inject ICursoService CursoService
 @inject IGrupoService GrupoService
 @inject NavigationManager Navigation
+@inject AuthService AuthenticationService
 @rendermode InteractiveServer
 
 <div class="login-background">
@@ -77,9 +78,9 @@
             <div class="mb-3">
                 <label for="curso" class="form-label">Curso:</label>
                 <InputSelect id="curso"
-                             class="form-select"
-                             @bind-Value="codigoCurso"
-                             @bind-Value:after="OnCursoChanged">
+                class="form-select"
+                @bind-Value="codigoCurso"
+                @bind-Value:after="OnCursoChanged">
                     <option value="">-- Seleccione un curso --</option>
                     @foreach (var c in Cursos)
                     {
@@ -179,6 +180,9 @@
             return;
 
         var registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
+
+        await CursoService.AgregarRelacionCursosUsuario(codigoCurso, nuevoUsuario.CodigoUsuario, Convert.ToString(nuevoUsuario.Grupo));
+
         if (registrado)
         {
             Mensaje = "Usuario registrado exitosamente";

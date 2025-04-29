@@ -45,5 +45,26 @@ namespace GestorDocumental.Business.Services
         {
             return await _cursoRepository.ObtenerCursos();
         }
+
+        public async Task AgregarRelacionCursosUsuario(int CodigoCurso, int CodigoUsuario, string Grupo)
+        {
+            List<Curso> cursos = await _cursoRepository.ObtenerCursosPorGrupo(Grupo);
+
+            foreach (Curso curso in cursos)
+            {
+                await _cursoRepository.AgregarRelacionCursoUsuario(curso.CodigoCurso, CodigoUsuario);
+            }
+        }
+
+        public async Task AgregarRelacionCursosUsuarioGrupo(int codigoCurso, string grupo)
+        {
+            List<Usuario> users = await _cursoRepository.ObtenerUsuariosPorGrupo(grupo);
+
+            foreach(Usuario usuario in users)
+            {
+                await _cursoRepository.AgregarRelacionCursoUsuario(codigoCurso, usuario.CodigoUsuario);
+            }
+        }
+
     }
 }
