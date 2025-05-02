@@ -8,7 +8,6 @@ namespace GestorDocumental.Data.Interfaces
 
         Task AgregarCursoAsync(Curso curso);
         Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso);
-        Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario);
 
         Task<string?> ObtenerCursoPorNombre(string descripcion);
 
@@ -18,6 +17,7 @@ namespace GestorDocumental.Data.Interfaces
 
         Task<List<Usuario>> ObtenerUsuariosPorGrupo(string grupo);
 
+        Task AgregarRelacionUsuarioGrupo(int codigoCurso, int CodigoUsuario, string grupo);
 
     }
 }

@@ -34,18 +34,6 @@ namespace GestorDocumental.Data.Repositories
             return await context.Cursos.FirstOrDefaultAsync(c => c.CodigoCurso == codigoCurso);
         }
 
-        public async Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario)
-        {
-            using var context = _contextFactory.CreateDbContext();
-            CursosUsuario cursoUsuario = new CursosUsuario
-            {
-                CodigoCurso = CodigoCurso,
-                CodigoUsuario = CodigoUsuario
-            };
-            await context.CursosUsuario.AddAsync(cursoUsuario);
-            await context.SaveChangesAsync();
-        }
-
         public async Task<string?> ObtenerCursoPorNombre(string descripcion)
         {
             using var context = _contextFactory.CreateDbContext();
@@ -71,13 +59,9 @@ namespace GestorDocumental.Data.Repositories
 
             List<Curso> cursos = new List<Curso>();
 
-            var ultimoDeParametro = grupo.Substring(grupo.Length - 1, 1);
-
             List<Grupos> grupos = context.Grupos
                 .Where(x =>
-                    x.Grupo != null
-                    && x.Grupo.Length > 0
-                    && x.Grupo.Substring(x.Grupo.Length - 1, 1) == ultimoDeParametro
+                    x.Grupo == grupo
                 )
                 .ToList();
 
@@ -98,18 +82,30 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
 
-            var ultimoDeParametro = grupo.Substring(grupo.Length - 1, 1);
-
             List<Usuario> usuarios = context.Usuarios
                 .Where(x =>
-                    x.Grupo != null
-                    && x.Grupo.Length > 0
-                    && x.Grupo.Substring(x.Grupo.Length - 1, 1) == ultimoDeParametro
+                    x.Grupo == grupo
                 )
                 .ToList();
 
             return usuarios;
         }
+
+        public async Task AgregarRelacionUsuarioGrupo(int codigoCurso, int CodigoUsuario, string grupo)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            CursosUsuario curs = new();
+
+            curs.CodigoCurso = codigoCurso;
+            curs.CodigoUsuario = CodigoUsuario;
+            curs.grupo = grupo;
+
+            context.CursosUsuario.Add(curs);
+
+            context.SaveChanges();
+        }
+
 
 
 

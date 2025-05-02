@@ -24,5 +24,10 @@ namespace GestorDocumental.Business.Services
             return await _grupoRepository.ObtenerGruposPorCurso(codigoCurso);
         }
 
+        public async Task<List<string>> ObtenerGrupos()
+        {
+            return await _grupoRepository.ObtenerGrupos();
+        }
+
     }
 }

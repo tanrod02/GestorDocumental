@@ -8,7 +8,7 @@ namespace GestorDocumental.Business.Interfaces
 
         Task AgregarCursoAsync(Curso curso);
         Task<Curso> ObtenerCursoPorCodigoAsync(int codigoCurso);
-        Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario);
+        Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario, string grupo);
 
         Task AgregarRelacionCursosUsuario(int CodigoCurso, int CodigoUsuario, string Grupo);
 
@@ -17,6 +17,8 @@ namespace GestorDocumental.Business.Interfaces
         Task<string?> ObtenerCursoPorNombre(string descripcion);
 
         Task<List<Curso>> ObtenerCursos();
+
+        Task AgregarRelacionUsuarioGrupo(int CodigoUsuario, string grupo);
 
     }
 }

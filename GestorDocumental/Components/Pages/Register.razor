@@ -74,24 +74,6 @@
                 class="text-danger" />
             </div>
 
-            <!-- Combo Curso -->
-            <div class="mb-3">
-                <label for="curso" class="form-label">Curso:</label>
-                <InputSelect id="curso"
-                class="form-select"
-                @bind-Value="codigoCurso"
-                @bind-Value:after="OnCursoChanged">
-                    <option value="">-- Seleccione un curso --</option>
-                    @foreach (var c in Cursos)
-                    {
-                        <option value="@c.CodigoCurso">@c.Descripcion</option>
-                    }
-                </InputSelect>
-
-                <ValidationMessage For="@(() => codigoCurso)"
-                class="text-danger" />
-            </div>
-
             <!-- Combo Grupo -->
             <div class="mb-3">
                 <label for="grupo" class="form-label">Grupo:</label>
@@ -102,7 +84,7 @@
                     <option value="">-- Seleccione un grupo --</option>
                     @foreach (var g in Grupos)
                     {
-                        <option value="@g.Grupo">@g.Grupo</option>
+                        <option value="@g">@g</option>
                     }
                 </InputSelect>
                 <ValidationMessage For="@(() => nuevoUsuario.Grupo)"
@@ -134,7 +116,7 @@
     private string iconoOjo = "bi-eye-slash";
 
     private List<Curso> Cursos = new();
-    private List<Grupos> Grupos = new();
+    private List<string> Grupos = new();
 
     int codigoCurso;
 
@@ -143,22 +125,9 @@
         nuevoUsuario = new Usuario();
         editContext = new EditContext(nuevoUsuario);
 
-        // Cargo lista de cursos
-        Cursos = await CursoService.ObtenerCursos();
-        // Inicialmente no hay grupos hasta elegir curso
-        Grupos = new List<Grupos>();
+        Grupos = await GrupoService.ObtenerGrupos();
+
     }
-
-    private async Task OnCursoChanged()
-    {
-        if (codigoCurso > 0)
-            Grupos = await GrupoService.ObtenerGruposPorCurso(codigoCurso);
-        else
-            Grupos = new List<Grupos>();
-
-        nuevoUsuario.Grupo = "0";
-    }
-
 
     private void TogglePasswordVisibility()
     {
@@ -181,7 +150,7 @@
 
         var registrado = await UsuarioService.RegistrarUsuarioAsync(nuevoUsuario);
 
-        await CursoService.AgregarRelacionCursosUsuario(codigoCurso, nuevoUsuario.CodigoUsuario, Convert.ToString(nuevoUsuario.Grupo));
+        await CursoService.AgregarRelacionUsuarioGrupo(nuevoUsuario.CodigoUsuario, Convert.ToString(nuevoUsuario.Grupo));
 
         if (registrado)
         {

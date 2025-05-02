@@ -7,5 +7,7 @@ namespace GestorDocumental.Business.Interfaces
         Task AgregarGrupo(Grupos grupo);
 
         Task<List<Grupos>> ObtenerGruposPorCurso(int codigoCurso);
+
+        Task<List<string>> ObtenerGrupos();
     }
 }

@@ -31,9 +31,9 @@ namespace GestorDocumental.Business.Services
             return await _cursoRepository.ObtenerCursoPorCodigoAsync(codigoCurso);
         }
 
-        public async Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario)
+        public async Task AgregarRelacionCursoUsuario(int CodigoCurso, int CodigoUsuario, string grupo)
         {
-            await _cursoRepository.AgregarRelacionCursoUsuario(CodigoCurso, CodigoUsuario);
+            await _cursoRepository.AgregarRelacionUsuarioGrupo(CodigoCurso, CodigoUsuario,grupo);
         }
 
         public async Task<string?> ObtenerCursoPorNombre(string descripcion)
@@ -52,7 +52,7 @@ namespace GestorDocumental.Business.Services
 
             foreach (Curso curso in cursos)
             {
-                await _cursoRepository.AgregarRelacionCursoUsuario(curso.CodigoCurso, CodigoUsuario);
+                await _cursoRepository.AgregarRelacionUsuarioGrupo(curso.CodigoCurso, CodigoUsuario, Grupo);
             }
         }
 
@@ -62,7 +62,17 @@ namespace GestorDocumental.Business.Services
 
             foreach(Usuario usuario in users)
             {
-                await _cursoRepository.AgregarRelacionCursoUsuario(codigoCurso, usuario.CodigoUsuario);
+                await _cursoRepository.AgregarRelacionUsuarioGrupo(codigoCurso, usuario.CodigoUsuario, grupo);
+            }
+        }
+
+        public async Task AgregarRelacionUsuarioGrupo(int CodigoUsuario, string grupo)
+        {
+            List<Curso> cursos = await _cursoRepository.ObtenerCursosPorGrupo(grupo);
+
+            foreach (Curso curso in cursos)
+            {
+                await _cursoRepository.AgregarRelacionUsuarioGrupo(curso.CodigoCurso, CodigoUsuario, grupo);
             }
         }
 

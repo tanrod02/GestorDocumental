@@ -40,7 +40,9 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
 
-                List<Grupos> grupos = await context.Grupos.Where(x => x.CodigoCurso == codigoCurso).ToListAsync();
+                List<Grupos> grupos = context.Grupos.Where(x => x.CodigoCurso == codigoCurso).ToList();
+
+                grupos = grupos.DistinctBy(x => x.Grupo).ToList();
                 return grupos;
 
             }
@@ -51,13 +53,15 @@ namespace GestorDocumental.Data.Repositories
             }
         }
 
-        public async Task<List<Grupos>> ObtenerGrupos()
+        public async Task<List<string>> ObtenerGrupos()
         {
             try
             {
                 using var context = _contextFactory.CreateDbContext();
 
-               return await context.Grupos.ToListAsync();
+                var grupos =  context.Grupos.Select(cu => cu.Grupo).Distinct().ToList();
+
+                return grupos;
 
             }
             catch (Exception ex)

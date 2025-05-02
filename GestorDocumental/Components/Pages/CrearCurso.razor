@@ -64,7 +64,7 @@
         if (confirmacion == true)
         {
             await CursoService.AgregarCursoAsync(nuevoCurso);
-            await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario);
+
 
             Grupos grupos = new Grupos
                 {
@@ -73,6 +73,9 @@
                 };
 
             await GrupoService.AgregarGrupo(grupos);
+
+            await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario, grupos.Grupo);
+
         }
 
         DialogService.Close(true);

@@ -56,9 +56,8 @@
             Usuario user = await AuthService.ObtenerUsuarioActualAsync();
 
             Curso curso = await CursoService.ObtenerCursoPorCodigoAsync(CodigoCurso);
-            nuevoGrupoModel.Grupo = curso.Descripcion + " " + nuevoGrupoModel.Grupo;
             await GrupoService.AgregarGrupo(nuevoGrupoModel);
-            await CursoService.AgregarRelacionCursosUsuarioGrupo(nuevoGrupoModel.Grupo);
+            await CursoService.AgregarRelacionCursosUsuarioGrupo(curso.CodigoCurso,nuevoGrupoModel.Grupo);
             DialogService.Close(true);
         }
         catch (Exception ex)

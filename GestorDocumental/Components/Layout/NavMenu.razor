@@ -57,9 +57,7 @@
                             {
                                 <div class="nav-item px-4">
                                     <NavLink class="nav-link" href="@($"/home/{curso.CodigoCurso}?grupo={grupo.Grupo}")">
-                                        👥 @(!string.IsNullOrEmpty(grupo.Grupo)
-                                         ? grupo.Grupo.Substring(grupo.Grupo.Length - 1)
-                                         : string.Empty)
+                                        👥 @(grupo.Grupo)
                                     </NavLink>
                                 </div>
 
@@ -160,15 +158,9 @@
 
         if(usuarioActual.CodigoRol == rolUser){
 
-            var ultimoUsuario = usuarioActual.Grupo.Length >= 1
-                ? usuarioActual.Grupo.Substring(usuarioActual.Grupo.Length - 1)
-                : usuarioActual.Grupo;
-
             grupos = grupos
                 .Where(x =>
-                    !string.IsNullOrEmpty(x.Grupo)
-                    && x.Grupo.Length >= 1
-                    && x.Grupo.Substring(x.Grupo.Length - 1) == ultimoUsuario
+                    x.Grupo == usuarioActual.Grupo
                 )
                 .ToList();
 
