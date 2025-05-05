@@ -36,7 +36,6 @@ public class AuthService
                 await _sessionStorage.SetAsync("usuario", usuario);
                 return true;
             }
-            Console.WriteLine("Credenciales incorrectas en AuthService.");
             return false;
         }
         catch (Exception ex)

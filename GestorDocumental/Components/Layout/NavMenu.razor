@@ -201,7 +201,8 @@
     {
         var parameters = new Dictionary<string, object>
         {
-            { "CodigoCurso", codigoCurso }
+            { "CodigoCurso", codigoCurso },
+            {"CodigoUsuario", usuarioActual.CodigoUsuario}
         };
 
         var resultado = await DialogService.OpenAsync<AgregarGrupo>(

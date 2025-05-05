@@ -19,7 +19,6 @@
 @inject Radzen.DialogService DialogService
 @inject IEstadisticaService EstadisticaService
 @inject ICarpetaService CarpetaService
-@inject IEstadisticaService EstadisticasService
 @inject IEtiquetasService EtiquetasService
 
 <RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
@@ -464,6 +463,12 @@
                     carpetas = carpetasData;
                     archivos = archivosData;
                 }
+                else if (usuarioActual.CodigoRol == rolUser)
+                {
+                    var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoYGrupoAsync(CodigoCurso, usuarioActual.Grupo);
+                    carpetas = carpetasData;
+                    archivos = archivosData;
+                }
                 else
                 {
                     var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
@@ -472,6 +477,8 @@
                 }
                 elementos.AddRange(carpetas.ToList());
                 elementos.AddRange(archivos.ToList());
+
+                CargarEtiquetas(archivos.ToList());
             }
             else
             {
@@ -493,7 +500,7 @@
     {
         try
         {
-            estadisticas = await EstadisticasService.ObtenerEstadisticas(archivos);
+            estadisticas = await EstadisticaService.ObtenerEstadisticas(archivos);
         }
         catch (Exception e)
         {
@@ -505,7 +512,8 @@
     {
         try
         {
-            etiquetasArchivos = await EtiquetasService.ObtenerRelacionesEtiquetasArchivos(archivos);
+            if(archivos.Any())
+                etiquetasArchivos = await EtiquetasService.ObtenerRelacionesEtiquetasArchivos(archivos);
             TodasEtiquetas = await EtiquetasService.ObtenerEtiquetas();
         }
         catch (Exception e)
@@ -534,6 +542,8 @@
             var base64 = Convert.ToBase64String(archivo.Contenido);
             var tipoLower = archivo.Tipo?.ToLower() ?? string.Empty;
 
+            await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
+
             if (tipoLower.Contains("pdf"))
             {
                 await JSRuntime.InvokeVoidAsync("abrirPdf", base64);
@@ -555,9 +565,11 @@
             {
                 await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
             }
-            await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
+           
         }
     }
+
+
 
     private void MostrarArchivosDeCarpeta(Carpeta carpeta)
     {
@@ -584,41 +596,37 @@
 
     async Task AbrirModalSubidaCarpeta(int opcion)
     {
-        bool resultado = false;
+        if (modalAbiertoCarpetaNueva) return;
+
+        modalAbiertoCarpetaNueva = true;
+        object resultado = null;
+
+        var parameters = new Dictionary<string, object>()
+        {
+        { "CodigoCurso", CodigoCurso },
+        { "CodigoUsuario", usuarioActual.CodigoUsuario },
+        { "CodigoOpcion", opcion },
+        { "DescripcionCurso", cursoActual.Descripcion },
+        { "Grupo", GrupoFiltro}
+        };
+
         if (opcion == 1)
         {
-            if (modalAbiertoCarpetaNueva) return;
-            modalAbiertoCarpetaNueva = true;
-            var parameters = new Dictionary<string, object>()
-            {
-                { "CodigoCurso", CodigoCurso },
-                { "CodigoUsuario", usuarioActual.CodigoUsuario },
-                { "CodigoOpcion", opcion },
-                { "DescripcionCurso", cursoActual.Descripcion }, 
-                { "Grupo", GrupoFiltro}
-            };
-
-            resultado = await DialogService.OpenAsync<SubirCarpeta>("Crear Carpeta", parameters, new DialogOptions { Width = "600px", Height = "auto" });
-            modalAbiertoCarpetaNueva = false;
+             resultado = await DialogService.OpenAsync<SubirCarpeta>("Crear Carpeta", parameters, new DialogOptions { Width = "600px", Height = "auto" });
         }
         else
         {
-            if (modalAbiertoCarpetaNueva) return;
-            modalAbiertoCarpetaNueva = true;
-            resultado = await DialogService.OpenAsync<SubirCarpeta>("Subir Carpeta", new Dictionary<string, object>
-            {
-                { "CodigoCurso", CodigoCurso },
-                { "CodigoUsuario", usuarioActual.CodigoUsuario },
-                { "CodigoOpcion", opcion },
-                { "DescripcionCurso", cursoActual.Descripcion }, 
-                { "Grupo", GrupoFiltro}
-            }, new DialogOptions { Width = "600px", Height = "auto" });
-            modalAbiertoCarpetaNueva = false;
+             resultado = await DialogService.OpenAsync<SubirCarpeta>("Subir Carpeta", parameters, new DialogOptions { Width = "600px", Height = "auto" });
         }
-        if (resultado is bool archivoSubido && archivoSubido)
+
+        modalAbiertoCarpetaNueva = false;
+
+        if(resultado is true)
             await CargarArchivos();
+
         StateHasChanged();
     }
+
 
 
     private async Task CerrarSesion()

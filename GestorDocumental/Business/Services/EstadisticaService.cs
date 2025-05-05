@@ -37,5 +37,13 @@ namespace GestorDocumental.Business.Services
 
             return estadisticas;
         }
+
+        public async Task ActualizarTiempoEnDoc(int archivo, int segundos)
+        {
+            EstadisticasArchivo est = _estadisticaRepository.ObtenerEstadisticasArchivo(archivo).Result;
+            est.TiempoEnDocumento += segundos;
+
+            _estadisticaRepository.ActualizarEstadisticasArchivo(est).Wait();
+        }
     }
 }

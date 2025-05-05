@@ -31,20 +31,23 @@
     <hr style="margin: 1.5rem 0;" />
 
     <h5 class="filter-subtitle" style="margin:0; font-size:0.9rem;">Etiquetas</h5>
-    <RadzenDropDown @bind-Value="selectedTags"
-                    Data="etiquetas"
-                    TextProperty="DescripcionEtiqueta"
-                    ValueProperty="CodigoEtiqueta"
-                    Multiple="true"
-                    AllowClear="true"
-                    AllowFiltering="true"
-                    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                    Chips="true"
-                    Placeholder="Selecciona etiquetas..."
-                    Style="width: 100%; font-size:0.9rem;" />
+    <div style="flex: 1; min-height: 0; display: flex; flex-direction: column;">
+        <RadzenDropDown @bind-Value="selectedTags"
+                        Data="etiquetas"
+                        TextProperty="DescripcionEtiqueta"
+                        ValueProperty="CodigoEtiqueta"
+                        Multiple="true"
+                        AllowClear="true"
+                        AllowFiltering="true"
+                        FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                        Chips="true"
+                        Placeholder="Selecciona etiquetas..."
+                        Style="width: 100%; font-size:0.9rem;" />
+    </div>
 
     <!-- Contenedor de botones al final -->
-    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem;">
+    <div style="margin-top: auto; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+
         <RadzenButton Icon="filter_list" Text="Filtrar" Click="Filtrar" style="font-size:0.9rem; padding: 0.25rem 0.5rem;" />
         <button class="btn btn-outline-danger w-100" @onclick="LimpiarFiltros">
             Limpiar filtros

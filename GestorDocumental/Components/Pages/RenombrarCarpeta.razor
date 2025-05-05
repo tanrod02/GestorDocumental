@@ -22,6 +22,11 @@
             <RadzenTextBox @bind-Value="nuevoNombre" Style="width: 100%;" />
         </div>
 
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div style="color: red;">@errorMessage</div>
+        }
+
         <!-- Botones de acción -->
         <div class="botones" style="display: flex; justify-content: space-between;">
             <RadzenButton Text="Modificar"
@@ -42,6 +47,8 @@
 
     private string nuevoNombre;
     private Carpeta carpetaActual = new Carpeta();
+
+    private string errorMessage = "";
 
     protected override async Task OnParametersSetAsync()
     {
@@ -67,16 +74,24 @@
     private async void ModificarNombreCarpeta()
     {
 
-        carpetaActual.Descripcion = nuevoNombre;
-        var confirmacion = await DialogService.Confirm("¿Quiere renombrar la carpeta?", "Confirmar renombrar carpeta",
-         new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        if (confirmacion == true)
+        if (nuevoNombre.Equals(carpetaActual.Descripcion))
         {
-            await CarpetaService.ModificarCarpeta(carpetaActual);
+            errorMessage = "El nuevo nombre debe ser diferente al anterior.";
         }
+        else
+        {
+            carpetaActual.Descripcion = nuevoNombre;
+            var confirmacion = await DialogService.Confirm("¿Quiere renombrar la carpeta?", "Confirmar renombrar carpeta",
+             new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        DialogService.Close(true);
+            if (confirmacion == true)
+            {
+                await CarpetaService.ModificarCarpeta(carpetaActual);
+            }
+
+            DialogService.Close(true);
+        }
     }
 
     private void Cancelar()
