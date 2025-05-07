@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iMOHK4qzhTGAqnoNAQieGqHSHpnmwFpuihUWdbB1ol0=",
+  "Hash": "kQ2PKq+1fBkZLJaZJtuJ6JALENRxk1AbJhQEmJLiUZ0=",
   "Source": "GestorDocumental",
   "BasePath": "_content/GestorDocumental",
   "Mode": "Default",
@@ -3412,8 +3412,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "j60gmocsiy",
-      "Integrity": "FaVjKJ+1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8=",
+      "Fingerprint": "pqk6ptka3h",
+      "Integrity": "gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\scripts\\verDocumento.js"
@@ -13876,51 +13876,6 @@
       ]
     },
     {
-      "Route": "scripts/verDocumento.j60gmocsiy.js",
-      "AssetFile": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1603"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"FaVjKJ+1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 16:56:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "j60gmocsiy"
-        },
-        {
-          "Name": "label",
-          "Value": "scripts/verDocumento.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-FaVjKJ+1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8="
-        }
-      ]
-    },
-    {
       "Route": "scripts/verDocumento.js",
       "AssetFile": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
       "Selectors": [],
@@ -13931,7 +13886,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1603"
+          "Value": "2280"
         },
         {
           "Name": "Content-Type",
@@ -13939,11 +13894,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FaVjKJ+1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8=\""
+          "Value": "\"gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 16:56:13 GMT"
+          "Value": "Wed, 07 May 2025 18:40:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13953,7 +13908,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-FaVjKJ+1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8="
+          "Value": "sha256-gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A="
+        }
+      ]
+    },
+    {
+      "Route": "scripts/verDocumento.pqk6ptka3h.js",
+      "AssetFile": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2280"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 07 May 2025 18:40:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pqk6ptka3h"
+        },
+        {
+          "Name": "label",
+          "Value": "scripts/verDocumento.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A="
         }
       ]
     }

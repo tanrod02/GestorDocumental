@@ -180,17 +180,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"972"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022tpDz2ptGihmVy93j4GSmUc8dnlpMW3r2vPxjMvuBZH0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 16:25:32 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/GestorDocumental/scripts/verDocumento.j60gmocsiy.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts\verDocumento.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"j60gmocsiy"},{"Name":"integrity","Value":"sha256-FaVjKJ\u002B1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8="},{"Name":"label","Value":"_content/GestorDocumental/scripts/verDocumento.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1603"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022FaVjKJ\u002B1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Apr 2025 16:56:13 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestorDocumental/scripts/verDocumento.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts\verDocumento.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FaVjKJ\u002B1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1603"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022FaVjKJ\u002B1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Apr 2025 16:56:13 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2280"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 18:40:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/GestorDocumental/scripts/verDocumento.pqk6ptka3h.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts\verDocumento.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pqk6ptka3h"},{"Name":"integrity","Value":"sha256-gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A="},{"Name":"label","Value":"_content/GestorDocumental/scripts/verDocumento.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2280"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 18:40:15 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

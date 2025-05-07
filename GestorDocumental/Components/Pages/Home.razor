@@ -325,6 +325,9 @@
 
     private DotNetObjectReference<Home>? dotNetRef;
 
+    private System.Diagnostics.Stopwatch _stopwatch = new System.Diagnostics.Stopwatch();
+    private int? codArchivoActual;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -534,30 +537,50 @@
             var base64 = Convert.ToBase64String(archivo.Contenido);
             var tipoLower = archivo.Tipo?.ToLower() ?? string.Empty;
 
+            await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
+
+            codArchivoActual = archivo.CodigoArchivo;
+            _stopwatch.Restart();
+
+            var dotNetRef = DotNetObjectReference.Create(this);
+
             if (tipoLower.Contains("pdf"))
             {
-                await JSRuntime.InvokeVoidAsync("abrirPdf", base64);
+                await JSRuntime.InvokeVoidAsync("abrirPdf", base64, dotNetRef);
             }
             else if (tipoLower.Contains("plain"))
             {
                 var texto = System.Text.Encoding.UTF8.GetString(archivo.Contenido);
-                await JSRuntime.InvokeVoidAsync("mostrarTexto", texto);
+                await JSRuntime.InvokeVoidAsync("mostrarTesto", texto, dotNetRef);
             }
             else if (tipoLower.StartsWith("image/"))
             {
-                await JSRuntime.InvokeVoidAsync("mostrarImagen", base64);
-            }
-            else if (tipoLower.Contains("word"))
-            {
-                await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
+                await JSRuntime.InvokeVoidAsync("mostrarImagen", base64, dotNetRef);
             }
             else
             {
+                // No hay visor, se descarga directamente
+                _stopwatch.Stop();
                 await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
+                await EstadisticaService.GuardarTiempoVisualizacion(archivo.CodigoArchivo, _stopwatch.Elapsed);
             }
-            await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
         }
     }
+
+    [JSInvokable]
+    public async Task OnVisorCerrado()
+    {
+        _stopwatch.Stop();
+
+        if (codArchivoActual.HasValue)
+        {
+            await EstadisticaService.GuardarTiempoVisualizacion((int)codArchivoActual, _stopwatch.Elapsed);
+            codArchivoActual = null;
+        }
+
+        StateHasChanged();
+    }
+
 
     private void MostrarArchivosDeCarpeta(Carpeta carpeta)
     {

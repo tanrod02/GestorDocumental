@@ -282,8 +282,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>j60gmocsiy</Fingerprint>
-      <Integrity>FaVjKJ+1g7GqHjh8kMlpqnytzLREdOdlP199vs9bug8=</Integrity>
+      <Fingerprint>pqk6ptka3h</Fingerprint>
+      <Integrity>gbucF6jNbVZsIecy41x88wWTGlyIYvPLbn5cmIrzH9A=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts\verDocumento.js'))</OriginalItemSpec>

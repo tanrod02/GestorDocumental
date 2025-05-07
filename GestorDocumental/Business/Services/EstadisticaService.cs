@@ -37,5 +37,10 @@ namespace GestorDocumental.Business.Services
 
             return estadisticas;
         }
+
+        public async Task GuardarTiempoVisualizacion(int codigoArchivo, TimeSpan tiempo)
+        {
+            _estadisticaRepository.GuardarTiempoVisualizacion(codigoArchivo,tiempo).Wait();
+        }
     }
 }

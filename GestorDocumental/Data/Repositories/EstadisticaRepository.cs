@@ -49,6 +49,20 @@ namespace GestorDocumental.Data.Repositories
         }
 
 
+        public async Task GuardarTiempoVisualizacion(int codigoArchivo, TimeSpan tiempo)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            EstadisticasArchivo estadistica = context.Estadistica.FirstOrDefault(x => x.CodigoArchivo == codigoArchivo);
+
+            estadistica.TiempoEnDocumento = tiempo.Seconds;
+
+            context.Update(estadistica);
+
+            context.SaveChangesAsync();
+        
+        }
+
 
     }
 }

@@ -8,5 +8,7 @@ namespace GestorDocumental.Data.Interfaces
 
         Task<EstadisticasArchivo> ObtenerEstadisticasArchivo(int CodigoArchivo);
         Task EliminarEstadisticasArchivo(EstadisticasArchivo Estadisticas);
+
+        Task GuardarTiempoVisualizacion(int codigoArchivo, TimeSpan tiempo);
     }
 }

@@ -1,4 +1,4 @@
-﻿function abrirPdf(base64Data) {
+﻿function abrirPdf(base64Data, dotNetHelper = null) {
     const byteCharacters = atob(base64Data);
     const byteNumbers = new Array(byteCharacters.length);
     for (let i = 0; i < byteCharacters.length; i++) {
@@ -7,7 +7,11 @@
     const byteArray = new Uint8Array(byteNumbers);
     const file = new Blob([byteArray], { type: 'application/pdf' });
     const fileURL = URL.createObjectURL(file);
-    window.open(fileURL, '_blank');
+    const win = window.open(fileURL, '_blank');
+
+    if (dotNetHelper) {
+        monitorCierreVentana(win, dotNetHelper);
+    }
 }
 
 function base64ToBlob(base64, mime) {
@@ -20,15 +24,23 @@ function base64ToBlob(base64, mime) {
     return new Blob([byteArray], { type: mime });
 }
 
-window.mostrarTexto = function (texto) {
+window.mostrarTexto = function (texto, dotNetHelper = null) {
     var newWindow = window.open('', '_blank');
     newWindow.document.write('<pre>' + texto + '</pre>');
+
+    if (dotNetHelper) {
+        monitorCierreVentana(newWindow, dotNetHelper);
+    }
 };
 
-window.mostrarImagen = function (base64Data) {
+window.mostrarImagen = function (base64Data, dotNetHelper = null) {
     var fileURL = "data:image/png;base64," + base64Data;
     var newWindow = window.open('', '_blank');
     newWindow.document.write('<img src="' + fileURL + '" alt="Imagen" />');
+
+    if (dotNetHelper) {
+        monitorCierreVentana(newWindow, dotNetHelper);
+    }
 };
 
 // Descarga de archivo
@@ -43,5 +55,14 @@ window.descargarArchivo = function (base64Data, mime, fileName) {
     document.body.removeChild(a);
 };
 
+function monitorCierreVentana(win, dotNetHelper) {
+    const interval = setInterval(() => {
+        if (win.closed) {
+            clearInterval(interval);
+            dotNetHelper.invokeMethodAsync("OnVisorCerrado")
+                .catch(err => console.error("Error llamando a OnVisorCerrado:", err));
+        }
+    }, 1000);
+}
 
 
