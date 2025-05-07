@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Pipelines;
 using System.Threading.Tasks;
 using GestorDocumental.Business.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -31,11 +32,21 @@ public class EmailService : IEmailService
         };
 
         // Envia el mensaje de forma asíncrona
-        var sendResult = await client.SendMessageAsync(message);
-
-        if (sendResult.Status != PostmarkStatus.Success)
+        try
         {
-            throw new Exception($"Error al enviar correo: {sendResult.Message}. Código de estado: {sendResult.Status}");
+
+            var sendResult = await client.SendMessageAsync(message);
+            if (sendResult.Status != PostmarkStatus.Success)
+            {
+                //throw new Exception($"Error al enviar correo: {sendResult.Message}. Código de estado: {sendResult.Status}");
+                Console.WriteLine($"Error al enviar correo: {sendResult.Message}. Código de estado: {sendResult.Status}");
+            }
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al enviar correo:usuario invalido");
+        }
+
+        
     }
 }

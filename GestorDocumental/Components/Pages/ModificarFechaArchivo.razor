@@ -13,7 +13,7 @@
     <div style="display: flex; flex-direction: column; gap: 15px;">
 
         <div>
-            <label><b>Nombre del archivo:</b></label>
+            <label><b>Nombre del documento:</b></label>
             <p>@archivoActual.NombreArchivo</p>
         </div>
 
@@ -24,7 +24,7 @@
             }else  {
                 <p>No tiene fecha baja</p>
             }
-           
+
         </div>
 
         <div>
@@ -33,6 +33,11 @@
             ValueChanged="@((DateTime? value) => nuevaFechaBaja = value)"
             Style="width: 100%;" />
         </div>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div style="color: red;">@errorMessage</div>
+        }
 
         <div class="botones" style="display: flex; justify-content: space-between;">
             <RadzenButton Text="Modificar"
@@ -56,6 +61,8 @@
 
     private Archivo archivoActual = new() { };
     private DateTime? nuevaFechaBaja = null;
+
+    private string errorMessage = "";
 
 
     protected override async Task OnParametersSetAsync()
@@ -86,18 +93,24 @@
 
     private async Task ModificarFechaBaja()
     {
-        archivoActual.FechaBaja = nuevaFechaBaja;
-        
-        var confirmacion = await DialogService.Confirm("¿Quiere modificar la fecha baja del documento?", "Confirmar modificar fecha documento",
-          new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
-
-        if(confirmacion == true){
-            await ArchivoService.ModificarArchivo(archivoActual);
+        if(nuevaFechaBaja <= DateTime.Now){
+            errorMessage = "La fecha baja debe ser posterior a la fecha de hoy.";
         }
-       
+        else{
+            archivoActual.FechaBaja = nuevaFechaBaja;
 
+            var confirmacion = await DialogService.Confirm("¿Quiere modificar la fecha baja del documento?", "Confirmar modificar fecha documento",
+              new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
-        DialogService.Close(true);
+            if (confirmacion == true)
+            {
+                await ArchivoService.ModificarArchivo(archivoActual);
+            }
+
+            DialogService.Close(true);
+        }
+
+        
     }
 
     private void Cancelar()

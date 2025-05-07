@@ -12,7 +12,7 @@
     <div style="display: flex; flex-direction: column; gap: 15px;">
         <!-- Mostrar el nombre del archivo actual -->
         <div>
-            <label><b>Nombre del archivo:</b></label>
+            <label><b>Nombre del documento:</b></label>
             <p>@archivoActual.NombreArchivo</p>
         </div>
 
@@ -21,6 +21,11 @@
             <label><b>Nuevo nombre de archivo:</b></label>
             <RadzenTextBox @bind-Value="archivoActual.NombreArchivo" Style="width: 100%;" />
         </div>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div style="color: red;">@errorMessage</div>
+        }
 
         <!-- Botones de acción -->
         <div class="botones" style="display: flex; justify-content: space-between;">
@@ -41,6 +46,9 @@
 
     private Archivo archivoActual = new Archivo();
 
+    private string nombreAnterior = "";
+    private string errorMessage = "";
+
     protected override async Task OnParametersSetAsync()
     {
         await CargarArchivo();
@@ -53,6 +61,7 @@
             if (CodigoArchivo != 0)
             {
                 archivoActual = await ArchivoService.ObtenerInfoArchivo(CodigoArchivo);
+                nombreAnterior = archivoActual.NombreArchivo;
             }
             StateHasChanged();
         }
@@ -64,15 +73,21 @@
 
     private async void ModificarNombreArchivo()
     {
-        
-        var confirmacion = await DialogService.Confirm("¿Quiere renombrar el documento?", "Confirmar renombrar documento",
-          new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+        if(nombreAnterior.Equals(archivoActual.NombreArchivo)){
+            errorMessage = "El nuevo nombre debe ser diferente al anterior.";
+        }else{
 
-        if(confirmacion == true){
-            await ArchivoService.ModificarArchivo(archivoActual);
+            var confirmacion = await DialogService.Confirm("¿Quiere renombrar el documento?", "Confirmar renombrar documento",
+              new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
+
+            if (confirmacion == true)
+            {
+                await ArchivoService.ModificarArchivo(archivoActual);
+            }
+
+            DialogService.Close(true);
         }
 
-        DialogService.Close(true);
     }
 
     private void Cancelar()

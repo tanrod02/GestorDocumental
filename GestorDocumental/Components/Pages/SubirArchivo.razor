@@ -123,6 +123,8 @@
         if (!string.IsNullOrEmpty(Grupo)){
             archivoSubido.Grupo = Grupo;
         }
+
+        archivoSubido.Visible = true;
     }
 
 
@@ -150,7 +152,6 @@
                     archivoSubido.FechaAlta = DateTime.Now;
                     archivoSubido.Curso = CodigoCurso;
                     archivoSubido.Propietario = CodigoUsuario;
-                    archivoSubido.Visible = true; //por defecto es visible
                     if(CodigoCarpeta > 0){
                         archivoSubido.CodigoCarpeta = CodigoCarpeta;
                     }

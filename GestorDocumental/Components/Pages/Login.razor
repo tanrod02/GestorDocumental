@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using GestorDocumental.Business.Services
+@using System.ComponentModel.DataAnnotations;
 @inject NavigationManager Navigation
 @inject AuthService AuthService
 @rendermode InteractiveServer
@@ -11,14 +12,22 @@
 
         <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
             <DataAnnotationsValidator />
-            <ValidationSummary />
+
+            @if (loginError)
+            {
+                <div class="text-danger text-center mt-2">
+                    El correo o la contraseña son incorrectos.
+                </div>
+            }
 
             <!-- Campo de Correo -->
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo:</label>
-                <InputText id="correo"
-                           @bind-Value="loginModel.Correo"
-                           class="@(correoIncorrecto ? "form-control is-invalid" : "form-control")" />
+                <InputText id="correo" class="form-control"
+                           @bind-Value="loginModel.Correo" 
+                           @oninput="LimpiarError"/>
+                <ValidationMessage For="@(() => loginModel.Correo)"
+                                   class="text-danger" />
             </div>
 
             <!-- Campo de Contraseña -->
@@ -27,14 +36,20 @@
                 <div class="input-group">
                     <InputText id="contraseña"
                                type="@contraseñaTipo"
-                               @bind-Value="loginModel.Contraseña"
-                               class="@(contraseñaIncorrecta ? "form-control is-invalid" : "form-control")" />
-                    <button type="button" class="btn btn-outline-secondary" @onclick="TogglePasswordVisibility">
+                               class="form-control"
+                               @bind-Value="loginModel.Contraseña" 
+                               @oninput="LimpiarError"/>
+                    <button type="button"
+                            class="btn btn-outline-secondary"
+                            @onclick="TogglePasswordVisibility">
                         <i class="bi @iconoOjo"></i>
                     </button>
                 </div>
+                <ValidationMessage For="@(() => loginModel.Contraseña)"
+                                   class="text-danger" />
             </div>
 
+          
             <!-- Botón Ingresar -->
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -60,8 +75,7 @@
     private LoginModel loginModel = new LoginModel();
     private string contraseñaTipo = "password"; 
     private string iconoOjo = "bi-eye-slash";  
-    private bool correoIncorrecto = false;     
-    private bool contraseñaIncorrecta = false; 
+    private bool loginError = false;  
 
     @code {
         private async Task HandleLogin()
@@ -75,8 +89,7 @@
                 }
                 else
                 {
-                    correoIncorrecto = true;
-                    contraseñaIncorrecta = true;
+                    loginError = true;
                 }
             }
             catch (Exception ex)
@@ -105,9 +118,19 @@
         StateHasChanged(); 
     }
 
+    private void LimpiarError()
+    {
+        loginError = false;
+    }
+
+
     public class LoginModel
     {
+        [Required(ErrorMessage = "El correo es obligatorio")]
+        [EmailAddress(ErrorMessage = "El formato del correo no es válido")]
         public string Correo { get; set; }
+        [Required(ErrorMessage = "La contraseña es obligatoria")]
+        [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
         public string Contraseña { get; set; }
     }
 }

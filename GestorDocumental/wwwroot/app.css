@@ -292,3 +292,15 @@
     width: 100%;
     color: black;
 }
+
+.rz-chip-list {
+    max-height: 60px; /* o el valor que quieras */
+    overflow-y: auto;
+}
+
+.radzen-dropdown {
+    flex: 1;
+    min-height: 0;
+}
+
+

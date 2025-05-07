@@ -9,29 +9,36 @@
 @inject DialogService DialogService
 @rendermode InteractiveServer
 
-<RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
-    <div style="display: flex; flex-direction: column; gap: 15px;">
-        <div>
-            <label>Nombre del curso:</label>
-            <RadzenTextBox @bind-Value="nuevoCurso.Descripcion" Placeholder="Nombre curso" Style="width: 100%;" />
-        </div>
+<EditForm Model="@nuevoCurso" OnValidSubmit="ConfirmarSubida">
+    <DataAnnotationsValidator />
 
-        <div>
-            <label>Grupo:</label>
-            <RadzenTextBox @bind-Value="nuevoCurso.Grupo" Placeholder="Grupo" Style="width: 100%;" />
-        </div>
+    <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div>
+                <label>Nombre del curso:</label>
+                <RadzenTextBox @bind-Value="nuevoCurso.Descripcion" Placeholder="Nombre curso" Style="width: 100%;" />
+                <ValidationMessage For="@(() => nuevoCurso.Descripcion)" style="color: red;" />
+            </div>
 
-        <div class="botones" style="display: flex; justify-content: space-between;">
-            <RadzenButton Text="Guardar"
-                          Click="ConfirmarSubida"
-                          ButtonStyle="ButtonStyle.Primary" />
+            <div>
+                <label>Grupo:</label>
+                <RadzenTextBox @bind-Value="nuevoCurso.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+                <ValidationMessage For="@(() => nuevoCurso.Grupo)" style="color: red;" />
+            </div>
 
-            <RadzenButton Text="Cancelar"
-                          ButtonStyle="ButtonStyle.Secondary"
-                          Click="CancelarSubida" />
+            <div class="botones" style="display: flex; justify-content: space-between;">
+                <RadzenButton Text="Guardar"
+                              ButtonType="ButtonType.Submit"
+                              ButtonStyle="ButtonStyle.Primary" />
+
+                <RadzenButton Text="Cancelar"
+                              ButtonStyle="ButtonStyle.Secondary"
+                              Click="CancelarSubida" />
+            </div>
         </div>
-    </div>
-</RadzenCard>
+    </RadzenCard>
+</EditForm>
+
 
 @code {
     RadzenUpload upload;
