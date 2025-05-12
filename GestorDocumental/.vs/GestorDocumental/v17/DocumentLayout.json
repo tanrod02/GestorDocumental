@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\estadisticarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\estadisticarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\wwwroot\\scripts\\verdocumento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:wwwroot\\scripts\\verdocumento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\data\\repositories\\estadisticarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|solutionrelative:data\\repositories\\estadisticarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BA11A73-4A46-4909-989D-A867382A7C18}|GestorDocumental.csproj|c:\\users\\vcapa\\onedrive\\documentos\\gestordocumental\\gestordocumental\\business\\services\\estadisticaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -297,7 +297,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 50,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -340,13 +340,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAABoCAAAAAAAAAAAwwDwCAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACMCAAAAAAAAAAAvwDICAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-24T20:08:29.704Z",
               "IsPinned": true,
@@ -388,8 +388,7 @@
               "RelativeToolTip": "Business\\Services\\EstadisticaService.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAhwCoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:19:58.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:19:58.633Z"
             },
             {
               "$type": "Document",
@@ -461,8 +460,7 @@
               "RelativeToolTip": "wwwroot\\app.css",
               "ViewState": "AgIAACcAAAAAAAAAAIAwwDgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-25T10:42:16.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T10:42:16.075Z"
             },
             {
               "$type": "Document",
@@ -582,8 +580,7 @@
               "RelativeToolTip": "wwwroot\\scripts\\script.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-09T13:43:33.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T13:43:33.87Z"
             },
             {
               "$type": "Document",
@@ -595,8 +592,7 @@
               "RelativeToolTip": "Components\\App.razor",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAACIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T10:28:17.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T10:28:17.485Z"
             },
             {
               "$type": "Document",
@@ -624,7 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "verDocumento.js",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\wwwroot\\scripts\\verDocumento.js",
               "RelativeDocumentMoniker": "wwwroot\\scripts\\verDocumento.js",
@@ -693,8 +689,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAAtwG0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:38:23.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:38:23.579Z"
             },
             {
               "$type": "Document",
@@ -915,13 +910,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EstadisticaRepository.cs",
               "DocumentMoniker": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EstadisticaRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\EstadisticaRepository.cs",
               "ToolTip": "C:\\Users\\vcapa\\OneDrive\\Documentos\\GestorDocumental\\GestorDocumental\\Data\\Repositories\\EstadisticaRepository.cs",
               "RelativeToolTip": "Data\\Repositories\\EstadisticaRepository.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAhwDkAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAawDUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T11:29:02.311Z",
               "EditorCaption": ""
@@ -936,8 +931,7 @@
               "RelativeToolTip": "Data\\GestorDocumentalDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T15:09:35.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T15:09:35.074Z"
             },
             {
               "$type": "Document",
@@ -949,8 +943,7 @@
               "RelativeToolTip": "Data\\Interfaces\\IEstadisticaRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:26:57.585Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:26:57.585Z"
             },
             {
               "$type": "Document",
@@ -998,8 +991,7 @@
               "RelativeToolTip": "Data\\Repositories\\CursoRepository.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAhwGMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:32:23.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:32:23.839Z"
             },
             {
               "$type": "Document",
@@ -1023,8 +1015,7 @@
               "RelativeToolTip": "Business\\Interfaces\\IEstadisticaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T11:21:14.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T11:21:14.846Z"
             },
             {
               "$type": "Document",

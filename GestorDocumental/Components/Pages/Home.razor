@@ -551,7 +551,7 @@
             else if (tipoLower.Contains("plain"))
             {
                 var texto = System.Text.Encoding.UTF8.GetString(archivo.Contenido);
-                await JSRuntime.InvokeVoidAsync("mostrarTesto", texto, dotNetRef);
+                await JSRuntime.InvokeVoidAsync("mostrarTexto", texto, dotNetRef);
             }
             else if (tipoLower.StartsWith("image/"))
             {
