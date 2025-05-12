@@ -25,7 +25,7 @@
                 <RadzenTextBox @bind-Value="nuevoGrupo.Grupo" Placeholder="Grupo" Style="width: 100%;" />
 
             </div>
-            
+
 
             <div class="botones" style="display: flex; justify-content: space-between;">
                 <RadzenButton Text="Guardar"
@@ -84,6 +84,7 @@
             nuevoGrupo.CodigoCurso = nuevoCurso.CodigoCurso;
             await GrupoService.AgregarGrupo(nuevoGrupo);
             await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario, nuevoGrupo.Grupo);
+            await CursoService.AgregarRelacionCursosUsuarioGrupo(nuevoCurso.CodigoCurso, nuevoGrupo.Grupo);
         }
 
         DialogService.Close(true);

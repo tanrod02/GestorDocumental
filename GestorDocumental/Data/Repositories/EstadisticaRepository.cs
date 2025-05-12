@@ -66,7 +66,7 @@ namespace GestorDocumental.Data.Repositories
 
             if (estadistica != null)
             {
-                estadistica.TiempoEnDocumento = tiempo.Seconds;
+                estadistica.TiempoEnDocumento += tiempo.Seconds;
                 context.Update(estadistica);
             }
 
