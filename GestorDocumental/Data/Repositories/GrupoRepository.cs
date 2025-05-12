@@ -40,7 +40,7 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
 
-                List<Grupos> grupos = context.Grupos.Where(x => x.CodigoCurso == codigoCurso).ToList();
+                List<Grupos> grupos = await context.Grupos.Where(x => x.CodigoCurso == codigoCurso).ToListAsync();
 
                 grupos = grupos.DistinctBy(x => x.Grupo).ToList();
                 return grupos;
@@ -59,7 +59,7 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
 
-                var grupos =  context.Grupos.Select(cu => cu.Grupo).Distinct().ToList();
+                var grupos = await context.Grupos.Select(cu => cu.Grupo).Distinct().ToListAsync();
 
                 return grupos;
 

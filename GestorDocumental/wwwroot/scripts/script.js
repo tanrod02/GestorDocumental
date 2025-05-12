@@ -17,8 +17,6 @@
             }
         }
 
-        console.log("Carpeta seleccionada:", nombreCarpeta);
-        console.log("Archivos encontrados:", archivos.length);
         return { nombreCarpeta, archivos };
 
     } catch (error) {

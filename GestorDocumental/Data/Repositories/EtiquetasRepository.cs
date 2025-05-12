@@ -34,14 +34,13 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
 
-                // Obtenemos las etiquetas asociadas al archivo
                 List<Etiqueta> etiquetas = await context.ArchivosEtiquetas
-                                              .Where(ea => ea.CodigoArchivo == codigoArchivo) // Filtrar por CodigoArchivo
-                                              .Join(context.Etiqueta, // Unir con la tabla Etiqueta
-                                                    ea => ea.CodigoEtiqueta, // Relacionar CodigoEtiqueta
+                                              .Where(ea => ea.CodigoArchivo == codigoArchivo) 
+                                              .Join(context.Etiqueta, 
+                                                    ea => ea.CodigoEtiqueta, 
                                                     e => e.CodigoEtiqueta,
-                                                    (ea, e) => e) // Seleccionar solo las etiquetas
-                                              .ToListAsync(); // Ejecutar la consulta asincrónica
+                                                    (ea, e) => e) 
+                                              .ToListAsync(); 
 
                 return etiquetas;
             }
@@ -64,7 +63,6 @@ namespace GestorDocumental.Data.Repositories
                 context.ArchivosEtiquetas.RemoveRange(relaciones); 
 
                 await context.SaveChangesAsync(); 
-
 
             }
             catch (Exception ex)
@@ -105,11 +103,9 @@ namespace GestorDocumental.Data.Repositories
                     CodigoEtiqueta = etiqueta.CodigoEtiqueta
                 }).ToList();
 
-
                 context.ArchivosEtiquetas.AddRange(relaciones);
 
                 await context.SaveChangesAsync();
-
 
             }
             catch (Exception ex)
@@ -126,8 +122,7 @@ namespace GestorDocumental.Data.Repositories
             {
                 using var context = _contextFactory.CreateDbContext();
 
-                return context.ArchivosEtiquetas.Where(ae => ae.CodigoArchivo == CodigoArchivo).ToList();
-
+                return await context.ArchivosEtiquetas.Where(ae => ae.CodigoArchivo == CodigoArchivo).ToListAsync();
 
             }
             catch (Exception ex)

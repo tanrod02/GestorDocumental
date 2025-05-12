@@ -33,7 +33,6 @@
         <div>
             <label><b>Etiquetas:</b></label>
             <div style="display: flex; gap: 10px;">
-                <!-- AutoComplete para buscar etiquetas existentes o escribir una nueva -->
                 <RadzenAutoComplete @bind-Value="nuevaEtiqueta"
                 Data="@etiquetas.Select(e => e.DescripcionEtiqueta).ToList()"
                 Placeholder="Escribe o selecciona una etiqueta..."
@@ -230,7 +229,7 @@
 
             foreach(Usuario user in usuarios){
 
-                string subject = "Documento subido correctamente";
+                string subject = "Documento subido";
                 string body = $"Hola {user.Nombre}, se ha subido el documento '{archivoSubido.NombreArchivo}' a tu curso.";
                 await EmailService.EnviarCorreoAsync(user.Correo, subject, body);
 

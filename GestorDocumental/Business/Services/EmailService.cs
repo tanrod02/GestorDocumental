@@ -31,7 +31,6 @@ public class EmailService : IEmailService
             HtmlBody = $"<p>{cuerpo}</p>"
         };
 
-        // Envia el mensaje de forma asíncrona
         try
         {
 

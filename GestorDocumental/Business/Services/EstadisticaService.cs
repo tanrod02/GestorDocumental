@@ -20,7 +20,7 @@ namespace GestorDocumental.Business.Services
             est.FechaAcceso = DateTime.Now;
             est.NumeroVisitas += 1;
 
-            _estadisticaRepository.ActualizarEstadisticasArchivo(est).Wait();
+            await _estadisticaRepository.ActualizarEstadisticasArchivo(est);
 
         }
 
@@ -38,9 +38,16 @@ namespace GestorDocumental.Business.Services
             return estadisticas;
         }
 
+        public async Task GuardarListaEstadisticasAsync(List<EstadisticasArchivo> Estadisticas)
+        {
+            await _estadisticaRepository.GuardarListaEstadisticasAsync(Estadisticas);
+        }
+
         public async Task GuardarTiempoVisualizacion(int codigoArchivo, TimeSpan tiempo)
         {
-            _estadisticaRepository.GuardarTiempoVisualizacion(codigoArchivo,tiempo).Wait();
+            await _estadisticaRepository.GuardarTiempoVisualizacion(codigoArchivo, tiempo);
         }
+
+
     }
 }

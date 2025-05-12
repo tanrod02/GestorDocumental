@@ -20,7 +20,6 @@
                 </div>
             }
 
-            <!-- Campo de Correo -->
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo:</label>
                 <InputText id="correo" class="form-control"
@@ -30,7 +29,6 @@
                                    class="text-danger" />
             </div>
 
-            <!-- Campo de Contraseña -->
             <div class="mb-3">
                 <label for="contraseña" class="form-label">Contraseña:</label>
                 <div class="input-group">
@@ -50,13 +48,12 @@
             </div>
 
           
-            <!-- Botón Ingresar -->
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Ingresar</button>
             </div>
         </EditForm>
 
-        <!-- Registro -->
+
         <div class="text-center mt-3">
             <span>¿No tienes cuenta? </span>
             <a href="register" class="text-primary" style="cursor: pointer;">Regístrate aquí</a>
@@ -95,7 +92,6 @@
             catch (Exception ex)
             {
                 Console.WriteLine($"Error en el login: {ex.Message}");
-                // Aquí puedes manejar el error de manera más detallada
             }
             StateHasChanged();
         }

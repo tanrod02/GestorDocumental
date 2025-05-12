@@ -22,18 +22,19 @@
 
             <div>
                 <label>Grupo:</label>
-                <RadzenTextBox @bind-Value="nuevoCurso.Grupo" Placeholder="Grupo" Style="width: 100%;" />
-                <ValidationMessage For="@(() => nuevoCurso.Grupo)" style="color: red;" />
+                <RadzenTextBox @bind-Value="nuevoGrupo.Grupo" Placeholder="Grupo" Style="width: 100%;" />
+
             </div>
+            
 
             <div class="botones" style="display: flex; justify-content: space-between;">
                 <RadzenButton Text="Guardar"
-                              ButtonType="ButtonType.Submit"
-                              ButtonStyle="ButtonStyle.Primary" />
+                ButtonType="ButtonType.Submit"
+                ButtonStyle="ButtonStyle.Primary" />
 
                 <RadzenButton Text="Cancelar"
-                              ButtonStyle="ButtonStyle.Secondary"
-                              Click="CancelarSubida" />
+                ButtonStyle="ButtonStyle.Secondary"
+                Click="CancelarSubida" />
             </div>
         </div>
     </RadzenCard>
@@ -46,6 +47,8 @@
     [Parameter] public int CodigoUsuario { get; set; }
 
     private Curso nuevoCurso = new() { };
+    private Grupos nuevoGrupo = new() { };
+
 
     private void OnProgress(UploadProgressArgs args)
     {
@@ -54,7 +57,6 @@
 
     private async Task ConfirmarSubida()
     {
-        // Validar que no exista un curso con el mismo nombre.
         var cursoExistente = await CursoService.ObtenerCursoPorNombre(nuevoCurso.Descripcion);
         if (cursoExistente != null)
         {
@@ -64,7 +66,14 @@
             return;
         }
 
-        // Si no existe, se pide confirmación para crear el curso.
+        if (string.IsNullOrWhiteSpace(nuevoGrupo.Grupo))
+        {
+            await DialogService.Alert("Debe especificar un nombre para el grupo.",
+                                      "Validación",
+                                      new ConfirmOptions { OkButtonText = "Aceptar" });
+            return;
+        }
+
         var confirmacion = await DialogService.Confirm("¿Quiere crear este curso?", "Confirmar añadir curso",
             new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
@@ -72,17 +81,9 @@
         {
             await CursoService.AgregarCursoAsync(nuevoCurso);
 
-
-            Grupos grupos = new Grupos
-                {
-                    CodigoCurso = nuevoCurso.CodigoCurso,
-                    Grupo = nuevoCurso.Grupo
-                };
-
-            await GrupoService.AgregarGrupo(grupos);
-
-            await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario, grupos.Grupo);
-
+            nuevoGrupo.CodigoCurso = nuevoCurso.CodigoCurso;
+            await GrupoService.AgregarGrupo(nuevoGrupo);
+            await CursoService.AgregarRelacionCursoUsuario(nuevoCurso.CodigoCurso, CodigoUsuario, nuevoGrupo.Grupo);
         }
 
         DialogService.Close(true);

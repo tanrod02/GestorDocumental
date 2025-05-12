@@ -20,7 +20,6 @@
         <EditForm EditContext="@editContext" OnValidSubmit="RegistrarUsuario">
             <DataAnnotationsValidator />
 
-            <!-- Nombre -->
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
                 <InputText id="nombre" class="form-control"
@@ -29,7 +28,6 @@
                 class="text-danger" />
             </div>
 
-            <!-- Apellidos -->
             <div class="mb-3">
                 <label for="apellido1" class="form-label">Primer apellido:</label>
                 <InputText id="apellido1" class="form-control"
@@ -46,7 +44,6 @@
                 class="text-danger" />
             </div>
 
-            <!-- Correo -->
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo:</label>
                 <InputText id="correo" class="form-control"
@@ -55,7 +52,6 @@
                 class="text-danger" />
             </div>
 
-            <!-- Contraseña -->
             <div class="mb-3">
                 <label for="contraseña" class="form-label">Contraseña:</label>
                 <div class="input-group">
@@ -73,7 +69,6 @@
                 class="text-danger" />
             </div>
 
-            <!-- Combo Grupo -->
             <div class="mb-3">
                 <label for="grupo" class="form-label">Grupo:</label>
                 <InputSelect id="grupo"
@@ -90,7 +85,6 @@
                 class="text-danger" />
             </div>
 
-            <!-- Botón Registrar -->
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">
                     Registrarse
@@ -108,7 +102,7 @@
 </div>
 
 @code {
-    private Usuario nuevoUsuario;
+    private Usuario nuevoUsuario = new Usuario();
     private EditContext editContext;
     private string Mensaje = "";
     private string contraseñaTipo = "password";

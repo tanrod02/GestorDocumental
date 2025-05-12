@@ -10,10 +10,10 @@
     const win = window.open(fileURL, '_blank');
 
     if (dotNetHelper) {
+        console.log("DotNetHelper recibido, iniciando monitoreo de cierre...");
         monitorCierreVentana(win, dotNetHelper);
     }
 }
-
 
 function base64ToBlob(base64, mime) {
     const byteCharacters = atob(base64);
@@ -61,6 +61,7 @@ function monitorCierreVentana(win, dotNetHelper) {
         if (win.closed) {
             clearInterval(interval);
             dotNetHelper.invokeMethodAsync("OnVisorCerrado")
+                .then(() => console.log("OnVisorCerrado invocado correctamente"))
                 .catch(err => console.error("Error llamando a OnVisorCerrado:", err));
         }
     }, 1000);

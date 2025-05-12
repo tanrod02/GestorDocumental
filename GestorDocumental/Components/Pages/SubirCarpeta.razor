@@ -9,9 +9,11 @@
 @using System.IO
 @inject ICarpetaService CarpetaService
 @inject IArchivoService ArchivoService
+@inject IEstadisticaService EstadisticaService
 @inject DialogService DialogService
 @inject IJSRuntime JS
 @rendermode InteractiveServer
+
 <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
     <EditForm Model="@carpetaNueva" OnValidSubmit="ConfirmarSubida">
         <DataAnnotationsValidator />
@@ -64,7 +66,7 @@
                     ValueProperty="Grupo"
                     Placeholder="Selecciona un grupo"
                     Style="width: 100%;" />
-                    
+
                 </div>
 
                 <div class="botones" style="display: flex; justify-content: space-between;">
@@ -100,7 +102,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-       
+
         grupos = await ArchivoService.ObtenerGruposPorCurso(CodigoCurso);
 
         if (!string.IsNullOrEmpty(Grupo))
@@ -175,7 +177,6 @@
                 carpetaNueva.Grupo = Grupo;
                 int codigoCarpeta = await CarpetaService.CrearCarpeta(carpetaNueva);
 
-
                 foreach (Archivo archivo in archivos)
                 {
                     archivo.Curso = CodigoCurso;
@@ -184,6 +185,21 @@
                     archivo.Grupo = carpetaNueva.Grupo;
                 }
                 await ArchivoService.GuardarListaArchivoAsync(archivos);
+
+                List<EstadisticasArchivo> estadisticas = new List<EstadisticasArchivo>();
+                foreach(Archivo archivo in archivos){
+                    EstadisticasArchivo est = new EstadisticasArchivo();
+
+                    est.Propietario = archivo.Propietario;
+                    est.CodigoArchivo = archivo.CodigoArchivo;
+                    est.FechaAcceso = null;
+                    est.FechaSubida = archivo.FechaAlta;
+                    est.NumeroVisitas = 0;
+                    est.TiempoEnDocumento = 0;
+
+                    estadisticas.Add(est);
+                }
+                await EstadisticaService.GuardarListaEstadisticasAsync(estadisticas);
                 DialogService.Close(true);
             }
         }

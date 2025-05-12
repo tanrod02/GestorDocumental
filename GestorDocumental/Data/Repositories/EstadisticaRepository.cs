@@ -21,7 +21,7 @@ namespace GestorDocumental.Data.Repositories
 
             context.Update(estadisticas);
 
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
         public async Task<EstadisticasArchivo> ObtenerEstadisticasArchivo(int CodigoArchivo)
@@ -45,7 +45,16 @@ namespace GestorDocumental.Data.Repositories
 
             context.Remove(Estadisticas);
 
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
+        }
+
+        public async Task GuardarListaEstadisticasAsync(List<EstadisticasArchivo> Estadisticas)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            context.AddRange(Estadisticas);
+
+            await context.SaveChangesAsync();
         }
 
 
@@ -53,13 +62,15 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
 
-            EstadisticasArchivo estadistica = context.Estadistica.FirstOrDefault(x => x.CodigoArchivo == codigoArchivo);
+            EstadisticasArchivo? estadistica = await context.Estadistica.FirstOrDefaultAsync(x => x.CodigoArchivo == codigoArchivo);
 
-            estadistica.TiempoEnDocumento = tiempo.Seconds;
+            if (estadistica != null)
+            {
+                estadistica.TiempoEnDocumento = tiempo.Seconds;
+                context.Update(estadistica);
+            }
 
-            context.Update(estadistica);
-
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         
         }
 

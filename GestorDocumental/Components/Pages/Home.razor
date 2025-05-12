@@ -284,11 +284,9 @@
     [Parameter]
     public int CodigoCarpeta { get; set; }
 
-    // Recibir el parámetro "grupo" desde la query string.
     [Parameter, SupplyParameterFromQuery(Name = "grupo")]
     public string GrupoFiltro { get; set; } = string.Empty;
 
-    // Resto de las variables y métodos...
     private IEnumerable<Archivo> archivos = new List<Archivo>();
     private IEnumerable<Carpeta> carpetas = new List<Carpeta>();
     private Carpeta carpetaActual = new Carpeta();
@@ -475,6 +473,12 @@
                 }
                 elementos.AddRange(carpetas.ToList());
                 elementos.AddRange(archivos.ToList());
+
+                if(archivos.Any()){
+                    await CargarEstadisticas(archivos.ToList());
+                    await CargarEtiquetas(archivos.ToList());
+                }
+                
             }
             else
             {
@@ -483,6 +487,8 @@
                 if (archivosCarpeta.Any())
                 {
                     elementos.AddRange(archivosCarpeta);
+                    await CargarEstadisticas(archivosCarpeta.ToList());
+                    await CargarEtiquetas(archivosCarpeta.ToList());
                 }
             }
         }
@@ -496,6 +502,7 @@
     {
         try
         {
+            
             estadisticas = await EstadisticasService.ObtenerEstadisticas(archivos);
         }
         catch (Exception e)
@@ -559,7 +566,6 @@
             }
             else
             {
-                // No hay visor, se descarga directamente
                 _stopwatch.Stop();
                 await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
                 await EstadisticaService.GuardarTiempoVisualizacion(archivo.CodigoArchivo, _stopwatch.Elapsed);

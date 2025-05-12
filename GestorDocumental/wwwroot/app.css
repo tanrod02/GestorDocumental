@@ -193,11 +193,11 @@
 
 .card-hover {
     transition: background-color 0.3s ease-in-out;
-    background-color: white; /* Color por defecto */
+    background-color: white;
 }
 
     .card-hover:hover {
-        background-color: #e0e0e0 !important; /* Gris más notorio */
+        background-color: #e0e0e0 !important;
         cursor: pointer;
     }
 
@@ -294,7 +294,7 @@
 }
 
 .rz-chip-list {
-    max-height: 60px; /* o el valor que quieras */
+    max-height: 60px;
     overflow-y: auto;
 }
 

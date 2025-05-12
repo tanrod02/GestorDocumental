@@ -55,7 +55,6 @@ public class AuthService
                 // Solo intentamos obtener la sesión si Blazor ya es interactivo
                 var result = await _sessionStorage.GetAsync<Usuario>("usuario");
 
-                // Verificamos si la recuperación fue exitosa
                 if (result.Success)
                 {
                     _usuarioActual = result.Value;
@@ -84,7 +83,6 @@ public class AuthService
         IsAuthenticated = false;
         _usuarioActual = null;
 
-        // Borrar la sesión
         await _sessionStorage.DeleteAsync("usuario");
 
         _navigationManager.NavigateTo("/");

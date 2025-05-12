@@ -10,13 +10,11 @@
 
 <RadzenCard Style="padding: 20px; max-width: 600px; margin: auto;">
     <div style="display: flex; flex-direction: column; gap: 15px;">
-        <!-- Mostrar el nombre del archivo actual -->
         <div>
             <label><b>Nombre del documento:</b></label>
             <p>@archivoActual.NombreArchivo</p>
         </div>
 
-        <!-- Campo para el nuevo nombre de archivo -->
         <div>
             <label><b>Nuevo nombre de archivo:</b></label>
             <RadzenTextBox @bind-Value="archivoActual.NombreArchivo" Style="width: 100%;" />
@@ -27,7 +25,6 @@
             <div style="color: red;">@errorMessage</div>
         }
 
-        <!-- Botones de acción -->
         <div class="botones" style="display: flex; justify-content: space-between;">
             <RadzenButton Text="Modificar"
             ButtonStyle="ButtonStyle.Primary"

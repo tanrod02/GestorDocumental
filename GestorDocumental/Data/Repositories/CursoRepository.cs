@@ -49,44 +49,36 @@ namespace GestorDocumental.Data.Repositories
         {
             using var context = _contextFactory.CreateDbContext();
 
-            return context.Cursos.ToList();
+            return await context.Cursos.ToListAsync();
         }
 
         public async Task<List<Curso>> ObtenerCursosPorGrupo(string grupo)
         {
-
             using var context = _contextFactory.CreateDbContext();
 
-            List<Curso> cursos = new List<Curso>();
-
-            List<Grupos> grupos = context.Grupos
-                .Where(x =>
-                    x.Grupo == grupo
-                )
-                .ToList();
-
-            foreach (Grupos group in grupos)
-            {
-                Curso curso = context.Cursos.FirstOrDefault( x => x.CodigoCurso == group.CodigoCurso);
-
-                if(!cursos.Any(x => x.CodigoCurso == curso.CodigoCurso))
-                {
-                    cursos.Add(curso);
-                }
-            }
+            var cursos = await context.Grupos
+                .Where(g => g.Grupo == grupo)
+                .Select(g => g.CodigoCurso)
+                .Distinct()
+                .Join(context.Cursos,
+                      codigo => codigo,
+                      curso => curso.CodigoCurso,
+                      (codigo, curso) => curso)
+                .ToListAsync();
 
             return cursos;
         }
+
 
         public async Task<List<Usuario>> ObtenerUsuariosPorGrupo(string grupo)
         {
             using var context = _contextFactory.CreateDbContext();
 
-            List<Usuario> usuarios = context.Usuarios
+            List<Usuario> usuarios = await context.Usuarios
                 .Where(x =>
                     x.Grupo == grupo
                 )
-                .ToList();
+                .ToListAsync();
 
             return usuarios;
         }
@@ -103,7 +95,7 @@ namespace GestorDocumental.Data.Repositories
 
             context.CursosUsuario.Add(curs);
 
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
 

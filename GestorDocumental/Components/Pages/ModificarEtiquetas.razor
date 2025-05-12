@@ -38,7 +38,6 @@
         <div>
             <label><b>Añadir nueva etiqueta:</b></label>
             <div style="display: flex; gap: 10px;">
-                <!-- AutoComplete para buscar etiquetas existentes o escribir una nueva -->
                 <RadzenAutoComplete @bind-Value="etiquetaSeleccionada"
                                     Data="@etiquetas.Select(e => e.DescripcionEtiqueta).ToList()"
                                     Placeholder="Escribe o selecciona una etiqueta..."
@@ -67,8 +66,6 @@
         }
 
 
-
-        <!-- Botones de acción -->
         <div class="botones" style="display: flex; justify-content: space-between; margin-top: 15px;">
             <RadzenButton Text="Modificar" Click="ModificarEtiquetasArchivo" ButtonStyle="ButtonStyle.Primary" />
             <RadzenButton Text="Cancelar" ButtonStyle="ButtonStyle.Secondary" Click="Cancelar" />
@@ -151,14 +148,12 @@
            new ConfirmOptions { OkButtonText = "Sí", CancelButtonText = "Cancelar" });
 
            if(confirmacion == true){
-                // Eliminar las relaciones de las etiquetas eliminadas
                 if (etiquetasEliminadas.Any())
                 {
                     var etiquetasEliminarBD = etiquetas.Where(e => etiquetasEliminadas.Contains(e.DescripcionEtiqueta)).ToList();
                     await EtiquetasService.EliminarEtiquetasArchivo(CodigoArchivo, etiquetasEliminarBD);
                 }
 
-                // Agregar nuevas etiquetas
                 if (etiquetasNuevas.Any())
                 {
                     var etiquetasAgregarBD = new List<Etiqueta>();

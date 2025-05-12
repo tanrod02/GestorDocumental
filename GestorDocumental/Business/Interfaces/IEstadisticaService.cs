@@ -6,9 +6,9 @@ namespace GestorDocumental.Business.Interfaces
     {
         Task ActualizarEstadisticasArchivo(Archivo archivo);
         Task<List<EstadisticasArchivo>> ObtenerEstadisticas(List<Archivo> archivos);
-
-
+        Task GuardarListaEstadisticasAsync(List<EstadisticasArchivo> Estadisticas);
         Task GuardarTiempoVisualizacion(int codigoArchivo, TimeSpan tiempo);
+        
 
     }
 }
