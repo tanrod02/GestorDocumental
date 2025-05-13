@@ -37,12 +37,18 @@
     [Parameter] public int CodigoCurso { get; set; }
     [Parameter] public int CodigoUsuario { get; set; }
 
+    Curso curso = new Curso();
+    List<string> gruposCurso = new List<string>();
+
     private Grupos nuevoGrupoModel = new Grupos();
     private string errorMessage = "";
 
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
         nuevoGrupoModel.CodigoCurso = CodigoCurso;
+
+        var Grupos = await GrupoService.ObtenerGruposPorCurso(CodigoCurso);
+        gruposCurso = Grupos.Select(g => g.Grupo).ToList();
     }
 
     async Task OnAceptar()
@@ -53,11 +59,16 @@
             return;
         }
 
+        if (!string.IsNullOrWhiteSpace(nuevoGrupoModel.Grupo) && gruposCurso.Contains(nuevoGrupoModel.Grupo)){
+            errorMessage = "Ya existe ese grupo.";
+            return;
+        }
+
         try
         {
             Usuario user = await AuthService.ObtenerUsuarioActualAsync();
 
-            Curso curso = await CursoService.ObtenerCursoPorCodigoAsync(CodigoCurso);
+            curso = await CursoService.ObtenerCursoPorCodigoAsync(CodigoCurso);
             await GrupoService.AgregarGrupo(nuevoGrupoModel);
             await CursoService.AgregarRelacionCursosUsuarioGrupo(curso.CodigoCurso,nuevoGrupoModel.Grupo);
             await CursoService.AgregarRelacionUsuarioGrupo(CodigoUsuario, nuevoGrupoModel.Grupo);
