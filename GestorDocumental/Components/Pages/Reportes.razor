@@ -1,0 +1,113 @@
+﻿@using Radzen
+@using Radzen.Blazor
+@using GestorDocumental.Business.Interfaces
+@inject IReportingService ReportingService
+
+@if (!loaded)
+{
+    <p>Cargando informes…</p>
+}
+else
+{
+    <h4>Top 10 Documentos</h4>
+
+    @if (topDocs.Any())
+    {
+        <RadzenChart @ref="chartDocs" Style="height:350px">
+            <RadzenCategoryAxis />
+            <RadzenValueAxis />
+            <RadzenBarSeries Data="@topDocs"
+                             CategoryProperty="Nombre"
+                             ValueProperty="TotalPeso"
+                             Title="Peso" />
+        </RadzenChart>
+    }
+    else
+    {
+        <p>No hay datos para documentos.</p>
+    }
+
+    <hr />
+
+    <h4>Top 10 Carpetas</h4>
+    @if (topCars.Any())
+    {
+        <RadzenChart @ref="chartCars" Style="height:350px">
+            <RadzenCategoryAxis />
+            <RadzenValueAxis />
+            <RadzenBarSeries Data="@topCars"
+                             CategoryProperty="Nombre"
+                             ValueProperty="TotalPeso"
+                             Title="Peso" />
+        </RadzenChart>
+    }
+    else
+    {
+        <p>No hay datos para carpetas.</p>
+    }
+
+    <hr />
+
+    <h4>Heat-map Diario</h4>
+    @if (usage.Any())
+    {
+        <RadzenDataGrid Data="@usage"
+                        TItem="UsageDailyDto"
+                        RowRender="@ColorRow"
+                        Style="height:350px; overflow:auto">
+            <Columns>
+                <RadzenDataGridColumn TItem="UsageDailyDto" Property="UsageDate" Title="Fecha" />
+                <RadzenDataGridColumn TItem="UsageDailyDto" Property="TargetType" Title="Tipo" />
+                <RadzenDataGridColumn TItem="UsageDailyDto" Property="TargetId" Title="ID" />
+                <RadzenDataGridColumn TItem="UsageDailyDto" Property="NumEventos" Title="Eventos" />
+                <RadzenDataGridColumn TItem="UsageDailyDto" Property="TotalPeso" Title="Peso" />
+            </Columns>
+        </RadzenDataGrid>
+    }
+    else
+    {
+        <p>No hay datos de uso diario.</p>
+    }
+}
+
+@code {
+    private List<TopItemDto> topDocs = new();
+    private List<TopItemDto> topCars = new();
+    private List<UsageDailyDto> usage = new();
+    private bool loaded;
+
+    // referencias a los charts
+    private RadzenChart chartDocs;
+    private RadzenChart chartCars;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // cargar datos
+        topDocs = await ReportingService.GetTop10DocumentosAsync();
+        topCars = await ReportingService.GetTop10CarpetasAsync();
+
+        var to = DateTime.Today;
+        var from = to.AddDays(-6);
+        usage = await ReportingService.GetUsageDailyAsync(from, to);
+
+        loaded = true;
+    }
+
+    // esto forzará el dibujo de los charts
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (chartDocs != null) await chartDocs.Reload();
+            if (chartCars != null) await chartCars.Reload();
+        }
+    }
+
+    void ColorRow(RowRenderEventArgs<UsageDailyDto> args)
+    {
+        var max = usage.Max(u => u.TotalPeso);
+        var p = max > 0 ? args.Data.TotalPeso / max : 0;
+        var c = (int)(255 - 155 * p);
+        args.Attributes.Add("style", $"background-color: rgb({c},{c},255);");
+    }
+}

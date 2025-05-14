@@ -6,6 +6,7 @@
 @using GestorDocumental.Business.Interfaces
 @using GestorDocumental.Components.Layout
 @using GestorDocumental.Data.Entities
+@using GestorDocumental.Data.Enums
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.WebUtilities
 @using Radzen
@@ -21,6 +22,7 @@
 @inject ICarpetaService CarpetaService
 @inject IEstadisticaService EstadisticasService
 @inject IEtiquetasService EtiquetasService
+@inject ILogService LogService
 
 <RadzenLayout Style="grid-template-columns: 1fr auto; grid-template-areas: 'rz-header rz-sidebar' 'rz-body rz-sidebar'; width: 100%; height: 100%;">
     <RadzenHeader>
@@ -268,12 +270,43 @@
                 }
             }
 
-            @if (CodigoCurso != 0 && usuarioActual.CodigoRol != rolUser)
+
+            @if (CodigoCurso != 0 && usuarioActual?.CodigoRol != rolUser)
             {
-                <button class="boton-flotante" type="button" @onclick="AbrirModalSubida">
+                <!-- Subir Documento -->
+                <button class="boton-flotante"
+                        style="
+            right: 1rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            "
+                        @onclick="AbrirModalSubida">
                     📤 Subir Documento
                 </button>
+
+                <!-- Ver Reportes -->
+                <button class="boton-flotante"
+                        style="
+            right: 15rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            "
+                        @onclick="AbrirReportes">
+                    📊 Ver Reportes
+                </button>
             }
+
+
         </div>
     </RadzenBody>
 </RadzenLayout>
@@ -544,6 +577,12 @@
             var base64 = Convert.ToBase64String(archivo.Contenido);
             var tipoLower = archivo.Tipo?.ToLower() ?? string.Empty;
 
+            await LogService.LogAsync(
+                usuarioActual.CodigoUsuario,
+                isDocumento: true,
+                archivo.CodigoArchivo,
+                TipoAccion.Abrir);
+
             await EstadisticaService.ActualizarEstadisticasArchivo(archivo);
 
             codArchivoActual = archivo.CodigoArchivo;
@@ -570,6 +609,12 @@
                 await JSRuntime.InvokeVoidAsync("descargarArchivo", base64, archivo.Tipo, archivo.NombreArchivo);
                 await EstadisticaService.GuardarTiempoVisualizacion(archivo.CodigoArchivo, _stopwatch.Elapsed);
             }
+
+            await LogService.LogAsync(
+                usuarioActual.CodigoUsuario,
+                isDocumento: true,
+                archivo.CodigoArchivo,
+                TipoAccion.Descargar);
         }
     }
 
@@ -590,6 +635,12 @@
 
     private void MostrarArchivosDeCarpeta(Carpeta carpeta)
     {
+        LogService.LogAsync(
+            usuarioActual.CodigoUsuario,
+            isDocumento: false,
+            carpeta.CodigoCarpeta,
+            TipoAccion.Seleccionar);
+
         Navigation.NavigateTo($"/home/{CodigoCurso}/{carpeta.CodigoCarpeta}");
         StateHasChanged();
     }
@@ -935,5 +986,14 @@
         {
             Console.Error.WriteLine($"Error moviendo archivo: {ex.Message}");
         }
+    }
+
+    void AbrirReportes()
+    {
+        DialogService.OpenAsync<Reportes>(
+            "Informes de Uso",
+            new Dictionary<string, object>(),
+            new DialogOptions { Width = "850px", Height = "600px" }
+        );
     }
 }

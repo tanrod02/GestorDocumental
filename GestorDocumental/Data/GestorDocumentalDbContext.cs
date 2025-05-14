@@ -17,6 +17,8 @@ namespace GestorDocumental.Data
         public DbSet<ArchivoEtiqueta> ArchivosEtiquetas{get; set;}
         public DbSet<CursosUsuario> CursosUsuario{get; set; }
         public DbSet<Grupos> Grupos { get; set; }
+        public DbSet<UserLog> UserLogs { get; set; }
+        public DbSet<UserLogAudit> UserLogAudits { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Components.Server.Circuits;
+using GestorDocumental.Data.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,7 +52,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.MinimumSameSitePolicy = SameSiteMode.None;  // Permite que las cookies sean enviadas en solicitudes cross-site
 });
 
-
+builder.Services.Configure<LogSettings>(
+    builder.Configuration.GetSection("LogSettings"));
 
 //Retencion documental 
 builder.Services.AddSingleton<RetencionDocumentalService>();
@@ -79,6 +81,13 @@ builder.Services.AddTransient<IEmailService, EmailService>();
 
 builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
+
+builder.Services.AddScoped<ILogRepository, LogRepository>();
+builder.Services.AddScoped<ILogService, LogService>();
+
+builder.Services.AddScoped<IReportingRepository, ReportingRepository>();
+builder.Services.AddScoped<IReportingService, ReportingService>();
+
 
 
 
