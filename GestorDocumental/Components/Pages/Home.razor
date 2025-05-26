@@ -85,7 +85,7 @@
                     }
 
                     <div class="curso-toggle-buttons">
-                        @if (usuarioActual.CodigoRol != rolUser){
+                        @if (usuarioActual != null && usuarioActual.CodigoRol != rolUser){
 
                             <button class="toggle-view-button" @onclick="VerNoVisibles">
                                 📄 Ver documentos no visibles
@@ -275,7 +275,7 @@
             {
                 <!-- Subir Documento -->
                 <button class="boton-flotante"
-                        style="
+                style="
             right: 1rem;
             background: #007bff;
             color: white;
@@ -284,14 +284,14 @@
             padding: 0.75rem 1rem;
             font-size: 1rem;
             cursor: pointer;
-            "
-                        @onclick="AbrirModalSubida">
+                "
+                @onclick="AbrirModalSubida">
                     📤 Subir Documento
                 </button>
 
                 <!-- Ver Reportes -->
                 <button class="boton-flotante"
-                        style="
+                style="
             right: 15rem;
             background: #007bff;
             color: white;
@@ -300,8 +300,8 @@
             padding: 0.75rem 1rem;
             font-size: 1rem;
             cursor: pointer;
-            "
-                        @onclick="AbrirReportes">
+                "
+                @onclick="AbrirReportes">
                     📊 Ver Reportes
                 </button>
             }
@@ -359,11 +359,18 @@
     private System.Diagnostics.Stopwatch _stopwatch = new System.Diagnostics.Stopwatch();
     private int? codArchivoActual;
 
+    protected override async Task OnInitializedAsync()
+    {
+        usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+    }
+
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            usuarioActual = AuthenticationService.ObtenerUsuarioActualAsync().Result;
+           
             dotNetRef = DotNetObjectReference.Create(this);
             await JSRuntime.InvokeVoidAsync("registrarObjetoDotNet", dotNetRef);
             StateHasChanged();
@@ -378,6 +385,11 @@
     protected override async Task OnParametersSetAsync()
     {
         try{
+            if (usuarioActual == null)
+            {
+                usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+            }
+
             await CargarCurso();
 
             var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
@@ -498,18 +510,20 @@
                     carpetas = carpetasData;
                     archivos = archivosData;
                 }
-                else if (usuarioActual.CodigoRol != rolUser)
+                else 
                 {
                     var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
-                    carpetas = carpetasData;
-                    archivos = archivosData;
+                  
+
+                    if(usuarioActual != null && usuarioActual.CodigoRol == rolUser){
+                        carpetas = carpetasData.Where(c => c.Grupo == usuarioActual.Grupo);
+                        archivos = archivosData.Where(a => a.Grupo == usuarioActual.Grupo);
+                    }else{
+                        carpetas = carpetasData;
+                        archivos = archivosData;
+                    }
                 }
-                else
-                {
-                    var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoYGrupoAsync(CodigoCurso, usuarioActual.Grupo);
-                    carpetas = carpetasData;
-                    archivos = archivosData;
-                }
+               
                 elementos.AddRange(carpetas.ToList());
                 elementos.AddRange(archivos.ToList());
 
