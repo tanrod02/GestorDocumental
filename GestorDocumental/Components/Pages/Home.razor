@@ -363,7 +363,7 @@
     {
         if (firstRender)
         {
-            usuarioActual = await AuthenticationService.ObtenerUsuarioActualAsync();
+            usuarioActual = AuthenticationService.ObtenerUsuarioActualAsync().Result;
             dotNetRef = DotNetObjectReference.Create(this);
             await JSRuntime.InvokeVoidAsync("registrarObjetoDotNet", dotNetRef);
             StateHasChanged();
@@ -498,9 +498,15 @@
                     carpetas = carpetasData;
                     archivos = archivosData;
                 }
-                else
+                else if (usuarioActual.CodigoRol != rolUser)
                 {
                     var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoAsync(CodigoCurso);
+                    carpetas = carpetasData;
+                    archivos = archivosData;
+                }
+                else
+                {
+                    var (carpetasData, archivosData) = await ArchivoService.ObtenerArchivosYCarpetasPorCursoYGrupoAsync(CodigoCurso, usuarioActual.Grupo);
                     carpetas = carpetasData;
                     archivos = archivosData;
                 }
