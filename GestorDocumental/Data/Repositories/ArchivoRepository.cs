@@ -25,20 +25,28 @@ namespace GestorDocumental.Data.Repositories
             List<Archivo> archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso &&
                 a.CodigoCarpeta == null).ToListAsync();
 
-            foreach (Archivo archivo in archivosSinCarpeta)
+            // Obtener todas las relaciones en una sola consulta
+            var relaciones = await context.ArchivosEtiquetas
+                .Where(ae => archivosSinCarpeta.Select(a => a.CodigoArchivo).Contains(ae.CodigoArchivo))
+                .ToListAsync();
+
+            // Obtener todas las etiquetas necesarias en una sola consulta
+            var codigosEtiquetas = relaciones.Select(r => r.CodigoEtiqueta).Distinct();
+            var etiquetas = await context.Etiqueta
+                .Where(e => codigosEtiquetas.Contains(e.CodigoEtiqueta))
+                .ToDictionaryAsync(e => e.CodigoEtiqueta);
+
+            // Asignar etiquetas a cada archivo
+            foreach (var archivo in archivosSinCarpeta)
             {
-                var codigoEtiquetas = await context.ArchivosEtiquetas
-                    .Where(ae => ae.CodigoArchivo == archivo.CodigoArchivo)
-                    .Select(ae => ae.CodigoEtiqueta)
-                    .ToListAsync();
+                var etiquetasArchivo = relaciones
+                    .Where(r => r.CodigoArchivo == archivo.CodigoArchivo)
+                    .Select(r => etiquetas[r.CodigoEtiqueta].DescripcionEtiqueta)
+                    .ToList();
 
-                var etiquetas = await context.Etiqueta
-                    .Where(e => codigoEtiquetas.Contains(e.CodigoEtiqueta))
-                    .Select(e => e.DescripcionEtiqueta)
-                    .ToListAsync();
-
-                archivo.Etiquetas = etiquetas;
+                archivo.Etiquetas = etiquetasArchivo;
             }
+
 
             return (carpetas, archivosSinCarpeta);
         }
@@ -52,20 +60,28 @@ namespace GestorDocumental.Data.Repositories
             List<Archivo> archivosSinCarpeta = await context.Archivos.Where(a => a.Curso == codigoCurso &&
                 a.CodigoCarpeta == null && a.Grupo == grupo).ToListAsync();
 
-            foreach (Archivo archivo in archivosSinCarpeta)
+            // Obtener todas las relaciones en una sola consulta
+            var relaciones = await context.ArchivosEtiquetas
+                .Where(ae => archivosSinCarpeta.Select(a => a.CodigoArchivo).Contains(ae.CodigoArchivo))
+                .ToListAsync();
+
+            // Obtener todas las etiquetas necesarias en una sola consulta
+            var codigosEtiquetas = relaciones.Select(r => r.CodigoEtiqueta).Distinct();
+            var etiquetas = await context.Etiqueta
+                .Where(e => codigosEtiquetas.Contains(e.CodigoEtiqueta))
+                .ToDictionaryAsync(e => e.CodigoEtiqueta);
+
+            // Asignar etiquetas a cada archivo
+            foreach (var archivo in archivosSinCarpeta)
             {
-                var codigoEtiquetas = await context.ArchivosEtiquetas
-                    .Where(ae => ae.CodigoArchivo == archivo.CodigoArchivo)
-                    .Select(ae => ae.CodigoEtiqueta)
-                    .ToListAsync();
+                var etiquetasArchivo = relaciones
+                    .Where(r => r.CodigoArchivo == archivo.CodigoArchivo)
+                    .Select(r => etiquetas[r.CodigoEtiqueta].DescripcionEtiqueta)
+                    .ToList();
 
-                var etiquetas = await context.Etiqueta
-                    .Where(e => codigoEtiquetas.Contains(e.CodigoEtiqueta))
-                    .Select(e => e.DescripcionEtiqueta)
-                    .ToListAsync();
-
-                archivo.Etiquetas = etiquetas;
+                archivo.Etiquetas = etiquetasArchivo;
             }
+
 
             return (carpetas, archivosSinCarpeta);
         }
